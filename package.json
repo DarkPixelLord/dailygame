@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lint:events": "node scripts/lint-events.mjs"
   },
   "dependencies": {
+    "framer-motion": "^13.3.0",
+    "maplibre-gl": "^6.10.0",
     "next": "16.3.5",
     "react": "19.2.8",
     "react-dom": "19.2.8"
