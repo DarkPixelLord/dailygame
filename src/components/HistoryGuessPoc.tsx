@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 import type { LatLng } from "./MapLibrePin";
 import ChronologicalOrder from "./ChronologicalOrder";
+import LaurelIcon from "./LaurelIcon";
 import { useLanguage } from "./LanguageProvider";
 import { POC_EVENTS, pickRandomEvents } from "@/lib/poc-events";
 import { localizeEvent } from "@/lib/localize";
@@ -29,15 +30,20 @@ function newSession() {
   return pickRandomEvents(POC_EVENTS, ROUNDS_PER_GAME);
 }
 
-export default function HistoryGuessPoc() {
+type Props = {
+  onPlayAgain: () => void;
+};
+
+export default function HistoryGuessPoc({ onPlayAgain }: Props) {
   const { lang, t } = useLanguage();
-  const [sessionEvents, setSessionEvents] = useState(newSession);
+  const [sessionEvents] = useState(newSession);
   const [phase, setPhase] = useState<Phase>("playing");
   const [round, setRound] = useState(0);
   const [totalScore, setTotalScore] = useState(0);
   const [guess, setGuess] = useState<LatLng | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
 
   const event = sessionEvents[round];
   const localized = localizeEvent(event, lang);
@@ -73,22 +79,39 @@ export default function HistoryGuessPoc() {
     setSubmitted(false);
   }
 
+  // Unmounts this whole component (back to the landing screen) rather than
+  // resetting state in place — a fresh mount already gets a new random
+  // session via the newSession() lazy initializer above.
   function playAgain() {
-    setSessionEvents(newSession());
-    setPhase("playing");
-    setRound(0);
-    setTotalScore(0);
-    setGuess(null);
-    setSubmitted(false);
-    setShowExplanation(false);
+    onPlayAgain();
+  }
+
+  async function share() {
+    const url = `${window.location.origin}/share/${totalScore}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: t.gameTitle, text: t.landingIntro, url });
+      } catch {
+        // user cancelled the share sheet — nothing to do
+      }
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    } catch {
+      // clipboard unavailable — nothing we can do without a visible fallback UI
+    }
   }
 
   if (phase === "ordering" || phase === "done") {
     return (
       <div className="flex h-dvh w-full max-w-md flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
         <header className="flex w-full shrink-0 items-center justify-between gap-2">
-          <h1 className="text-base font-black uppercase tracking-tight sm:text-2xl">
-            🗺️ {t.gameTitle} <span className="hidden text-amber-400 sm:inline">(POC)</span>
+          <h1 className="flex items-center gap-1.5 text-base font-black uppercase tracking-tight sm:gap-2 sm:text-2xl">
+            <LaurelIcon className="h-5 w-5 shrink-0 sm:h-7 sm:w-7" />
+            {t.gameTitle} <span className="hidden text-amber-400 sm:inline">(POC)</span>
           </h1>
           <div className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm">
             {totalScore} {t.pts}
@@ -109,9 +132,18 @@ export default function HistoryGuessPoc() {
             <p className="text-2xl font-black sm:text-4xl">
               {totalScore} <span className="text-base font-bold text-white/50 sm:text-lg">/ {maxTotalScore}</span>
             </p>
-            <button type="button" onClick={playAgain} className={PRIMARY_BUTTON + " mt-1 sm:mt-2"}>
-              {t.playAgain}
-            </button>
+            <div className="mt-1 flex w-full gap-2 sm:mt-2">
+              <button type="button" onClick={playAgain} className={PRIMARY_BUTTON + " flex-1"}>
+                {t.playAgain}
+              </button>
+              <button
+                type="button"
+                onClick={share}
+                className="flex-1 rounded-md border-2 border-amber-400/50 px-5 py-2.5 font-extrabold uppercase tracking-wide text-amber-300 transition hover:bg-amber-400/10"
+              >
+                {linkCopied ? t.linkCopied : t.share}
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -121,8 +153,9 @@ export default function HistoryGuessPoc() {
   return (
     <div className="flex h-dvh w-full max-w-2xl flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
       <header className="flex w-full shrink-0 items-center justify-between gap-2">
-        <h1 className="text-base font-black uppercase tracking-tight sm:text-2xl">
-          🗺️ {t.gameTitle} <span className="hidden text-amber-400 sm:inline">(POC)</span>
+        <h1 className="flex items-center gap-1.5 text-base font-black uppercase tracking-tight sm:gap-2 sm:text-2xl">
+          <LaurelIcon className="h-5 w-5 shrink-0 sm:h-7 sm:w-7" />
+          {t.gameTitle} <span className="hidden text-amber-400 sm:inline">(POC)</span>
         </h1>
         <div className="flex items-center gap-1.5 text-xs sm:gap-2 sm:text-sm">
           <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 font-bold text-white/70 sm:px-3 sm:py-1">

@@ -265,7 +265,6 @@ export default function MapLibrePin({ onGuess, pins = [], disabled }: Props) {
           </button>
         </div>
       </div>
-      {!disabled && <p className="mt-1 shrink-0 text-center text-xs text-white/40">{t.scrollToZoomHint}</p>}
     </div>
   );
 }

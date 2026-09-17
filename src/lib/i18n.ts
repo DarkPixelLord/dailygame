@@ -19,7 +19,8 @@ export type UiStrings = {
   inTheRightSpot: string;
   finalScore: string;
   playAgain: string;
-  scrollToZoomHint: string;
+  share: string;
+  linkCopied: string;
   mapAttribution: string;
   couldntLoadMap: string;
   retry: string;
@@ -32,7 +33,7 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
   en: {
     gameTitle: "History Guess",
     landingIntro:
-      "Guess where and when five real historical events happened, then put them in order in the final round.",
+      "Guess where five real historical events happened, then put them in order in the final round.",
     start: "Start",
     round: "Round",
     pts: "pts",
@@ -49,7 +50,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     inTheRightSpot: "in the right spot",
     finalScore: "Final score",
     playAgain: "Play again",
-    scrollToZoomHint: "Scroll to zoom · drag to pan · click to place your pin",
+    share: "Share",
+    linkCopied: "Link copied!",
     mapAttribution: "© OpenStreetMap contributors, © OpenMapTiles, © OpenFreeMap",
     couldntLoadMap: "Couldn't load the map.",
     retry: "Retry",
@@ -60,7 +62,7 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
   fr: {
     gameTitle: "History Guess",
     landingIntro:
-      "Devine où et quand se sont déroulés cinq événements historiques réels, puis remets-les dans l'ordre lors de la manche finale.",
+      "Devine où se sont déroulés cinq événements historiques réels, puis remets-les dans l'ordre lors de la manche finale.",
     start: "Commencer",
     round: "Manche",
     pts: "pts",
@@ -77,7 +79,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     inTheRightSpot: "bien placés",
     finalScore: "Score final",
     playAgain: "Rejouer",
-    scrollToZoomHint: "Molette pour zoomer · glisser pour déplacer · cliquer pour placer ton pin",
+    share: "Partager",
+    linkCopied: "Lien copié !",
     mapAttribution: "© contributeurs OpenStreetMap, © OpenMapTiles, © OpenFreeMap",
     couldntLoadMap: "Impossible de charger la carte.",
     retry: "Réessayer",

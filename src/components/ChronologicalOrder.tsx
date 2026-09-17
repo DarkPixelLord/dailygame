@@ -11,9 +11,20 @@ import type { Lang } from "@/lib/i18n";
 const POINTS_PER_CORRECT_SLOT = 1000;
 const REVEAL_DELAY_MS = 600;
 
-function formatYear(year: number, lang: Lang): string {
-  if (lang === "fr") return year < 0 ? `${-year} av. J.-C.` : `${year} apr. J.-C.`;
-  return year < 0 ? `${-year} BCE` : `${year} CE`;
+// CE years stay bare (no suffix) in both languages to save space on the
+// mobile-width reorder cards — only 9/100 events are BCE, so a full
+// "BCE"/"apr. J.-C." treatment would cost width on every card just to
+// disambiguate a rare case. For that rare case: FR readers are used to a
+// bare "-" sign on a year, but a plain "-500" reads as unfamiliar/unclear
+// to an English audience, so EN gets a small "BC" suffix instead.
+function YearLabel({ year, lang }: { year: number; lang: Lang }) {
+  if (year >= 0) return <>{year}</>;
+  if (lang === "fr") return <>{`-${-year}`}</>;
+  return (
+    <>
+      {-year} <span className="text-[0.7em]">BC</span>
+    </>
+  );
 }
 
 function shuffle<T>(items: T[]): T[] {
@@ -141,12 +152,12 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
                   }`}
                 >
                   {!submitted && <span className="select-none px-1 text-amber-400/60">⠿</span>}
-                  <p className="line-clamp-2 flex-1 text-sm font-bold leading-snug">{localizeEvent(ev, lang).name}</p>
+                  <p className="line-clamp-2 flex-1 text-xs font-bold leading-snug sm:text-sm">{localizeEvent(ev, lang).name}</p>
                   {revealed ? (
                     <span
-                      className={`font-mono text-sm font-bold ${correctPositions[i] ? "text-emerald-400" : "text-rose-400"}`}
+                      className={`font-mono text-xs font-bold sm:text-sm ${correctPositions[i] ? "text-emerald-400" : "text-rose-400"}`}
                     >
-                      {formatYear(ev.year, lang)}
+                      <YearLabel year={ev.year} lang={lang} />
                     </span>
                   ) : submitted ? (
                     <div className="flex gap-1 px-1.5">

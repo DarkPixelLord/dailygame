@@ -15,5 +15,5 @@ export default function HomeClient() {
     return <LandingClient onStart={() => setStarted(true)} />;
   }
 
-  return <HistoryGuessPoc />;
+  return <HistoryGuessPoc onPlayAgain={() => setStarted(false)} />;
 }

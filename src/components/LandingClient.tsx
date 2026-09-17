@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "./LanguageProvider";
+import LaurelIcon from "./LaurelIcon";
 import { PRIMARY_BUTTON, GHOST_BUTTON } from "@/lib/theme";
 import type { Lang } from "@/lib/i18n";
 
@@ -24,11 +25,12 @@ export default function LandingClient({ onStart }: Props) {
         ))}
       </div>
 
-      <h1 className="text-3xl font-black uppercase tracking-tight">
-        🗺️ {t.gameTitle}
+      <h1 className="flex flex-col items-center gap-2 text-3xl font-black uppercase tracking-tight">
+        <LaurelIcon className="h-12 w-12 shrink-0" />
+        {t.gameTitle}
       </h1>
 
-      <p className="text-white/70">{t.landingIntro}</p>
+      <p className="italic text-amber-200/80">{t.landingIntro}</p>
 
       <button type="button" onClick={onStart} className={PRIMARY_BUTTON + " px-10"}>
         {t.start}
