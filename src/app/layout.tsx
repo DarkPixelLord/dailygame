@@ -15,8 +15,19 @@ const geistMono = Geist_Mono({
 
 const DESCRIPTION = "Guess where and when five real historical events happened, then put them in order in the final round.";
 
+// VERCEL_URL is this specific deployment's own hashed URL (e.g.
+// dailygame-fb4mz2ct1-x.vercel.app), which is protected and unreachable by
+// link-preview crawlers — VERCEL_PROJECT_PRODUCTION_URL is the stable public
+// production domain (e.g. dailygame-x.vercel.app) and is what OG image URLs
+// must resolve against.
+const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"),
+  metadataBase: new URL(SITE_URL),
   title: "History Guess",
   description: DESCRIPTION,
   openGraph: {
