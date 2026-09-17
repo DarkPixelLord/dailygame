@@ -71,6 +71,76 @@ phrase (title-style), not a full sentence — "Founding of the People's
 Republic of China", not "...declared on such and such a date". `npm run
 lint:events` enforces both the date ban and a 48-character cap on `name`.
 
+## Diversity rules (apply across a batch, and against the existing corpus)
+
+These are judgment calls, not mechanically enforced — check them by eye
+against `src/lib/poc-events.ts` before finalizing a new batch, the same way
+you'd sanity-check any other cross-cutting property lint can't see.
+
+- **Spread locations reasonably, don't default to Europe out of habit.**
+  Some regions genuinely have more well-documented, globally-recognized
+  history than others (Europe, more of it survives in writing; Oceania,
+  less), so an exact even split across continents isn't the goal and
+  forcing one would mean padding with obscure filler just to hit a quota,
+  which conflicts with the "broadly known" rule below. The actual failure
+  mode to avoid is reaching for Europe reflexively because it's the first
+  thing that comes to mind, when a comparably famous, comparably solid
+  event from elsewhere exists. When drafting, deliberately ask "is there an
+  equally well-known event covering this same kind of moment (battle,
+  discovery, disaster...) somewhere I haven't used yet?" before defaulting
+  to a European one.
+- **Stick to broadly known history.** An event needs real, lasting
+  historical significance that a general audience would recognize once
+  explained, not a fact that's technically real but obscure or of narrow
+  academic interest. If you had to dig past the event's own Wikipedia
+  summary to establish why it matters, it's probably too niche for this
+  game.
+- **Don't over-draw from the same conflicts.** WWI and WWII are already
+  heavily represented in the corpus (around a sixth of all entries, between
+  the two) — new batches shouldn't add another Somme- or Pearl-Harbor-
+  adjacent entry unless it covers a genuinely distinct angle (a different
+  theater, a different kind of event, not just another battle). The same
+  applies to any other conflict once it starts recurring — treat repetition
+  of a *war*, not just a *specific battle*, as the thing to avoid.
+- **Don't over-draw from the same cities.** Paris and Rome are already the
+  most repeated map pins in the corpus (Paris-area events include the
+  Bastille, Louis XVI's execution, the 1871 siege, the Eiffel Tower, and the
+  Louisiana Purchase signing; Rome-area events include the Great Fire, the
+  Caesar assassination, and the 410 sack) — avoid adding to either unless
+  the new event is a clearly better fit there than anywhere else. Before
+  finalizing a batch, skim the existing `lat`/`lng` values for other
+  clusters (Berlin, Delhi, London, Beijing... already show up twice each)
+  and route new entries elsewhere when a comparable event exists in a less
+  crowded location.
+- **Deep-time/prehistoric events are in scope, if they pin to an exact
+  spot.** Things like the Chicxulub impact crater, a specific decorated
+  cave (Lascaux, Chauvet...), or a specific early city/settlement site are
+  fair game and a good way to add both time-period and geographic variety.
+  The hard requirement: the event must correspond to one identifiable
+  physical location with real coordinates, not a vague era or region
+  ("the Ice Age," "early humans in Africa"). If you can't point to the
+  actual crater, cave, or site on a map, it doesn't qualify as a map+guess
+  event, no matter how famous the underlying fact is. Note this also means
+  `year` will be a very large negative number for these — flag that to
+  whoever owns the reorder-round/timeline UI before merging the first one,
+  since nothing in the corpus has tested that range yet.
+- **Recent events (post-2000) are in scope too, and currently missing.**
+  The corpus has zero entries after 1990 — it's easy to default to "history"
+  meaning "at least a few decades old," but a sufficiently famous,
+  sufficiently settled 21st-century event (a launch, a disaster, a
+  discovery, a fall of a regime...) is just as valid a map+date puzzle.
+  Technological "firsts" are a good source here (first successful reusable
+  rocket landing, first cloned/gene-edited milestone, first smartphone
+  unveiling...) — same pattern as the Wright Flyer or Bell's first call
+  already in the corpus, just moved into the 21st century. They still need
+  to pin to one specific place and moment (a launch pad, a lab, a stage at
+  a specific event), not a diffuse trend like "the internet becoming
+  widespread" that has no single location. Same bar applies as anywhere
+  else: broadly known, not obscure, not invented/embellished. Lean toward
+  events where the facts are already settled and non-controversial rather
+  than still-unfolding or politically contentious ones, since those are
+  harder to write a neutral, checkable singular marker for.
+
 ## House style
 
 - **No em dashes, ever.** Use a comma, semicolon, or period instead.
@@ -115,6 +185,10 @@ sovereignty" (Adwa) is.
 
 ## The process for any new batch of events
 
+0. **Check corpus balance first.** Before drafting, skim
+   `src/lib/poc-events.ts` for continent spread, repeated conflicts, and
+   repeated city pins (see Diversity rules above), and pick the new batch's
+   topics to correct existing gaps rather than reinforce them.
 1. **Draft.** Write `clue`, `name`, `explanation` for each new event,
    applying the vocabulary rules and the singular-marker rule above. Ground
    every distinctive detail in real, checkable history — don't invent facts.
