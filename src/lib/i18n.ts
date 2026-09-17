@@ -31,7 +31,7 @@ export type UiStrings = {
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
   en: {
-    gameTitle: "History Guess",
+    gameTitle: "Eventory",
     landingIntro:
       "Guess where five real historical events happened, then put them in order in the final round.",
     start: "Start",
@@ -60,7 +60,7 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     close: "Close",
   },
   fr: {
-    gameTitle: "History Guess",
+    gameTitle: "Eventory",
     landingIntro:
       "Devine où se sont déroulés cinq événements historiques réels, puis remets-les dans l'ordre lors de la manche finale.",
     start: "Commencer",

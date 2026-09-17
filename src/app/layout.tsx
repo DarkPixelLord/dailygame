@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const DESCRIPTION = "Guess where and when five real historical events happened, then put them in order in the final round.";
+const DESCRIPTION = "Guess where five real historical events happened, then put them in order in the final round.";
 
 // VERCEL_URL is this specific deployment's own hashed URL (e.g.
 // dailygame-fb4mz2ct1-x.vercel.app), which is protected and unreachable by
@@ -28,16 +28,16 @@ const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "History Guess",
+  title: "Eventory",
   description: DESCRIPTION,
   openGraph: {
-    title: "History Guess",
+    title: "Eventory",
     description: DESCRIPTION,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "History Guess",
+    title: "Eventory",
     description: DESCRIPTION,
   },
 };

@@ -399,7 +399,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
       "Les États-Unis larguèrent une bombe atomique sur Hiroshima, au Japon, tuant instantanément des dizaines de milliers de personnes et menant à la capitulation du Japon.",
   },
   germansurrender: {
-    name: "Signature de la capitulation allemande",
+    name: "Capitulation de l'Allemagne nazie",
     clue: "Des chefs militaires signent une capitulation sans conditions dans une école, mettant fin à des années de guerre.",
     explanation:
       "Les chefs militaires allemands signèrent une capitulation sans conditions à Reims, mettant fin à la Seconde Guerre mondiale en Europe.",

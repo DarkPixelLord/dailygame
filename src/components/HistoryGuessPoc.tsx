@@ -15,13 +15,25 @@ import { PRIMARY_BUTTON, FINAL_ROUND_BUTTON, PANEL, PIN_GUESS_COLOR, PIN_ANSWER_
 // MapLibre touches `window` at import time, so it can only run on the client.
 const MapPin = dynamic(() => import("./MapLibrePin"), { ssr: false });
 
-const MAX_DISTANCE_KM = 20015;
 const ROUNDS_PER_GAME = 5;
 const MAX_LOCATION_POINTS = 1000;
 const MAX_ORDER_POINTS = ROUNDS_PER_GAME * 1000;
+// Exponential falloff instead of linear against the antipodal max distance —
+// a linear curve gives a random click ~50% of max points, since the average
+// distance between two random points on a sphere is already ~half of the
+// theoretical maximum (20,015 km). This halves the score roughly every
+// ~555 km (DISTANCE_DECAY_KM * ln 2), so only genuinely close guesses score
+// well and a random/wild guess lands near 0.
+const DISTANCE_DECAY_KM = 800;
+// The event's own lat/lng is itself only accurate to city/landmark scale
+// (e.g. a capital used as a stand-in, or a canal/palace that's several km
+// across) — don't require pixel-perfect precision to hit max points. Full
+// marks anywhere within this radius, decay only kicks in past it.
+const FULL_CREDIT_RADIUS_KM = 10;
 
 function locationPoints(distance: number): number {
-  return Math.max(0, Math.round(MAX_LOCATION_POINTS * (1 - distance / MAX_DISTANCE_KM)));
+  const beyondTolerance = Math.max(0, distance - FULL_CREDIT_RADIUS_KM);
+  return Math.round(MAX_LOCATION_POINTS * Math.exp(-beyondTolerance / DISTANCE_DECAY_KM));
 }
 
 type Phase = "playing" | "ordering" | "done";
@@ -107,7 +119,7 @@ export default function HistoryGuessPoc({ onPlayAgain }: Props) {
 
   if (phase === "ordering" || phase === "done") {
     return (
-      <div className="flex h-dvh w-full max-w-md flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
+      <div className="final-spotlight flex h-dvh w-full max-w-md flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
         <header className="flex w-full shrink-0 items-center justify-between gap-2">
           <h1 className="flex items-center gap-1.5 text-base font-black uppercase tracking-tight sm:gap-2 sm:text-2xl">
             <LaurelIcon className="h-5 w-5 shrink-0 sm:h-7 sm:w-7" />
@@ -127,9 +139,9 @@ export default function HistoryGuessPoc({ onPlayAgain }: Props) {
         />
 
         {phase === "done" && (
-          <div className="flex shrink-0 flex-col items-center gap-2 rounded-md border-2 border-amber-400 bg-amber-400/10 px-4 py-3 text-center shadow-lg shadow-amber-400/10 sm:gap-3 sm:py-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-300 sm:text-sm">{t.finalScore}</p>
-            <p className="text-2xl font-black sm:text-4xl">
+          <div className={PANEL + " flex shrink-0 flex-col items-center gap-2 px-4 py-3 text-center sm:gap-3 sm:py-6"}>
+            <p className="text-xs font-bold uppercase tracking-widest text-amber-300/80 sm:text-sm">{t.finalScore}</p>
+            <p className="text-2xl font-black text-amber-400 sm:text-4xl">
               {totalScore} <span className="text-base font-bold text-white/50 sm:text-lg">/ {maxTotalScore}</span>
             </p>
             <div className="mt-1 flex w-full gap-2 sm:mt-2">

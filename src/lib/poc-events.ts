@@ -665,7 +665,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   {
     id: "germansurrender",
     clue: "Military leaders sign an unconditional surrender inside a schoolhouse, ending years of war.",
-    name: "German surrender signed",
+    name: "Surrender of Nazi Germany",
     year: 1945,
     lat: 49.2583,
     lng: 4.0317,

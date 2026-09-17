@@ -65,3 +65,9 @@ body {
     display: none;
   }
 }
+
+/* Dramatic "spotlight" backdrop for the final round: a blue glow at the
+   center of the screen fading to near-black at the top and bottom edges. */
+.final-spotlight {
+  background: radial-gradient(ellipse 90% 65% at 50% 45%, #22355c 0%, #0b1224 50%, #030509 100%);
+}

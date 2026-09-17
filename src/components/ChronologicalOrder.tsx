@@ -100,7 +100,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
 
       <div className="flex min-h-0 flex-1 flex-col justify-center gap-2 overflow-y-auto overflow-x-hidden">
         <div className="flex shrink-0 items-center gap-2">
-          <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-amber-400/60 bg-amber-400/10 text-amber-400">
+          <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-blue-400/60 bg-blue-400/10 text-blue-400">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -116,18 +116,19 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
               <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
             </svg>
           </span>
-          <span className="text-left text-[10px] font-black uppercase tracking-wide text-amber-400">
+          <span className="text-left text-[10px] font-black uppercase tracking-wide text-blue-400">
             {t.mostRecentLabel}
           </span>
         </div>
 
         <div className="flex w-full gap-3">
           <div
-            className="w-1.5 flex-shrink-0 self-stretch rounded-full"
+            className="flex-shrink-0 self-stretch"
             style={{
-              background: "linear-gradient(to bottom, #fbbf24, #6b7280)",
-              maskImage: "repeating-linear-gradient(to bottom, black 0 6px, transparent 6px 11px)",
-              WebkitMaskImage: "repeating-linear-gradient(to bottom, black 0 6px, transparent 6px 11px)",
+              width: 4,
+              backgroundImage: "radial-gradient(circle 2px at 2px 2px, #60a5fa 2px, transparent 2px)",
+              backgroundSize: "4px 10px",
+              backgroundRepeat: "repeat-y",
             }}
           />
 
@@ -141,14 +142,14 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
                   as="li"
                   dragListener={!submitted}
                   whileDrag={{ scale: 1.05, zIndex: 1, boxShadow: "0 12px 24px rgba(0,0,0,0.5)" }}
-                  className={`flex h-16 items-center gap-2 rounded-md border-2 px-2 py-2 transition-colors duration-500 ${
+                  className={`flex h-16 items-center gap-2 rounded-md border-2 px-2 py-2 shadow-lg shadow-black/30 transition-colors duration-500 ${
                     revealed
                       ? correctPositions[i]
-                        ? "border-emerald-400/50 bg-emerald-400/10"
-                        : "border-rose-500/50 bg-rose-500/10"
+                        ? "border-emerald-500/30 bg-emerald-950/80"
+                        : "border-rose-600/30 bg-rose-950/80"
                       : submitted
-                        ? "border-white/10 bg-white/5"
-                        : "cursor-grab border-white/10 bg-white/5 active:cursor-grabbing"
+                        ? "border-white/10 bg-slate-900/80"
+                        : "cursor-grab border-white/10 bg-slate-900/80 active:cursor-grabbing"
                   }`}
                 >
                   {!submitted && <span className="select-none px-1 text-amber-400/60">⠿</span>}
@@ -194,7 +195,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
         </div>
 
         <div className="flex shrink-0 items-center gap-2">
-          <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-white/30 bg-white/5 text-white/40">
+          <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-blue-400/60 bg-blue-400/10 text-blue-400">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -212,7 +213,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
               <path d="M12 3 3 9h18Z" />
             </svg>
           </span>
-          <span className="text-left text-[10px] font-black uppercase tracking-wide text-white/40">
+          <span className="text-left text-[10px] font-black uppercase tracking-wide text-blue-400">
             {t.oldestLabel}
           </span>
         </div>
