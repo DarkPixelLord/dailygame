@@ -1,40 +1,85 @@
 "use client";
 
+import { useState } from "react";
 import { useLanguage } from "./LanguageProvider";
 import LaurelIcon from "./LaurelIcon";
-import { PRIMARY_BUTTON, GHOST_BUTTON } from "@/lib/theme";
-import type { Lang } from "@/lib/i18n";
+import { PRIMARY_BUTTON, SHARE_BUTTON, GHOST_BUTTON, GAME_TITLE } from "@/lib/theme";
+import { UI_STRINGS, type Lang } from "@/lib/i18n";
+
+const LANGS: Lang[] = ["en", "fr"];
 
 type Props = { onStart: () => void };
 
 export default function LandingClient({ onStart }: Props) {
   const { lang, setLang, t } = useLanguage();
+  const [linkCopied, setLinkCopied] = useState(false);
+
+  async function share() {
+    const url = window.location.origin;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: t.gameTitle, text: t.landingIntro, url });
+      } catch {
+        // user cancelled the share sheet — nothing to do
+      }
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    } catch {
+      // clipboard unavailable — nothing we can do without a visible fallback UI
+    }
+  }
 
   return (
-    <div className="flex w-full max-w-md flex-1 flex-col items-center justify-center gap-6 px-4 py-10 text-center">
-      <div className="flex gap-1">
-        {(["en", "fr"] as Lang[]).map((option) => (
-          <button
-            key={option}
-            type="button"
-            onClick={() => setLang(option)}
-            className={lang === option ? GHOST_BUTTON + " bg-amber-400/20" : GHOST_BUTTON}
-          >
-            {option.toUpperCase()}
+    <div className="final-spotlight flex w-full flex-1 flex-col items-center">
+      <div className="flex w-full max-w-md flex-1 flex-col items-center justify-center gap-6 px-4 py-10 text-center">
+        <h1 className="flex flex-col items-center gap-4">
+          <LaurelIcon className="h-28 w-28 shrink-0 text-amber-400" />
+          <span className={`${GAME_TITLE} text-4xl`}>{t.gameTitle}</span>
+        </h1>
+
+        {/* Both languages stacked in the same grid cell (one hidden via
+            `invisible`, which still occupies layout space) so the row's
+            auto height is always the taller of the two — switching
+            language can't shrink/grow this block and shove everything
+            else on the page up or down. */}
+        <div className="grid w-full">
+          {LANGS.map((l) => (
+            <p
+              key={l}
+              aria-hidden={l !== lang}
+              className={`col-start-1 row-start-1 italic text-white ${l === lang ? "" : "invisible"}`}
+            >
+              {UI_STRINGS[l].landingIntro}
+            </p>
+          ))}
+        </div>
+
+        <div className="flex w-full flex-col gap-2">
+          <button type="button" onClick={onStart} className={PRIMARY_BUTTON + " w-full px-10"}>
+            {t.start}
           </button>
-        ))}
+          <button type="button" onClick={share} className={SHARE_BUTTON + " w-full px-10"}>
+            {linkCopied ? t.linkCopied : t.share}
+          </button>
+        </div>
+
+        <div className="flex gap-1">
+          {LANGS.map((option) => (
+            <button
+              key={option}
+              type="button"
+              onClick={() => setLang(option)}
+              className={lang === option ? GHOST_BUTTON + " bg-amber-400/20" : GHOST_BUTTON}
+            >
+              {option.toUpperCase()}
+            </button>
+          ))}
+        </div>
       </div>
-
-      <h1 className="flex flex-col items-center gap-2 text-3xl font-black uppercase tracking-tight">
-        <LaurelIcon className="h-12 w-12 shrink-0" />
-        {t.gameTitle}
-      </h1>
-
-      <p className="italic text-amber-200/80">{t.landingIntro}</p>
-
-      <button type="button" onClick={onStart} className={PRIMARY_BUTTON + " px-10"}>
-        {t.start}
-      </button>
     </div>
   );
 }

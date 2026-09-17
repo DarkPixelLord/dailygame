@@ -20,7 +20,7 @@ export default async function SharePage({ params }: { params: Promise<{ score: s
         Guess where five real historical events happened, then put them in order in the final round.
       </p>
       <Link href="/" className={PRIMARY_BUTTON + " px-10"}>
-        Play Eventory
+        Play Laurus
       </Link>
     </div>
   );

@@ -1014,16 +1014,6 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
 ];
 
-// Keep clues short enough to fit on a couple of lines on mobile.
-const MAX_CLUE_LENGTH = 110;
-for (const event of POC_EVENTS) {
-  if (event.clue.length > MAX_CLUE_LENGTH) {
-    console.warn(
-      `Clue for "${event.id}" is ${event.clue.length} chars (max ${MAX_CLUE_LENGTH}): "${event.clue}"`
-    );
-  }
-}
-
 export function pickRandomEvents(events: HistoricalEvent[], count: number): HistoricalEvent[] {
   const shuffled = [...events];
   for (let i = shuffled.length - 1; i > 0; i--) {

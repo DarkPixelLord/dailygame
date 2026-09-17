@@ -11,6 +11,11 @@ export type UiStrings = {
   nextRound: string;
   continueToFinalRound: string;
   distance: string;
+  scoreOops: string;
+  scoreMeh: string;
+  scoreGood: string;
+  scoreGreat: string;
+  scorePerfect: string;
   finalRoundTitle: string;
   finalRoundSubtitle: string;
   mostRecentLabel: string;
@@ -31,7 +36,7 @@ export type UiStrings = {
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
   en: {
-    gameTitle: "Eventory",
+    gameTitle: "Laurus",
     landingIntro:
       "Guess where five real historical events happened, then put them in order in the final round.",
     start: "Start",
@@ -42,6 +47,11 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     nextRound: "Next round",
     continueToFinalRound: "Continue to final round",
     distance: "Distance",
+    scoreOops: "Oops!",
+    scoreMeh: "So-so...",
+    scoreGood: "Not bad!",
+    scoreGreat: "Great!",
+    scorePerfect: "Perfect!",
     finalRoundTitle: "Final round!",
     finalRoundSubtitle: "Put them in chronological order",
     mostRecentLabel: "Most recent",
@@ -60,7 +70,7 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     close: "Close",
   },
   fr: {
-    gameTitle: "Eventory",
+    gameTitle: "Laurus",
     landingIntro:
       "Devine où se sont déroulés cinq événements historiques réels, puis remets-les dans l'ordre lors de la manche finale.",
     start: "Commencer",
@@ -71,6 +81,11 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     nextRound: "Manche suivante",
     continueToFinalRound: "Passer à la manche finale",
     distance: "Distance",
+    scoreOops: "Oups !",
+    scoreMeh: "Bof...",
+    scoreGood: "Pas mal !",
+    scoreGreat: "Excellent !",
+    scorePerfect: "Parfait !",
     finalRoundTitle: "Manche finale !",
     finalRoundSubtitle: "Remets-les dans l'ordre chronologique",
     mostRecentLabel: "Plus récent",

@@ -586,9 +586,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   angkorwat: {
     name: "Achèvement d'Angkor Vat",
-    clue: "Des ouvriers achèvent un immense complexe de temples, le plus grand monument religieux jamais construit.",
+    clue: "Des ouvriers achèvent un immense complexe de temples, le plus vaste monument religieux jamais construit.",
     explanation:
-      "Angkor Vat, achevé sous le roi khmer Suryavarman II, est le plus grand monument religieux du monde, construit à l'origine comme temple hindou.",
+      "Angkor Vat, achevé sous le roi khmer Suryavarman II, est le plus vaste monument religieux du monde, construit à l'origine comme temple hindou.",
   },
   plassey: {
     name: "Bataille de Plassey",

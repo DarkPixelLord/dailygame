@@ -8,7 +8,8 @@ import { useLanguage } from "./LanguageProvider";
 import { PRIMARY_BUTTON } from "@/lib/theme";
 import type { Lang } from "@/lib/i18n";
 
-const POINTS_PER_CORRECT_SLOT = 1000;
+// Kept in sync with MAX_ORDER_POINTS in HistoryGuessPoc.tsx.
+const POINTS_PER_CORRECT_SLOT = 300;
 const REVEAL_DELAY_MS = 600;
 
 // CE years stay bare (no suffix) in both languages to save space on the
@@ -232,7 +233,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
         >
           {correctPositions.filter(Boolean).length}/{events.length} {t.inTheRightSpot} ·{" "}
           <span className="text-amber-400">
-            {score} {t.pts}
+            {score} / {events.length * POINTS_PER_CORRECT_SLOT} {t.pts}
           </span>
         </motion.p>
       ) : (

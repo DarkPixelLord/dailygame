@@ -10,10 +10,21 @@ export const PRIMARY_BUTTON =
 export const FINAL_ROUND_BUTTON =
   "rounded-md border-b-4 border-red-700 bg-orange-500 px-5 py-2.5 font-extrabold uppercase tracking-wide text-white shadow-lg shadow-orange-900/50 transition active:translate-y-1 active:border-b-0 disabled:opacity-40 disabled:active:translate-y-0 disabled:active:border-b-4 hover:bg-orange-400";
 
+// Same shape as PRIMARY_BUTTON, but blue for "share" actions — a distinct
+// hue from the amber/orange gameplay buttons so it reads as a secondary,
+// non-gameplay action.
+export const SHARE_BUTTON =
+  "rounded-md border-b-4 border-blue-700 bg-blue-500 px-5 py-2.5 font-extrabold uppercase tracking-wide text-white shadow-lg shadow-blue-900/40 transition active:translate-y-1 active:border-b-0 disabled:opacity-40 disabled:active:translate-y-0 disabled:active:border-b-4 hover:bg-blue-400";
+
 export const GHOST_BUTTON =
   "rounded-md border-2 border-amber-400/40 px-3 py-1 font-bold text-amber-300 transition hover:bg-amber-400/10 disabled:opacity-30";
 
 export const PANEL = "rounded-md border-2 border-white/10 bg-white/5 shadow-lg shadow-black/20";
+
+// Wordmark treatment for "Laurus" wherever it appears (landing + in-game
+// header) — Cinzel (Roman inscriptional serif) in amber, standing apart from
+// the arcade-bold sans used everywhere else.
+export const GAME_TITLE = "font-title font-black uppercase tracking-wide text-amber-400";
 
 export const PIN_GUESS_COLOR = "#ffb020";
 export const PIN_ANSWER_COLOR = "#ff3b5c";

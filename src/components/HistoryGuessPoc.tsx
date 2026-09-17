@@ -7,17 +7,21 @@ import type { LatLng } from "./MapLibrePin";
 import ChronologicalOrder from "./ChronologicalOrder";
 import LaurelIcon from "./LaurelIcon";
 import { useLanguage } from "./LanguageProvider";
+import type { UiStrings } from "@/lib/i18n";
 import { POC_EVENTS, pickRandomEvents } from "@/lib/poc-events";
 import { localizeEvent } from "@/lib/localize";
 import { distanceKm } from "@/lib/geo";
-import { PRIMARY_BUTTON, FINAL_ROUND_BUTTON, PANEL, PIN_GUESS_COLOR, PIN_ANSWER_COLOR } from "@/lib/theme";
+import { PRIMARY_BUTTON, FINAL_ROUND_BUTTON, PANEL, PIN_GUESS_COLOR, PIN_ANSWER_COLOR, GAME_TITLE } from "@/lib/theme";
 
 // MapLibre touches `window` at import time, so it can only run on the client.
 const MapPin = dynamic(() => import("./MapLibrePin"), { ssr: false });
 
 const ROUNDS_PER_GAME = 5;
-const MAX_LOCATION_POINTS = 1000;
-const MAX_ORDER_POINTS = ROUNDS_PER_GAME * 1000;
+const MAX_LOCATION_POINTS = 700;
+// Kept in sync with POINTS_PER_CORRECT_SLOT in ChronologicalOrder.tsx.
+// 3500 (map) + 1500 (final round) = a clean 5,000-point total, with the
+// final round at 30% of it.
+const MAX_ORDER_POINTS = ROUNDS_PER_GAME * 300;
 // Exponential falloff instead of linear against the antipodal max distance —
 // a linear curve gives a random click ~50% of max points, since the average
 // distance between two random points on a sphere is already ~half of the
@@ -34,6 +38,19 @@ const FULL_CREDIT_RADIUS_KM = 10;
 function locationPoints(distance: number): number {
   const beyondTolerance = Math.max(0, distance - FULL_CREDIT_RADIUS_KM);
   return Math.round(MAX_LOCATION_POINTS * Math.exp(-beyondTolerance / DISTANCE_DECAY_KM));
+}
+
+// A quick emoji + one-word reaction to how close a guess was, from "way off"
+// to "nailed it" — reinforces the score with a bit of personality instead of
+// just a bare number. "Perfect" is reserved for full points (a guess within
+// FULL_CREDIT_RADIUS_KM), not just a high-scoring guess.
+function scoreFeedback(points: number, t: UiStrings): { emoji: string; label: string } {
+  const ratio = points / MAX_LOCATION_POINTS;
+  if (points >= MAX_LOCATION_POINTS) return { emoji: "🎯", label: t.scorePerfect };
+  if (ratio >= 0.6) return { emoji: "🔥", label: t.scoreGreat };
+  if (ratio >= 0.35) return { emoji: "👍", label: t.scoreGood };
+  if (ratio >= 0.1) return { emoji: "😅", label: t.scoreMeh };
+  return { emoji: "😬", label: t.scoreOops };
 }
 
 type Phase = "playing" | "ordering" | "done";
@@ -61,6 +78,8 @@ export default function HistoryGuessPoc({ onPlayAgain }: Props) {
   const localized = localizeEvent(event, lang);
   const isLastRound = round === sessionEvents.length - 1;
   const distance = submitted && guess ? distanceKm(guess, event) : null;
+  const roundPoints = distance !== null ? locationPoints(distance) : null;
+  const roundFeedback = roundPoints !== null ? scoreFeedback(roundPoints, t) : null;
   const maxTotalScore = sessionEvents.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
 
   // Memoized so toggling showExplanation (or any other unrelated re-render)
@@ -119,161 +138,172 @@ export default function HistoryGuessPoc({ onPlayAgain }: Props) {
 
   if (phase === "ordering" || phase === "done") {
     return (
-      <div className="final-spotlight flex h-dvh w-full max-w-md flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
-        <header className="flex w-full shrink-0 items-center justify-between gap-2">
-          <h1 className="flex items-center gap-1.5 text-base font-black uppercase tracking-tight sm:gap-2 sm:text-2xl">
-            <LaurelIcon className="h-5 w-5 shrink-0 sm:h-7 sm:w-7" />
-            {t.gameTitle} <span className="hidden text-amber-400 sm:inline">(POC)</span>
-          </h1>
-          <div className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm">
-            {totalScore} {t.pts}
-          </div>
-        </header>
-
-        <ChronologicalOrder
-          events={sessionEvents}
-          onComplete={(orderScore) => {
-            setTotalScore((s) => s + orderScore);
-            setPhase("done");
-          }}
-        />
-
-        {phase === "done" && (
-          <div className={PANEL + " flex shrink-0 flex-col items-center gap-2 px-4 py-3 text-center sm:gap-3 sm:py-6"}>
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-300/80 sm:text-sm">{t.finalScore}</p>
-            <p className="text-2xl font-black text-amber-400 sm:text-4xl">
-              {totalScore} <span className="text-base font-bold text-white/50 sm:text-lg">/ {maxTotalScore}</span>
-            </p>
-            <div className="mt-1 flex w-full gap-2 sm:mt-2">
-              <button type="button" onClick={playAgain} className={PRIMARY_BUTTON + " flex-1"}>
-                {t.playAgain}
-              </button>
-              <button
-                type="button"
-                onClick={share}
-                className="flex-1 rounded-md border-2 border-amber-400/50 px-5 py-2.5 font-extrabold uppercase tracking-wide text-amber-300 transition hover:bg-amber-400/10"
-              >
-                {linkCopied ? t.linkCopied : t.share}
-              </button>
+      <div className="final-spotlight flex h-dvh w-full flex-col items-center">
+        <div className="flex h-dvh w-full max-w-md flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
+          <header className="flex w-full shrink-0 items-center justify-between gap-2">
+            <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
+              <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
+              {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
+            </h1>
+            <div className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm">
+              {totalScore} {t.pts}
             </div>
-          </div>
-        )}
+          </header>
+
+          <ChronologicalOrder
+            events={sessionEvents}
+            onComplete={(orderScore) => {
+              setTotalScore((s) => s + orderScore);
+              setPhase("done");
+            }}
+          />
+
+          {phase === "done" && (
+            <div className={PANEL + " flex shrink-0 flex-col items-center gap-2 px-4 py-3 text-center sm:gap-3 sm:py-6"}>
+              <p className="text-xs font-bold uppercase tracking-widest text-amber-300/80 sm:text-sm">{t.finalScore}</p>
+              <p className="text-2xl font-black text-amber-400 sm:text-4xl">
+                {totalScore} <span className="text-base font-bold text-white/50 sm:text-lg">/ {maxTotalScore}</span>
+              </p>
+              <div className="mt-1 flex w-full gap-2 sm:mt-2">
+                <button type="button" onClick={playAgain} className={PRIMARY_BUTTON + " flex-1"}>
+                  {t.playAgain}
+                </button>
+                <button
+                  type="button"
+                  onClick={share}
+                  className="flex-1 rounded-md border-2 border-amber-400/50 px-5 py-2.5 font-extrabold uppercase tracking-wide text-amber-300 transition hover:bg-amber-400/10"
+                >
+                  {linkCopied ? t.linkCopied : t.share}
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="flex h-dvh w-full max-w-2xl flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
-      <header className="flex w-full shrink-0 items-center justify-between gap-2">
-        <h1 className="flex items-center gap-1.5 text-base font-black uppercase tracking-tight sm:gap-2 sm:text-2xl">
-          <LaurelIcon className="h-5 w-5 shrink-0 sm:h-7 sm:w-7" />
-          {t.gameTitle} <span className="hidden text-amber-400 sm:inline">(POC)</span>
-        </h1>
-        <div className="flex items-center gap-1.5 text-xs sm:gap-2 sm:text-sm">
-          <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 font-bold text-white/70 sm:px-3 sm:py-1">
-            {t.round} {round + 1}/{sessionEvents.length}
-          </span>
-          <span className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 font-bold text-amber-300 sm:px-3 sm:py-1">
-            {totalScore} {t.pts}
-          </span>
-        </div>
-      </header>
-
-      <div className="flex min-h-0 flex-1 flex-col">
-        {!submitted ? (
-          <p className="parchment mb-2 shrink-0 rounded-md border-2 border-[#4a3820]/60 px-4 py-3 italic sm:mb-4 sm:py-4">
-            &ldquo;{localized.clue}&rdquo;
-          </p>
-        ) : (
-          <div
-            className={`relative mb-2 shrink-0 rounded-md border-2 border-emerald-400/50 bg-emerald-400/10 px-4 py-3 pr-12 text-center font-bold text-emerald-300 sm:mb-4 ${
-              showExplanation ? "rounded-b-none" : ""
-            }`}
-          >
-            {localized.name}
-            <button
-              type="button"
-              onClick={() => setShowExplanation((v) => !v)}
-              aria-label={showExplanation ? t.close : t.learnMore}
-              title={showExplanation ? t.close : t.learnMore}
-              className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center"
-            >
-              {!showExplanation && <span className="absolute inset-0 animate-ping rounded-full bg-amber-400/40" />}
-              <span className="relative flex h-9 w-9 items-center justify-center rounded-full border-2 border-amber-400/60 bg-amber-400/10 text-base font-black text-amber-300">
-                {showExplanation ? "✕" : "?"}
-              </span>
-            </button>
-          </div>
-        )}
-
-        <div className="relative min-h-[200px] w-full flex-1">
-          <MapPin disabled={submitted} onGuess={setGuess} pins={pins} />
-
-          {/* Absolutely positioned so opening/closing never resizes the map
-              container — that would retrigger its ResizeObserver and replay
-              the fitBounds fly-in animation. The banner's mb-2/mb-4 margin
-              stays constant either way (see above) so the map's height never
-              changes; the fixed -top-2/-top-4 offset here just pulls the
-              panel up over that constant gap so it reads as one continuous
-              block with the banner instead of a floating card. */}
-          <AnimatePresence>
-            {showExplanation && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.25 }}
-                className="absolute -top-2 inset-x-0 z-20 overflow-hidden sm:-top-4"
-              >
-                <div className="relative max-h-[50vh] overflow-y-auto rounded-b-md border-2 border-t-0 border-emerald-400/50 bg-slate-900 py-4 pl-14 pr-4 shadow-lg shadow-black/40">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="absolute left-4 top-4 h-7 w-7 text-amber-400"
-                  >
-                    <path d="M12 6c-2-1.5-4.5-2-7-2v14c2.5 0 5 .5 7 2 2-1.5 4.5-2 7-2V4c-2.5 0-5 .5-7 2z" />
-                    <path d="M12 6v14" />
-                  </svg>
-                  <p className="mb-2 text-sm italic text-white/60">&ldquo;{localized.clue}&rdquo;</p>
-                  <p className="text-sm leading-relaxed text-white/80">{localized.explanation}</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-
-      {!submitted ? (
-        <button type="button" onClick={submit} disabled={!guess} className={PRIMARY_BUTTON + " w-full shrink-0"}>
-          {guess ? t.submitGuess : t.clickMapToPlaceYourPin}
-        </button>
-      ) : (
-        <div className={PANEL + " flex w-full shrink-0 flex-col gap-2 px-4 py-3"}>
-          <p className="text-sm font-bold text-white/70">
-            {t.distance}: {distance?.toLocaleString()} km ·{" "}
-            <span className="text-amber-400">
-              {locationPoints(distance!)} {t.pts}
+    <div className="final-spotlight flex h-dvh w-full flex-col items-center">
+      <div className="flex h-dvh w-full max-w-2xl flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
+        <header className="flex w-full shrink-0 items-center justify-between gap-2">
+          <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
+            <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
+            {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
+          </h1>
+          <div className="flex items-center gap-1.5 text-xs sm:gap-2 sm:text-sm">
+            <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 font-bold text-white/70 sm:px-3 sm:py-1">
+              {t.round} {round + 1}/{sessionEvents.length}
             </span>
-          </p>
-          {isLastRound ? (
-            <div className="relative mt-1 w-full">
-              <span className="absolute -inset-1.5 animate-pulse rounded-lg bg-orange-500/50 blur-md" />
-              <button type="button" onClick={next} className={FINAL_ROUND_BUTTON + " relative w-full overflow-hidden"}>
-                <span className="shine-sweep" />
-                {t.continueToFinalRound}
+            <span className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 font-bold text-amber-300 sm:px-3 sm:py-1">
+              {totalScore} {t.pts}
+            </span>
+          </div>
+        </header>
+
+        <div className="flex min-h-0 flex-1 flex-col">
+          {!submitted ? (
+            <p className="parchment mb-2 shrink-0 rounded-md border-2 border-[#4a3820]/60 px-4 py-3 italic sm:mb-4 sm:py-4">
+              &ldquo;{localized.clue}&rdquo;
+            </p>
+          ) : (
+            <div
+              className={`relative mb-2 shrink-0 rounded-md border-2 border-emerald-400/50 bg-emerald-400/10 px-4 py-3 pr-12 text-center font-bold text-emerald-300 sm:mb-4 ${
+                showExplanation ? "rounded-b-none" : ""
+              }`}
+            >
+              {localized.name}
+              <button
+                type="button"
+                onClick={() => setShowExplanation((v) => !v)}
+                aria-label={showExplanation ? t.close : t.learnMore}
+                title={showExplanation ? t.close : t.learnMore}
+                className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center"
+              >
+                {!showExplanation && <span className="absolute inset-0 animate-ping rounded-full bg-amber-400/40" />}
+                <span className="relative flex h-9 w-9 items-center justify-center rounded-full border-2 border-amber-400/60 bg-amber-400/10 text-base font-black text-amber-300">
+                  {showExplanation ? "✕" : "?"}
+                </span>
               </button>
             </div>
-          ) : (
-            <button type="button" onClick={next} className={PRIMARY_BUTTON + " mt-1 w-full"}>
-              {t.nextRound}
-            </button>
           )}
+
+          <div className="relative min-h-[200px] w-full flex-1">
+            <MapPin disabled={submitted} onGuess={setGuess} pins={pins} />
+
+            {/* Absolutely positioned so opening/closing never resizes the map
+                container — that would retrigger its ResizeObserver and replay
+                the fitBounds fly-in animation. The banner's mb-2/mb-4 margin
+                stays constant either way (see above) so the map's height never
+                changes; the fixed -top-2/-top-4 offset here just pulls the
+                panel up over that constant gap so it reads as one continuous
+                block with the banner instead of a floating card. */}
+            <AnimatePresence>
+              {showExplanation && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="absolute -top-2 inset-x-0 z-20 overflow-hidden sm:-top-4"
+                >
+                  <div className="relative max-h-[50vh] overflow-y-auto rounded-b-md border-2 border-t-0 border-emerald-400/50 bg-slate-900 py-4 pl-14 pr-4 shadow-lg shadow-black/40">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="absolute left-4 top-4 h-7 w-7 text-amber-400"
+                    >
+                      <path d="M12 6c-2-1.5-4.5-2-7-2v14c2.5 0 5 .5 7 2 2-1.5 4.5-2 7-2V4c-2.5 0-5 .5-7 2z" />
+                      <path d="M12 6v14" />
+                    </svg>
+                    <p className="mb-2 text-sm italic text-white/60">&ldquo;{localized.clue}&rdquo;</p>
+                    <p className="text-sm leading-relaxed text-white/80">{localized.explanation}</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
-      )}
+
+        {!submitted ? (
+          <button type="button" onClick={submit} disabled={!guess} className={PRIMARY_BUTTON + " w-full shrink-0"}>
+            {guess ? t.submitGuess : t.clickMapToPlaceYourPin}
+          </button>
+        ) : (
+          <div className={PANEL + " flex w-full shrink-0 flex-col gap-2 px-4 py-3"}>
+            <p className="flex items-center justify-between gap-2 text-sm font-bold text-white/70">
+              <span>
+                {t.distance}: {distance?.toLocaleString()} km ·{" "}
+                <span className="text-amber-400">
+                  {roundPoints} / {MAX_LOCATION_POINTS} {t.pts}
+                </span>
+              </span>
+              {roundFeedback && (
+                <span className="whitespace-nowrap text-amber-300">
+                  {roundFeedback.emoji} {roundFeedback.label}
+                </span>
+              )}
+            </p>
+            {isLastRound ? (
+              <div className="relative mt-1 w-full">
+                <span className="absolute -inset-1.5 animate-pulse rounded-lg bg-orange-500/50 blur-md" />
+                <button type="button" onClick={next} className={FINAL_ROUND_BUTTON + " relative w-full overflow-hidden"}>
+                  <span className="shine-sweep" />
+                  {t.continueToFinalRound}
+                </button>
+              </div>
+            ) : (
+              <button type="button" onClick={next} className={PRIMARY_BUTTON + " mt-1 w-full"}>
+                {t.nextRound}
+              </button>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
