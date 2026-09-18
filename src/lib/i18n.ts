@@ -31,10 +31,18 @@ export type UiStrings = {
   linkCopied: string;
   mapAttribution: string;
   couldntLoadMap: string;
+  couldntLoadGame: string;
+  couldntSubmitGuess: string;
   retry: string;
   mapAttributionLabel: string;
   learnMore: string;
   close: string;
+  rankNovice: string;
+  rankAmateur: string;
+  rankScholar: string;
+  rankHistorian: string;
+  rankExpert: string;
+  rankMaster: string;
 };
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
@@ -70,10 +78,18 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     linkCopied: "Link copied!",
     mapAttribution: "© OpenStreetMap contributors, © OpenMapTiles, © OpenFreeMap",
     couldntLoadMap: "Couldn't load the map.",
+    couldntLoadGame: "Couldn't load the game.",
+    couldntSubmitGuess: "Couldn't submit your guess. Try again.",
     retry: "Retry",
     mapAttributionLabel: "Map attribution",
     learnMore: "Learn more",
     close: "Close",
+    rankNovice: "Novice",
+    rankAmateur: "Amateur",
+    rankScholar: "Scholar",
+    rankHistorian: "Historian",
+    rankExpert: "Expert",
+    rankMaster: "Master",
   },
   fr: {
     gameTitle: "Laurus",
@@ -107,9 +123,17 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     linkCopied: "Lien copié !",
     mapAttribution: "© contributeurs OpenStreetMap, © OpenMapTiles, © OpenFreeMap",
     couldntLoadMap: "Impossible de charger la carte.",
+    couldntLoadGame: "Impossible de charger la partie.",
+    couldntSubmitGuess: "Impossible d'envoyer ta réponse. Réessaie.",
     retry: "Réessayer",
     mapAttributionLabel: "Attribution de la carte",
     learnMore: "En savoir plus",
     close: "Fermer",
+    rankNovice: "Néophyte",
+    rankAmateur: "Amateur",
+    rankScholar: "Érudit",
+    rankHistorian: "Historien",
+    rankExpert: "Expert",
+    rankMaster: "Maître",
   },
 };

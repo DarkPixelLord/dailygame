@@ -23,6 +23,15 @@ const INITIAL_CENTER: [number, number] = [10, 20];
 const INITIAL_ZOOM = 1;
 const LINE_SOURCE_ID = "guess-answer-line";
 const LINE_LAYER_ID = "guess-answer-line-layer";
+// emerald-700 — darker than the answer pin's emerald-400 so the dashed
+// line stays legible against the light terre/eau map fill, where the
+// lighter pin green nearly disappears.
+const LINE_COLOR = "#047857";
+
+const LAND_COLOR = "#fbde90";
+const SEA_COLOR = "#7caacf";
+const ROAD_COLOR = "#fbf1d6";
+const BOUNDARY_COLOR = "#8a6a2f"; // mid brown, readable on the pale land fill
 
 // A small dot with expanding, fading rings — a "sonar ping" around the answer pin.
 function createPulseMarkerElement(color: string): HTMLDivElement {
@@ -45,14 +54,54 @@ function createPulseMarkerElement(color: string): HTMLDivElement {
   return el;
 }
 
-// Layer ids to drop from the default style: POI icons, transit icons,
-// building footprints, route shields, and the low-res world-scale shaded
-// relief raster (blurry when zoomed in, only meant for zoom <= 7).
-// Everything else (water, land cover, roads, city/country labels) stays.
-const HIDDEN_LAYER_PATTERNS = [/^poi_/, /^building/, /^airport$/, /shield/i, /^natural_earth$/];
+// Keeps flat roads and place labels; hides everything that clutters the
+// base map for a guessing game: POI/transit icons, buildings, airports, the
+// low-res world-scale shaded relief raster, all land texture/use fills
+// (forest, grass, parks, residential...), waterway lines + water names,
+// airport runways, tunnel/bridge duplicates, road casings + rail lines +
+// one-way arrows + street name/shield labels, and the finer administrative
+// borders. Only country-level land, sea, roads and city/country labels stay.
+const HIDDEN_LAYER_PATTERNS = [
+  /^poi_/,
+  /^airport$/,
+  /shield/i,
+  /^natural_earth$/,
+  /^landcover/,
+  /^landuse/,
+  /^park/,
+  /^waterway/,
+  /^water_name/,
+  /^aeroway/,
+  /^tunnel_/,
+  /^bridge_/,
+  /^highway-name/,
+  /^road_one_way_arrow/,
+  /_casing$/,
+  /^road_(major_rail|major_rail_hatching|transit_rail|transit_rail_hatching)$/,
+  /^road_area_pattern$/,
+  /^building/,
+  /^boundary_3$/,
+  /^boundary_disputed$/,
+];
 
 function shouldHide(layerId: string): boolean {
   return HIDDEN_LAYER_PATTERNS.some((pattern) => pattern.test(layerId));
+}
+
+function recolor(layer: StyleSpecification["layers"][number]): StyleSpecification["layers"][number] {
+  if (layer.id === "background" && layer.type === "background") {
+    return { ...layer, paint: { ...layer.paint, "background-color": LAND_COLOR } };
+  }
+  if (layer.id === "water" && layer.type === "fill") {
+    return { ...layer, paint: { ...layer.paint, "fill-color": SEA_COLOR } };
+  }
+  if (layer.id === "boundary_2" && layer.type === "line") {
+    return { ...layer, paint: { ...layer.paint, "line-color": BOUNDARY_COLOR } };
+  }
+  if (layer.id.startsWith("road_") && layer.type === "line") {
+    return { ...layer, paint: { ...layer.paint, "line-color": ROAD_COLOR } };
+  }
+  return layer;
 }
 
 // Label layers use `["case", ["has","name:nonlatin"], concat(latin, "\n", nonlatin), englishFallback]`
@@ -104,7 +153,7 @@ export default function MapLibrePin({ onGuess, pins = [], disabled }: Props) {
       const style = (await res.json()) as StyleSpecification;
       if (cancelled || !containerRef.current) return;
 
-      style.layers = style.layers.filter((layer) => !shouldHide(layer.id)).map(forceEnglishLabels);
+      style.layers = style.layers.filter((layer) => !shouldHide(layer.id)).map(forceEnglishLabels).map(recolor);
 
       const map = new MaplibreMap({
         container: containerRef.current,
@@ -185,7 +234,7 @@ export default function MapLibrePin({ onGuess, pins = [], disabled }: Props) {
           id: LINE_LAYER_ID,
           type: "line",
           source: LINE_SOURCE_ID,
-          paint: { "line-color": "#ff3b5c", "line-width": 2, "line-dasharray": [2, 2] },
+          paint: { "line-color": LINE_COLOR, "line-width": 2, "line-dasharray": [2, 2] },
         });
       }
 
@@ -228,7 +277,7 @@ export default function MapLibrePin({ onGuess, pins = [], disabled }: Props) {
     <div className="flex h-full w-full flex-col">
       <div
         ref={containerRef}
-        className={`relative w-full flex-1 overflow-hidden rounded-md border-2 border-amber-400/30 shadow-lg shadow-black/30 ${
+        className={`relative w-full flex-1 overflow-hidden rounded-md border-2 border-white/10 shadow-lg shadow-black/30 ${
           disabled ? "" : "cursor-crosshair"
         }`}
       >

@@ -1282,9 +1282,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   miracle_on_ice: {
     name: "Le miracle sur la glace",
-    clue: "Une équipe d'amateurs universitaires renverse une équipe invaincue depuis plus de dix ans dans des jeux d'hiver en montagne, devant une salle comble.",
+    clue: "Une équipe universitaire de hockey sur glace renverse une équipe invaincue depuis plus de dix ans, lors de jeux d'hiver en montagne, devant une salle comble.",
     explanation:
-      "Le surnom de la rencontre vient du commentateur qui s'écria « Croyez-vous aux miracles ? Oui ! » alors que le temps s'écoulait ; cette victoire ne valait pas encore le titre, obtenu deux jours plus tard face à une autre équipe.",
+      "Ce match de hockey sur glace opposait les amateurs américains aux champions soviétiques aux Jeux olympiques d'hiver de Lake Placid ; son surnom vient du commentateur qui s'écria « Croyez-vous aux miracles ? Oui ! » alors que le temps s'écoulait, mais cette victoire ne valait pas encore le titre, obtenu deux jours plus tard face à une autre équipe.",
   },
   disneyland_opening: {
     name: "L'ouverture chaotique de Disneyland",

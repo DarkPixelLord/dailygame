@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, Reorder } from "framer-motion";
-import type { HistoricalEvent } from "@/lib/poc-events";
-import { localizeEvent } from "@/lib/localize";
+import type { OrderableEvent } from "@/lib/game-types";
 import { useLanguage } from "./LanguageProvider";
 import { PRIMARY_BUTTON } from "@/lib/theme";
 import type { Lang } from "@/lib/i18n";
@@ -11,6 +10,16 @@ import type { Lang } from "@/lib/i18n";
 // Kept in sync with MAX_ORDER_POINTS in HistoryGuessPoc.tsx.
 const POINTS_PER_CORRECT_SLOT = 300;
 const REVEAL_DELAY_MS = 600;
+// A short beat on the last revealed color before the list glues itself
+// together and slides up — otherwise the final score panel below appears
+// in the exact same instant as the last card's color, with no suspense.
+const COLLAPSE_PAUSE_MS = 450;
+const COLLAPSE_DURATION_MS = 300;
+// The "X/5 bien placés" recap only starts fading in once the collapse has
+// visually settled (not mid-slide), then holds for a beat before the final
+// score panel below is allowed to appear.
+const RECAP_FADE_MS = 300;
+const RECAP_HOLD_MS = 500;
 
 // CE years stay bare (no suffix) in both languages to save space on the
 // mobile-width reorder cards — only 9/100 events are BCE, so a full
@@ -38,7 +47,7 @@ function shuffle<T>(items: T[]): T[] {
 }
 
 type Props = {
-  events: HistoricalEvent[];
+  events: OrderableEvent[];
   onComplete: (score: number) => void;
 };
 
@@ -47,6 +56,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
   const [order, setOrder] = useState(() => shuffle(events));
   const [submitted, setSubmitted] = useState(false);
   const [revealedCount, setRevealedCount] = useState(0);
+  const [collapsed, setCollapsed] = useState(false);
   const completedRef = useRef(false);
 
   const correctOrder = [...events].sort((a, b) => b.year - a.year);
@@ -73,11 +83,17 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
   useEffect(() => {
     if (!submitted) return;
     if (fullyRevealed) {
-      if (!completedRef.current) {
-        completedRef.current = true;
-        onComplete(score);
-      }
-      return;
+      if (completedRef.current) return;
+      completedRef.current = true;
+      const collapseTimer = setTimeout(() => setCollapsed(true), COLLAPSE_PAUSE_MS);
+      const completeTimer = setTimeout(
+        () => onComplete(score),
+        COLLAPSE_PAUSE_MS + COLLAPSE_DURATION_MS + RECAP_FADE_MS + RECAP_HOLD_MS,
+      );
+      return () => {
+        clearTimeout(collapseTimer);
+        clearTimeout(completeTimer);
+      };
     }
     const timer = setTimeout(() => setRevealedCount((c) => c + 1), REVEAL_DELAY_MS);
     return () => clearTimeout(timer);
@@ -99,41 +115,52 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
         )}
       </AnimatePresence>
 
-      <div className="flex min-h-0 flex-1 flex-col justify-center gap-2 overflow-y-auto overflow-x-hidden">
-        <div className="flex shrink-0 items-center gap-2">
-          <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-blue-400/60 bg-blue-400/10 text-blue-400">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-3.5 w-3.5"
+      <motion.div
+        layout
+        transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
+        className={`flex min-h-0 flex-col gap-2 overflow-y-auto overflow-x-hidden ${collapsed ? "flex-none justify-start" : "flex-1 justify-center"}`}
+      >
+        <AnimatePresence>
+          {!collapsed && (
+            <motion.span
+              key="most-recent-label"
+              initial={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
+              className="block shrink-0 overflow-hidden text-left text-[10px] font-black uppercase tracking-wide text-blue-400"
             >
-              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-              <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-            </svg>
-          </span>
-          <span className="text-left text-[10px] font-black uppercase tracking-wide text-blue-400">
-            {t.mostRecentLabel}
-          </span>
-        </div>
+              {t.mostRecentLabel}
+            </motion.span>
+          )}
+        </AnimatePresence>
 
-        <div className="flex w-full gap-3">
-          <div
-            className="flex-shrink-0 self-stretch"
-            style={{
-              width: 4,
-              backgroundImage: "radial-gradient(circle 2px at 2px 2px, #60a5fa 2px, transparent 2px)",
-              backgroundSize: "4px 10px",
-              backgroundRepeat: "repeat-y",
-            }}
-          />
+        <motion.div layout transition={{ duration: COLLAPSE_DURATION_MS / 1000 }} className="flex w-full gap-3">
+          <AnimatePresence>
+            {!collapsed && (
+              <motion.div
+                key="timeline"
+                initial={{ opacity: 1, width: 4 }}
+                exit={{ opacity: 0, width: 0 }}
+                transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
+                className="flex-shrink-0 self-stretch"
+                style={{
+                  backgroundImage: "radial-gradient(circle 2px at 2px 2px, #60a5fa 2px, transparent 2px)",
+                  backgroundSize: "4px 10px",
+                  backgroundRepeat: "repeat-y",
+                }}
+              />
+            )}
+          </AnimatePresence>
 
-          <Reorder.Group as="ol" axis="y" values={order} onReorder={setOrder} className="flex flex-1 flex-col gap-3">
+          <Reorder.Group
+            as="ol"
+            axis="y"
+            values={order}
+            onReorder={setOrder}
+            layout
+            transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
+            className={`flex flex-1 flex-col transition-[gap] duration-300 ${collapsed ? "gap-0" : "gap-3"}`}
+          >
             {order.map((ev, i) => {
               const revealed = submitted && i < revealedCount;
               return (
@@ -141,6 +168,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
                   key={ev.id}
                   value={ev}
                   as="li"
+                  layout
                   dragListener={!submitted}
                   whileDrag={{ scale: 1.05, zIndex: 1, boxShadow: "0 12px 24px rgba(0,0,0,0.5)" }}
                   className={`flex h-16 items-center gap-2 rounded-md border-2 px-2 py-2 shadow-lg shadow-black/30 transition-colors duration-500 ${
@@ -154,7 +182,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
                   }`}
                 >
                   {!submitted && <span className="select-none px-1 text-amber-400/60">⠿</span>}
-                  <p className="line-clamp-2 flex-1 text-xs font-bold leading-snug sm:text-sm">{localizeEvent(ev, lang).name}</p>
+                  <p className="line-clamp-2 flex-1 text-xs font-bold leading-snug sm:text-sm">{ev.name}</p>
                   {revealed ? (
                     <span
                       className={`font-mono text-xs font-bold sm:text-sm ${correctPositions[i] ? "text-emerald-400" : "text-rose-400"}`}
@@ -193,48 +221,36 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
               );
             })}
           </Reorder.Group>
-        </div>
+        </motion.div>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 border-blue-400/60 bg-blue-400/10 text-blue-400">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-3.5 w-3.5"
+        <AnimatePresence>
+          {!collapsed && (
+            <motion.span
+              key="oldest-label"
+              initial={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
+              className="block shrink-0 overflow-hidden text-left text-[10px] font-black uppercase tracking-wide text-blue-400"
             >
-              <path d="M3 21h18" />
-              <path d="M5 21V10" />
-              <path d="M9 21V10" />
-              <path d="M15 21V10" />
-              <path d="M19 21V10" />
-              <path d="M12 3 3 9h18Z" />
-            </svg>
-          </span>
-          <span className="text-left text-[10px] font-black uppercase tracking-wide text-blue-400">
-            {t.oldestLabel}
-          </span>
-        </div>
-      </div>
+              {t.oldestLabel}
+            </motion.span>
+          )}
+        </AnimatePresence>
+      </motion.div>
 
       {!submitted ? (
         <button type="button" onClick={submit} className={PRIMARY_BUTTON + " w-full shrink-0"}>
           {t.submitOrder}
         </button>
-      ) : fullyRevealed ? (
+      ) : collapsed ? (
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.15 }}
+          transition={{ duration: RECAP_FADE_MS / 1000, delay: COLLAPSE_DURATION_MS / 1000 }}
           className="shrink-0 text-center font-bold"
         >
           {correctPositions.filter(Boolean).length}/{events.length} {t.inTheRightSpot} ·{" "}
-          <span className="text-amber-400">
-            {score} / {events.length * POINTS_PER_CORRECT_SLOT} {t.pts}
-          </span>
+          <span className="text-amber-400">{score}</span> / {events.length * POINTS_PER_CORRECT_SLOT} {t.pts}
         </motion.p>
       ) : (
         <div className="flex shrink-0 items-center justify-center gap-1.5 py-2">

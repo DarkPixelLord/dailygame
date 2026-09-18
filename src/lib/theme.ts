@@ -33,4 +33,6 @@ export const PANEL = "rounded-md border-2 border-white/10 bg-white/5 shadow-lg s
 export const GAME_TITLE = "font-title font-black uppercase tracking-wide text-amber-400";
 
 export const PIN_GUESS_COLOR = "#ffb020";
-export const PIN_ANSWER_COLOR = "#ff3b5c";
+// emerald-400 — matches the reveal banner's border/text color so the answer
+// pin and guess-to-answer line read as "correct" rather than "error".
+export const PIN_ANSWER_COLOR = "#34d399";
