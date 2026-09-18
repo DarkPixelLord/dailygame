@@ -23,15 +23,6 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Aged-paper clue card background. */
-.parchment {
-  background: radial-gradient(circle at 15% 20%, rgba(120, 90, 40, 0.14), transparent 40%),
-    radial-gradient(circle at 82% 78%, rgba(120, 90, 40, 0.12), transparent 45%),
-    linear-gradient(135deg, #f4ead0 0%, #e6d3a8 45%, #caa669 100%);
-  color: #4a3820;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
-}
-
 /* Continuous diagonal light sweep for the "continue to final round" button. */
 @keyframes shine-sweep {
   0% {

@@ -149,8 +149,8 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
                         ? "border-emerald-500/30 bg-emerald-950/80"
                         : "border-rose-600/30 bg-rose-950/80"
                       : submitted
-                        ? "border-white/10 bg-slate-900/80"
-                        : "cursor-grab border-white/10 bg-slate-900/80 active:cursor-grabbing"
+                        ? "border-white/25 bg-slate-900/80"
+                        : "cursor-grab border-white/25 bg-slate-900/80 active:cursor-grabbing"
                   }`}
                 >
                   {!submitted && <span className="select-none px-1 text-amber-400/60">⠿</span>}
@@ -168,12 +168,12 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/30 [animation-delay:400ms]" />
                     </div>
                   ) : (
-                    <div className="flex shrink-0 gap-1">
+                    <div className="flex shrink-0 flex-col gap-0.5">
                       <button
                         type="button"
                         disabled={i === 0}
                         onClick={() => moveTo(i, i - 1)}
-                        className="flex h-7 w-7 items-center justify-center rounded-md border-2 border-amber-400/40 text-xs font-bold text-amber-300 transition hover:bg-amber-400/10 disabled:opacity-30"
+                        className="flex h-5 w-6 items-center justify-center rounded-md border-2 border-amber-400/40 text-[10px] font-bold leading-none text-amber-300 transition hover:bg-amber-400/10 disabled:opacity-30"
                         aria-label="Move up"
                       >
                         ▲
@@ -182,7 +182,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
                         type="button"
                         disabled={i === order.length - 1}
                         onClick={() => moveTo(i, i + 1)}
-                        className="flex h-7 w-7 items-center justify-center rounded-md border-2 border-amber-400/40 text-xs font-bold text-amber-300 transition hover:bg-amber-400/10 disabled:opacity-30"
+                        className="flex h-5 w-6 items-center justify-center rounded-md border-2 border-amber-400/40 text-[10px] font-bold leading-none text-amber-300 transition hover:bg-amber-400/10 disabled:opacity-30"
                         aria-label="Move down"
                       >
                         ▼

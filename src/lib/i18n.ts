@@ -17,6 +17,7 @@ export type UiStrings = {
   scoreMeh: string;
   scoreGood: string;
   scoreGreat: string;
+  scoreExcellent: string;
   scorePerfect: string;
   finalRoundTitle: string;
   finalRoundSubtitle: string;
@@ -55,6 +56,7 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     scoreMeh: "So-so...",
     scoreGood: "Not bad!",
     scoreGreat: "Great!",
+    scoreExcellent: "Excellent!",
     scorePerfect: "Perfect!",
     finalRoundTitle: "Final round!",
     finalRoundSubtitle: "Put them in chronological order",
@@ -90,7 +92,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     scoreOops: "Oups !",
     scoreMeh: "Bof...",
     scoreGood: "Pas mal !",
-    scoreGreat: "Excellent !",
+    scoreGreat: "Bien joué !",
+    scoreExcellent: "Excellent !",
     scorePerfect: "Parfait !",
     finalRoundTitle: "Manche finale !",
     finalRoundSubtitle: "Remets-les dans l'ordre chronologique",

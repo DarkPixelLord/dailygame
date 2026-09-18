@@ -754,7 +754,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   borobudur_completion: {
     name: "Achèvement du Borobudur",
-    clue: "Des ouvriers empilent 1,6 million de blocs de pierre en une pyramide à degrés couronnée de stupas en cloche, le plus grand monument de sa foi sur Terre.",
+    clue: "Des ouvriers bouddhistes empilent 1,6 million de blocs en une pyramide à degrés couronnée de stupas en cloche, le plus grand monument de leur foi sur Terre.",
     explanation:
       "Construit par la dynastie Sailendra à Java, le Borobudur fut plus tard abandonné, enseveli sous la cendre volcanique et la jungle pendant des siècles, avant d'être dégagé et restauré à l'époque moderne.",
   },
@@ -958,9 +958,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   sydney_opera_house_opens: {
     name: "Inauguration de l'Opéra de Sydney",
-    clue: "L'architecte d'une salle de spectacle en forme de voiles démissionne des années avant son achèvement, pour des raisons de coûts, et boycotte son inauguration.",
+    clue: "Une salle de spectacle aux toits en forme de voiles, mondialement connue, ouvre enfin ses portes après des années de retard.",
     explanation:
-      "L'architecte danois Jørn Utzon conçut les célèbres toits en coquilles de l'Opéra de Sydney ; la reine Élisabeth II inaugura officiellement le bâtiment, plus tard classé au patrimoine mondial de l'UNESCO pour son importance architecturale.",
+      "L'architecte danois Jørn Utzon conçut les toits de l'Opéra de Sydney, surnommés « les voiles » bien qu'il s'agisse techniquement d'une série de coquilles en béton préfabriqué. La reine Élisabeth II inaugura officiellement le bâtiment, plus tard classé au patrimoine mondial de l'UNESCO.",
   },
   uluru_handback: {
     name: "Restitution d'Uluru",
@@ -1117,5 +1117,293 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     clue: "Une immense flotte d'invasion est dispersée de nuit par des brûlots, vaincue le lendemain, puis brisée par des tempêtes en fuyant une nation insulaire.",
     explanation:
       "Une flotte massive assemblée pour envahir l'Angleterre fut mise en déroute au large de Gravelines après que des brûlots l'eurent forcée à rompre sa formation. Ses survivants, meurtris, furent détruits par des tempêtes en rentrant par le nord de l'Écosse et de l'Irlande, affaiblissant sa puissance navale pour des années.",
+  },
+  nz_suffrage: {
+    name: "Suffrage féminin en Nouvelle-Zélande",
+    clue: "Une pétition de plus de 270 mètres, signée par un quart des femmes du pays, aide celui-ci à devenir la première nation autonome à laisser voter les femmes.",
+    explanation:
+      "La campagne est menée par la réformatrice Kate Sheppard, qui organise plusieurs pétitions massives après des années de projets de loi rejetés; la dernière réunit des dizaines de milliers de signatures collées bout à bout sur un rouleau déroulé dans l'hémicycle pour en montrer la taille. En quelques semaines, une loi accordant le droit de vote aux femmes est adoptée.",
+  },
+  parkes_apollo11_relay: {
+    name: "L'antenne qui a filmé le pas sur la Lune",
+    clue: "Une antenne inclinée vers la lune est secouée par des rafales, mais son signal diffuse l'essentiel d'une émission suivie par un cinquième de l'humanité.",
+    explanation:
+      "Les opérateurs avaient déjà repoussé une règle de sécurité limitant l'inclinaison du télescope vers l'horizon, et pendant de longues minutes les ingénieurs ont craint que le vent ne finisse par arracher le grand réflecteur de son support avant que l'image ne se stabilise. L'agence spatiale responsable de la mission a jugé cette antenne plus nette qu'une station rivale voisine et lui a confié l'essentiel de la diffusion mondiale.",
+  },
+  earhart_howland: {
+    name: "Une piste construite pour un vol disparu",
+    clue: "Un îlot reçoit une piste construite en secret pour un unique vol autour du monde, dont la pilote et le navigateur disparaissent avant de s'y poser.",
+    explanation:
+      "La pilote est Amelia Earhart, accompagnée du navigateur Fred Noonan, en pleine tentative de tour du monde près de l'équateur lorsque leur avion, à court de carburant, cherche en vain la minuscule cible au milieu de l'océan. Une recherche navale couvrant des centaines de milliers de kilomètres carrés ne retrouve aucune épave confirmée, et la disparition reste l'une des énigmes aériennes les plus étudiées.",
+  },
+  tonga_1875_constitution: {
+    name: "Constitution et réforme foncière des Tonga",
+    clue: "Un monarque unifie un archipel dispersé sous une couronne, abolit un système féodal des terres et garantit par la loi à chaque homme une parcelle à vie.",
+    explanation:
+      "Le souverain est George Tupou Ier, qui avait déjà réuni les chefs rivaux des îles en une seule noblesse et formalise désormais cet ordre par écrit; le texte qu'il signe reste la loi suprême du pays, modifiée à plusieurs reprises mais jamais remplacée, ce qui en fait l'une des constitutions encore en vigueur les plus anciennes au monde. Les nobles conservent de vastes domaines héréditaires, mais les familles ordinaires obtiennent un droit permanent et transmissible de cultiver leur propre parcelle.",
+  },
+  kokoda_track_campaign: {
+    name: "La campagne de la piste de Kokoda",
+    clue: "Le long d'une piste de 96 km à peine sur une chaîne escarpée, la maladie tue plus de soldats que les combats, et des porteurs évacuent les blessés à la main.",
+    explanation:
+      "L'itinéraire relie un petit poste administratif à un col dans une chaîne si escarpée qu'aucun véhicule ne peut la franchir, et les troupes en progression parviennent à portée de vue d'un grand port avant d'être repoussées au cours des mois suivants. Des porteurs locaux acheminent les munitions vers l'avant et ramènent les blessés sur ce même terrain, un travail plus tard célébré pour son ampleur et son endurance.",
+  },
+  melbourne_1956_equestrian: {
+    name: "Des jeux disputés sur deux continents",
+    clue: "Une ville accueille les épreuves de jeux internationaux sauf l'épreuve équestre, déplacée sur un autre continent par des règles sanitaires, un cas unique.",
+    explanation:
+      "L'hôte est Melbourne, dont les organisateurs ont longtemps tenté de faire lever la quarantaine de six mois imposée aux chevaux avant de renoncer et de délocaliser tout le programme équestre à Stockholm, disputé des mois avant la cérémonie d'ouverture sous les mêmes drapeaux et le même décompte des médailles. Ce sont les seuls jeux de ce type organisés sur deux continents.",
+  },
+  aoraki_mount_cook_first_ascent: {
+    name: "Première ascension du mont Cook",
+    clue: "Des grimpeurs locaux devancent un alpiniste visiteur et son guide vers le sommet d'un pic, taillant plus de 100 marches dans la glace sans guide.",
+    explanation:
+      "Le sommet est celui d'Aoraki, aussi appelé le mont Cook, le plus haut pic du pays, et les grimpeurs sont des guides et porteurs d'un hôtel voisin, partis avant l'aube après avoir appris qu'un alpiniste étranger fortuné, accompagné d'un guide professionnel réputé, comptait s'attribuer le sommet. Le trio atteint le sommet en fin de matinée et se serre la main à ce qu'ils appellent le point le plus haut du pays, devançant de peu la tentative rivale, de quelques jours seulement.",
+  },
+  maracana_1950_final: {
+    name: "Le Maracanazo",
+    clue: "Un stade neuf accueille une foule record pour un match, et l'équipe locale, qui n'avait besoin que d'un nul, perd et quitte son maillot blanc pour toujours.",
+    explanation:
+      "Le Brésil n'avait besoin que d'un nul face à l'Uruguay pour être sacré devant environ 200 000 spectateurs, un record d'affluence pour ce sport jamais égalé, mais il perd 2 à 1. Le choc est tel qu'un concours organisé par un journal redessine ensuite le maillot national, remplaçant le blanc par le jaune, le bleu et le vert portés depuis.",
+  },
+  itaipu_dam_inauguration: {
+    name: "Le barrage d'Itaipu",
+    clue: "Un barrage construit conjointement par deux pays voisins sur un fleuve devient, pendant des années, la centrale électrique la plus productive de la planète.",
+    explanation:
+      "Itaipu, construit et toujours détenu à parts égales par le Brésil et le Paraguay sur le fleuve Paraná, a détenu le record mondial de production annuelle d'électricité pour une seule centrale pendant plus de trente ans, jusqu'à ce que le barrage chinois des Trois Gorges le dépasse. Pendant des années, il a fourni environ un cinquième de l'électricité brésilienne et l'essentiel de celle du Paraguay.",
+  },
+  isabel_peron_sworn_in: {
+    name: "Première femme présidente au monde",
+    clue: "Une vice-présidente en exercice prête serment devant le parlement, devenant la première femme au monde à occuper la fonction de présidente d'un pays.",
+    explanation:
+      "Isabel Perón accède à la présidence argentine après la mort en fonction de son mari, Juan Perón, dont elle était la vice-présidente. Sa présidence, marquée par une crise économique et une violence politique croissante, prend fin moins de deux ans plus tard lorsque l'armée la renverse.",
+  },
+  potosi_silver_mountain: {
+    name: "Fondation de la ville d'argent",
+    clue: "Une ville minière près d'une montagne d'argent croît au point de rivaliser avec les plus grandes villes du monde, et son nom désigne une richesse infinie.",
+    explanation:
+      "Potosí, fondée peu après la découverte du minerai de la montagne, atteint en environ cent ans une population comparable à celle de Londres à la même époque, grâce au travail forcé imposé aux populations autochtones sous un système minier colonial. La montagne est toujours appelée Cerro Rico, la colline riche, et l'expression valoir un Potosí existe encore en espagnol aujourd'hui.",
+  },
+  angel_falls_forced_landing: {
+    name: "Atterrissage forcé sur la plus haute chute",
+    clue: "Cherchant une rivière d'or, un pilote repère la plus haute chute connue, s'écrase sur la montagne plate au-dessus, et marche une semaine pour descendre.",
+    explanation:
+      "L'aviateur américain Jimmie Angel cherchait une légendaire rivière d'or lorsqu'il survole la chute pour la première fois, puis revient lors d'un vol ultérieur et tente de poser son avion sur le sommet plat de la montagne d'où elle jaillit. Les roues s'enfoncent dans le sol meuble, et Angel, son épouse et deux compagnons mettent onze jours à rejoindre la civilisation à pied ; la chute porte aujourd'hui son nom.",
+  },
+  hudson_river_landing: {
+    name: "Miracle sur l'Hudson",
+    clue: "Les deux moteurs d'un avion s'arrêtent après un choc avec des oies, et le pilote le pose sur un fleuve en pleine ville, sans aucune perte humaine.",
+    explanation:
+      "Les 155 passagers et membres d'équipage ont tous survécu à cet amerrissage, surnommé plus tard le miracle sur l'Hudson. Le commandant Chesley Sullenberger et le copilote Jeffrey Skiles ont été salués comme des héros, et des ferries voisins ont atteint l'appareil en quelques minutes pour évacuer tout le monde.",
+  },
+  copiapo_mine_rescue: {
+    name: "Sauvetage des mineurs chiliens",
+    clue: "Coincés sous terre soixante-neuf jours, des mineurs remontent un par un dans une capsule étroite, un sauvetage suivi en direct dans le monde entier.",
+    explanation:
+      "Les hommes étaient piégés depuis l'effondrement d'une mine de cuivre et d'or dans le désert de l'Atacama, survivant grâce à des rations d'urgence jusqu'à ce qu'un forage étroit les atteigne. Leur remontée dans la capsule Fénix a établi un record de survie sous terre et a été suivie par plus d'un milliard de personnes à travers le monde.",
+  },
+  burj_khalifa_opening: {
+    name: "Inauguration du Burj Khalifa",
+    clue: "Une tour ouvre ses portes en tant que plus haut bâtiment jamais construit, dépassant de plus de soixante pour cent le précédent record de hauteur.",
+    explanation:
+      "Culminant à 828 mètres, la tour a été rebaptisée peu avant son ouverture en l'honneur du président des Émirats arabes unis, dont le gouvernement venait de renflouer les finances de la ville. Elle s'était brièvement appelée Burj Dubaï pendant sa construction.",
+  },
+  first_face_transplant: {
+    name: "La première greffe du visage",
+    clue: "Des chirurgiens greffent le nez, les lèvres et le menton d'une donneuse décédée sur une femme dont le chien avait arraché le visage, une première en médecine.",
+    explanation:
+      "La receveuse, Isabelle Dinoire, avait été gravement défigurée après que son chien avait tenté de la réveiller à la suite d'une overdose. Les chirurgiens Bernard Devauchelle et Jean-Michel Dubernard ont mené l'opération dans un hôpital d'Amiens, et son nouveau visage est resté fonctionnel pendant plus de dix ans avant son décès.",
+  },
+  freeman_400m_gold: {
+    name: "L'or olympique de Cathy Freeman",
+    clue: "L'athlète qui avait allumé la flamme de la cérémonie d'ouverture revient remporter la course la plus attendue des jeux, en combinaison à capuche.",
+    explanation:
+      "Cathy Freeman avait allumé la vasque lors de la cérémonie d'ouverture et remporta dix jours plus tard le 400 mètres devant plus de 112 000 spectateurs, devenant la première athlète autochtone d'Australie à décrocher un titre olympique individuel.",
+  },
+  iss_continuous_presence_begins: {
+    name: "Présence humaine continue en orbite",
+    clue: "Un équipage de trois personnes décolle d'un pas de tir dans la steppe pour entamer une présence humaine continue en orbite, jamais interrompue depuis.",
+    explanation:
+      "L'équipage d'Expédition 1, William Shepherd, Youri Guidzenko et Sergueï Krikalev, a décollé à bord d'une fusée Soyouz et s'est arrimé à la station spatiale internationale deux jours plus tard. Des humains vivent à son bord sans interruption depuis, la plus longue présence humaine continue jamais enregistrée au delà de la Terre.",
+  },
+  south_sudan_independence: {
+    name: "L'indépendance du Soudan du Sud",
+    clue: "Un drapeau est hissé alors qu'un pays naît près du tombeau d'un chef indépendantiste mort avant le référendum qui l'a rendu possible.",
+    explanation:
+      "La cérémonie marquait la naissance du Soudan du Sud, dans la capitale, Juba, près du mausolée de John Garang, chef historique du mouvement rebelle, mort dans un accident d'hélicoptère six ans plus tôt. Un référendum avait recueilli un vote quasi unanime de 98,83 pour cent en faveur de la séparation.",
+  },
+  human_genome_draft_announced: {
+    name: "Annonce du génome humain",
+    clue: "Les dirigeants d'un projet public et d'une firme rivale se retrouvent chez un chef de gouvernement pour annoncer une carte de tout le code génétique humain.",
+    explanation:
+      "Le président Bill Clinton a présidé l'annonce, relié par vidéo au premier ministre du Royaume-Uni, Tony Blair, tandis que Francis Collins, du projet public sur le génome humain, et Craig Venter, de Celera Genomics, partageaient la scène après des années de compétition dans le séquençage. Clinton a qualifié le génome de livre d'instructions de l'humanité.",
+  },
+  mars_orbiter_mission_launch: {
+    name: "Lancement de la mission Mars Orbiter",
+    clue: "Une fusée décolle d'une île pour envoyer une sonde qui atteint l'orbite de Mars dès sa première tentative, pour moins que le coût d'un film sur l'espace.",
+    explanation:
+      "La mission indienne Mars Orbiter, surnommée Mangalyaan, a décollé à bord d'une fusée PSLV depuis Sriharikota et a atteint l'orbite de Mars pour un coût d'environ 74 millions de dollars, moins que le budget du film Gravity. L'Inde est ainsi devenue la première nation à réussir sa mission martienne dès sa première tentative.",
+  },
+  nalanda_founding: {
+    name: "Fondation de l'université de Nalanda",
+    clue: "Un monastère devient l'une des premières universités avec internat, financée par plus de cent villages et logeant gratuitement des milliers d'étudiants.",
+    explanation:
+      "Le site attirait des étudiants et enseignants venus de très loin, certains marchant pendant des années pour l'atteindre. On y enseignait la logique, la médecine et l'astronomie en plus des études religieuses. Le pèlerin chinois Xuanzang y étudia et laissa des récits détaillés encore utilisés par les historiens. Sa bibliothèque à plusieurs étages fut détruite par des envahisseurs et, selon des récits de l'époque, continua de se consumer pendant des mois.",
+  },
+  brihadeeswarar_temple_completion: {
+    name: "Achèvement du temple de Brihadishvara",
+    clue: "Des bâtisseurs achèvent une tour de temple en hissant sa pierre faîtière, un bloc unique d'environ quatre-vingts tonnes, sur une rampe longue de kilomètres.",
+    explanation:
+      "La tour du temple dépasse soixante mètres de haut, l'une des plus hautes jamais construites jusqu'alors, bâtie avec une pierre extraite loin du site faute de roche adaptée sur place. La structure s'assemble sans mortier. Elle fait aujourd'hui partie d'un ensemble de temples reconnu comme site du patrimoine mondial.",
+  },
+  al_qarawiyyin_founding: {
+    name: "Fondation de la Qarawiyyine",
+    clue: "La fille d'un marchand dépense son héritage pour fonder une école plus tard classée plus ancienne institution encore active délivrant des diplômes.",
+    explanation:
+      "La fondatrice, Fatima al-Fihri, fit bâtir le complexe en mémoire de son père et aurait jeûné pendant toute la durée du chantier. Sa sœur finança de son côté une autre grande mosquée à proximité. L'école attira des érudits venus de loin et se transforma plus tard en université publique, le Guinness des records la désignant comme la plus ancienne institution de ce type encore en activité.",
+  },
+  ishango_bone_creation: {
+    name: "Gravure de l'os d'Ishango",
+    clue: "Près de la source d'une rivière sortant d'un grand lac, quelqu'un grave un os dont les entailles groupées seront lues comme un des premiers systèmes de calcul.",
+    explanation:
+      "Cet outil, muni d'une pointe de quartz, fut trouvé près de la source d'une rivière sortant d'un grand lac. Ses entailles sont regroupées en séries que certains chercheurs interprètent comme un dispositif de calcul précoce ou un relevé des phases de la lune, même si sa fonction exacte reste débattue. Un os entaillé de façon similaire, trouvé bien plus au sud, pourrait être encore plus ancien, ce qui suggère que cette pratique n'était pas limitée à un seul petit endroit.",
+  },
+  golden_spike: {
+    name: "La cérémonie du crampon d'or",
+    clue: "Deux lignes de rails venues de côtes opposées se rejoignent ; le dernier coup de marteau est relié au télégraphe pour que le pays entier l'entende aussitôt.",
+    explanation:
+      "Les présidents des compagnies ont donné des coups de maillet cérémoniels sur le crampon et, selon la plupart des récits, l'ont raté tous les deux ; des ouvriers ont dû le replacer pour que les opérateurs transmettent le signal annonçant que tout était terminé.",
+  },
+  boston_tea_party: {
+    name: "La fête du thé de Boston",
+    clue: "De nuit, des protestataires se déguisent, montent à bord de trois navires dans un port et jettent 342 caisses de thé à l'eau.",
+    explanation:
+      "La contestation visait un monopole accordé à la Compagnie des Indes orientales, autorisée à vendre son surplus de thé dans les colonies à un prix assez bas pour concurrencer la contrebande malgré la taxe ; les autorités répliquèrent en fermant le port jusqu'au remboursement du thé détruit.",
+  },
+  miracle_on_ice: {
+    name: "Le miracle sur la glace",
+    clue: "Une équipe d'amateurs universitaires renverse une équipe invaincue depuis plus de dix ans dans des jeux d'hiver en montagne, devant une salle comble.",
+    explanation:
+      "Le surnom de la rencontre vient du commentateur qui s'écria « Croyez-vous aux miracles ? Oui ! » alors que le temps s'écoulait ; cette victoire ne valait pas encore le titre, obtenu deux jours plus tard face à une autre équipe.",
+  },
+  disneyland_opening: {
+    name: "L'ouverture chaotique de Disneyland",
+    clue: "Un nouveau parc féerique prévu pour peu de visiteurs est submergé par des billets contrefaits, une chaleur qui ramollit l'asphalte neuf, et une fuite de gaz.",
+    explanation:
+      "Le personnel qui a vécu cette journée l'a surnommée plus tard le « dimanche noir » ; presque deux fois plus de visiteurs que prévu se sont présentés, et une grève des plombiers avait forcé un choix entre installer des fontaines à boire ou des toilettes, alimentant une rumeur tenace accusant un sponsor de boissons gazeuses de cette pénurie.",
+  },
+  greensboro_sit_in: {
+    name: "Le sit-in de Greensboro",
+    clue: "Quatre étudiants s'assoient à un comptoir qui refuse de les servir, restent jusqu'à fermeture et reviennent chaque jour jusqu'à gagner des dizaines de villes.",
+    explanation:
+      "Les quatre étudiants, en première année dans un établissement local, furent enfin servis à ce même comptoir environ six mois plus tard ; entre-temps, des sit-in similaires s'étaient répandus dans plus de cinquante villes, contribuant à lancer un vaste mouvement étudiant pour les droits civiques.",
+  },
+  transatlantic_wireless_signal: {
+    name: "Premier signal radio transatlantique",
+    clue: "Sur une colline dominant un port, de faibles clics lointains sont captés par un fil tenu par un cerf-volant, après la perte d'autres et d'un ballon.",
+    explanation:
+      "Le signal provenait d'une station située sur la côte anglaise, à environ 3 500 km de là ; une compagnie télégraphique détenant une licence exclusive sur l'île menaça de poursuites, poussant Marconi à déplacer ses expériences vers une nouvelle station en Nouvelle-Écosse.",
+  },
+  hunley_attack: {
+    name: "L'attaque du Hunley",
+    clue: "Un sous-marin actionné à bras par huit hommes coule un navire bloquant un port avec une charge, puis disparaît, introuvable pendant plus d'un siècle.",
+    explanation:
+      "Le submersible s'appelait le H. L. Hunley et sa cible l'USS Housatonic ; quand des chasseurs d'épaves le localisèrent enfin plus d'un siècle plus tard, l'étude légale de l'équipage retrouvé suggéra que le souffle de l'explosion les avait tués presque instantanément à leur poste, plutôt que par asphyxie lente comme on le pensait longtemps.",
+  },
+  attica_uprising: {
+    name: "Le soulèvement de la prison d'Attica",
+    clue: "Des détenus prennent une cour et des otages dans une prison et invitent des témoins aux pourparlers ; un assaut tue ensuite des dizaines, surtout par ses tirs.",
+    explanation:
+      "Environ 1 281 détenus prirent part au mouvement, et l'assaut final fit 39 morts, 29 détenus et 10 otages ; les premiers rapports affirmaient que des détenus avaient égorgé des otages, mais les autopsies montrèrent ensuite que chaque otage avait été tué par les tirs des forces d'assaut elles-mêmes.",
+  },
+  watergate_break_in: {
+    name: "Le cambriolage du Watergate",
+    clue: "Un gardien trouve du ruban sur un loquet dans un grand complexe de bureaux, le retire, le revoit replacé et appelle la police, qui arrête des cambrioleurs.",
+    explanation:
+      "Le gardien, Frank Wills, gagnait environ quatre-vingts dollars par semaine pour une découverte qui contribua à déclencher des enquêtes forçant la démission du chef de l'État en exercice, une première dans l'histoire du pays ; Wills lui-même reçut peu de reconnaissance et peina ensuite à trouver un emploi stable.",
+  },
+  hoover_dam: {
+    name: "L'achèvement du barrage Hoover",
+    clue: "Des ouvriers coulent tant de béton dans un canyon qu'il faudrait un siècle pour refroidir, alors des kilomètres de tuyaux le refroidissent à l'eau de rivière.",
+    explanation:
+      "Les équipes ont posé plus de 930 kilomètres de tuyaux d'acier dans le béton, faisant circuler de l'eau de rivière refroidie pour réduire le temps de durcissement d'un siècle prévu à environ un an au total ; l'ouvrage terminé fut un temps à la fois le plus haut barrage et la plus grande structure en béton de la planète, achevé avec près de deux ans d'avance sur le calendrier.",
+  },
+  black_power_salute: {
+    name: "Le salut du poing levé",
+    clue: "À une remise de médailles, deux sprinteurs baissent la tête et lèvent un poing ganté, pieds nus en chaussettes noires, le troisième portant un badge pareil.",
+    explanation:
+      "Les coureurs étaient Tommie Smith et John Carlos, qui levèrent le poing pour protester contre l'injustice raciale dans leur pays, tandis que le médaillé d'argent, l'Australien Peter Norman, portait un badge de soutien aux droits humains ; c'est Norman qui suggéra à Carlos de porter le gant de rechange de Smith après avoir oublié le sien au village olympique, ce qui explique pourquoi Carlos leva le poing gauche plutôt que le droit.",
+  },
+  one_love_peace_concert: {
+    name: "Le concert One Love Peace",
+    clue: "Lors d'un concert reggae destiné à calmer la violence entre rivaux, la tête d'affiche fait monter deux dirigeants sur scène et lève leurs mains jointes.",
+    explanation:
+      "L'artiste était Bob Marley, qui réunit le chef du gouvernement Michael Manley et le chef de l'opposition Edward Seaga pendant la chanson « Jamming » ; le concert, suivi par des dizaines de milliers de personnes, finança des logements et des installations sanitaires dans un quartier pauvre, et marqua l'un des premiers retours de Marley dans son pays après avoir survécu à une tentative de fusillade peu avant.",
+  },
+  ned_kelly_last_stand: {
+    name: "Le dernier combat de Ned Kelly",
+    clue: "La bande d'un hors-la-loi en armure de fer artisanale s'enferme dans une auberge ; il sort seul sous les tirs, les balles ricochant sur son casque.",
+    explanation:
+      "Ned Kelly et sa bande fabriquèrent une armure rudimentaire mais efficace à partir de socs de charrue volés et se retranchèrent dans l'auberge de Glenrowan, que la police encercla avant d'y mettre le feu. Kelly en sortit seul dans son armure, encaissant des tirs répétés jusqu'à ce que les policiers comprennent que ses jambes n'étaient pas protégées ; il fut capturé, jugé puis pendu quelques mois plus tard, devenant l'une des légendes de hors-la-loi les plus durables du pays.",
+  },
+  pharos_lighthouse_completion: {
+    name: "Achèvement du phare d'Alexandrie",
+    clue: "Des bâtisseurs achèvent une tour de 100 mètres sur une île portuaire, son feu et ses miroirs guidant les navires pendant des siècles, record pour son époque.",
+    explanation:
+      "Le phare d'Alexandrie, bâti sur l'île de Pharos, compte parmi les sept merveilles du monde antique et se serait élevé à plus de 100 mètres, l'une des plus hautes structures jamais construites pour son époque. Une série de tremblements de terre le fit tomber au fil des siècles, et des archéologues ont depuis localisé d'importants vestiges au fond du port.",
+  },
+  rorkes_drift_defense: {
+    name: "La défense de Rorke's Drift",
+    clue: "Environ 150 défenseurs tiennent un poste face à des milliers d'assaillants, récoltant plus de distinctions que toute autre bataille du régiment.",
+    explanation:
+      "Des troupes britanniques et coloniales défendirent le poste de mission de Rorke's Drift face à une importante force zouloue, combattant toute la nuit après que cette même armée eut écrasé une garnison bien plus nombreuse à Isandhlwana quelques heures plus tôt ce jour-là. Onze croix de Victoria, la plus haute distinction pour bravoure au combat, furent décernées pour cette défense, un record pour un seul régiment lors d'une même action.",
+  },
+  cullinan_diamond_discovery: {
+    name: "Découverte du diamant Cullinan",
+    clue: "Un directeur de mine repère un cristal géant dans une paroi, le plus gros diamant de qualité gemme jamais trouvé, serti plus tard dans des joyaux royaux.",
+    explanation:
+      "La pierre brute, pesant plus de 3 100 carats, plus du double de tout diamant trouvé auparavant, fut découverte à la mine Premier près de Pretoria et offerte au roi britannique Édouard VII pour son anniversaire. Taillée en plusieurs gemmes, sa plus grande pièce, la Grande Étoile d'Afrique, fut sertie dans le sceptre royal toujours utilisé lors des couronnements.",
+  },
+  battle_of_omdurman: {
+    name: "La bataille d'Omdurman",
+    clue: "Un jeune journaliste participe à l'une des dernières grandes charges de cavalerie, quand des mitrailleuses écrasent des défenseurs armés de lances et d'épées.",
+    explanation:
+      "À Omdurman, les forces du général britannique Herbert Kitchener vainquirent une importante armée soudanaise lors d'une bataille marquée par le choc entre armement moderne et forces traditionnelles, ainsi que par la charge du 21e régiment de lanciers, l'une des dernières grandes charges de cavalerie de l'histoire militaire britannique. Parmi les cavaliers ce jour-là chevauchait un jeune officier et journaliste nommé Winston Churchill, qui en laissa plus tard un récit détaillé.",
+  },
+  forbidden_city_completion: {
+    name: "Achèvement de la Cité interdite",
+    clue: "Près d'un million d'ouvriers achèvent un palais de près de mille bâtiments, résidence de souverains pendant cinq siècles, interdit aux sujets ordinaires.",
+    explanation:
+      "La Cité interdite de Pékin, construite en une quinzaine d'années avec des matériaux acheminés depuis tout l'empire, servit de palais impérial et de siège du pouvoir pour deux dynasties pendant environ cinq siècles. Les gens du peuple ne pouvaient y entrer sans autorisation, d'où son nom, et elle reste l'un des complexes de palais en bois les mieux préservés au monde.",
+  },
+  singapore_founding: {
+    name: "Fondation de Singapour",
+    clue: "Un responsable de compagnie négocie un comptoir sur une île au bord d'un détroit, peuplée d'un millier d'habitants, qui devient un pays fait d'une seule ville.",
+    explanation:
+      "Stamford Raffles, administrateur d'une compagnie commerciale britannique, négocia avec les dirigeants locaux la création d'un établissement sur l'île, alors peuplée d'une petite communauté de pêcheurs et de pirates. Sa position sur un grand détroit maritime favorisa une croissance fulgurante, et elle reste aujourd'hui l'un des ports les plus actifs du monde.",
+  },
+  gandhi_salt_march: {
+    name: "La marche du sel",
+    clue: "Un dirigeant politique marche 390 km jusqu'à la mer en vingt-quatre jours avec une foule grandissante, puis enfreint la loi en ramassant du sel sur la plage.",
+    explanation:
+      "Mohandas Gandhi mena une marche depuis son ashram jusqu'à la côte pour défier un monopole colonial sur la production de sel, un acte de désobéissance civile non violente qui se transforma en mouvement de masse, des milliers de personnes produisant à leur tour du sel illégalement en signe de solidarité à travers le pays. Gandhi fut arrêté quelques semaines plus tard, mais la marche est largement considérée comme un tournant ayant attiré l'attention internationale sur le mouvement indépendantiste.",
+  },
+  stanley_finds_livingstone: {
+    name: "Stanley retrouve Livingstone",
+    clue: "Un journaliste cherchant un missionnaire disparu le retrouve près d'un lac, le saluant d'une phrase désormais célèbre sans personne d'autre possible.",
+    explanation:
+      "Henry Morton Stanley avait été envoyé par un journal à la recherche de David Livingstone, sans nouvelles depuis des années alors qu'il explorait l'Afrique centrale, et le retrouva gravement malade dans une petite ville au bord d'un lac. La phrase de salutation de Stanley, « Dr Livingstone, je présume ? », devint l'une des citations les plus reprises de la langue anglaise, alors même que les deux hommes étaient en réalité les seuls Européens à des centaines de kilomètres à la ronde.",
+  },
+  darwin_galapagos_visit: {
+    name: "Darwin aux Galápagos",
+    clue: "Un jeune naturaliste passe cinq semaines à étudier tortues et moqueurs sur un archipel volcanique, notant que les espèces varient d'une île à l'autre.",
+    explanation:
+      "Charles Darwin, alors naturaliste de 26 ans à bord d'un navire d'exploration, collecta des spécimens sur plusieurs îles, remarquant que les carapaces de tortues et les moqueurs différaient légèrement d'une île à l'autre. Ces observations devinrent des années plus tard une preuve clé de sa théorie selon laquelle les espèces évoluent avec le temps par sélection naturelle.",
+  },
+  golden_gate_bridge_opening: {
+    name: "Ouverture du Golden Gate Bridge",
+    clue: "Un pont suspendu s'ouvre au-dessus d'un détroit brumeux, peint en orange vif pour être vu des navires et avions, détenant un temps le record de longueur.",
+    explanation:
+      "Le Golden Gate Bridge ouvrit aux piétons la veille de son ouverture à la circulation automobile, environ 200 000 personnes le traversant à pied pour marquer l'événement. Sa couleur orange-rouge distinctive, choisie en partie pour sa visibilité dans le brouillard fréquent du détroit, est depuis devenue si associée au pont qu'elle est reprise sur des structures similaires dans le monde entier.",
   },
 };

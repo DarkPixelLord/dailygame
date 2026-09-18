@@ -23,26 +23,30 @@ const MAX_LOCATION_POINTS = 700;
 // 3500 (map) + 1500 (final round) = a clean 5,000-point total, with the
 // final round at 30% of it.
 const MAX_ORDER_POINTS = ROUNDS_PER_GAME * 300;
-// Exponential falloff instead of linear against the antipodal max distance —
-// a linear curve gives a random click ~50% of max points, since the average
-// distance between two random points on a sphere is already ~half of the
-// theoretical maximum (20,015 km). This halves the score roughly every
-// ~830 km (DISTANCE_DECAY_KM * ln 2), so only genuinely close guesses score
-// well and a random/wild guess lands near 0. Loosened from 800 to 1200: at
-// 800 an event in a huge country (US, Russia, Brazil...) scored a
-// plausible-but-imprecise guess almost like a wild miss, since a "wrong side
-// of the country" error there is easily 1000-2500 km — a size the curve
-// can't tell apart from an actual wrong-country guess elsewhere.
-const DISTANCE_DECAY_KM = 1200;
 // The event's own lat/lng is itself only accurate to city/landmark scale
 // (e.g. a capital used as a stand-in, or a canal/palace that's several km
 // across) — don't require pixel-perfect precision to hit max points. Full
 // marks anywhere within this radius, decay only kicks in past it.
-const FULL_CREDIT_RADIUS_KM = 25;
+const FULL_CREDIT_RADIUS_KM = 30;
+// Two-stage exponential falloff instead of a single curve: a single decay
+// rate can't be both forgiving on "right region, imprecise pin" guesses
+// (common on huge countries like the US, Russia, Brazil) AND punishing on
+// genuinely wrong guesses — loosen it enough for the former and the tail
+// drags out too long for the latter. So: gentle decay up to NEAR_MISS_KM
+// (same country/region-scale errors barely cost points), then a much
+// steeper decay beyond it (a wrong-region guess craters fast).
+const NEAR_DECAY_KM = 1800;
+const NEAR_MISS_KM = 1000;
+const FAR_DECAY_KM = 400;
 
 function locationPoints(distance: number): number {
   const beyondTolerance = Math.max(0, distance - FULL_CREDIT_RADIUS_KM);
-  return Math.round(MAX_LOCATION_POINTS * Math.exp(-beyondTolerance / DISTANCE_DECAY_KM));
+  if (beyondTolerance <= NEAR_MISS_KM) {
+    return Math.round(MAX_LOCATION_POINTS * Math.exp(-beyondTolerance / NEAR_DECAY_KM));
+  }
+  const atNearMiss = MAX_LOCATION_POINTS * Math.exp(-NEAR_MISS_KM / NEAR_DECAY_KM);
+  const beyondNearMiss = beyondTolerance - NEAR_MISS_KM;
+  return Math.round(atNearMiss * Math.exp(-beyondNearMiss / FAR_DECAY_KM));
 }
 
 // A quick emoji + one-word reaction to how close a guess was, from "way off"
@@ -52,10 +56,11 @@ function locationPoints(distance: number): number {
 function scoreFeedback(points: number, t: UiStrings): { emoji: string; label: string } {
   const ratio = points / MAX_LOCATION_POINTS;
   if (points >= MAX_LOCATION_POINTS) return { emoji: "🎯", label: t.scorePerfect };
-  if (ratio >= 0.6) return { emoji: "🔥", label: t.scoreGreat };
+  if (ratio >= 0.8) return { emoji: "🔥", label: t.scoreExcellent };
+  if (ratio >= 0.6) return { emoji: "💪", label: t.scoreGreat };
   if (ratio >= 0.35) return { emoji: "👍", label: t.scoreGood };
   if (ratio >= 0.1) return { emoji: "😅", label: t.scoreMeh };
-  return { emoji: "😬", label: t.scoreOops };
+  return { emoji: "🤢", label: t.scoreOops };
 }
 
 type Phase = "playing" | "ordering" | "done";
@@ -155,18 +160,18 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
       <div className="final-spotlight flex h-dvh w-full flex-col items-center">
         <div className="flex h-dvh w-full max-w-md flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
           <header className="flex w-full shrink-0 items-center justify-between gap-2">
-            <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
-              <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
-              {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
-            </h1>
-            <div className="flex items-center gap-1.5">
-              <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 text-xs font-bold text-white/70 sm:px-3 sm:py-1">
+            <div className="flex flex-col">
+              <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
+                <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
+                {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
+              </h1>
+              <span className="text-[10px] font-bold uppercase tracking-wide text-white/40 sm:text-xs">
                 {mode === "daily" ? t.dailyChallenge : t.freeMode}
               </span>
-              <span className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm">
-                {totalScore} {t.pts}
-              </span>
             </div>
+            <span className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm">
+              {totalScore} {t.pts}
+            </span>
           </header>
 
           <ChronologicalOrder
@@ -206,14 +211,16 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
     <div className="final-spotlight flex h-dvh w-full flex-col items-center">
       <div className="flex h-dvh w-full max-w-2xl flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
         <header className="flex w-full shrink-0 items-center justify-between gap-2">
-          <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
-            <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
-            {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
-          </h1>
-          <div className="flex items-center gap-1.5 text-xs sm:gap-2 sm:text-sm">
-            <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 font-bold text-white/70 sm:px-3 sm:py-1">
+          <div className="flex flex-col">
+            <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
+              <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
+              {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
+            </h1>
+            <span className="text-[10px] font-bold uppercase tracking-wide text-white/40 sm:text-xs">
               {mode === "daily" ? t.dailyChallenge : t.freeMode}
             </span>
+          </div>
+          <div className="flex items-center gap-1.5 text-xs sm:gap-2 sm:text-sm">
             <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 font-bold text-white/70 sm:px-3 sm:py-1">
               {t.round} {round + 1}/{sessionEvents.length}
             </span>
@@ -225,9 +232,10 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
 
         <div className="flex min-h-0 flex-1 flex-col">
           {!submitted ? (
-            <p className="parchment mb-2 shrink-0 rounded-md border-2 border-[#4a3820]/60 px-4 py-3 italic sm:mb-4 sm:py-4">
-              &ldquo;{localized.clue}&rdquo;
-            </p>
+            <div className={PANEL + " mb-2 flex shrink-0 overflow-hidden px-0 py-0 sm:mb-4"}>
+              <span className="w-1.5 shrink-0 bg-amber-400" aria-hidden />
+              <p className="px-4 py-3 italic text-slate-100 sm:py-4">{localized.clue}</p>
+            </div>
           ) : (
             <div
               className={`relative mb-2 shrink-0 rounded-md border-2 border-emerald-400/50 bg-emerald-400/10 px-4 py-3 pr-12 text-center font-bold text-emerald-300 sm:mb-4 ${
@@ -269,19 +277,7 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
                   transition={{ duration: 0.25 }}
                   className="absolute -top-2 inset-x-0 z-20 overflow-hidden sm:-top-4"
                 >
-                  <div className="relative max-h-[50vh] overflow-y-auto rounded-b-md border-2 border-t-0 border-emerald-400/50 bg-slate-900 py-4 pl-14 pr-4 shadow-lg shadow-black/40">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="absolute left-4 top-4 h-7 w-7 text-amber-400"
-                    >
-                      <path d="M12 6c-2-1.5-4.5-2-7-2v14c2.5 0 5 .5 7 2 2-1.5 4.5-2 7-2V4c-2.5 0-5 .5-7 2z" />
-                      <path d="M12 6v14" />
-                    </svg>
+                  <div className="relative max-h-[50vh] overflow-y-auto rounded-b-md border-2 border-t-0 border-emerald-400/50 bg-slate-900 px-4 py-4 shadow-lg shadow-black/40">
                     <p className="mb-2 text-sm italic text-white/60">&ldquo;{localized.clue}&rdquo;</p>
                     <p className="text-sm leading-relaxed text-white/80">{localized.explanation}</p>
                   </div>

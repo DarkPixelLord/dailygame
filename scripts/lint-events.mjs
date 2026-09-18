@@ -86,7 +86,7 @@ const EM_DASH_RE = /—/;
 const CAPITALIZED_WORD_EXCEPTIONS = new Set([
   "earth", "terre", "west", "occident", "jewish", "juif", "juive",
   "holocaust", "holocauste", "nazi", "nazis", "black", "noire", "noir",
-  "indies", "indes", "antiquity", "antiquité",
+  "indies", "indes", "antiquity", "antiquité", "mars",
 ]);
 
 function findCapitalizedLeak(clue) {
