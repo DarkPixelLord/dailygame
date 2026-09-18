@@ -48,8 +48,7 @@ export type UiStrings = {
 export const UI_STRINGS: Record<Lang, UiStrings> = {
   en: {
     gameTitle: "Laurus",
-    landingIntro:
-      "Guess where five real historical events happened, then put them in order in the final round.",
+    landingIntro: "Guess where five real historical events took place, then put them in chronological order.",
     start: "Start",
     dailyChallenge: "Daily challenge",
     freeMode: "Free mode",
@@ -93,8 +92,7 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
   },
   fr: {
     gameTitle: "Laurus",
-    landingIntro:
-      "Devine où se sont déroulés cinq événements historiques réels, puis remets-les dans l'ordre lors de la manche finale.",
+    landingIntro: "Devine où se sont déroulés cinq événements historiques réels, puis remets-les dans l'ordre chronologique.",
     start: "Commencer",
     dailyChallenge: "Défi du jour",
     freeMode: "Mode libre",

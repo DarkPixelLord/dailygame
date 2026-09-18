@@ -49,9 +49,10 @@ function shuffle<T>(items: T[]): T[] {
 type Props = {
   events: OrderableEvent[];
   onComplete: (score: number) => void;
+  onSubmit?: () => void;
 };
 
-export default function ChronologicalOrder({ events, onComplete }: Props) {
+export default function ChronologicalOrder({ events, onComplete, onSubmit }: Props) {
   const { lang, t } = useLanguage();
   const [order, setOrder] = useState(() => shuffle(events));
   const [submitted, setSubmitted] = useState(false);
@@ -76,6 +77,7 @@ export default function ChronologicalOrder({ events, onComplete }: Props) {
 
   function submit() {
     setSubmitted(true);
+    onSubmit?.();
   }
 
   // Reveal correct/incorrect one slot at a time, top (most recent) first,

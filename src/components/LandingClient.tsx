@@ -71,7 +71,7 @@ export default function LandingClient({ onStart }: Props) {
           </button>
         </div>
 
-        <div className="flex gap-1">
+        <div className="-mt-3 flex gap-1">
           {LANGS.map((option) => (
             <button
               key={option}

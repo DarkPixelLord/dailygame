@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import ChronologicalOrder from "./ChronologicalOrder";
 import LaurelIcon from "./LaurelIcon";
 import { useLanguage } from "./LanguageProvider";
@@ -33,6 +33,7 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
   const [phase, setPhase] = useState<"ordering" | "done">("ordering");
   const [totalScore, setTotalScore] = useState(initialScore);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [orderSubmitted, setOrderSubmitted] = useState(false);
 
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
   const rank = phase === "done" ? finalRank(totalScore, maxTotalScore, t) : null;
@@ -69,13 +70,24 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
               {mode === "daily" ? t.dailyChallenge : t.freeMode}
             </span>
           </div>
-          <span className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm">
-            {totalScore} {t.pts}
-          </span>
+          <AnimatePresence>
+            {!orderSubmitted && (
+              <motion.span
+                key="score-badge"
+                initial={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm"
+              >
+                {totalScore} {t.pts}
+              </motion.span>
+            )}
+          </AnimatePresence>
         </header>
 
         <ChronologicalOrder
           events={events}
+          onSubmit={() => setOrderSubmitted(true)}
           onComplete={(orderScore) => {
             setTotalScore((s) => s + orderScore);
             setPhase("done");
