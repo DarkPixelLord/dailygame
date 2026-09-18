@@ -4,6 +4,8 @@ export type UiStrings = {
   gameTitle: string;
   landingIntro: string;
   start: string;
+  dailyChallenge: string;
+  freeMode: string;
   round: string;
   pts: string;
   clickMapToPlaceYourPin: string;
@@ -40,6 +42,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     landingIntro:
       "Guess where five real historical events happened, then put them in order in the final round.",
     start: "Start",
+    dailyChallenge: "Daily challenge",
+    freeMode: "Free mode",
     round: "Round",
     pts: "pts",
     clickMapToPlaceYourPin: "Click the map to locate this event",
@@ -74,6 +78,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     landingIntro:
       "Devine où se sont déroulés cinq événements historiques réels, puis remets-les dans l'ordre lors de la manche finale.",
     start: "Commencer",
+    dailyChallenge: "Défi du jour",
+    freeMode: "Mode libre",
     round: "Manche",
     pts: "pts",
     clickMapToPlaceYourPin: "Clique sur la carte pour localiser cet événement",

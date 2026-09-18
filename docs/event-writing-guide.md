@@ -71,6 +71,77 @@ phrase (title-style), not a full sentence — "Founding of the People's
 Republic of China", not "...declared on such and such a date". `npm run
 lint:events` enforces both the date ban and a 48-character cap on `name`.
 
+## Geographic leaks through logical elimination, not just banned words
+
+A clue can leak the location without using any banned word or capitalized
+proper noun, if the *fact itself* eliminates almost every possibility by
+deduction. "Ending a world war" narrows the location to a handful of
+signing sites because there have only been two world wars — the word
+"world" isn't on any banned list, but it does the same job a place name
+would. Same failure as the vocabulary-leak section above, just not
+mechanically catchable, so it has to be checked by hand: for every
+qualifying word or number in a clue, ask "does this rule out almost
+everything except the real answer, even without naming a place?" If a
+qualifier does this without adding anything the reader needs to solve the
+clue, cut it — dropping "world" from "ending a war" loses nothing and
+closes the leak.
+
+## Some subjects don't belong on a map
+
+The game asks the player to put a pin on a specific point on Earth. Some
+real, well-documented events don't have one: a scientific discovery whose
+"location" is a fact about the universe, not a place (the Higgs boson
+exists everywhere, discovering it in a specific tunnel is almost
+incidental) is a bad fit even if the clue itself is well written. Before
+drafting, ask "if the reader already knew the answer, would they intuitively
+know where to put the pin, or would they have to think about which
+incidental building/city happened to host the discovery?" If it's the
+second, don't use it — a geography-guessing game and a science-trivia
+question are different formats, and forcing one into the other produces a
+clue nobody can solve on the intended axis.
+
+## Geographic detail must be functional, not decorative
+
+A scene-setting geographic detail ("a plateau overlooking a river") only
+earns its place if it actually did something in the story — caused the
+tactic, explains why the location was chosen, changed the outcome. If it's
+just scenery that could describe hundreds of real locations, it doesn't
+narrow anything down and shouldn't be mistaken for a singular marker. Ask
+"if I deleted this detail, would the story stop making sense, or would it
+just look slightly less vivid?" If the second, it's decorative — replace it
+with (or add) a detail that's causally load-bearing.
+
+## The culturally-coded detail must be universally legible, not just true
+
+A single well-chosen word can rescue an otherwise generic clue by pointing
+at one place through cultural association instead of naming it ("obsessed
+with dancing at balls" → the Congress of Vienna waltz → Vienna;
+"reconquest" → the Reconquista → Spain). This only works if the
+association is close to universal, not just something a history-literate
+writer happens to know. A true, specific detail that isn't independently
+famous (e.g. a real but non-iconic quote) doesn't rescue a generic clue —
+it just adds a fact that reads as generic to anyone who doesn't already
+know the story, which is most players. Test it the same way as the
+notoriety question above: would a blind reader actually land on the place,
+or only someone who already knows the anecdote?
+
+## The point-subject rule: fixing which pin is "the" answer
+
+Some events touch more than one geographic point (a journey has a
+departure, a route landmark, and a destination; a disaster has an epicenter
+and a spread of affected places). Before writing the clue, decide which
+point is *the* answer the game expects, then make that point the
+grammatical subject of the sentence, not a secondary detail buried in a
+clause. Compare "a fleet reaches a distant spice port, having first rounded
+a great southern cape" (destination reads as the point) against "a great
+southern cape is rounded for the first time, opening a direct sea route to
+a distant spice port" (the cape reads as the point) — same facts, different
+implied answer. Pick the point that's actually historically the
+significant one (usually not just wherever the story happens to end), word
+the clue so that point is unambiguous, and make sure the entry's `lat`/`lng`
+actually match that same point, not a different place mentioned elsewhere
+in the same clue.
+
 ## Diversity rules (apply across a batch, and against the existing corpus)
 
 These are judgment calls, not mechanically enforced — check them by eye
@@ -102,6 +173,24 @@ you'd sanity-check any other cross-cutting property lint can't see.
   theater, a different kind of event, not just another battle). The same
   applies to any other conflict once it starts recurring — treat repetition
   of a *war*, not just a *specific battle*, as the thing to avoid.
+- **Don't over-draw the same narrative template.** Beyond repeating a
+  specific war or city, watch for repeating the same *shape of story* across
+  many entries — "a public figure is shot in a crowd," "an army outnumbered
+  10-to-1 still wins," "an explorer's ship reaches a place," "delegates sign
+  a document ending a war," "someone stumbles onto an ancient site by
+  accident." None of these are individually forbidden (several already
+  recur 7-12 times in the corpus), and each instance can still be
+  well-written on its own — the risk isn't that any single one is bad, it's
+  that a player can start pattern-matching "shape of clue" to "type of
+  answer" without the specific content mattering, and any two same-shaped
+  entries with a weak distinguishing detail become interchangeable in a
+  way the singular-marker check alone won't catch (Bogotazo not read next
+  to Gaitán-shaped clues, JFK not read next to other public-shooting
+  clues). Before finalizing a batch, skim the corpus for how many other
+  entries already open the same way, and if the count is already high,
+  either pick a different kind of event or make sure the new entry's
+  singular marker is strong enough to survive being read next to its
+  lookalikes, not just in isolation.
 - **Don't over-draw from the same cities.** Paris and Rome are already the
   most repeated map pins in the corpus (Paris-area events include the
   Bastille, Louis XVI's execution, the 1871 siege, the Eiffel Tower, and the
@@ -183,15 +272,34 @@ loosely fits Afghanistan, Nepal...); "the defending army outnumbered the
 invaders and forced the invader to sign a treaty recognizing full
 sovereignty" (Adwa) is.
 
+**Exception: sheer global fame can substitute for a distinctive detail.**
+"A president is shot while riding through a city in a car" is, structurally,
+as generic as any vague clue — but JFK's assassination is famous enough
+that the scene alone reliably identifies it, the same way a handful of
+other world-historical events would. This isn't a license to skip the
+singular-marker rule by assuming an event is "famous enough" — that
+judgment is exactly the kind of thing self-review gets wrong (see next
+section), because a writer's own sense of what's universally known is
+skewed by what they personally know. It's resolved by the blind-
+verification step below: if an independent read of the bare clue still
+lands on the right answer without hesitation, the fame carried it and no
+extra distinguishing detail is needed; if it doesn't, treat it as any other
+too-vague clue and add one.
+
 ## The process for any new batch of events
 
 0. **Check corpus balance first.** Before drafting, skim
-   `src/lib/poc-events.ts` for continent spread, repeated conflicts, and
-   repeated city pins (see Diversity rules above), and pick the new batch's
-   topics to correct existing gaps rather than reinforce them.
+   `src/lib/poc-events.ts` for continent spread, repeated conflicts,
+   repeated city pins, and repeated narrative templates (see Diversity
+   rules above), and pick the new batch's topics to correct existing gaps
+   rather than reinforce them.
 1. **Draft.** Write `clue`, `name`, `explanation` for each new event,
    applying the vocabulary rules and the singular-marker rule above. Ground
    every distinctive detail in real, checkable history — don't invent facts.
+   Rule out subjects that don't pin to one intuitive point (see "Some
+   subjects don't belong on a map"), decide which point is the answer for
+   multi-location events and word the clue around it (see "The
+   point-subject rule"), and make sure `lat`/`lng` match that same point.
 2. **Deterministic lint.** Run `npm run lint:events`. This catches, with no
    judgment calls, any date/era leak or banned geography/culture word in the
    clue. Fix everything it flags before moving on. It will not catch

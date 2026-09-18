@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 import type { LatLng } from "./MapLibrePin";
@@ -8,7 +8,8 @@ import ChronologicalOrder from "./ChronologicalOrder";
 import LaurelIcon from "./LaurelIcon";
 import { useLanguage } from "./LanguageProvider";
 import type { UiStrings } from "@/lib/i18n";
-import { POC_EVENTS, pickRandomEvents } from "@/lib/poc-events";
+import { POC_EVENTS, pickRandomEvents, pickDailyEvents, type GameMode } from "@/lib/poc-events";
+import { getRecentEventIds, addRecentEventIds } from "@/lib/recent-events";
 import { localizeEvent } from "@/lib/localize";
 import { distanceKm } from "@/lib/geo";
 import { PRIMARY_BUTTON, FINAL_ROUND_BUTTON, PANEL, PIN_GUESS_COLOR, PIN_ANSWER_COLOR, GAME_TITLE } from "@/lib/theme";
@@ -26,14 +27,18 @@ const MAX_ORDER_POINTS = ROUNDS_PER_GAME * 300;
 // a linear curve gives a random click ~50% of max points, since the average
 // distance between two random points on a sphere is already ~half of the
 // theoretical maximum (20,015 km). This halves the score roughly every
-// ~555 km (DISTANCE_DECAY_KM * ln 2), so only genuinely close guesses score
-// well and a random/wild guess lands near 0.
-const DISTANCE_DECAY_KM = 800;
+// ~830 km (DISTANCE_DECAY_KM * ln 2), so only genuinely close guesses score
+// well and a random/wild guess lands near 0. Loosened from 800 to 1200: at
+// 800 an event in a huge country (US, Russia, Brazil...) scored a
+// plausible-but-imprecise guess almost like a wild miss, since a "wrong side
+// of the country" error there is easily 1000-2500 km — a size the curve
+// can't tell apart from an actual wrong-country guess elsewhere.
+const DISTANCE_DECAY_KM = 1200;
 // The event's own lat/lng is itself only accurate to city/landmark scale
 // (e.g. a capital used as a stand-in, or a canal/palace that's several km
 // across) — don't require pixel-perfect precision to hit max points. Full
 // marks anywhere within this radius, decay only kicks in past it.
-const FULL_CREDIT_RADIUS_KM = 10;
+const FULL_CREDIT_RADIUS_KM = 25;
 
 function locationPoints(distance: number): number {
   const beyondTolerance = Math.max(0, distance - FULL_CREDIT_RADIUS_KM);
@@ -55,17 +60,26 @@ function scoreFeedback(points: number, t: UiStrings): { emoji: string; label: st
 
 type Phase = "playing" | "ordering" | "done";
 
-function newSession() {
-  return pickRandomEvents(POC_EVENTS, ROUNDS_PER_GAME);
+function newSession(mode: GameMode) {
+  if (mode === "daily") return pickDailyEvents(POC_EVENTS, ROUNDS_PER_GAME);
+  return pickRandomEvents(POC_EVENTS, ROUNDS_PER_GAME, getRecentEventIds());
 }
 
 type Props = {
+  mode: GameMode;
   onPlayAgain: () => void;
 };
 
-export default function HistoryGuessPoc({ onPlayAgain }: Props) {
+export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
   const { lang, t } = useLanguage();
-  const [sessionEvents] = useState(newSession);
+  const [sessionEvents] = useState(() => newSession(mode));
+
+  useEffect(() => {
+    if (mode === "free") addRecentEventIds(sessionEvents.map((e) => e.id));
+    // sessionEvents is fixed for the lifetime of this component instance
+    // (see the useState lazy initializer above) — only run once per mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [phase, setPhase] = useState<Phase>("playing");
   const [round, setRound] = useState(0);
   const [totalScore, setTotalScore] = useState(0);
@@ -145,8 +159,13 @@ export default function HistoryGuessPoc({ onPlayAgain }: Props) {
               <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
               {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
             </h1>
-            <div className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm">
-              {totalScore} {t.pts}
+            <div className="flex items-center gap-1.5">
+              <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 text-xs font-bold text-white/70 sm:px-3 sm:py-1">
+                {mode === "daily" ? t.dailyChallenge : t.freeMode}
+              </span>
+              <span className="rounded-md border-2 border-amber-400/30 bg-amber-400/10 px-2 py-0.5 text-xs font-bold text-amber-300 sm:px-3 sm:py-1 sm:text-sm">
+                {totalScore} {t.pts}
+              </span>
             </div>
           </header>
 
@@ -192,6 +211,9 @@ export default function HistoryGuessPoc({ onPlayAgain }: Props) {
             {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
           </h1>
           <div className="flex items-center gap-1.5 text-xs sm:gap-2 sm:text-sm">
+            <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 font-bold text-white/70 sm:px-3 sm:py-1">
+              {mode === "daily" ? t.dailyChallenge : t.freeMode}
+            </span>
             <span className="rounded-md border-2 border-white/10 bg-white/5 px-2 py-0.5 font-bold text-white/70 sm:px-3 sm:py-1">
               {t.round} {round + 1}/{sessionEvents.length}
             </span>

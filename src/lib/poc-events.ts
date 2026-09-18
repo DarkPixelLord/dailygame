@@ -204,7 +204,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "franzferdinand",
-    clue: "The assassination of an archduke and his wife during a state visit sets off a chain reaction toward world war.",
+    clue: "The assassination of an archduke and his wife during a state visit sets off a chain reaction toward war.",
     name: "Assassination of Archduke Franz Ferdinand",
     year: 1914,
     lat: 43.8563,
@@ -394,13 +394,13 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "vascodagama",
-    clue: "An explorer's fleet rounds a great southern cape, completing the first direct sea route to a distant spice-trading port.",
-    name: "Vasco da Gama reaches Calicut",
+    clue: "A great southern cape is rounded for the first time by an explorer's fleet, completing the first direct sea route to a distant spice-trading port.",
+    name: "Vasco da Gama rounds the Cape of Good Hope",
     year: 1498,
-    lat: 11.2588,
-    lng: 75.7804,
+    lat: -34.3568,
+    lng: 18.4741,
     wikipediaTitle: "Vasco_da_Gama",
-    explanation: "Portuguese explorer Vasco da Gama arrived at Calicut, India, having found the first direct sea route from Europe to Asia.",
+    explanation: "Portuguese explorer Vasco da Gama rounded the Cape of Good Hope on his way to Calicut, India, completing the first direct sea route from Europe to Asia.",
   },
   {
     id: "magellancircumnavigation",
@@ -414,13 +414,13 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "mayflower",
-    clue: "Passengers sign a compact to govern themselves while still aboard ship, before anyone sets foot on land.",
+    clue: "Religious exiles from a small ship survive a brutal winter in a new land, an ordeal later commemorated by a national harvest holiday.",
     name: "Mayflower lands at Plymouth",
     year: 1620,
     lat: 41.9584,
     lng: -70.6673,
     wikipediaTitle: "Mayflower",
-    explanation: "Pilgrim settlers aboard the Mayflower landed at Plymouth, founding one of the first permanent English colonies in North America.",
+    explanation: "Pilgrim settlers aboard the Mayflower landed at Plymouth after a brutal first winter that killed nearly half the colonists; the survivors' harvest feast with the local Wampanoag became the basis for the Thanksgiving holiday.",
   },
   {
     id: "greatfireoflondon",
@@ -431,16 +431,6 @@ export const POC_EVENTS: HistoricalEvent[] = [
     lng: -0.0899,
     wikipediaTitle: "Great_Fire_of_London",
     explanation: "A fire that started in a bakery on Pudding Lane spread through London, destroying most of the medieval city over four days.",
-  },
-  {
-    id: "newtonprincipia",
-    clue: "A reclusive scholar publishes a work laying out the laws that govern motion and gravity.",
-    name: "Newton publishes the Principia",
-    year: 1687,
-    lat: 52.2043,
-    lng: 0.1218,
-    wikipediaTitle: "Philosophiæ_Naturalis_Principia_Mathematica",
-    explanation: "Isaac Newton published the Principia Mathematica, laying out his laws of motion and universal gravitation.",
   },
   {
     id: "stpetersburgfounding",
@@ -524,23 +514,13 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "transatlanticcable",
-    clue: "Engineers complete a cable strung across the ocean floor, connecting two continents by wire.",
+    clue: "On a small island off a coast, engineers complete a cable strung across the ocean floor, connecting two continents by wire for the first time.",
     name: "First transatlantic telegraph cable completed",
     year: 1858,
     lat: 51.9333,
     lng: -10.3333,
     wikipediaTitle: "Transatlantic_telegraph_cable",
     explanation: "The first transatlantic telegraph cable was completed, allowing near-instant communication between Europe and North America for the first time.",
-  },
-  {
-    id: "darwinorigin",
-    clue: "A naturalist publishes a controversial book proposing that species evolve through natural selection.",
-    name: "Darwin publishes On the Origin of Species",
-    year: 1859,
-    lat: 51.5074,
-    lng: -0.1278,
-    wikipediaTitle: "On_the_Origin_of_Species",
-    explanation: "Charles Darwin published 'On the Origin of Species,' introducing his theory of evolution by natural selection.",
   },
   {
     id: "meijirestoration",
@@ -604,7 +584,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "treatyofversailles",
-    clue: "Diplomats sign a peace treaty inside a lavish palace, formally ending a world war and imposing harsh terms on the defeated power.",
+    clue: "Diplomats sign a peace treaty inside a lavish palace, forcing the defeated power to accept blame for the war and pay reparations for decades.",
     name: "Treaty of Versailles signed",
     year: 1919,
     lat: 48.8049,
@@ -674,7 +654,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "munichagreement",
-    clue: "Leaders sign an agreement ceding a border region to avoid another war, a deal broken within the year.",
+    clue: "A leader returns home waving a signed paper, promising peace has been secured by ceding a border region to avoid war, a promise broken within the year.",
     name: "Munich Agreement signed",
     year: 1938,
     lat: 48.1351,
@@ -714,11 +694,11 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "cubanmissilecrisis",
-    clue: "Spy planes photograph secret missile sites on a small island, triggering a tense 13-day naval blockade.",
+    clue: "Spy planes photograph secret missile sites hidden in the hills of a small island, triggering a tense 13-day naval blockade.",
     name: "Cuban Missile Crisis",
     year: 1962,
-    lat: 23.1136,
-    lng: -82.3666,
+    lat: 22.7167,
+    lng: -83.0333,
     wikipediaTitle: "Cuban_Missile_Crisis",
     explanation: "The discovery of Soviet nuclear missiles in Cuba triggered a tense 13-day standoff between the US and USSR, among the closest the world came to nuclear war.",
   },
@@ -814,23 +794,13 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "poliovaccine",
-    clue: "Researchers announce that a new polio vaccine, tested in the largest medical field trial in history on over a million children, has proven safe and effective.",
+    clue: "In a university hall, researchers announce that a polio vaccine, tested on a million children in the largest medical trial in history, is safe and effective.",
     name: "Polio vaccine trial success announced",
     year: 1955,
     lat: 42.2808,
     lng: -83.743,
     wikipediaTitle: "Polio_vaccine",
     explanation: "Researchers announced that Jonas Salk's polio vaccine had proven safe and effective, a breakthrough against a disease that paralyzed millions of children each year, and it triggered an immediate nationwide rush to manufacture and distribute doses.",
-  },
-  {
-    id: "dnadiscovery",
-    clue: "Two young researchers announce they've worked out the twisted-ladder structure of heredity's molecule.",
-    name: "DNA double helix discovery announced",
-    year: 1953,
-    lat: 52.2043,
-    lng: 0.1218,
-    wikipediaTitle: "DNA",
-    explanation: "James Watson and Francis Crick announced they had determined the double helix structure of DNA, a landmark discovery in biology.",
   },
   {
     id: "sputnik",
@@ -844,7 +814,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "plainsofabraham",
-    clue: "Two young generals both fall in a short, decisive battle fought on a plateau above a river.",
+    clue: "After a night climb up a cliff path, an army surprises its enemy on a plateau; both opposing generals die of their wounds in the same battle.",
     name: "Battle of the Plains of Abraham",
     year: 1759,
     lat: 46.8123,
@@ -984,7 +954,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "plassey",
-    clue: "A trading company's small army defeats a much larger local ruler after bribing away his own general, opening the door to colonial conquest.",
+    clue: "A trading company's small army defeats a much larger ruler in a mango grove during monsoon rain, after bribing a general, opening the door to colonial rule.",
     name: "Battle of Plassey",
     year: 1757,
     lat: 23.7833,
@@ -1124,7 +1094,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "congo_independence_speech",
-    clue: "At a new nation's independence ceremony, its incoming prime minister breaks script to rebut the former colonial monarch, calling the past humiliating slavery.",
+    clue: "At an independence ceremony, a new prime minister goes off script to rebuke the former colonial king seated in the room, just after his praise of colonial rule.",
     name: "Lumumba's Independence Speech",
     year: 1960,
     lat: -4.3,
@@ -1764,7 +1734,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
   {
     id: "indian_ocean_tsunami",
-    clue: "One of the strongest earthquakes ever recorded ruptures the seafloor and sends tsunami waves across an entire ocean, killing people in a dozen countries.",
+    clue: "Off a coast, one of the strongest earthquakes ever recorded ruptures the seafloor and sends tsunami waves across an ocean, killing people in a dozen countries.",
     name: "Indian Ocean Tsunami",
     year: 2004,
     lat: 3.316,
@@ -1894,10 +1864,51 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
 ];
 
-export function pickRandomEvents(events: HistoricalEvent[], count: number): HistoricalEvent[] {
-  const shuffled = [...events];
+export type GameMode = "daily" | "free";
+
+export function pickRandomEvents(events: HistoricalEvent[], count: number, excludeIds: string[] = []): HistoricalEvent[] {
+  const excluded = new Set(excludeIds);
+  const pool = events.filter((e) => !excluded.has(e.id));
+  // If exclusions would leave too few events to fill a round, ignore them
+  // rather than block the game — repeats are a minor annoyance, an empty
+  // pool isn't an option.
+  const source = pool.length >= count ? pool : events;
+  const shuffled = [...source];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, count);
+}
+
+// Deterministic day-of-year seed (UTC) so every player gets the same shuffle
+// on the same calendar day without any server round-trip.
+function dailySeed(date: Date): number {
+  const key = date.toISOString().slice(0, 10); // "YYYY-MM-DD"
+  let hash = 0;
+  for (let i = 0; i < key.length; i++) {
+    hash = (Math.imul(hash, 31) + key.charCodeAt(i)) | 0;
+  }
+  return hash;
+}
+
+// xmur3-ish mix into mulberry32, seeded from dailySeed — good enough
+// distribution for shuffling a few dozen events, not cryptographic.
+function seededRandom(seed: number): () => number {
+  let state = seed | 0;
+  return () => {
+    state = (state + 0x6d2b79f5) | 0;
+    let t = Math.imul(state ^ (state >>> 15), 1 | state);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+export function pickDailyEvents(events: HistoricalEvent[], count: number, date: Date = new Date()): HistoricalEvent[] {
+  const random = seededRandom(dailySeed(date));
+  const shuffled = [...events];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled.slice(0, count);

@@ -124,7 +124,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   franzferdinand: {
     name: "Assassinat de l'archiduc François-Ferdinand",
-    clue: "L'assassinat d'un archiduc et de son épouse en visite officielle déclenche un engrenage vers la guerre mondiale.",
+    clue: "L'assassinat d'un archiduc et de son épouse en visite officielle déclenche un engrenage vers la guerre.",
     explanation:
       "L'assassinat de l'archiduc François-Ferdinand d'Autriche-Hongrie à Sarajevo déclencha un enchaînement d'alliances qui mena à la Première Guerre mondiale.",
   },
@@ -237,10 +237,10 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
       "Jeanne d'Arc, âgée de 17 ans, inspira les forces françaises à lever le siège anglais d'Orléans, un tournant de la guerre de Cent Ans.",
   },
   vascodagama: {
-    name: "Vasco de Gama atteint Calicut",
-    clue: "La flotte d'un explorateur double un grand cap austral, achevant la première route maritime directe vers un lointain port marchand d'épices.",
+    name: "Vasco de Gama double le cap de Bonne-Espérance",
+    clue: "Un cap austral est franchi pour la première fois par une flotte, achevant la première route maritime directe vers un lointain port marchand d'épices.",
     explanation:
-      "L'explorateur portugais Vasco de Gama arriva à Calicut, en Inde, après avoir trouvé la première route maritime directe entre l'Europe et l'Asie.",
+      "L'explorateur portugais Vasco de Gama doubla le cap de Bonne-Espérance en route vers Calicut, en Inde, complétant la première route maritime directe entre l'Europe et l'Asie.",
   },
   magellancircumnavigation: {
     name: "Fin du tour du monde de Magellan",
@@ -250,21 +250,15 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   mayflower: {
     name: "Débarquement du Mayflower",
-    clue: "Les passagers signent un pacte de gouvernement autonome à bord du navire, avant que quiconque ne pose le pied à terre.",
+    clue: "Des exilés religieux venus d'un petit navire survivent à un hiver rigoureux, une épreuve commémorée depuis par une fête nationale des récoltes.",
     explanation:
-      "Des colons pèlerins à bord du Mayflower débarquèrent à Plymouth, fondant l'une des premières colonies anglaises permanentes d'Amérique du Nord.",
+      "Des colons pèlerins à bord du Mayflower débarquèrent à Plymouth après un hiver rigoureux qui emporta près de la moitié d'entre eux ; le repas de récoltes partagé avec le peuple wampanoag voisin est à l'origine de la fête américaine de Thanksgiving.",
   },
   greatfireoflondon: {
     name: "Grand incendie de Londres",
     clue: "Un incendie de boulangerie se propage à travers une ville en bois densément peuplée, brûlant pendant quatre jours.",
     explanation:
       "Un incendie parti d'une boulangerie de Pudding Lane se propagea à travers Londres, détruisant l'essentiel de la ville médiévale en quatre jours.",
-  },
-  newtonprincipia: {
-    name: "Publication des Principia de Newton",
-    clue: "Un savant reclus publie un ouvrage exposant les lois qui régissent le mouvement et la gravité.",
-    explanation:
-      "Isaac Newton publia les Principia Mathematica, exposant ses lois du mouvement et de la gravitation universelle.",
   },
   stpetersburgfounding: {
     name: "Fondation de Saint-Pétersbourg",
@@ -316,15 +310,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   transatlanticcable: {
     name: "Premier câble transatlantique",
-    clue: "Des ingénieurs achèvent un câble tendu sur le fond océanique, reliant deux continents par fil pour la première fois.",
+    clue: "Sur une petite île au large d'une côte, des ingénieurs achèvent un câble tendu sur le fond océanique, reliant deux continents par fil pour la première fois.",
     explanation:
       "Le premier câble télégraphique transatlantique fut achevé, permettant pour la première fois une communication quasi instantanée entre l'Europe et l'Amérique du Nord.",
-  },
-  darwinorigin: {
-    name: "Publication de L'Origine des espèces de Darwin",
-    clue: "Un naturaliste publie un livre controversé proposant que les espèces évoluent par sélection naturelle.",
-    explanation:
-      "Charles Darwin publia L'Origine des espèces, exposant sa théorie de l'évolution par sélection naturelle.",
   },
   meijirestoration: {
     name: "Restauration Meiji",
@@ -364,7 +352,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   treatyofversailles: {
     name: "Signature du traité de Versailles",
-    clue: "Des diplomates signent un traité de paix à l'intérieur d'un palais somptueux, mettant fin à une guerre mondiale et imposant des conditions sévères au vaincu.",
+    clue: "Des diplomates signent un traité de paix dans un palais, forçant le vaincu à endosser la responsabilité de la guerre et des réparations pendant des décennies.",
     explanation:
       "Le traité de Versailles, signé dans la galerie des Glaces, mit officiellement fin à la Première Guerre mondiale et imposa des conditions sévères à l'Allemagne.",
   },
@@ -406,7 +394,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   munichagreement: {
     name: "Signature des accords de Munich",
-    clue: "Des dirigeants signent un accord cédant une région frontalière pour éviter une nouvelle guerre, un accord rompu avant la fin de l'année.",
+    clue: "Rentré chez lui, un dirigeant brandit l'accord en promettant la paix, ayant cédé une région frontalière pour éviter une guerre, promesse rompue avant l'année.",
     explanation:
       "Les accords de Munich permirent à l'Allemagne nazie d'annexer les Sudètes tchécoslovaques, dans une tentative avortée d'apaisement.",
   },
@@ -430,7 +418,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   cubanmissilecrisis: {
     name: "Crise des missiles de Cuba",
-    clue: "Des avions espions photographient des sites de missiles secrets sur une petite île, déclenchant un blocus naval tendu de 13 jours.",
+    clue: "Des avions espions photographient des sites de missiles secrets cachés dans les collines d'une petite île, déclenchant un blocus naval tendu de 13 jours.",
     explanation:
       "La découverte de missiles nucléaires soviétiques à Cuba déclencha une confrontation tendue de 13 jours entre les États-Unis et l'URSS, l'un des moments où le monde fut le plus proche d'une guerre nucléaire.",
   },
@@ -490,15 +478,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   poliovaccine: {
     name: "Annonce du succès du vaccin contre la polio",
-    clue: "Un nouveau vaccin contre la polio, testé sur plus d'un million d'enfants lors du plus vaste essai médical de l'histoire, se révèle sûr et efficace.",
+    clue: "Dans un amphithéâtre, un vaccin polio testé sur un million d'enfants lors du plus vaste essai médical de l'histoire se révèle sûr et efficace.",
     explanation:
       "Des chercheurs annoncèrent que le vaccin de Jonas Salk contre la polio s'était révélé sûr et efficace, une avancée contre une maladie qui paralysait chaque année des millions d'enfants, déclenchant aussitôt une campagne de fabrication et de distribution à grande échelle.",
-  },
-  dnadiscovery: {
-    name: "Découverte de la structure de l'ADN",
-    clue: "Deux jeunes chercheurs annoncent avoir élucidé la structure en double hélice de la molécule de l'hérédité.",
-    explanation:
-      "James Watson et Francis Crick annoncèrent avoir déterminé la structure en double hélice de l'ADN, une découverte majeure en biologie.",
   },
   sputnik: {
     name: "Lancement de Spoutnik 1",
@@ -508,7 +490,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   plainsofabraham: {
     name: "Bataille des plaines d'Abraham",
-    clue: "Deux jeunes généraux tombent tous deux lors d'une bataille brève et décisive, livrée sur un plateau dominant une rivière.",
+    clue: "Après une escalade nocturne d'une falaise, une armée surprend son ennemi sur un plateau ; les deux généraux meurent tous deux de leurs blessures.",
     explanation:
       "Les forces britanniques vainquirent les Français sur les plaines d'Abraham, près de Québec, une bataille décisive dans la lutte pour le contrôle du Canada.",
   },
@@ -592,7 +574,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   plassey: {
     name: "Bataille de Plassey",
-    clue: "La petite armée d'une compagnie commerciale vainc un souverain local puissant après avoir corrompu son propre général, ouvrant la voie à la conquête coloniale.",
+    clue: "La petite armée d'une compagnie commerciale vainc, dans un bosquet de manguiers sous la mousson, un souverain local après avoir soudoyé son général.",
     explanation:
       "La Compagnie britannique des Indes orientales vainquit le nabab du Bengale à Plassey, une victoire qui marqua le début de la domination coloniale britannique sur l'Inde.",
   },
@@ -676,7 +658,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   congo_independence_speech: {
     name: "Discours d'indépendance de Lumumba",
-    clue: "Lors d'une cérémonie d'indépendance, le futur premier ministre improvise une réplique à l'ancien monarque colonial, qualifiant le passé d'esclavage humiliant.",
+    clue: "Lors de la cérémonie d'indépendance, un futur premier ministre sort du texte prévu pour rabrouer en direct l'ancien roi colonial assis dans la salle.",
     explanation:
       "Le discours improvisé de Patrice Lumumba à Léopoldville survint juste après que le roi belge Baudouin eut fait l'éloge de la colonisation, choquant les journalistes étrangers par sa franchise. Lumumba devint le premier ministre du pays mais fut écarté du pouvoir et tué quelques mois plus tard.",
   },
@@ -1060,7 +1042,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   indian_ocean_tsunami: {
     name: "Tsunami de l'océan Indien",
-    clue: "Un séisme parmi les plus puissants jamais enregistrés déchire le fond océanique et lance des vagues à travers tout un océan, tuant des gens dans douze pays.",
+    clue: "Au large d'une côte, un séisme parmi les plus puissants déchire le fond océanique et lance des vagues à travers un océan, tuant des gens dans douze pays.",
     explanation:
       "Des scientifiques de la NASA calculèrent que la magnitude du séisme, parmi les plus fortes jamais mesurées, avait été assez forte pour raccourcir la durée du jour terrestre de quelques microsecondes et déplacer le pôle nord de la planète de plusieurs centimètres.",
   },

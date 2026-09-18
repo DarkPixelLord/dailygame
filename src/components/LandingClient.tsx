@@ -3,12 +3,13 @@
 import { useState } from "react";
 import { useLanguage } from "./LanguageProvider";
 import LaurelIcon from "./LaurelIcon";
-import { PRIMARY_BUTTON, SHARE_BUTTON, GHOST_BUTTON, GAME_TITLE } from "@/lib/theme";
+import { PRIMARY_BUTTON, SECONDARY_BUTTON, SHARE_BUTTON, GHOST_BUTTON, GAME_TITLE } from "@/lib/theme";
 import { UI_STRINGS, type Lang } from "@/lib/i18n";
+import type { GameMode } from "@/lib/poc-events";
 
 const LANGS: Lang[] = ["en", "fr"];
 
-type Props = { onStart: () => void };
+type Props = { onStart: (mode: GameMode) => void };
 
 export default function LandingClient({ onStart }: Props) {
   const { lang, setLang, t } = useLanguage();
@@ -59,8 +60,11 @@ export default function LandingClient({ onStart }: Props) {
         </div>
 
         <div className="flex w-full flex-col gap-2">
-          <button type="button" onClick={onStart} className={PRIMARY_BUTTON + " w-full px-10"}>
-            {t.start}
+          <button type="button" onClick={() => onStart("daily")} className={PRIMARY_BUTTON + " w-full px-10"}>
+            {t.dailyChallenge}
+          </button>
+          <button type="button" onClick={() => onStart("free")} className={SECONDARY_BUTTON + " w-full px-10"}>
+            {t.freeMode}
           </button>
           <button type="button" onClick={share} className={SHARE_BUTTON + " w-full px-10"}>
             {linkCopied ? t.linkCopied : t.share}
