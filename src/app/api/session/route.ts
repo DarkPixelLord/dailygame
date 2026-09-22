@@ -1,7 +1,5 @@
 import { pickDailyEvents, pickRandomEvents, type GameMode } from "@/lib/poc-events";
-// Temporarily serving the frozen v1 corpus while v2 is in progress — see
-// legacy-events.ts. Swap back to poc-events.ts once v2 ships.
-import { LEGACY_EVENTS as POC_EVENTS } from "@/lib/legacy-events";
+import { ACTIVE_EVENTS as POC_EVENTS } from "@/lib/event-pool";
 import { localizeEvent } from "@/lib/localize";
 import { ROUNDS_PER_GAME } from "@/lib/scoring";
 import type { Lang } from "@/lib/i18n";
