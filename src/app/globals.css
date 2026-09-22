@@ -63,3 +63,24 @@ body {
 .final-spotlight {
   background: radial-gradient(ellipse 90% 65% at 50% 45%, #22355c 0%, #0b1224 50%, #030509 100%);
 }
+
+/* Slow breathing glow around the final-score rank icon itself. */
+@keyframes icon-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.75));
+  }
+}
+
+.icon-glow {
+  animation: icon-glow 2.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-glow {
+    animation: none;
+    filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.5));
+  }
+}

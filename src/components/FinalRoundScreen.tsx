@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ChronologicalOrder from "./ChronologicalOrder";
 import LaurelIcon from "./LaurelIcon";
@@ -17,6 +17,38 @@ import { PRIMARY_BUTTON, PANEL, GAME_TITLE } from "@/lib/theme";
 function finalRank(totalScore: number, maxTotalScore: number, t: UiStrings) {
   const tier = rankTier(totalScore, maxTotalScore);
   return { icon: RANK_ICON_COMPONENTS[tier], label: t[RANK_LABEL_KEYS[tier]] };
+}
+
+// Timing (seconds) for the final-score reveal sequence: a short beat of
+// anticipation, then the badge bursts open and grows in, then the score and
+// rank text fade in once the badge has landed.
+const BADGE_BURST_DELAY = 0.3;
+const BADGE_POP_DELAY = 0.55;
+const TEXT_REVEAL_DELAY = 1.3;
+const BADGE_BURST_COUNT = 36;
+
+type BurstParticle = {
+  angle: number;
+  distance: number;
+  size: number;
+  duration: number;
+  delayJitter: number;
+  upwardDrift: number;
+};
+
+// Randomized per-particle flight paths for the badge-reveal burst — varied
+// angle/distance/speed/size so the burst reads as chaotic sparks rather than
+// a uniform, synchronized ring, with an added upward drift so the sparks
+// trend skyward like a firework instead of spreading evenly in all directions.
+function buildBurstParticles(count: number): BurstParticle[] {
+  return Array.from({ length: count }, () => ({
+    angle: Math.random() * 2 * Math.PI,
+    distance: 55 + Math.random() * 85,
+    size: 2.5 + Math.random() * 4,
+    duration: 0.35 + Math.random() * 0.3,
+    delayJitter: Math.random() * 0.2,
+    upwardDrift: 20 + Math.random() * 35,
+  }));
 }
 
 type Props = {
@@ -37,6 +69,9 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
 
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
   const rank = phase === "done" ? finalRank(totalScore, maxTotalScore, t) : null;
+  // Re-rolled only when the reveal actually happens, so the burst doesn't
+  // reshuffle mid-animation on unrelated re-renders (e.g. the share button).
+  const burstParticles = useMemo(() => buildBurstParticles(BADGE_BURST_COUNT), [phase]);
 
   async function share() {
     const url = `${window.location.origin}/share/${totalScore}`;
@@ -99,12 +134,60 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className={PANEL + " flex shrink-0 flex-col items-center gap-2 px-4 py-3 text-center sm:gap-3 sm:py-6"}
+            className={PANEL + " flex shrink-0 flex-col items-stretch gap-3 px-4 py-3 sm:gap-4 sm:py-6"}
           >
-            <p className="text-xs font-bold uppercase tracking-widest text-amber-300/80 sm:text-sm">{t.finalScore}</p>
-            <div className="flex items-center justify-center gap-2 sm:gap-3">
-              {rank?.icon && <rank.icon className="h-10 w-10 shrink-0 text-amber-300 sm:h-14 sm:w-14" />}
-              <div className="flex flex-col items-start">
+            <div className="flex items-center gap-3 sm:gap-4">
+              {rank?.icon && (
+                <div className="relative h-16 w-16 shrink-0 sm:h-20 sm:w-20">
+                  <motion.div
+                    className="pointer-events-none absolute inset-0 rounded-full"
+                    style={{
+                      background: "radial-gradient(circle, rgba(251,191,36,0.9) 0%, rgba(251,191,36,0) 70%)",
+                    }}
+                    initial={{ scale: 0.2, opacity: 0 }}
+                    animate={{ scale: 2.4, opacity: [0, 1, 0] }}
+                    transition={{ delay: BADGE_BURST_DELAY, duration: 1, ease: "easeOut", times: [0, 0.15, 1] }}
+                  />
+                  {burstParticles.map((p, i) => (
+                    <motion.span
+                      key={i}
+                      className="pointer-events-none absolute left-1/2 top-1/2 rounded-full bg-amber-300"
+                      style={{ width: p.size, height: p.size }}
+                      initial={{ x: "-50%", y: "-50%", opacity: 0, scale: 1 }}
+                      animate={{
+                        x: `calc(-50% + ${Math.cos(p.angle) * p.distance}px)`,
+                        y: `calc(-50% + ${Math.sin(p.angle) * p.distance - p.upwardDrift}px)`,
+                        opacity: [0, 1, 0],
+                        scale: 0,
+                      }}
+                      transition={{
+                        delay: BADGE_BURST_DELAY + p.delayJitter,
+                        duration: p.duration,
+                        ease: "easeOut",
+                        times: [0, 0.2, 1],
+                      }}
+                    />
+                  ))}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center rounded-lg border-2 border-amber-400/40 bg-black/30"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: BADGE_POP_DELAY, type: "spring", stiffness: 140, damping: 14 }}
+                  >
+                    <rank.icon className="icon-glow h-10 w-10 text-amber-300 sm:h-14 sm:w-14" />
+                  </motion.div>
+                </div>
+              )}
+              <motion.div
+                className="flex flex-col items-start text-left"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: TEXT_REVEAL_DELAY, duration: 0.45, ease: "easeOut" }}
+              >
+                <p className="text-xs font-bold uppercase tracking-widest text-white sm:text-sm">
+                  {t.finalScore}
+                </p>
+                <div className="my-1 h-px w-32 bg-gradient-to-r from-amber-400 to-transparent sm:w-40" />
                 <p className="text-2xl font-black text-amber-400 sm:text-4xl">
                   {totalScore} <span className="text-base font-bold text-white/50 sm:text-lg">/ {maxTotalScore}</span>
                 </p>
@@ -113,9 +196,9 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                     {rank.label}
                   </span>
                 )}
-              </div>
+              </motion.div>
             </div>
-            <div className="mt-1 flex w-full gap-2 sm:mt-2">
+            <div className="flex w-full gap-2">
               <button type="button" onClick={onPlayAgain} className={PRIMARY_BUTTON + " flex-1"}>
                 {t.playAgain}
               </button>
