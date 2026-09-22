@@ -1,4 +1,9 @@
-# Writing game events: clue, name, explanation
+# Writing game events: clue, name, explanation (v1, frozen)
+
+**Status: paused, kept for reference only.** This guide governed the 234
+entries in `src/lib/legacy-events.ts` / `legacy-events-fr.ts`. New batches use
+`docs/event-writing-guide-v2.md` instead. This file is not maintained going
+forward — don't add new rules here, and don't use it to write new entries.
 
 This game shows the player a `clue` and asks them to place a map pin at the
 real-world location. Only after they submit a guess do they see `name` and

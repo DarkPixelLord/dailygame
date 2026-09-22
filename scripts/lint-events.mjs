@@ -12,7 +12,7 @@
 // date-free) to fit the fixed-height final-round cards without truncating.
 // It does NOT catch vagueness/ambiguity or factual accuracy of added
 // details — those need the blind-verification pass described in
-// docs/event-writing-guide.md, because those are judgment calls a regex
+// docs/event-writing-guide-v2.md, because those are judgment calls a regex
 // can't make.
 //
 // Usage: node scripts/lint-events.mjs   (exit code 1 if any violation)
@@ -87,6 +87,7 @@ const CAPITALIZED_WORD_EXCEPTIONS = new Set([
   "earth", "terre", "west", "occident", "jewish", "juif", "juive",
   "holocaust", "holocauste", "nazi", "nazis", "black", "noire", "noir",
   "indies", "indes", "antiquity", "antiquité", "mars",
+  "nobel", "prize",
 ]);
 
 function findCapitalizedLeak(clue) {
