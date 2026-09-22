@@ -1,4 +1,6 @@
-import { POC_EVENTS } from "@/lib/poc-events";
+// Temporarily serving the frozen v1 corpus while v2 is in progress — see
+// legacy-events.ts. Swap back to poc-events.ts once v2 ships.
+import { LEGACY_EVENTS as POC_EVENTS } from "@/lib/legacy-events";
 import { localizeEvent } from "@/lib/localize";
 import { distanceKm } from "@/lib/geo";
 import { locationPoints } from "@/lib/scoring";

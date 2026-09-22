@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import ChronologicalOrder from "@/components/ChronologicalOrder";
-import { POC_EVENTS, pickRandomEvents } from "@/lib/poc-events";
+import { pickRandomEvents } from "@/lib/poc-events";
+// Temporarily serving the frozen v1 corpus while v2 is in progress — see
+// legacy-events.ts. Swap back to poc-events.ts once v2 ships.
+import { LEGACY_EVENTS as POC_EVENTS } from "@/lib/legacy-events";
 import { PRIMARY_BUTTON, GHOST_BUTTON } from "@/lib/theme";
 
 // The 5 events with the longest `name` strings (checked across both EN and

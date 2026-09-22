@@ -1,5 +1,7 @@
 import type { HistoricalEvent } from "./poc-events";
-import { POC_EVENTS_FR } from "./poc-events-fr";
+// Temporarily serving the frozen v1 corpus while the v2 pool is still in
+// progress — see legacy-events-fr.ts. Swap back to poc-events-fr.ts once v2 ships.
+import { LEGACY_EVENTS_FR as POC_EVENTS_FR } from "./legacy-events-fr";
 import type { Lang } from "./i18n";
 
 export type LocalizedEvent = {
