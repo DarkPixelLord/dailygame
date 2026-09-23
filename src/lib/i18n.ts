@@ -43,6 +43,7 @@ export type UiStrings = {
   rankHistorian: string;
   rankExpert: string;
   rankMaster: string;
+  todaysPlayers: string;
 };
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
@@ -89,6 +90,7 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     rankHistorian: "Historian",
     rankExpert: "Expert",
     rankMaster: "Master",
+    todaysPlayers: "Today's players",
   },
   fr: {
     gameTitle: "Laurus",
@@ -133,5 +135,6 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     rankHistorian: "Historien",
     rankExpert: "Expert",
     rankMaster: "Maître",
+    todaysPlayers: "Joueurs du jour",
   },
 };

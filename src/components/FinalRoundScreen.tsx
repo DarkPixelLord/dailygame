@@ -1,16 +1,21 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ChronologicalOrder from "./ChronologicalOrder";
 import LaurelIcon from "./LaurelIcon";
 import { useLanguage } from "./LanguageProvider";
 import type { UiStrings } from "@/lib/i18n";
 import type { GameMode } from "@/lib/poc-events";
-import { MAX_LOCATION_POINTS, MAX_ORDER_POINTS, rankTier } from "@/lib/scoring";
+import { MAX_LOCATION_POINTS, MAX_ORDER_POINTS, rankTier, type RankTier } from "@/lib/scoring";
 import { RANK_ICON_COMPONENTS, RANK_LABEL_KEYS } from "@/lib/rank-icons";
 import type { OrderableEvent } from "@/lib/game-types";
 import { PRIMARY_BUTTON, PANEL, GAME_TITLE } from "@/lib/theme";
+import { getDeviceId } from "@/lib/device-id";
+
+// Display order for the today's-players breakdown: best tier first, since
+// it's the one players scan for first ("am I Master-tier today?").
+const TIER_DISPLAY_ORDER: RankTier[] = ["master", "expert", "historian", "scholar", "amateur", "novice"];
 
 // The final-score rank, shown once at the end of the game — a coarser,
 // higher-stakes tier list than the per-round scoreFeedback in HistoryGuessPoc.
@@ -66,9 +71,31 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
   const [totalScore, setTotalScore] = useState(initialScore);
   const [linkCopied, setLinkCopied] = useState(false);
   const [orderSubmitted, setOrderSubmitted] = useState(false);
+  const [tierPercentages, setTierPercentages] = useState<Record<RankTier, number> | null>(null);
 
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
   const rank = phase === "done" ? finalRank(totalScore, maxTotalScore, t) : null;
+
+  // Daily-challenge scores only — free-mode runs aren't part of the
+  // day's leaderboard, so they're never submitted to api/finish.
+  useEffect(() => {
+    if (phase !== "done" || mode !== "daily") return;
+    const deviceId = getDeviceId();
+    fetch("/api/finish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ score: totalScore, deviceId, mode }),
+    })
+      .then(() => fetch("/api/stats"))
+      .then((res) => res.json())
+      .then((data) => setTierPercentages(data.percentages ?? null))
+      .catch(() => {
+        // Stats are a nice-to-have on the results screen — silently skip
+        // the breakdown rather than blocking or erroring the final screen.
+      });
+    // Runs once, right when the final score locks in.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
   // Re-rolled only when the reveal actually happens, so the burst doesn't
   // reshuffle mid-animation on unrelated re-renders (e.g. the share button).
   const burstParticles = useMemo(() => buildBurstParticles(BADGE_BURST_COUNT), [phase]);
@@ -198,6 +225,25 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                 )}
               </motion.div>
             </div>
+            {tierPercentages && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: TEXT_REVEAL_DELAY + 0.2, duration: 0.4 }}
+                className="flex flex-col gap-1 border-t border-white/10 pt-2.5"
+              >
+                <p className="text-[10px] font-bold uppercase tracking-widest text-white/40 sm:text-xs">
+                  {t.todaysPlayers}
+                </p>
+                <div className="flex flex-wrap gap-x-3 gap-y-1">
+                  {TIER_DISPLAY_ORDER.map((tier) => (
+                    <span key={tier} className="text-[11px] font-semibold text-white/70 sm:text-xs">
+                      <span className="text-amber-300">{tierPercentages[tier]}%</span> {t[RANK_LABEL_KEYS[tier]]}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            )}
             <div className="flex w-full gap-2">
               <button type="button" onClick={onPlayAgain} className={PRIMARY_BUTTON + " flex-1"}>
                 {t.playAgain}
