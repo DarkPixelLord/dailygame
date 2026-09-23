@@ -8,9 +8,12 @@
     "start": "next start",
     "lint": "eslint",
     "lint:events": "node scripts/lint-events.mjs && node scripts/list-topics.mjs",
-    "topics": "node scripts/list-topics.mjs"
+    "topics": "node scripts/list-topics.mjs",
+    "stats:pool": "node scripts/pool-stats.mjs --write",
+    "score:guess": "node scripts/score-guess.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.1",
     "framer-motion": "^13.3.0",
     "maplibre-gl": "^6.10.0",
     "next": "16.3.5",

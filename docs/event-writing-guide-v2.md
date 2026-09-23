@@ -37,6 +37,110 @@ once explained, not a fact that's technically real but obscure or of narrow
 academic interest. If you had to dig past the event's own Wikipedia summary
 to establish why it matters, it's too niche.
 
+## Writing to a target difficulty, not inheriting one
+
+Difficulty used to be treated as something sourcing measured (Wikidata
+sitelinks, then pageviews) and the writer just inherited as an absolute
+value. That's unreliable for what actually matters here: pageviews measure
+how much an article gets *read*, not whether the fact is one a general
+Western-pop-culture audience would recognize. A heavily-visited niche topic
+isn't "easy," and a moderately-visited but iconic one can be (see
+`feedback_fame_vs_impact` — pageviews ≠ historical significance).
+
+Testing showed the current pool skews too hard overall — more than one or
+two hard clues in a run of five starts losing players. **The fix isn't
+"write hard clues more obliquely" (that makes hard worse); it's shifting
+the whole pool's center of gravity toward easy.** Popularity stays useful,
+but only as one input to *build* each tier, combined with how the clue is
+written — never treated alone as the difficulty.
+
+Every entry in `poc-events.ts` sets `difficulty: "easy" | "medium" | "hard"`,
+checked by `npm run lint:events`. Run `npm run stats:pool` (writes
+`docs/pool-stats.md`) before picking a batch and write to whichever tier
+the pool needs — **easy is the default target** (see the pool-wide ratio
+below), not an equal three-way split.
+
+Across all three tiers, **phrasing stays equally plain and direct** — never
+make a clue harder to parse to manufacture "hard." What actually moves a
+clue between tiers is (1) how well-known the source topic already is, and
+(2) how much *geographic* help the clue gives — not how many identifying
+facts it stacks. This matters because the game tests localization, not
+recognition: a fact that helps a player recognize *what* the event is
+(a famous name, a cultural association) doesn't automatically help them
+place *where* it is on the map, which is the thing actually being scored.
+Generic geography words used in isolation ("a mountain," "a peninsula")
+don't discriminate either — the world has too many of both. Directness of
+phrasing is not a difficulty knob anywhere; it's a fixed requirement.
+
+**Easy (the majority target, ~50% of the pool)**
+- Sourcing ingredient: prefer candidates that are already broadly
+  recognizable (high sitelinks/pageviews in `data/candidates-*.json`) —
+  popularity is a genuine asset here, not just a floor.
+- Writing ingredient, identity: one singular marker, stated plainly — lean
+  on the "sheer global fame" exception (below) rather than stacking extra
+  identity facts, which help recognition but not localization.
+- Writing ingredient, geography: this is the real easy lever, but it's
+  narrower than "any proper noun." **Never state directly, at any tier
+  including easy: the country's own name or nationality/culture adjective**
+  ("Egypt"/"Egyptian", "France"/"French") — **and never a city, town, or
+  village name either** ("Munich", "New York", "the village of Schengen")
+  — a city-level proper noun pins the answer almost as precisely as the
+  country name would, sometimes more precisely, so it's excluded for the
+  same reason.
+  What IS allowed: a real named natural or large-scale feature — a river,
+  mountain range, sea, desert, island, peninsula — but only if it **spans a
+  large distance or multiple countries**, not a single point. The test:
+  does knowing this name still leave meaningful uncertainty about exactly
+  where the pin is, or does it (like a city) point at essentially one
+  place? "Along the Nile" (six countries, ~6,650 km) leaves real
+  uncertainty. "On the Tiber" or "at the foot of Corcovado" doesn't — both
+  are, in general knowledge, synonymous with one specific city (Rome, Rio),
+  so they fail the test exactly like naming the city would; treat them the
+  same way. When no genuine large-scale feature exists for a topic, drop
+  the geographic proper noun entirely and lean on the "sheer global fame"
+  exception (below) or a generic cultural allusion ("a city famous for its
+  canals") instead of reaching for a city name as a shortcut.
+
+**Medium**
+- Sourcing ingredient: any popularity band works; the topic doesn't need to
+  be as universally famous as an easy pick.
+- Writing ingredient, identity: one singular marker, stated as plainly and
+  directly as an easy clue would state it — no stacking, no obliqueness.
+- Writing ingredient, geography: one *distinctive* geographic descriptor
+  that isn't a proper noun — cross a terrain word with a climate/scale
+  qualifier ("a volcanic island in a warm sea," not just "an island"), or
+  use a real quantified/superlative physical fact ("a seismically active
+  mountain range"). A bare terrain noun alone doesn't count; it needs to
+  actually narrow the plausible region the way a real fact would.
+
+**Hard (the minority tier, ~20% of the pool)**
+- Sourcing ingredient: this is the only difficulty lever here — pull from
+  lower-popularity candidates rather than writing more obscurely.
+- Writing ingredient: same clarity bar as medium on both identity and
+  geography — one plain singular marker, geography decorative only, no
+  proper nouns, no distinctive climate/terrain combo either. The difficulty
+  comes entirely from the subject being less broadly known.
+- Never manufacture "hard" through vagueness or oblique phrasing. A vague
+  clue fails blind verification outright (the reader can't identify
+  anything); a hard clue must still be uniquely solvable, just for a
+  subject fewer players already recognize. Don't use this tier as cover for
+  a banned-vocabulary or geography-leak shortcut "because it's hard
+  anyway" — every rule below still applies (except the geographic
+  proper-noun ban lift, which is easy-only).
+
+**Pool-wide ratio target: 50% easy / 30% medium / 20% hard**, not an even
+three-way split — testing showed the pool ran too hard overall. `npm run
+stats:pool` (writes `docs/pool-stats.md`) tracks the gap to target and
+tells you which tier to write next. This feeds directly into how daily
+5-card packs get assembled: **2-3 easy / 1-2 medium / max 1 hard per
+pack** (soft targets, not a rigid quota — see
+`scripts/build-daily-packs.mjs`'s existing soft-constraint approach for the
+candidate-pool equivalent). These targets are a starting point, not fixed —
+adjust both together if playtesting says otherwise.
+
+Recipe changes get validated with a blind-guess test before being adopted —
+see `docs/difficulty-calibration-protocol.md` for that process.
+
 ## Process: batch, not one-agent-per-event
 
 Goal: minimize the number of separate model invocations per batch, since
@@ -45,10 +149,22 @@ of how small its actual job is.
 
 0. Pick (or, once it exists, pull from the Wikidata candidate pool) a batch
    of topics, checking spread/repetition against the **new pool only** (see
-   Diversity rules below) — not against the legacy corpus.
+   Diversity rules below) — not against the legacy corpus. **Each batch
+   mirrors the 50/30/20 ratio internally** (e.g. 5 easy / 3 medium / 2 hard
+   for a 10-entry batch), rather than one tier per batch — this way every
+   tier has enough entries to test/play with after just one batch, instead
+   of medium/hard staying at zero until their turn comes up. Check
+   `docs/pool-stats.md` (`npm run stats:pool`) beforehand to confirm the
+   pool-wide gap is still closing in proportion, and rebalance a batch's
+   split only if one tier has drifted noticeably ahead of the others.
 1. **One drafting pass, whole batch at once.** Write `clue`/`name`/`explanation`
    for every event in the batch in a single response, applying the
-   vocabulary and singular-marker rules below.
+   vocabulary and singular-marker rules below, written to the batch's
+   chosen difficulty tier. Set `category` too (one of
+   `conflict_politics_society` / `arts_culture` / `science_infrastructure`,
+   matching `TOP_CATEGORIES` in `scripts/fetch-candidates.mjs`) — not yet
+   used by any pack-assembly logic, but required by lint so nothing needs
+   retagging once that logic exists.
 2. **Deterministic lint**, unchanged: `npm run lint:events`.
 3. **One blind-verification pass, whole batch at once**, not one sub-agent
    per clue. A single fresh, independent read gets the full list of new
@@ -84,6 +200,18 @@ non-calendar numbers/durations (a 53-day siege, three days, 28 years).
 **Also banned everywhere (`clue` and `explanation`):** dates, years,
 decades, centuries, "BCE"/"CE" (the final round is a chronological-ordering
 game, so the reveal screen can't already give away the year).
+
+**Implicit temporal hints in `explanation` are banned too, even without a
+literal date — not mechanically catchable, needs a manual pass.** A fact
+can pin the era just as precisely as a date: a named technology ("wireless
+communication", "electric timing"), a defunct political entity or bloc
+("the Soviet Union", "Czechoslovakia", "the Cold War"), or a style/movement
+tied to one period ("Art Deco"). Even though `explanation` is shown after
+the player has already guessed, the player carries that era knowledge into
+the later chronological-ordering round, so it still leaks. Prefer a vaguer
+paraphrase that keeps the interesting fact without the era-pinning word
+("a rival global power" instead of "the Soviet Union", "a communications
+antenna" instead of "wireless communication").
 
 **`name` has its own, stricter rule: no dates, ever, and keep it short.**
 It's also the label on every card in the final round's reorder list — a
@@ -146,6 +274,32 @@ turned up. When a diplomacy-category candidate's stored coordinate is a
 capital city that has nothing else to do with the story, check the full
 source article for an actual handover/signing-site scene before defaulting
 to the treaty's negotiating city.
+
+## Person entries: the clue must signal it wants the birthplace
+
+For a person-subject entry, `lat`/`lng`/`year` point at where and when they
+were *born* — not where they worked, made their famous discovery, died, or
+any other place tied to them. The game shows only the clue text; there's no
+separate "guess the birthplace" instruction anywhere in the UI. So if the
+clue doesn't say so, the player has no way to know the pin isn't, say, where
+the person did the thing the clue just described. A clue that's all career
+facts ("this artist turned soup cans into fine art...") lets a player
+correctly identify the person and still guess the wrong point on the map.
+
+**Fix: open with an explicit birth verb** ("Born in ...", "Né(e) dans...",
+"naît"/"naquit" à la rigueur), paired with a vague, non-eliminating
+physical-geography or generic-setting descriptor (a small village, a river
+town, a coastal city, a noble family) — never a proper noun or the words
+banned above. The rest of the clue is free to carry whatever distinctive
+fact identifies the person; the birth clause's only job is telling the
+player *what they're being asked to point at*, not helping them find it.
+
+This is mechanically enforced: every entry in `poc-events.ts` sets
+`pinIsBirthplace: true | false`, and whenever it's `true`,
+`scripts/lint-events.mjs` requires the clue (in **both** `poc-events.ts` and
+`poc-events-fr.ts`) to contain a birth-signal word ("born" / "né"/"née"/
+"naît"/"naquit"). Set this field for every new person entry — the lint fails
+loudly if you forget it or forget the birth-signal word in either language.
 
 ## Diversity rules (apply across the new pool only)
 

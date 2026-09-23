@@ -30,4 +30,5 @@ export type OrderableEvent = {
   id: string;
   name: string;
   year: number;
+  explanation: string;
 };

@@ -7,6 +7,7 @@ import {
   Marker,
   NavigationControl,
   setWorkerUrl,
+  type ExpressionSpecification,
   type GeoJSONSource,
   type LngLatBoundsLike,
   type MapMouseEvent,
@@ -32,6 +33,32 @@ const LAND_COLOR = "#fbde90";
 const SEA_COLOR = "#7caacf";
 const ROAD_COLOR = "#fbf1d6";
 const BOUNDARY_COLOR = "#8a6a2f"; // mid brown, readable on the pale land fill
+// Dark, saturated blue (darker than the upstream style's default #74aee9 /
+// #495e91) so a water name reads unambiguously as water, not as another
+// place label, on both the tan land fill and the lighter sea fill. Shared by
+// rivers, lakes, seas and oceans for one consistent "this text = a body of
+// water" visual language.
+const WATER_LABEL_COLOR = "#0b4f8a";
+// Upstream default is 10 (street-level) — far past what a player reaches
+// while exploring a guess. The underlying tile data starts at zoom 3
+// (checked against the vector source's TileJSON); 4 surfaces major/
+// well-known rivers within a realistic guessing zoom range.
+const RIVER_LABEL_MINZOOM = 4;
+// Line-placed text needs enough on-screen pixel length along the geometry
+// to fit — at the zoom where a river/lake first becomes visible, that
+// length usually isn't there yet, so the label only appears much later
+// once zoomed in far past where the shape itself is already visible
+// (confirmed by screenshot: shape visible, name not, until several zoom
+// steps later). Point placement anchors the label at one spot on the
+// geometry instead, so it can appear as soon as the feature is in view and
+// past its minzoom, independent of how much of it fits on screen.
+const WATER_LABEL_PLACEMENT = "point";
+// OpenMapTiles' `name_en`/`name:en` fields are sometimes dropped from a
+// feature's attributes at lower zoom (tile-size optimization), which made
+// the Nile render in Arabic (its raw `name`) instead of English at the zoom
+// where it first appeared — coalesce through both English variants before
+// falling back to the local-script `name`.
+const ENGLISH_WATER_NAME_FIELD: ExpressionSpecification = ["coalesce", ["get", "name_en"], ["get", "name:en"], ["get", "name"]];
 
 // A small dot with expanding, fading rings — a "sonar ping" around the answer pin.
 function createPulseMarkerElement(color: string): HTMLDivElement {
@@ -57,10 +84,17 @@ function createPulseMarkerElement(color: string): HTMLDivElement {
 // Keeps flat roads and place labels; hides everything that clutters the
 // base map for a guessing game: POI/transit icons, buildings, airports, the
 // low-res world-scale shaded relief raster, all land texture/use fills
-// (forest, grass, parks, residential...), waterway lines + water names,
-// airport runways, tunnel/bridge duplicates, road casings + rail lines +
-// one-way arrows + street name/shield labels, and the finer administrative
-// borders. Only country-level land, sea, roads and city/country labels stay.
+// (forest, grass, parks, residential...), waterway LINE geometry, airport
+// runways, tunnel/bridge duplicates, road casings + rail lines + one-way
+// arrows + street name/shield labels, and the finer administrative borders.
+// Only country-level land, sea, roads and city/country labels stay — plus
+// water NAME labels (rivers, lakes, seas, oceans: waterway_line_label,
+// water_name_point_label, water_name_line_label), kept deliberately: they're
+// a real, on-map-discoverable clue tool for "easy" difficulty entries (see
+// "Writing to a target difficulty" in docs/event-writing-guide-v2.md) — only
+// the LINE geometry that draws rivers as strokes stays hidden, since the
+// water body is already visible via the `water` fill layer and only the
+// text label is wanted here.
 const HIDDEN_LAYER_PATTERNS = [
   /^poi_/,
   /^airport$/,
@@ -69,8 +103,7 @@ const HIDDEN_LAYER_PATTERNS = [
   /^landcover/,
   /^landuse/,
   /^park/,
-  /^waterway/,
-  /^water_name/,
+  /^waterway_(tunnel|river|other)$/,
   /^aeroway/,
   /^tunnel_/,
   /^bridge_/,
@@ -100,6 +133,21 @@ function recolor(layer: StyleSpecification["layers"][number]): StyleSpecificatio
   }
   if (layer.id.startsWith("road_") && layer.type === "line") {
     return { ...layer, paint: { ...layer.paint, "line-color": ROAD_COLOR } };
+  }
+  if (layer.id === "waterway_line_label" && layer.type === "symbol") {
+    return {
+      ...layer,
+      minzoom: RIVER_LABEL_MINZOOM,
+      layout: { ...layer.layout, "symbol-placement": WATER_LABEL_PLACEMENT, "text-field": ENGLISH_WATER_NAME_FIELD },
+      paint: { ...layer.paint, "text-color": WATER_LABEL_COLOR },
+    };
+  }
+  if ((layer.id === "water_name_point_label" || layer.id === "water_name_line_label") && layer.type === "symbol") {
+    return {
+      ...layer,
+      layout: { ...layer.layout, "symbol-placement": WATER_LABEL_PLACEMENT, "text-field": ENGLISH_WATER_NAME_FIELD },
+      paint: { ...layer.paint, "text-color": WATER_LABEL_COLOR },
+    };
   }
   return layer;
 }
@@ -238,17 +286,7 @@ export default function MapLibrePin({ onGuess, pins = [], disabled }: Props) {
         });
       }
 
-      const interactionHandlers = [
-        map!.scrollZoom,
-        map!.dragPan,
-        map!.doubleClickZoom,
-        map!.boxZoom,
-        map!.touchZoomRotate,
-        map!.keyboard,
-      ];
-
       if (disabled) {
-        interactionHandlers.forEach((h) => h.disable());
         if (pins.length >= 2) {
           const lngs = pins.map((p) => p.lng);
           const lats = pins.map((p) => p.lat);
@@ -258,11 +296,8 @@ export default function MapLibrePin({ onGuess, pins = [], disabled }: Props) {
           ];
           map!.fitBounds(bounds, { padding: 60, maxZoom: 10, duration: 800 });
         }
-      } else {
-        interactionHandlers.forEach((h) => h.enable());
-        if (pins.length === 0) {
-          map!.flyTo({ center: INITIAL_CENTER, zoom: INITIAL_ZOOM, duration: 800 });
-        }
+      } else if (pins.length === 0) {
+        map!.flyTo({ center: INITIAL_CENTER, zoom: INITIAL_ZOOM, duration: 800 });
       }
     }
 

@@ -12,10 +12,8 @@ import { RANK_ICON_COMPONENTS, RANK_LABEL_KEYS } from "@/lib/rank-icons";
 import type { OrderableEvent } from "@/lib/game-types";
 import { PRIMARY_BUTTON, PANEL, GAME_TITLE } from "@/lib/theme";
 import { getDeviceId } from "@/lib/device-id";
-
-// Display order for the today's-players breakdown: best tier first, since
-// it's the one players scan for first ("am I Master-tier today?").
-const TIER_DISPLAY_ORDER: RankTier[] = ["master", "expert", "historian", "scholar", "amateur", "novice"];
+import { saveTodaysDailyResult } from "@/lib/daily-result";
+import TodaysStatsPanel from "./TodaysStatsPanel";
 
 // The final-score rank, shown once at the end of the game — a coarser,
 // higher-stakes tier list than the per-round scoreFeedback in HistoryGuessPoc.
@@ -76,23 +74,38 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
   const rank = phase === "done" ? finalRank(totalScore, maxTotalScore, t) : null;
 
-  // Daily-challenge scores only — free-mode runs aren't part of the
-  // day's leaderboard, so they're never submitted to api/finish.
+  // Daily-challenge scores go through api/finish (one row per device/day,
+  // feeds the today's-stats breakdown below). Free-mode runs aren't part of
+  // that leaderboard — they're just logged as activity via api/track-play,
+  // for the admin dashboard's "Mode libre" tab.
   useEffect(() => {
-    if (phase !== "done" || mode !== "daily") return;
+    if (phase !== "done") return;
     const deviceId = getDeviceId();
-    fetch("/api/finish", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ score: totalScore, deviceId, mode }),
-    })
-      .then(() => fetch("/api/stats"))
-      .then((res) => res.json())
-      .then((data) => setTierPercentages(data.percentages ?? null))
-      .catch(() => {
-        // Stats are a nice-to-have on the results screen — silently skip
-        // the breakdown rather than blocking or erroring the final screen.
+    if (mode === "daily") {
+      fetch("/api/finish", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ score: totalScore, deviceId, mode }),
+      })
+        .then(() => {
+          saveTodaysDailyResult(totalScore);
+          return fetch("/api/stats");
+        })
+        .then((res) => res.json())
+        .then((data) => setTierPercentages(data.percentages ?? null))
+        .catch(() => {
+          // Stats are a nice-to-have on the results screen — silently skip
+          // the breakdown rather than blocking or erroring the final screen.
+        });
+    } else {
+      fetch("/api/track-play", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ score: totalScore, deviceId, mode }),
+      }).catch(() => {
+        // Activity tracking is a nice-to-have — never block the results screen on it.
       });
+    }
     // Runs once, right when the final score locks in.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
@@ -230,18 +243,9 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: TEXT_REVEAL_DELAY + 0.2, duration: 0.4 }}
-                className="flex flex-col gap-1 border-t border-white/10 pt-2.5"
+                className="border-t border-white/10 pt-2.5"
               >
-                <p className="text-[10px] font-bold uppercase tracking-widest text-white/40 sm:text-xs">
-                  {t.todaysPlayers}
-                </p>
-                <div className="flex flex-wrap gap-x-3 gap-y-1">
-                  {TIER_DISPLAY_ORDER.map((tier) => (
-                    <span key={tier} className="text-[11px] font-semibold text-white/70 sm:text-xs">
-                      <span className="text-amber-300">{tierPercentages[tier]}%</span> {t[RANK_LABEL_KEYS[tier]]}
-                    </span>
-                  ))}
-                </div>
+                <TodaysStatsPanel tierPercentages={tierPercentages} />
               </motion.div>
             )}
             <div className="flex w-full gap-2">

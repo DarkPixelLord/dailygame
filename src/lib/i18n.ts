@@ -44,6 +44,9 @@ export type UiStrings = {
   rankExpert: string;
   rankMaster: string;
   todaysPlayers: string;
+  todaysStatsButton: string;
+  alreadyPlayedToday: string;
+  back: string;
 };
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
@@ -91,6 +94,9 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     rankExpert: "Expert",
     rankMaster: "Master",
     todaysPlayers: "Today's players",
+    todaysStatsButton: "Today's stats",
+    alreadyPlayedToday: "You've already played today's challenge. Come back tomorrow for a new one!",
+    back: "Back",
   },
   fr: {
     gameTitle: "Laurus",
@@ -136,5 +142,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     rankExpert: "Expert",
     rankMaster: "Maître",
     todaysPlayers: "Joueurs du jour",
+    todaysStatsButton: "Stat du jour",
+    alreadyPlayedToday: "Tu as déjà joué au défi du jour. Reviens demain pour un nouveau !",
+    back: "Retour",
   },
 };

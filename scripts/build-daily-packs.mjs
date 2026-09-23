@@ -22,7 +22,12 @@ const MIN_PAIR_DISTANCE_KM = 1500; // soft target, relaxed when the pool can't s
 const GEO_CANDIDATE_SAMPLE = 6; // how many random candidates to compare per slot when optimizing dispersion
 
 function parseArgs(argv) {
-  const out = { seed: 42, out: "data/daily-packs-plan.json" };
+  // NOTE: data/daily-packs-plan.json is now the FINAL game pack file, built
+  // by scripts/build-final-daily-packs.mjs from the drafted pool and
+  // consumed directly by pickDailyEvents(). This script only plans future
+  // drafting batches from raw candidates, so it defaults elsewhere to avoid
+  // clobbering the real game file.
+  const out = { seed: 42, out: "data/candidate-packs-plan.json" };
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === "--seed") out.seed = Number(argv[++i]);
     if (argv[i] === "--out") out.out = argv[++i];

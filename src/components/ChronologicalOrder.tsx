@@ -58,6 +58,7 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
   const [submitted, setSubmitted] = useState(false);
   const [revealedCount, setRevealedCount] = useState(0);
   const [collapsed, setCollapsed] = useState(false);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const completedRef = useRef(false);
 
   const correctOrder = [...events].sort((a, b) => b.year - a.year);
@@ -77,6 +78,7 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
 
   function submit() {
     setSubmitted(true);
+    setExpandedId(null);
     onSubmit?.();
   }
 
@@ -103,6 +105,46 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
 
   return (
     <div className="flex min-h-0 w-full max-w-md flex-1 flex-col gap-2">
+      <AnimatePresence>
+        {expandedId !== null && (
+          <>
+            <motion.button
+              key="explanation-backdrop"
+              type="button"
+              onClick={() => setExpandedId(null)}
+              aria-label={t.close}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="fixed inset-0 z-40 cursor-default bg-black/50"
+            />
+            <motion.div
+              key="explanation-panel"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.15 }}
+              className="fixed inset-x-4 top-1/2 z-50 max-h-[60vh] -translate-y-1/2 overflow-y-auto rounded-md border-2 border-amber-600 bg-amber-400 p-4 shadow-lg shadow-black/40"
+            >
+              <button
+                type="button"
+                onClick={() => setExpandedId(null)}
+                aria-label={t.close}
+                className="absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full border-2 border-black/20 text-sm font-black leading-none text-black"
+              >
+                ✕
+              </button>
+              <p className="pr-8 text-sm font-black leading-snug text-black">
+                {order.find((ev) => ev.id === expandedId)?.name}
+              </p>
+              <p className="mt-2 text-sm font-bold leading-relaxed text-black">
+                {order.find((ev) => ev.id === expandedId)?.explanation}
+              </p>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
       <AnimatePresence>
         {!submitted && (
           <motion.div
@@ -185,6 +227,15 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
                 >
                   {!submitted && <span className="select-none px-1 text-amber-400/60">⠿</span>}
                   <p className="line-clamp-2 flex-1 text-xs font-bold leading-snug sm:text-sm">{ev.name}</p>
+                  <button
+                    type="button"
+                    onClick={() => setExpandedId((cur) => (cur === ev.id ? null : ev.id))}
+                    aria-label={t.learnMore}
+                    title={t.learnMore}
+                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-amber-400/40 text-[10px] font-black leading-none text-amber-300 transition hover:bg-amber-400/10"
+                  >
+                    ?
+                  </button>
                   {revealed ? (
                     <span
                       className={`font-mono text-xs font-bold sm:text-sm ${correctPositions[i] ? "text-emerald-400" : "text-rose-400"}`}

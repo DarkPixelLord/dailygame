@@ -21,5 +21,8 @@
   { "wikidataId": "Q2263", "label": "Tom Hanks", "reason": "slipped through ARTIST_OCCUPATIONS via a secondary 'writer' tag (minor screenwriting credits) despite being world-famous as an actor, exactly the failure mode 'actor' was dropped from the query to avoid" },
   { "wikidataId": "Q6107", "label": "Tupac Shakur", "reason": "slipped through ARTIST_OCCUPATIONS via a secondary 'composer' tag (wrote his own lyrics) despite being world-famous as a rapper/actor, not for composition in the canonical sense the filter intends" },
   { "wikidataId": "Q25089", "label": "Woody Allen", "reason": "world-famous as an actor/filmmaker, same likely secondary-tag failure mode as Hanks/Tupac — removed without individual re-verification, batch cleanup after finding two confirmed cases in the same subcategory" },
-  { "wikidataId": "Q65932", "label": "Anthony Hopkins", "reason": "world-famous as an actor, same likely secondary-tag failure mode as Hanks/Tupac — removed without individual re-verification, batch cleanup after finding two confirmed cases in the same subcategory" }
+  { "wikidataId": "Q65932", "label": "Anthony Hopkins", "reason": "world-famous as an actor, same likely secondary-tag failure mode as Hanks/Tupac — removed without individual re-verification, batch cleanup after finding two confirmed cases in the same subcategory" },
+  { "wikidataId": "Q8123", "label": "1916 Summer Olympics", "reason": "scheduled for Berlin but cancelled due to WWI, never actually held — see CANCELLED_EVENT_RE fix" },
+  { "wikidataId": "Q8368", "label": "1940 Summer Olympics", "reason": "scheduled for Tokyo then Helsinki but cancelled due to WWII, never actually held — see CANCELLED_EVENT_RE fix" },
+  { "wikidataId": "Q8376", "label": "1944 Summer Olympics", "reason": "scheduled for London but cancelled due to WWII, never actually held — see CANCELLED_EVENT_RE fix" }
 ]

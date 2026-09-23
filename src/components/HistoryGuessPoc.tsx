@@ -118,7 +118,10 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
       const data = (await res.json()) as GuessResult;
       setResult(data);
       setTotalScore((s) => s + data.points);
-      setRevealedEvents((prev) => [...prev, { id: prompt.id, name: data.reveal.name, year: data.reveal.year }]);
+      setRevealedEvents((prev) => [
+        ...prev,
+        { id: prompt.id, name: data.reveal.name, year: data.reveal.year, explanation: data.reveal.explanation },
+      ]);
     } catch (err) {
       console.error("Failed to submit guess:", err);
       setSubmitError(true);

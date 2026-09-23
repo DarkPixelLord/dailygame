@@ -114,7 +114,22 @@ const SUBCATEGORIES = {
     qids: ["Q839954" /* archaeological site */],
   },
   // "pioneer" isn't class-based like the others — see fetchPersonCandidates.
-  world_gathering: { top: "arts_culture", qids: ["Q172754" /* world's fair */] },
+  world_gathering: {
+    top: "arts_culture",
+    // Olympic Games editions verified individually against real Wikidata
+    // data before adding: each edition is instance-of a *shared* per-season
+    // "edition" class (not a one-off singleton class per edition, which an
+    // earlier check on Q159821 "Summer Olympic Games" — the general concept
+    // — wrongly assumed), so this queries cleanly like world's fair does.
+    // Summer and Winter each verified separately (Q135976384/Q137592217).
+    // Unlike major_athlete (dropped from scope — see NON_ARTIST/PIONEER_FAME
+    // comments), the Games themselves are inherently historic per-edition,
+    // not a sustained-fame problem — the existing SUBCATEGORY_MIN_AGE_YEARS
+    // floor below (50 years) already keeps out recent editions whose
+    // pageviews would just reflect current news cycle, not lasting
+    // significance, e.g. Paris 2024/Rio 2016/London 2012.
+    qids: ["Q172754" /* world's fair */, "Q135976384" /* Summer Olympic Games edition */, "Q137592217" /* Winter Olympic Games edition */],
+  },
 };
 
 const TYPE_TO_SUBCATEGORY = new Map(
@@ -159,6 +174,17 @@ const HARD_PAGEVIEWS_FLOOR = 1_000; // below this: rejected as too obscure
 // politically live. Flagged, not dropped: still worth having in the pool,
 // just never drafted without an explicit human look first.
 const RECENT_SENSITIVE_YEARS = 5;
+
+// A "gathering" that was scheduled but never actually happened is not a
+// historical fact this game can place on a map — verified case: adding
+// Olympic Games editions (see SUBCATEGORIES.world_gathering) surfaced 1916
+// Berlin, 1940 Tokyo/Helsinki and 1944 London, all cancelled by world wars
+// and never held, yet still Wikidata items with a P31/P580/P276 exactly
+// like a real edition. Caught by inspecting the actual descriptions, not
+// assumed. Checked against description text (always present for these,
+// e.g. "...canceled due to World War II") rather than the label, since nothing
+// in the label itself distinguishes a cancelled edition from a real one.
+const CANCELLED_EVENT_RE = /\bcancell?ed\b/i;
 
 // Wikidata's coordinate for a treaty/purchase often defaults to the
 // negotiating capital, not a point connected to the actual story — and for
@@ -468,9 +494,20 @@ const NON_PIONEER_FAME_OCCUPATIONS = ["Q116" /* monarch */, "Q82955" /* politici
 // More round trips, but each one stays cheap. Shared by major_artist and
 // pioneer — same shape (person dated/located by birth, not P31), just a
 // different occupation list, subcategory and exclusion list.
+//
+// Returns results interleaved round-robin across occupations, not
+// concatenated occupation-by-occupation — verified bug: buildBalancedBatch
+// round-robins per SUBCATEGORY, not per occupation, so a concatenated
+// [all composers, then all painters, then all writers] list meant composer
+// (the largest, best-covered occupation on Wikidata) filled the entire
+// major_artist batch quota run after run, before a painter or writer was
+// ever reached. Confirmed empirically: the painter query alone already
+// returns Van Gogh, Michelangelo, Dalí, Rembrandt, Raphael, Monet, Cézanne
+// well above minSitelinks, yet zero painters existed in the pool. Same fix
+// benefits pioneer, though that occupation list was already less skewed.
 async function fetchPersonCandidates(occupations, excludedOccupations, subcategory, category, minSitelinks) {
-  const out = [];
   const seen = new Set();
+  const perOccupation = [];
   for (const occ of occupations) {
     const query = `
       SELECT ?item ?itemLabel ?itemDescription ?coord ?sitelinks ?article ?birthDate WHERE {
@@ -498,12 +535,13 @@ async function fetchPersonCandidates(occupations, excludedOccupations, subcatego
     `;
     const data = await runSparql(query);
 
+    const rows = [];
     for (const row of data.results.bindings) {
       const wikidataId = row.item.value.split("/").pop();
       if (seen.has(wikidataId)) continue;
       seen.add(wikidataId);
       const title = decodeURIComponent(row.article.value.split("/").pop());
-      out.push({
+      rows.push({
         wikidataId,
         label: row.itemLabel?.value ?? title.replace(/_/g, " "),
         description: row.itemDescription?.value ?? null,
@@ -515,7 +553,21 @@ async function fetchPersonCandidates(occupations, excludedOccupations, subcatego
         date: row.birthDate.value,
       });
     }
+    perOccupation.push(rows);
     await sleep(150); // one query per occupation now — stay polite between them
+  }
+
+  const out = [];
+  let tookAny = true;
+  while (tookAny) {
+    tookAny = false;
+    for (const rows of perOccupation) {
+      const next = rows.shift();
+      if (next) {
+        out.push(next);
+        tookAny = true;
+      }
+    }
   }
   return out;
 }
@@ -753,6 +805,10 @@ async function main() {
     if (!point) {
       bump(sourceFunnel, c.subcategory, "droppedNoParsablePoint");
       continue;
+    }
+    if (CANCELLED_EVENT_RE.test(c.description ?? "")) {
+      bump(sourceFunnel, c.subcategory, "droppedCancelled");
+      continue; // scheduled but never actually held — not a real point-in-time event
     }
     // Wikidata dates use astronomical year numbering (year 0 exists: 1 BC =
     // 0, 2 BC = -1, 44 BC = -43) — off by one from how everyone actually

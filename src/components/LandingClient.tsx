@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { useLanguage } from "./LanguageProvider";
 import LaurelIcon from "./LaurelIcon";
-import { PRIMARY_BUTTON, SECONDARY_BUTTON, SHARE_BUTTON, GHOST_BUTTON, GAME_TITLE } from "@/lib/theme";
+import { FlagGB, FlagFR } from "./FlagIcon";
+import { PRIMARY_BUTTON, SECONDARY_BUTTON, SHARE_BUTTON, GAME_TITLE } from "@/lib/theme";
 import { UI_STRINGS, type Lang } from "@/lib/i18n";
 import type { GameMode } from "@/lib/poc-events";
 
 const LANGS: Lang[] = ["en", "fr"];
+const LANG_FLAGS: Record<Lang, typeof FlagGB> = { en: FlagGB, fr: FlagFR };
 
 type Props = { onStart: (mode: GameMode) => void };
 
@@ -42,6 +44,27 @@ export default function LandingClient({ onStart }: Props) {
           <span className={`${GAME_TITLE} text-4xl`}>{t.gameTitle}</span>
         </h1>
 
+        <div className="-mt-3 flex gap-2">
+          {LANGS.map((option) => {
+            const Flag = LANG_FLAGS[option];
+            const selected = lang === option;
+            return (
+              <button
+                key={option}
+                type="button"
+                onClick={() => setLang(option)}
+                className={
+                  (selected ? "text-blue-400" : "text-slate-500 hover:text-slate-300") +
+                  " flex flex-col items-center gap-1 px-3 py-1 text-sm font-bold uppercase tracking-wide transition"
+                }
+              >
+                <Flag className={`h-5 w-8 rounded-sm shadow-sm ${selected ? "" : "grayscale opacity-50"}`} />
+                {option.toUpperCase()}
+              </button>
+            );
+          })}
+        </div>
+
         {/* Both languages stacked in the same grid cell (one hidden via
             `invisible`, which still occupies layout space) so the row's
             auto height is always the taller of the two — switching
@@ -69,19 +92,6 @@ export default function LandingClient({ onStart }: Props) {
           <button type="button" onClick={share} className={SHARE_BUTTON + " w-full px-10"}>
             {linkCopied ? t.linkCopied : t.share}
           </button>
-        </div>
-
-        <div className="-mt-3 flex gap-1">
-          {LANGS.map((option) => (
-            <button
-              key={option}
-              type="button"
-              onClick={() => setLang(option)}
-              className={lang === option ? GHOST_BUTTON + " bg-amber-400/20" : GHOST_BUTTON}
-            >
-              {option.toUpperCase()}
-            </button>
-          ))}
         </div>
       </div>
     </div>
