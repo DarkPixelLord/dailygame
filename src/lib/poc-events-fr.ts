@@ -695,4 +695,504 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     clue: "Sous un toit émaillé de bleu, une garde change de poste chaque heure dans une salle de marbre flanquée de deux théâtres, bâtie pour un ancien chef d'État.",
     explanation: "Le mémorial Tchang Kaï-chek a été construit à Taipei en l'honneur d'un ancien président et chef militaire. Sa statue de bronze et sa salle de marbre sont gardées en permanence, avec une cérémonie de relève de la garde élaborée exécutée chaque heure pile, attirant des foules de visiteurs venus observer ce rituel précis et chorégraphié.",
   },
+  battle_of_the_somme: {
+    name: "Bataille de la Somme",
+    clue: "Dans des tranchées boueuses, une armée perd plus de soldats en un jour qu'aucune autre, durant une guerre mondiale marquée par les premiers chars au combat.",
+    explanation: "La bataille de la Somme opposa les armées de l'Empire britannique et de la France à l'Allemagne. Son premier jour reste le plus meurtrier de l'histoire militaire britannique, et elle marqua les débuts du char d'assaut au combat.",
+  },
+  battle_of_berlin: {
+    name: "Bataille de Berlin",
+    clue: "Dans la dernière grande bataille d'une guerre mondiale, un dictateur se suicide en bunker pendant que l'ennemi encercle le quartier du pouvoir.",
+    explanation: "La bataille de Berlin fut l'ultime offensive de l'Union soviétique contre l'Allemagne nazie lors de la Seconde Guerre mondiale. Adolf Hitler se donna la mort dans son bunker tandis que les troupes soviétiques progressaient vers le Reichstag.",
+  },
+  siege_of_mariupol: {
+    name: "Siège de Marioupol",
+    clue: "Lors d'une guerre récente, les défenseurs d'une ville portuaire assiégée résistent dans une immense aciérie, tenant des semaines sous terre avant de se rendre.",
+    explanation: "Le siège de Marioupol s'inscrit dans l'invasion de l'Ukraine par la Russie. Après des semaines de bombardements, les derniers défenseurs de la ville résistèrent dans l'aciérie d'Azovstal avant de recevoir l'ordre de se rendre.",
+  },
+  independence_hall: {
+    name: "Independence Hall",
+    clue: "Dans une salle en briques, des délégués de treize colonies débattent et signent le texte proclamant l'indépendance de leur nation face à son roi.",
+    explanation: "Independence Hall, à Philadelphie, est le lieu où la déclaration d'indépendance et la Constitution des États-Unis furent débattues puis adoptées. Le site est classé au patrimoine mondial de l'UNESCO.",
+  },
+  tangshan_earthquake: {
+    name: "Séisme de Tangshan",
+    clue: "Un séisme matinal rase une ville industrielle en quelques secondes, devenant le séisme le plus meurtrier jamais enregistré, son bilan réel restant contesté.",
+    explanation: "Le séisme de Tangshan frappa la ville industrielle chinoise de Tangshan alors que la plupart des habitants dormaient. Le bilan officiel dépasse 242 000 morts, bien que de nombreux historiens estiment le bilan réel supérieur à 300 000.",
+  },
+  worlds_columbian_exposition: {
+    name: "Exposition universelle de Chicago",
+    clue: "Une exposition bâtie presque du jour au lendemain dévoile la première grande roue et éclaire ses bâtiments blancs d'un dispositif électrique inédit.",
+    explanation: "L'Exposition universelle de Chicago célébrait l'arrivée de Christophe Colomb sur le continent américain. Sa grande roue fut la toute première jamais construite, et sa « ville blanche » néoclassique fut l'une des premières à être éclairée à grande échelle à l'électricité.",
+  },
+  assassination_of_mlk: {
+    name: "Assassinat de Martin Luther King",
+    clue: "Un dirigeant des droits civiques est abattu sur le balcon d'un motel routier, un soir, déclenchant des émeutes dans des dizaines de villes en quelques jours.",
+    explanation: "Martin Luther King fut abattu au Lorraine Motel à Memphis alors qu'il préparait une marche de soutien aux éboueurs grévistes. Sa mort provoqua des troubles dans plus de 100 villes américaines.",
+  },
+  battle_of_hattin: {
+    name: "Bataille de Hattin",
+    clue: "Sur un flanc de colline aride près d'un volcan éteint, une armée coupée d'eau est écrasée par une force rivale, ouvrant la voie à la reprise d'une ville sainte.",
+    explanation: "La bataille de Hattin vit les forces de Saladin anéantir l'armée croisée du royaume de Jérusalem près de la colline volcanique éteinte dite des Cornes de Hattin. Cette victoire ouvrit la voie à la reprise de Jérusalem peu après.",
+  },
+  battle_of_manzikert: {
+    name: "Bataille de Manzikert",
+    clue: "Près d'un grand lac montagneux, l'armée d'un empire est déroutée, son souverain capturé puis libéré contre rançon, ouvrant la région à de nouveaux venus.",
+    explanation: "À Manzikert, les Turcs seldjoukides défirent l'armée byzantine et capturèrent l'empereur Romain IV. Cette défaite ouvrit l'Anatolie à une installation progressive des Turcs au fil des siècles suivants.",
+  },
+  battle_of_adrianople: {
+    name: "Bataille d'Andrinople",
+    clue: "Sur une vaste plaine, une cavalerie lourde écrase l'infanterie d'un empereur, mort au combat, un choc encore étudié comme un tournant militaire majeur.",
+    explanation: "À Andrinople, la cavalerie gothique détruisit l'armée de l'empereur romain d'Orient Valens, qui mourut au combat. Cette bataille est souvent citée comme marquant le déclin de la légion d'infanterie lourde romaine.",
+  },
+  ctesiphon: {
+    name: "Ctésiphon",
+    clue: "Sur la rive d'un grand fleuve, une capitale royale de huit siècles bâtit l'arche encore reconnue comme la plus grande voûte en brique non armée au monde.",
+    explanation: "Ctésiphon, sur le Tigre, fut la capitale des empires perses parthe puis sassanide pendant plus de 800 ans. Son arche, le Taq Kasra, demeure la plus grande voûte en brique non armée au monde.",
+  },
+  sichuan_earthquake: {
+    name: "Séisme du Sichuan",
+    clue: "Dans une province montagneuse, un séisme majeur déclenche 200 000 glissements de terrain et forme plus de 800 nouveaux lacs en bloquant des vallées de débris.",
+    explanation: "Le séisme du Sichuan, en Chine, tua des dizaines de milliers de personnes et fut ressenti jusqu'à Pékin, Shanghai, Bangkok et Hanoï. Il déclencha le plus grand nombre de glissements de terrain jamais enregistré pour un seul séisme.",
+  },
+  james_cook: {
+    name: "James Cook",
+    clue: "Né dans un village agricole, un officier de marine cartographie un continent lointain et devient le premier étranger connu à atteindre un archipel isolé.",
+    explanation: "James Cook est né à Marton, dans le Yorkshire. Il commanda trois expéditions dans le Pacifique pour la marine royale britannique, cartographiant la côte est de l'Australie et devenant le premier Européen connu à atteindre les îles Hawaï.",
+  },
+  john_nash: {
+    name: "John Nash",
+    clue: "Né dans une petite ville minière de montagne, un mathématicien élabore une théorie de l'équilibre qui transforme l'économie, adaptée dans un film oscarisé.",
+    explanation: "John Nash est né à Bluefield, en Virginie-Occidentale. Ses travaux sur la théorie des jeux lui valurent un prix Nobel d'économie, et son combat contre la schizophrénie fut porté à l'écran dans Un homme d'exception.",
+  },
+  jane_austen: {
+    name: "Jane Austen",
+    clue: "Née dans un presbytère de village, une romancière écrit des comédies de mœurs mordantes d'abord publiées sans nom d'auteur, signées seulement « une dame ».",
+    explanation: "Jane Austen est née dans le village de Steventon, où son père était pasteur. Ses romans, dont Orgueil et Préjugés, furent d'abord publiés anonymement, signés seulement « une dame ».",
+  },
+  franz_kafka: {
+    name: "Franz Kafka",
+    clue: "Né dans une ancienne ville impériale, un écrivain de cauchemars bureaucratiques demande à un ami de brûler ses manuscrits inédits après sa mort. L'ami refuse.",
+    explanation: "Franz Kafka est né à Prague. Avant de mourir, il demanda à son ami Max Brod de détruire ses manuscrits inédits, dont Le Procès et Le Château. Brod refusa et les publia.",
+  },
+  frederic_chopin: {
+    name: "Frédéric Chopin",
+    clue: "Né dans un petit village, un compositeur quitte sa patrie encore jeune et n'y revient jamais, mais demande que son cœur y soit rapporté après sa mort.",
+    explanation: "Frédéric Chopin est né près de Varsovie. Il quitta la Pologne à vingt ans et fit carrière à l'étranger, mais après sa mort à Paris, son cœur fut rapporté et scellé dans un pilier d'église.",
+  },
+  treaty_of_rapallo: {
+    name: "Traité de Rapallo",
+    clue: "Dans une station balnéaire, en marge de pourparlers internationaux, deux puissances isolées signent un accord surprise annulant leurs revendications mutuelles.",
+    explanation: "Le traité de Rapallo fut signé entre l'Allemagne et la Russie soviétique dans la station balnéaire italienne de Rapallo, rétablissant leurs relations et annulant leurs revendications mutuelles. Il inquiéta la France et le Royaume-Uni, qui avaient exclu les deux puissances de la conférence de paix principale.",
+  },
+  dura_europos: {
+    name: "Doura-Europos",
+    clue: "Sur une falaise désertique dominant un fleuve, une ville ensevelie livre la plus ancienne maison chrétienne connue et une synagogue aux peintures murales rares.",
+    explanation: "Doura-Europos fut une ville fortifiée sur l'Euphrate, en Syrie, abandonnée après un siège perse puis ensevelie sous le sable, ce qui la préserva remarquablement. Les fouilles y ont révélé la plus ancienne maison-église chrétienne connue et une synagogue aux peintures murales figuratives exceptionnelles.",
+  },
+  sybaris: {
+    name: "Sybaris",
+    clue: "Si réputée pour son luxe que son nom est devenu synonyme d'excès, une cité antique fut détruite quand une armée rivale détourna un fleuve pour la submerger.",
+    explanation: "Sybaris était une cité grecque du sud de l'Italie, si associée au luxe que le mot « sybarite » désigne encore aujourd'hui une personne portée sur les plaisirs. La cité rivale de Crotone l'aurait détruite en détournant un fleuve sur ses ruines.",
+  },
+  charles_augustin_de_coulomb: {
+    name: "Charles-Augustin de Coulomb",
+    clue: "Né en province, un ingénieur découvre la loi décrivant comment des objets chargés s'attirent ou se repoussent, et aide à fonder la mécanique des sols.",
+    explanation: "Charles-Augustin de Coulomb est né à Angoulême. Officier du génie, il formula la loi de Coulomb sur la force électrostatique et mena des travaux pionniers sur le frottement et la poussée des terres, à la base de la mécanique des sols moderne.",
+  },
+  maurice_maeterlinck: {
+    name: "Maurice Maeterlinck",
+    clue: "Né dans une ville froide du nord, un dramaturge écrivant en langue étrangère à sa région explore la mort et le sens de la vie en drames symbolistes primés.",
+    explanation: "Maurice Maeterlinck est né à Gand, en Belgique flamande, mais écrivit son théâtre en français. Ses drames symbolistes, dont Pelléas et Mélisande et L'Oiseau bleu, lui valurent le prix Nobel de littérature.",
+  },
+  battle_of_the_alamo: {
+    name: "Bataille de l'Alamo",
+    clue: "Après treize jours de siège, une garnison minoritaire retranchée dans une vieille mission est submergée à l'aube, devenant un cri de ralliement pour la guerre.",
+    explanation: "La bataille de l'Alamo vit les forces mexicaines de Santa Anna submerger les défenseurs texans retranchés dans la mission de l'Alamo, près de San Antonio. Malgré la défaite, elle devint le cri de ralliement « Remember the Alamo » pour le reste de la révolution texane.",
+  },
+  assassination_of_julius_caesar: {
+    name: "Assassinat de Jules César",
+    clue: "Lors d'une séance du sénat, un dirigeant tout juste proclamé maître à vie est poignardé par ses sénateurs, plongeant sa république dans la guerre civile.",
+    explanation: "Jules César fut poignardé à mort par un groupe de sénateurs, dont Brutus et Cassius, lors d'une séance tenue au théâtre de Pompée, à Rome. Ce meurtre déclencha des guerres civiles qui mirent fin à la République romaine.",
+  },
+  western_wall: {
+    name: "Mur des Lamentations",
+    clue: "Des fidèles viennent du monde entier glisser des prières écrites dans les fissures d'un mur antique, dernier vestige d'une vaste plateforme sacrée.",
+    explanation: "Le mur des Lamentations est le dernier vestige du mur de soutènement qui portait autrefois l'esplanade du Temple à Jérusalem. C'est l'un des lieux les plus saints du judaïsme, où les visiteurs glissent traditionnellement des prières écrites entre les pierres.",
+  },
+  grand_palace: {
+    name: "Grand Palais",
+    clue: "Un vaste palais royal aux toits scintillants et flèches dorées sert de résidence officielle à une monarchie depuis plus de deux siècles.",
+    explanation: "Le Grand Palais de Bangkok est la résidence officielle des rois de Thaïlande depuis plus de deux siècles. Ses salles du trône et ses temples richement ornés restent parmi les sites les plus visités du pays.",
+  },
+  eyjafjallajokull_2010: {
+    name: "Éruption de l'Eyjafjöll",
+    clue: "Un volcan en éruption sous un glacier projette tant de cendres qu'il cloue au sol l'essentiel du trafic aérien d'un continent entier durant des jours.",
+    explanation: "L'éruption de l'Eyjafjallajökull, en Islande, envoya un nuage de cendres au-dessus de l'espace aérien européen, clouant au sol des dizaines de milliers de vols et bloquant des millions de voyageurs pendant près d'une semaine.",
+  },
+  battle_of_kursk: {
+    name: "Bataille de Koursk",
+    clue: "En pleine campagne, la plus grande bataille de chars de l'histoire fait rage des semaines, son premier jour restant le plus coûteux jamais vu en combat aérien.",
+    explanation: "La bataille de Koursk opposa l'Allemagne nazie à l'Union soviétique près de Koursk, en Russie. Elle reste la plus grande bataille de chars jamais menée et l'une des plus coûteuses de la Seconde Guerre mondiale.",
+  },
+  battle_of_bannockburn: {
+    name: "Bataille de Bannockburn",
+    clue: "Sur deux jours près d'un ruisseau, une armée minoritaire met en déroute les forces d'un roi envahisseur, un tournant vers l'indépendance des années plus tard.",
+    explanation: "À Bannockburn, l'armée de Robert Bruce défit les forces anglaises du roi Édouard II. Cette victoire devint un moment charnière sur la voie de l'indépendance écossaise.",
+  },
+  battle_of_dunkirk: {
+    name: "Bataille de Dunkerque",
+    clue: "Acculées à la côte, des centaines de milliers de troupes sont évacuées de plages à découvert par une flotte improvisée de petits bateaux civils.",
+    explanation: "La bataille de Dunkerque s'acheva par l'évacuation des troupes alliées depuis les plages françaises, alors que les forces allemandes progressaient. Des « petits navires » civils aidèrent à transporter plus de 300 000 soldats vers la Grande-Bretagne.",
+  },
+  battle_of_zama: {
+    name: "Bataille de Zama",
+    clue: "Malgré des dizaines d'éléphants de guerre, l'armée du général le plus redouté de l'histoire perd la bataille qui met fin à la guerre et le force à l'exil.",
+    explanation: "À Zama, les forces romaines de Scipion l'Africain défirent l'armée carthaginoise d'Hannibal, mettant fin à la deuxième guerre punique. Carthage capitula et Hannibal fut contraint à l'exil.",
+  },
+  susa: {
+    name: "Suse",
+    clue: "L'une des plus anciennes villes du monde sert de capitale d'hiver à un vaste empire antique, et livre un célèbre code de lois emporté comme butin de guerre.",
+    explanation: "Suse, dans l'Iran actuel, fut la capitale de l'Élam puis la capitale d'hiver de l'empire perse achéménide. Le Code d'Hammurabi y fut découvert, après avoir été emporté de Babylone comme butin de guerre des siècles plus tôt.",
+  },
+  steve_jobs: {
+    name: "Steve Jobs",
+    clue: "Né dans une ville côtière, un étudiant sans diplôme cofonde une entreprise informatique dans un garage, en est écarté, puis revient la mener au succès.",
+    explanation: "Steve Jobs est né à San Francisco. Il cofonda Apple dans un garage avec Steve Wozniak, fut écarté de l'entreprise, puis y revint des années plus tard pour la mener vers un redressement spectaculaire.",
+  },
+  alexander_graham_bell: {
+    name: "Alexander Graham Bell",
+    clue: "Né dans une capitale froide du nord, un inventeur enseignant aux sourds dépose le brevet du premier appareil à transmettre une voix humaine par fil.",
+    explanation: "Alexander Graham Bell est né à Édimbourg. Très investi dans l'éducation des sourds, il déposa le brevet du premier téléphone pratique et cofonda AT&T.",
+  },
+  carl_sagan: {
+    name: "Carl Sagan",
+    clue: "Né dans un arrondissement côtier dense, un astronome travaille sur les premières missions vers d'autres planètes puis devient célèbre à la télévision.",
+    explanation: "Carl Sagan est né à Brooklyn, à New York. Il travailla sur les missions spatiales Mariner, Viking et Voyager, puis devint une figure familière du public en présentant la série télévisée Cosmos.",
+  },
+  agatha_christie: {
+    name: "Agatha Christie",
+    clue: "Née dans une ville balnéaire, une romancière policière disparaît onze jours durant, provoquant une chasse nationale avant de réapparaître sous un faux nom.",
+    explanation: "Agatha Christie est née à Torquay, en Angleterre. Elle disparut un jour pendant onze jours, déclenchant d'immenses recherches, avant d'être retrouvée inscrite dans un hôtel sous un faux nom.",
+  },
+  andy_warhol: {
+    name: "Andy Warhol",
+    clue: "Né dans une ville industrielle, un artiste transforme boîtes de soupe et portraits de célébrités en art, inventant une formule sur la gloire éphémère.",
+    explanation: "Andy Warhol est né à Pittsburgh. Figure majeure du pop art, il transforma les boîtes de soupe Campbell's et des portraits sérigraphiés de célébrités en icônes, popularisant l'expression des « 15 minutes de célébrité ».",
+  },
+  haruki_murakami: {
+    name: "Haruki Murakami",
+    clue: "Né dans une ancienne ville impériale, un romancier de fictions oniriques et surréalistes est aussi un marathonien assidu qui a écrit sur la course.",
+    explanation: "Haruki Murakami est né à Kyoto. Ses romans oniriques mêlant les genres se sont vendus à des millions d'exemplaires dans le monde, et il a écrit un livre sur sa passion de toujours pour le marathon.",
+  },
+  black_january: {
+    name: "Janvier noir",
+    clue: "Alors qu'une vaste union se disloque, des chars entrent dans une ville pétrolière sous décret d'urgence, écrasant un soulèvement né d'émeutes ethniques.",
+    explanation: "Janvier noir fut une répression militaire soviétique contre le mouvement nationaliste de Bakou, en Azerbaïdjan, alors que l'URSS s'effondrait. Chars et troupes soviétiques tuèrent des dizaines de civils sous un état d'urgence décrété.",
+  },
+  library_of_celsus: {
+    name: "Bibliothèque de Celsus",
+    clue: "Une façade de marbre à deux étages ornait une bibliothèque bâtie en hommage à un père par son fils, abritant jadis des milliers de rouleaux.",
+    explanation: "La bibliothèque de Celsus, à Éphèse, fut bâtie comme monument funéraire au gouverneur romain Tiberius Julius Celsus par son fils. Sa façade ornée subsiste, et la bibliothèque abritait jadis des milliers de rouleaux.",
+  },
+  odeon_of_herodes_atticus: {
+    name: "Odéon d'Hérode Atticus",
+    clue: "Sur le versant d'une célèbre citadelle antique, un riche mécène bâtit un théâtre de pierre à la mémoire de son épouse, toujours utilisé pour des spectacles.",
+    explanation: "L'Odéon d'Hérode Atticus se dresse au pied de l'Acropole d'Athènes. Il fut bâti par le riche sénateur romain Hérode Atticus à la mémoire de son épouse, et accueille encore aujourd'hui concerts et spectacles après restauration.",
+  },
+  vitus_bering: {
+    name: "Vitus Béring",
+    clue: "Né dans une petite ville côtière, un navigateur cartographie une côte lointaine pour un vaste empire, et meurt sur une île qui porte son nom.",
+    explanation: "Vitus Béring est né à Horsens, au Danemark. Au service de la marine russe, il dirigea deux expéditions qui cartographièrent la côte nord-est de l'Asie et atteignirent l'Amérique du Nord, avant de mourir sur une île du détroit qui porte aujourd'hui son nom.",
+  },
+  battle_of_iwo_jima: {
+    name: "Bataille d'Iwo Jima",
+    clue: "Des troupes prennent une petite île volcanique pour ses pistes d'aviation, une photo d'un drapeau hissé au sommet devenant une image marquante de la guerre.",
+    explanation: "La bataille d'Iwo Jima vit les forces américaines prendre cette île du Pacifique au Japon pour s'emparer de ses pistes d'aviation. La photo des Marines hissant le drapeau au sommet du mont Suribachi devint l'une des images les plus reproduites de la guerre.",
+  },
+  paris_agreement: {
+    name: "Accord de Paris",
+    clue: "Des délégués de près de deux cents pays concluent un accord historique, dans une grande capitale, pour lutter contre le réchauffement de la planète.",
+    explanation: "L'Accord de Paris fut adopté lors d'une conférence des Nations unies sur le climat, à Paris, engageant près de 200 pays à agir ensemble pour limiter le réchauffement climatique.",
+  },
+  roman_forum: {
+    name: "Forum romain",
+    clue: "Une place rectangulaire fut jadis le cœur politique d'un vaste empire antique, ses ruines encore bordées de temples et de bâtiments officiels effondrés.",
+    explanation: "Le Forum romain fut le centre politique, religieux et commercial de la Rome antique. Ses ruines, dont des temples et des bâtiments officiels effondrés, se dressent encore au cœur de la ville moderne.",
+  },
+  skara_brae: {
+    name: "Skara Brae",
+    clue: "Une tempête arrache des dunes côtières et révèle un village préhistorique si bien conservé que ses lits et étagères en pierre tiennent encore en place.",
+    explanation: "Skara Brae est un village néolithique en pierre des Orcades, en Écosse, révélé quand une violente tempête arracha les dunes qui le recouvraient. Son mobilier de pierre est si bien conservé qu'il est antérieur à Stonehenge et à la grande pyramide de Gizeh.",
+  },
+  mexico_city_earthquake_1985: {
+    name: "Séisme de Mexico",
+    clue: "Un séisme au large d'une côte lointaine frappe pourtant durement une capitale distante, son sol d'ancien lac amplifiant violemment les secousses.",
+    explanation: "Le séisme de Mexico a son origine à des centaines de kilomètres, sur la côte, mais le sol meuble de l'ancien lac sur lequel repose la capitale a violemment amplifié les secousses, faisant s'effondrer des centaines de bâtiments.",
+  },
+  siege_of_leningrad: {
+    name: "Siège de Léningrad",
+    clue: "Une armée bloque une grande ville du nord pendant plus de deux ans, provoquant une famine qui tue plus de civils qu'aucun siège connu, sans jamais la prendre.",
+    explanation: "Le siège de Léningrad fut un blocus de la ville soviétique par les forces de l'Axe pendant 872 jours. Environ 1,5 million de personnes moururent, surtout de faim, dans ce qui reste le siège le plus meurtrier de l'histoire.",
+  },
+  battle_of_borodino: {
+    name: "Bataille de la Moskova",
+    clue: "La journée la plus meurtrière d'une longue série de guerres se joue aux portes d'une grande ville, tombée aux mains de l'envahisseur peu après.",
+    explanation: "La bataille de la Moskova, livrée aux portes de Moscou lors de l'invasion française de la Russie, fut la journée la plus meurtrière des guerres napoléoniennes. Moscou tomba aux mains des Français à peine une semaine plus tard.",
+  },
+  battle_of_karbala: {
+    name: "Bataille de Kerbala",
+    clue: "Une petite caravane menée par le petit-fils du fondateur d'une grande religion est encerclée et tuée, un jour pleuré chaque année par des millions de fidèles.",
+    explanation: "La bataille de Kerbala vit les forces du calife Yazid Ier encercler et tuer Husayn ibn Ali, petit-fils du prophète Mahomet, avec son petit groupe de compagnons. L'anniversaire, l'Achoura, reste l'un des jours les plus solennellement observés de l'islam chiite.",
+  },
+  battle_of_yarmouk: {
+    name: "Bataille du Yarmouk",
+    clue: "Près d'une rivière, une tempête de sable aveugle une armée lors d'une bataille qui met fin au règne d'un empire séculaire sur toute une région.",
+    explanation: "La bataille du Yarmouk vit les forces arabes vaincre l'armée byzantine, aidées selon certains récits par une tempête de sable qui aveugla les défenseurs. Cette victoire mit fin à des siècles de domination byzantine sur la Syrie.",
+  },
+  templo_mayor: {
+    name: "Templo Mayor",
+    clue: "Une pyramide à double sanctuaire honorant des dieux de la guerre et de la pluie fut rebâtie six fois, avant que des conquérants n'y érigent une cathédrale.",
+    explanation: "Le Templo Mayor fut le temple principal de Tenochtitlan, capitale aztèque, dédié aux dieux Huitzilopochtli et Tlaloc. Les conquistadors espagnols le détruisirent et bâtirent une cathédrale sur ses ruines.",
+  },
+  hedy_lamarr: {
+    name: "Hedy Lamarr",
+    clue: "Née dans une grande capitale ancienne, une vedette de cinéma coinvente en secret un système radio qui fonde la technologie sans fil actuelle.",
+    explanation: "Hedy Lamarr est née à Vienne. Parallèlement à sa carrière hollywoodienne, elle coinventa pendant la Seconde Guerre mondiale un système radio à sauts de fréquence, une idée à l'origine du Wi-Fi et du Bluetooth.",
+  },
+  marco_polo: {
+    name: "Marco Polo",
+    clue: "Né dans une ville de lagune, un marchand parcourt une célèbre route commerciale et produit l'un des premiers récits détaillés d'un vaste empire loin à l'est.",
+    explanation: "Marco Polo est né à Venise. Ses années passées à parcourir la route de la soie jusqu'à la cour mongole donnèrent naissance à un livre offrant aux Européens leur premier aperçu détaillé de la Chine sous la dynastie Yuan.",
+  },
+  john_von_neumann: {
+    name: "John von Neumann",
+    clue: "Né dans une capitale fluviale, un mathématicien conçoit une architecture mémoire-processeur que suivent presque tous les ordinateurs actuels.",
+    explanation: "John von Neumann est né à Budapest. Son architecture définissant l'organisation de la mémoire et du processeur d'un ordinateur est devenue le modèle suivi par la quasi-totalité des ordinateurs modernes.",
+  },
+  edgar_allan_poe: {
+    name: "Edgar Allan Poe",
+    clue: "Né de comédiens itinérants dans une ville portuaire, un écrivain de contes macabres meurt mystérieusement, retrouvé délirant dans des habits d'emprunt.",
+    explanation: "Edgar Allan Poe est né à Boston, de parents comédiens. Des décennies plus tard, il fut retrouvé délirant dans la rue, vêtu d'habits qui n'étaient pas les siens, et mourut peu après ; la cause n'a jamais été établie avec certitude.",
+  },
+  martin_luther: {
+    name: "Martin Luther",
+    clue: "Né dans une ville minière, un moine cloue quatre-vingt-quinze griefs sur une porte d'église, divisant une religion et changeant l'histoire d'un continent.",
+    explanation: "Martin Luther est né à Eisleben, une ville minière de Saxe. Ses quatre-vingt-quinze thèses contestant les pratiques de l'Église déclenchèrent la Réforme protestante, et sa traduction allemande de la Bible façonna la langue elle-même.",
+  },
+  first_winter_olympics: {
+    name: "Premiers Jeux olympiques d'hiver",
+    clue: "Une semaine de sports en montagne enneigée n'est pas appelée Jeux olympiques à l'époque, mais sera reconnue plus tard comme les premiers Jeux d'hiver.",
+    explanation: "La semaine des sports d'hiver de Chamonix se déroula dans les Alpes françaises et ne fut reconnue par le Comité international olympique que deux ans plus tard comme les premiers Jeux olympiques d'hiver.",
+  },
+  evian_accords: {
+    name: "Accords d'Évian",
+    clue: "Dans une ville thermale au bord d'un lac, des négociateurs actent la fin d'une guerre coloniale et l'indépendance d'une nation de l'autre côté de la mer.",
+    explanation: "Les accords d'Évian furent signés dans la station thermale d'Évian-les-Bains, mettant fin à la guerre d'Algérie et actant l'indépendance de l'Algérie vis-à-vis de la France.",
+  },
+  messina_earthquake_1908: {
+    name: "Séisme de Messine",
+    clue: "Un séisme centré dans un détroit étroit détruit deux villes se faisant face, le plus meurtrier jamais enregistré sur le continent.",
+    explanation: "Le séisme de Messine frappa le détroit de Messine, dévastant à la fois Messine, en Sicile, et Reggio de Calabre, sur le continent. Il reste le séisme le plus meurtrier de l'histoire européenne enregistrée.",
+  },
+  karl_landsteiner: {
+    name: "Karl Landsteiner",
+    clue: "Né près d'une grande capitale ancienne, un médecin découvre que le sang humain existe en groupes distincts, rendant enfin les transfusions sûres.",
+    explanation: "Karl Landsteiner est né près de Vienne. Sa découverte des groupes sanguins ABO rendit les transfusions sanguines sûres et lui valut le prix Nobel de physiologie ou médecine.",
+  },
+  lope_de_vega: {
+    name: "Lope de Vega",
+    clue: "Né dans une grande capitale, un dramaturge écrit plus d'un millier de pièces selon certains, un rival le surnommant un phénix sans cesse renaissant.",
+    explanation: "Lope de Vega est né à Madrid. L'un des dramaturges les plus prolifiques de l'histoire, il écrivit bien plus d'un millier de pièces et fut surnommé « le Phénix des esprits » par son confrère Miguel de Cervantès.",
+  },
+  assassination_of_lincoln: {
+    name: "Assassinat d'Abraham Lincoln",
+    clue: "Pendant une pièce de théâtre, un président est abattu d'une balle dans la tête par un acteur du camp vaincu d'une guerre civile, et meurt le lendemain.",
+    explanation: "Abraham Lincoln fut abattu au théâtre Ford, à Washington, par John Wilkes Booth, sympathisant confédéré, alors qu'il assistait à une pièce. Il mourut le lendemain matin dans une maison de l'autre côté de la rue.",
+  },
+  assassination_of_gandhi: {
+    name: "Assassinat du Mahatma Gandhi",
+    clue: "Un vieux dirigeant indépendantiste est abattu en se rendant à une prière du soir dans le jardin d'un manoir, par un extrémiste hostile à son message d'unité.",
+    explanation: "Le Mahatma Gandhi fut abattu dans le jardin de la Birla House, à New Delhi, par Nathuram Godse, un extrémiste nationaliste hindou hostile à son message d'unité religieuse.",
+  },
+  mesa_verde: {
+    name: "Mesa Verde",
+    clue: "Un peuple ancien bâtit des villages entiers de pierre dans les alcôves de falaises escarpées, puis les abandonna des siècles avant leur redécouverte.",
+    explanation: "Le parc national de Mesa Verde protège des habitations troglodytiques bâties par les Ancestraux Puebloans à même les alcôves des falaises. Les sites furent abandonnés bien avant leur redécouverte et restent parmi les mieux conservés du pays.",
+  },
+  leshan_giant_buddha: {
+    name: "Grand Bouddha de Leshan",
+    clue: "Taillée dans une falaise au confluent de deux rivières, une figure de pierre assise de plus de soixante-dix mètres mit presque un siècle à être achevée.",
+    explanation: "Le grand Bouddha de Leshan fut taillé dans une falaise au confluent des rivières Min et Dadu, en Chine. Avec ses 71 mètres de haut, il reste la plus haute statue de pierre pré-moderne au monde.",
+  },
+  louisiana_purchase_exposition: {
+    name: "Exposition universelle de Saint-Louis",
+    clue: "Une immense exposition universelle attire près de vingt millions de visiteurs et est traditionnellement créditée d'avoir popularisé le cornet de glace.",
+    explanation: "L'Exposition universelle de Saint-Louis, aussi appelée Foire mondiale de Saint-Louis, attira près de 20 millions de visiteurs. Elle est traditionnellement créditée, non sans débat, d'avoir popularisé le cornet de glace aux États-Unis.",
+  },
+  battle_of_stamford_bridge: {
+    name: "Bataille de Stamford Bridge",
+    clue: "Un roi défait une invasion venue d'outre-mer, tuant l'envahisseur et son propre frère, avant de marcher affronter une seconde invasion trois semaines plus tard.",
+    explanation: "À Stamford Bridge, le roi Harold Godwinson défit une invasion norvégienne menée par Harald Hardrada, tuant à la fois Hardrada et son propre frère Tostig. Harold marcha ensuite vers le sud, où son armée épuisée fut vaincue à Hastings moins de trois semaines plus tard.",
+  },
+  first_battle_of_the_marne: {
+    name: "Première bataille de la Marne",
+    clue: "Une armée à quarante kilomètres d'une capitale est stoppée net, des renforts étant envoyés au front dans une flotte de taxis citadins réquisitionnés.",
+    explanation: "La première bataille de la Marne arrêta l'avancée allemande vers Paris au début de la Première Guerre mondiale. Des renforts furent célèbrement acheminés au front dans des taxis parisiens réquisitionnés, les « taxis de la Marne ».",
+  },
+  california_gold_rush: {
+    name: "Ruée vers l'or en Californie",
+    clue: "Quelques paillettes de métal trouvées près d'une scierie déclenchent une ruée de près de 300 000 personnes venues creuser et revendiquer des terrains.",
+    explanation: "La ruée vers l'or en Californie débuta après la découverte d'or au moulin de Sutter. Environ 300 000 personnes affluèrent en Californie, précipitant son accession au statut d'État tout en dévastant les communautés amérindiennes locales.",
+  },
+  halicarnassus: {
+    name: "Halicarnasse",
+    clue: "Une cité côtière bâtit un tombeau si spectaculaire pour un souverain que le nom de l'édifice est devenu, depuis, le mot désignant tout tombeau grandiose.",
+    explanation: "Halicarnasse, sur la côte de la Turquie actuelle, bâtit le mausolée de son souverain Mausole, l'une des sept merveilles du monde antique. Le mot « mausolée » vient directement de son nom.",
+  },
+  miletus: {
+    name: "Milet",
+    clue: "Un riche port marchand fonde tant de colonies que les historiens débattent encore de leur nombre, et il est vu comme le berceau de la philosophie elle-même.",
+    explanation: "Milet, sur la côte de la Turquie actuelle, fut une puissance maritime prospère qui fonda de nombreuses colonies en Méditerranée et en mer Noire. Elle est souvent considérée comme le berceau de la philosophie occidentale, patrie de penseurs comme Thalès.",
+  },
+  ada_lovelace: {
+    name: "Ada Lovelace",
+    clue: "Née d'un poète célèbre qui la quitte avant ses deux ans, une mathématicienne écrit le premier programme informatique pour une machine jamais construite.",
+    explanation: "Ada Lovelace est née à Londres, fille du poète Lord Byron. En travaillant avec Charles Babbage sur sa machine analytique jamais construite, elle écrivit ce qui est considéré comme le premier programme informatique.",
+  },
+  vasco_da_gama: {
+    name: "Vasco de Gama",
+    clue: "Né dans une petite ville côtière, un navigateur devient le premier à atteindre par la mer un lointain sous-continent en contournant un continent austral.",
+    explanation: "Vasco de Gama est né à Sines, au Portugal. Il devint le premier Européen à relier directement l'Europe à l'Inde en contournant le cap de Bonne-Espérance, ouvrant une nouvelle route maritime vers l'Asie.",
+  },
+  niels_bohr: {
+    name: "Niels Bohr",
+    clue: "Né dans une capitale froide du nord, un physicien modélise l'orbite des électrons autour d'un noyau, transformant la science et lui valant un prix majeur.",
+    explanation: "Niels Bohr est né à Copenhague. Son modèle de la structure atomique, décrivant des électrons occupant des niveaux d'énergie fixes, fut fondateur pour la théorie quantique et lui valut le prix Nobel de physique.",
+  },
+  fyodor_dostoyevsky: {
+    name: "Fiodor Dostoïevski",
+    clue: "Né dans une grande capitale, un romancier affronte un peloton d'exécution, gracié à la dernière minute et exilé dans un camp de travail à la place.",
+    explanation: "Fiodor Dostoïevski est né à Moscou. Condamné à mort pour activité politique, il affronta un peloton d'exécution avant d'être gracié à la dernière minute et envoyé dans un camp de travail sibérien.",
+  },
+  mark_twain: {
+    name: "Mark Twain",
+    clue: "Né dans un petit village fluvial, un ancien pilote de bateau à vapeur choisit son nom de plume d'après un cri de marinier mesurant la profondeur sûre de l'eau.",
+    explanation: "Mark Twain est né à Florida, dans le Missouri. Avant de devenir écrivain, il fut pilote de bateau à vapeur sur le Mississippi, et tira son nom de plume du cri des mariniers « mark twain », signifiant deux brasses d'eau sûre.",
+  },
+  treaty_of_brussels: {
+    name: "Traité de Bruxelles",
+    clue: "Plusieurs nations d'un même continent signent un pacte de défense militaire mutuelle, posant les bases d'une alliance bien plus vaste formée l'année suivante.",
+    explanation: "Le traité de Bruxelles créa l'Union occidentale, un pacte de défense entre plusieurs nations d'Europe occidentale, posant les bases qui menèrent directement à la création de l'OTAN l'année suivante.",
+  },
+  bam_earthquake_2003: {
+    name: "Séisme de Bam",
+    clue: "Un séisme dévaste une ville désertique réputée pour sa citadelle antique en brique crue, ce même matériau condamnant aussi la plupart de ses maisons modernes.",
+    explanation: "Le séisme de Bam frappa la ville iranienne de Bam, connue pour sa citadelle antique en brique crue, l'Arg-e Bam. La plupart des bâtiments modernes, eux aussi en brique crue, s'effondrèrent, tuant des dizaines de milliers de personnes.",
+  },
+  robert_bunsen: {
+    name: "Robert Bunsen",
+    clue: "Né dans une ville universitaire, un chimiste analyse la lumière émise par des éléments chauffés et découvre ainsi deux éléments chimiques inconnus.",
+    explanation: "Robert Bunsen est né à Göttingen, en Allemagne. Grâce à la spectroscopie de flamme, il découvrit les éléments césium et rubidium. Le bec de laboratoire perfectionné pour ses expériences porte toujours son nom.",
+  },
+  theophile_gautier: {
+    name: "Théophile Gautier",
+    clue: "Né dans une ville du sud, un poète et critique invente la formule sur l'art sans autre utilité que sa beauté, influençant toute une génération d'écrivains.",
+    explanation: "Théophile Gautier est né à Tarbes. Poète et critique, il défendit « l'art pour l'art », l'idée que la valeur de l'art réside dans sa seule beauté, influençant les écrivains symbolistes et décadents qui suivirent.",
+  },
+  first_council_of_nicaea: {
+    name: "Premier concile de Nicée",
+    clue: "Un empereur convoque des chefs religieux pour trancher un différend doctrinal, et leur credo est encore récité mot pour mot dans des églises du monde entier.",
+    explanation: "Le premier concile de Nicée fut convoqué par l'empereur Constantin pour trancher des différends sur la doctrine chrétienne. Il produisit le Credo de Nicée, encore récité dans des églises du monde entier.",
+  },
+  fall_of_kabul: {
+    name: "Chute de Kaboul",
+    clue: "Un groupe insurgé ayant déjà dirigé le pays reprend la capitale presque sans combat, des foules s'accrochant à des avions en partance.",
+    explanation: "La chute de Kaboul vit les forces talibanes s'emparer de la capitale afghane après une offensive rapide, mettant fin à la guerre en Afghanistan. Des scènes chaotiques se déroulèrent à l'aéroport alors que des milliers de personnes tentaient de fuir le pays.",
+  },
+  edinburgh_castle: {
+    name: "Château d'Édimbourg",
+    clue: "Une forteresse perchée sur le culot d'un volcan éteint est occupée depuis l'âge du fer, servant d'abord de résidence royale, puis de garnison militaire.",
+    explanation: "Le château d'Édimbourg se dresse sur Castle Rock, le culot d'un volcan éteint occupé depuis l'âge du fer. Il servit de résidence royale pendant des siècles avant de devenir surtout une garnison militaire.",
+  },
+  san_francisco_earthquake_1906: {
+    name: "Séisme de San Francisco",
+    clue: "Un séisme rompt une faille visible, mais les incendies qui suivent, brûlant des jours durant, détruisent plus de la ville que le séisme lui-même.",
+    explanation: "Le séisme de San Francisco rompit la faille de San Andreas. Les incendies qui suivirent brûlèrent pendant des jours et causèrent plus de destruction que le séisme lui-même, contribuant à fonder la sismologie moderne.",
+  },
+  great_exhibition: {
+    name: "Grande Exposition",
+    clue: "Dans un immense bâtiment de verre et de fer aux murs de cristal, la première foire industrielle internationale expose les inventions de toute une époque.",
+    explanation: "La Grande Exposition se tint au Crystal Palace de Londres, une vaste structure de verre et de fer. Organisée par le prince Albert, elle fut la première d'une longue série d'expositions universelles célébrant l'industrie et la culture.",
+  },
+  battle_of_plassey: {
+    name: "Bataille de Plassey",
+    clue: "Une compagnie commerciale gagne une bataille surtout par la corruption, achetant en secret le commandant ennemi, lançant un siècle d'expansion territoriale.",
+    explanation: "La bataille de Plassey vit la Compagnie britannique des Indes orientales vaincre le nabab du Bengale, en grande partie grâce à la trahison secrète de son commandant Mir Jafar. Cette victoire lança un siècle d'expansion britannique sur le sous-continent indien.",
+  },
+  battle_of_crecy: {
+    name: "Bataille de Crécy",
+    clue: "Des rangées d'archers, appuyés par quelques premiers canons de bataille, abattent des vagues de chevaliers, tôt dans une guerre entre deux maisons royales.",
+    explanation: "À Crécy, les archers anglais infligèrent des pertes dévastatrices à la cavalerie française, l'une des défaites les plus déséquilibrées de la guerre de Cent Ans entre l'Angleterre et la France.",
+  },
+  assassination_of_soleimani: {
+    name: "Assassinat de Qassem Soleimani",
+    clue: "Un haut général est tué par un missile tiré depuis un drone alors que son convoi quitte un aéroport international, un acte ordonné par un chef d'État étranger.",
+    explanation: "Qassem Soleimani, haut général iranien, fut tué par une frappe de drone américaine près de l'aéroport international de Bagdad, une opération ordonnée par le président Donald Trump. Cette mort fit brutalement monter les tensions régionales.",
+  },
+  uruk: {
+    name: "Uruk",
+    clue: "Considérée comme la première vraie ville au monde, elle serait aussi le lieu où l'écriture fut inventée, inspirant l'un des plus vieux poèmes épiques connus.",
+    explanation: "Uruk, en Mésopotamie antique, est largement considérée comme la première vraie ville au monde et un possible berceau de l'écriture, sous forme cunéiforme. C'est aussi le décor de l'épopée de Gilgamesh, l'une des plus anciennes œuvres littéraires connues.",
+  },
+  tel_megiddo: {
+    name: "Tel Megiddo",
+    clue: "Des dizaines de cités antiques furent bâties l'une sur l'autre sur un site disputé des millénaires durant, son nom antique désignant une bataille apocalyptique.",
+    explanation: "Tel Megiddo est un tertre formé de plus de vingt couches de cités antiques, disputé pendant des millénaires en raison de sa position stratégique. Son nom grec, Armageddon, en est venu à désigner la bataille finale décrite dans le livre de l'Apocalypse.",
+  },
+  wernher_von_braun: {
+    name: "Wernher von Braun",
+    clue: "Né sur un petit domaine rural, un ingénieur ayant conçu des armes pour un régime en guerre conçoit plus tard les fusées menant des astronautes sur la Lune.",
+    explanation: "Wernher von Braun est né à Wirsitz, alors en territoire allemand. Il dirigea le développement de la fusée V2 pour le régime nazi, avant de concevoir plus tard les fusées Saturn V qui menèrent les astronautes de la NASA sur la Lune.",
+  },
+  archimedes: {
+    name: "Archimède",
+    clue: "Né dans une ville côtière, un mathématicien court dans les rues en criant après une intuition dans son bain, tué des années plus tard en pleine réflexion.",
+    explanation: "Archimède est né à Syracuse, en Sicile. Il aurait couru nu dans les rues en criant « Eurêka ! » après avoir compris comment mesurer un volume par déplacement d'eau. Il fut tué par un soldat romain lors du sac de la ville, absorbé dans un problème de géométrie.",
+  },
+  ernest_hemingway: {
+    name: "Ernest Hemingway",
+    clue: "Né dans une banlieue tranquille, un romancier au style sobre et économe survit à deux accidents d'avion consécutifs lors d'un même safari.",
+    explanation: "Ernest Hemingway est né à Oak Park, dans l'Illinois. Célèbre pour son style dépouillé, il survécut à deux accidents d'avion survenus deux jours de suite lors d'un même safari en Afrique.",
+  },
+  charles_dickens: {
+    name: "Charles Dickens",
+    clue: "Né dans une ville portuaire militaire, un romancier est retiré de l'école enfant pour travailler en fabrique de cirage, son père étant emprisonné pour dettes.",
+    explanation: "Charles Dickens est né à Portsmouth. Enfant, il fut envoyé travailler dans une fabrique de cirage après l'emprisonnement de son père pour dettes, une expérience qui marqua ses romans sur la pauvreté et l'injustice sociale.",
+  },
+  gabriel_garcia_marquez: {
+    name: "Gabriel García Márquez",
+    clue: "Né dans une petite ville tropicale, un romancier élevé par des grands-parents aux histoires de fantômes mêle plus tard le magique et le quotidien en fiction.",
+    explanation: "Gabriel García Márquez est né à Aracataca, en Colombie. Élevé en grande partie par ses grands-parents, dont les récits de fantômes et légendes familiales nourrirent sa fiction, il devint un pionnier du réalisme magique et remporta le prix Nobel de littérature.",
+  },
+  temple_of_zeus_olympia: {
+    name: "Temple de Zeus à Olympie",
+    clue: "Un temple de style classique abrita jadis une statue géante d'or et d'ivoire comptée parmi les sept merveilles du monde antique, sur le site des jeux originels.",
+    explanation: "Le temple de Zeus à Olympie abrita jadis une statue colossale de Zeus en or et en ivoire, l'une des sept merveilles du monde antique, dans le sanctuaire où se tenaient les jeux olympiques antiques.",
+  },
+  herodium: {
+    name: "Hérodion",
+    clue: "Un roi bâtit un palais fortifié désertique au sommet d'une colline artificielle en forme de cône visible à des kilomètres, et y fut plus tard enseveli lui-même.",
+    explanation: "L'Hérodion fut un palais fortifié bâti par Hérode le Grand au sommet d'une colline artificielle en forme de cône, dans le désert de Judée. Les archéologues y ont découvert ce qui serait sa propre tombe.",
+  },
+  niels_henrik_abel: {
+    name: "Niels Henrik Abel",
+    clue: "Né sur une petite île côtière, un mathématicien prouve qu'un problème vieux de deux siècles était impossible à résoudre, puis meurt pauvre dans la vingtaine.",
+    explanation: "Niels Henrik Abel est né sur l'île de Finnøy, en Norvège. Il prouva que l'équation générale du cinquième degré ne pouvait être résolue par radicaux, mettant fin à un problème ouvert depuis plus de deux siècles, mais mourut tuberculeux et pauvre à vingt-six ans.",
+  },
+  bartolome_esteban_murillo: {
+    name: "Bartolomé Esteban Murillo",
+    clue: "Né dans une ville fluviale du sud, un peintre baroque connu pour ses œuvres religieuses capture aussi des enfants des rues avec un réalisme saisissant.",
+    explanation: "Bartolomé Esteban Murillo est né à Séville. Bien que surtout connu pour ses peintures religieuses, il produisit aussi des portraits vivants et réalistes des bouquetières, gamins des rues et mendiants de sa ville.",
+  },
 };

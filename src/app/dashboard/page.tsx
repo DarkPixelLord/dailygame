@@ -12,7 +12,7 @@ import { PANEL, GHOST_BUTTON, PRIMARY_BUTTON, GAME_TITLE } from "@/lib/theme";
 
 export const dynamic = "force-dynamic";
 
-type Tab = "daily" | "archive" | "content";
+type Tab = "daily" | "streak" | "archive" | "content";
 type TierRange = "today" | "60d";
 
 const HISTORY_DAYS = 60;
@@ -75,6 +75,131 @@ async function loadArchiveStats() {
   };
 }
 
+function isNextCalendarDay(prev: string, day: string): boolean {
+  const d = new Date(`${prev}T00:00:00.000Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10) === day;
+}
+
+// D+1 retention: of the devices that played on day D-1, what share came
+// back on day D. Needs no new tracking — device_id is already stored per
+// row in daily_scores (unique per device+day, see api/finish) purely to
+// dedupe score submissions; this just re-reads it as a cohort.
+// Fetches one extra day before the display cutoff so the first displayed
+// day still has a previous-day cohort to compare against.
+async function loadRetentionStats() {
+  const extendedCutoff = (() => {
+    const d = new Date();
+    d.setUTCDate(d.getUTCDate() - (HISTORY_DAYS + 1));
+    return d.toISOString().slice(0, 10);
+  })();
+
+  const { data, error } = await supabase
+    .from("daily_scores")
+    .select("played_at, device_id")
+    .gte("played_at", extendedCutoff)
+    .order("played_at", { ascending: true });
+
+  if (error || !data) return null;
+
+  const devicesByDay = new Map<string, Set<string>>();
+  for (const row of data) {
+    const set = devicesByDay.get(row.played_at) ?? new Set<string>();
+    set.add(row.device_id);
+    devicesByDay.set(row.played_at, set);
+  }
+
+  const days = [...devicesByDay.keys()].sort();
+  const cutoff = cutoffDate();
+  const points: { label: string; value: number }[] = [];
+  for (let i = 1; i < days.length; i++) {
+    const prevDay = days[i - 1];
+    const day = days[i];
+    if (day < cutoff || !isNextCalendarDay(prevDay, day)) continue;
+    const prevSet = devicesByDay.get(prevDay)!;
+    if (prevSet.size === 0) continue;
+    const set = devicesByDay.get(day)!;
+    let returning = 0;
+    for (const id of prevSet) if (set.has(id)) returning += 1;
+    points.push({ label: day, value: Math.round((returning / prevSet.size) * 100) });
+  }
+
+  return points;
+}
+
+const STREAK_BUCKET_ORDER = ["30j+", "14-29j", "7-13j", "4-6j", "2-3j", "1j"] as const;
+
+function bucketStreak(streak: number): (typeof STREAK_BUCKET_ORDER)[number] {
+  if (streak >= 30) return "30j+";
+  if (streak >= 14) return "14-29j";
+  if (streak >= 7) return "7-13j";
+  if (streak >= 4) return "4-6j";
+  if (streak >= 2) return "2-3j";
+  return "1j";
+}
+
+// Streak isn't stored anywhere server-side — the client keeps it in
+// localStorage only (see lib/daily-streak.ts) and never sends it over. But
+// it's fully derivable from daily_scores: device_id + played_at already
+// record exactly which days each device played, which is all a streak is.
+// Pulls the full history rather than a rolling window, since a streak's
+// length depends on the whole run, not just the last HISTORY_DAYS.
+async function loadStreakStats() {
+  const { data, error } = await supabase
+    .from("daily_scores")
+    .select("played_at, device_id")
+    .order("played_at", { ascending: true });
+
+  if (error || !data) return null;
+
+  const daysByDevice = new Map<string, string[]>();
+  for (const row of data) {
+    const list = daysByDevice.get(row.device_id) ?? [];
+    list.push(row.played_at);
+    daysByDevice.set(row.device_id, list);
+  }
+
+  const today = todayDate();
+  const yesterday = (() => {
+    const d = new Date();
+    d.setUTCDate(d.getUTCDate() - 1);
+    return d.toISOString().slice(0, 10);
+  })();
+
+  let maxStreakEver = 0;
+  const activeStreaks: number[] = [];
+
+  // Rows come back ordered by played_at, and a device has at most one row
+  // per day (unique constraint), so each list is already an ascending,
+  // deduped list of that device's play days.
+  for (const days of daysByDevice.values()) {
+    let runLength = 0;
+    let prevDay: string | null = null;
+    for (const day of days) {
+      runLength = prevDay && isNextCalendarDay(prevDay, day) ? runLength + 1 : 1;
+      if (runLength > maxStreakEver) maxStreakEver = runLength;
+      prevDay = day;
+    }
+    const lastPlayedDay = days[days.length - 1];
+    if (lastPlayedDay === today || lastPlayedDay === yesterday) activeStreaks.push(runLength);
+  }
+
+  const bucketCounts = new Map<string, number>(STREAK_BUCKET_ORDER.map((b) => [b, 0]));
+  for (const s of activeStreaks) bucketCounts.set(bucketStreak(s), (bucketCounts.get(bucketStreak(s)) ?? 0) + 1);
+
+  const avgActiveStreak = activeStreaks.length
+    ? Math.round((activeStreaks.reduce((a, b) => a + b, 0) / activeStreaks.length) * 10) / 10
+    : 0;
+
+  return {
+    maxStreakEver,
+    avgActiveStreak,
+    activeCount: activeStreaks.length,
+    loyalCount: activeStreaks.filter((s) => s >= 7).length,
+    buckets: STREAK_BUCKET_ORDER.map((label) => ({ label, count: bucketCounts.get(label) ?? 0 })),
+  };
+}
+
 // Tier breakdown is loaded separately from the per-day charts above: the
 // charts always show the full HISTORY_DAYS trend, while this block is what
 // the today/60d range selector toggles — the two shouldn't be coupled to
@@ -98,6 +223,9 @@ function Tabs({ active }: { active: Tab }) {
     <div className="flex flex-wrap gap-2">
       <Link href="/dashboard?tab=daily" className={active === "daily" ? PRIMARY_BUTTON : GHOST_BUTTON}>
         Défi du jour
+      </Link>
+      <Link href="/dashboard?tab=streak" className={active === "streak" ? PRIMARY_BUTTON : GHOST_BUTTON}>
+        Streak
       </Link>
       <Link href="/dashboard?tab=archive" className={active === "archive" ? PRIMARY_BUTTON : GHOST_BUTTON}>
         Archive
@@ -137,7 +265,8 @@ export default async function DashboardPage({
   if (!authed) return <LoginForm />;
 
   const { tab, range } = await searchParams;
-  const activeTab: Tab = tab === "archive" ? "archive" : tab === "content" ? "content" : "daily";
+  const activeTab: Tab =
+    tab === "streak" ? "streak" : tab === "archive" ? "archive" : tab === "content" ? "content" : "daily";
   const activeRange: TierRange = range === "60d" ? "60d" : "today";
 
   return (
@@ -156,6 +285,8 @@ export default async function DashboardPage({
 
         {activeTab === "daily" ? (
           <DailyTab range={activeRange} />
+        ) : activeTab === "streak" ? (
+          <StreakTab />
         ) : activeTab === "archive" ? (
           <ArchiveTab range={activeRange} />
         ) : (
@@ -198,6 +329,63 @@ async function DailyTab({ range }: { range: TierRange }) {
           <TierBreakdown tierCounts={tiers.tierCounts} total={tiers.total} />
         )}
       </section>
+    </>
+  );
+}
+
+async function StreakTab() {
+  const [retention, streak] = await Promise.all([loadRetentionStats(), loadStreakStats()]);
+
+  return (
+    <>
+      <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
+        <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">
+          Rétention J+1 ({HISTORY_DAYS}j)
+        </h2>
+        {!retention || retention.length === 0 ? (
+          <p className="text-sm text-white/40">Pas assez de données consécutives.</p>
+        ) : (
+          <LineChart points={retention} formatValue={(v) => `${v}%`} />
+        )}
+      </section>
+
+      {!streak ? (
+        <p className="text-white/50">Impossible de charger les statistiques de streak.</p>
+      ) : (
+        <>
+          <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
+            <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">Streak actuel</h2>
+            <StatRow label="Joueurs avec un streak actif" value={streak.activeCount} />
+            <StatRow label="Streak moyen (actifs)" value={`${streak.avgActiveStreak}j`} />
+            <StatRow label="Streak actif ≥ 7 jours" value={streak.loyalCount} />
+            <StatRow label="Meilleur streak jamais atteint" value={`${streak.maxStreakEver}j`} />
+          </section>
+
+          <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
+            <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">
+              Répartition des streaks actifs
+            </h2>
+            {streak.activeCount === 0 ? (
+              <p className="text-sm text-white/40">Aucun streak actif.</p>
+            ) : (
+              <div className="flex flex-col gap-1.5">
+                {streak.buckets.map((b) => {
+                  const pct = Math.round((b.count / streak.activeCount) * 100);
+                  return (
+                    <div key={b.label} className="flex items-center gap-2">
+                      <span className="w-16 shrink-0 text-xs font-semibold text-white/70">{b.label}</span>
+                      <div className="h-3 flex-1 overflow-hidden rounded-sm bg-white/5">
+                        <div className="h-full bg-amber-400/70" style={{ width: `${pct}%` }} />
+                      </div>
+                      <span className="w-10 shrink-0 text-right text-xs text-amber-300">{b.count}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </section>
+        </>
+      )}
     </>
   );
 }

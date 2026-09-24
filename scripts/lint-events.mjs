@@ -129,6 +129,9 @@ const CAPITALIZED_WORD_EXCEPTIONS = new Set([
   "river", "peninsula", "state", "jeux", "état", "southern", "cold",
   "hemisphere", "war", "mountain", "mountains", "gulf",
   "indigenous", "autochtones", "south", "sud", "pole",
+  // Added for the 2026-09-24 100-clue batch: religious/cultural adjectives
+  // and celestial bodies, neither of which narrow the map answer's location.
+  "christian", "chrétien", "chrétienne", "moon", "lune",
 ]);
 const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   "euphrates", "euphrate", "urubamba", "tōhoku", "catskill", "catskills",
