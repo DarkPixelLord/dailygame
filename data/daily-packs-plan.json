@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-24T08:29:06.994Z",
+  "generatedAt": "2026-09-24T09:34:55.840Z",
   "seed": 42,
   "note": "Consumed directly by pickDailyEvents() in src/lib/poc-events.ts. One pack = one calendar day, packs cycle in a seeded-shuffled order per full pass so no pack repeats until every pack has been played.",
   "summary": {
-    "totalCluesInPool": 117,
-    "totalPacks": 23,
-    "packsWithAllThreeCategories": 19,
+    "totalCluesInPool": 137,
+    "totalPacks": 27,
+    "packsWithAllThreeCategories": 22,
     "leftoverUnused": {
       "easy": 0,
       "medium": 0,
@@ -17,11 +17,11 @@
       "packIndex": 0,
       "type": "A",
       "ids": [
-        "gettysburg",
-        "bach_birth",
-        "pompeii",
+        "battle_of_stalingrad",
+        "helsinki_1952_olympics",
+        "disney_birth",
         "potsdam_conference",
-        "union_of_utrecht"
+        "convention_of_kanagawa"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -39,11 +39,11 @@
       "packIndex": 1,
       "type": "A",
       "ids": [
-        "schengen_agreement",
-        "stockholm_1912_olympics",
-        "gateway_arch",
-        "confucius_birth",
-        "masaccio_birth"
+        "battle_of_waterloo",
+        "beethoven_birth",
+        "angkor_wat",
+        "leonardo_da_vinci_birth",
+        "abu_nuwas_birth"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -61,11 +61,11 @@
       "packIndex": 2,
       "type": "B",
       "ids": [
-        "battle_of_waterloo",
-        "andersen_birth",
-        "ur_mesopotamia",
-        "battle_of_badr",
-        "bru_na_boinne"
+        "council_of_constance",
+        "chaplin_birth",
+        "amundsen_birth",
+        "bretton_woods_system",
+        "ggantija_malta"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -83,11 +83,11 @@
       "packIndex": 3,
       "type": "A",
       "ids": [
-        "tohoku_earthquake_tsunami",
-        "bin_laden_killing",
+        "babylon_hanging_gardens",
+        "normandy_landings",
         "montreal_1976_olympics",
-        "van_gogh_birth",
-        "locarno_treaties"
+        "cannes_film_festival",
+        "union_of_utrecht"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -105,11 +105,11 @@
       "packIndex": 4,
       "type": "B",
       "ids": [
-        "petra_jordan",
-        "normandy_landings",
-        "ibn_battuta_birth",
-        "battle_of_marathon",
-        "abu_nuwas_birth"
+        "valdivia_earthquake",
+        "euromaidan",
+        "newton_birth",
+        "second_council_of_nicaea",
+        "paris_world_fair_1889"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -127,11 +127,11 @@
       "packIndex": 5,
       "type": "A",
       "ids": [
-        "olympic_flame_debut",
-        "bagan",
+        "stockholm_1912_olympics",
+        "darwin_birth",
         "october_revolution_petrograd",
-        "cannes_film_festival",
-        "khirokitia"
+        "cervantes_birth",
+        "chiang_kai_shek_memorial_hall"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -149,11 +149,11 @@
       "packIndex": 6,
       "type": "B",
       "ids": [
-        "oktoberfest_munich",
+        "wilde_birth",
         "nobel_birth",
-        "nikola_tesla_birth",
-        "bretton_woods_system",
-        "klondike_gold_rush"
+        "ur_mesopotamia",
+        "battle_of_tours",
+        "treaty_of_pyrenees"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -171,11 +171,11 @@
       "packIndex": 7,
       "type": "A",
       "ids": [
-        "battle_of_hastings",
-        "hokusai_birth",
-        "abu_simbel",
+        "agincourt",
+        "mexico_1968_olympics",
+        "copernicus_birth",
         "dali_birth",
-        "paris_world_fair_1889"
+        "bunin_birth"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -193,11 +193,11 @@
       "packIndex": 8,
       "type": "B",
       "ids": [
-        "jfk_assassination",
-        "first_modern_olympics",
-        "amundsen_birth",
-        "second_council_of_nicaea",
-        "spitak_earthquake"
+        "battle_of_verdun",
+        "oktoberfest_munich",
+        "pasteur_birth",
+        "battle_of_thermopylae",
+        "iron_pillar_delhi"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -215,11 +215,11 @@
       "packIndex": 9,
       "type": "A",
       "ids": [
-        "cave_of_altamira",
-        "little_bighorn",
-        "wilde_birth",
+        "chichen_itza",
+        "jfk_assassination",
+        "andersen_birth",
         "shakespeare_birth",
-        "svalbard_treaty"
+        "montevideo_convention"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -237,11 +237,11 @@
       "packIndex": 10,
       "type": "B",
       "ids": [
-        "machu_picchu",
-        "battle_of_stalingrad",
-        "tower_of_hercules",
-        "council_of_trent",
-        "bunin_birth"
+        "columbus_birth",
+        "carnation_revolution",
+        "nikola_tesla_birth",
+        "battle_of_cannae",
+        "la_fontaine_birth"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -260,10 +260,10 @@
       "type": "A",
       "ids": [
         "melbourne_1956_olympics",
-        "colosseum",
+        "bagan",
         "battle_of_austerlitz",
         "mozart_birth",
-        "ggantija_malta"
+        "shaanxi_earthquake"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -281,11 +281,11 @@
       "packIndex": 12,
       "type": "B",
       "ids": [
-        "chaplin_birth",
-        "nepal_earthquake",
+        "antwerp_1920_olympics",
+        "great_pyramid_giza",
         "charminar",
-        "battle_of_thermopylae",
-        "treaty_of_pyrenees"
+        "battle_of_marathon",
+        "locarno_treaties"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -303,11 +303,11 @@
       "packIndex": 13,
       "type": "A",
       "ids": [
-        "fall_of_constantinople",
-        "tolstoy_birth",
-        "babylon_hanging_gardens",
-        "cervantes_birth",
-        "la_fontaine_birth"
+        "little_bighorn",
+        "first_modern_olympics",
+        "borobudur_temple",
+        "jorge_luis_borges_birth",
+        "du_fu_birth"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -325,11 +325,11 @@
       "packIndex": 14,
       "type": "B",
       "ids": [
-        "pearl_harbor",
-        "helsinki_1952_olympics",
-        "haiti_earthquake",
-        "battle_of_tours",
-        "minaret_of_jam"
+        "haitian_revolution",
+        "bach_birth",
+        "maiden_tower_baku",
+        "ottawa_treaty",
+        "alodia_soba"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -347,11 +347,11 @@
       "packIndex": 15,
       "type": "A",
       "ids": [
-        "stonehenge",
-        "franz_ferdinand",
-        "woodstock_festival",
-        "basho_birth",
-        "montreal_protocol"
+        "cave_of_altamira",
+        "battle_of_hastings",
+        "olympic_flame_debut",
+        "van_gogh_birth",
+        "klondike_gold_rush"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -369,11 +369,11 @@
       "packIndex": 16,
       "type": "B",
       "ids": [
-        "angkor_wat",
-        "euromaidan",
-        "newton_birth",
-        "battle_of_dien_bien_phu",
-        "du_fu_birth"
+        "nepal_earthquake",
+        "schengen_agreement",
+        "haiti_earthquake",
+        "council_of_trent",
+        "masaccio_birth"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -391,11 +391,11 @@
       "packIndex": 17,
       "type": "A",
       "ids": [
-        "michelangelo_birth",
-        "columbus_birth",
-        "agincourt",
-        "leonardo_da_vinci_birth",
-        "shaanxi_earthquake"
+        "hokusai_birth",
+        "persepolis",
+        "fall_of_constantinople",
+        "basho_birth",
+        "danevirke"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -413,11 +413,11 @@
       "packIndex": 18,
       "type": "B",
       "ids": [
-        "beethoven_birth",
-        "christ_the_redeemer",
-        "byblos_lebanon",
-        "battle_of_cannae",
-        "montevideo_convention"
+        "michelangelo_birth",
+        "krakatoa_eruption",
+        "edmund_hillary_birth",
+        "battle_of_badr",
+        "montreal_protocol"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -435,11 +435,98 @@
       "packIndex": 19,
       "type": "A",
       "ids": [
+        "franz_ferdinand",
+        "woodstock_festival",
+        "tohoku_earthquake_tsunami",
+        "confucius_birth",
+        "khirokitia"
+      ],
+      "difficultyCounts": {
+        "easy": 3,
+        "medium": 1,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 1,
+        "arts_culture": 2,
+        "science_infrastructure": 2
+      }
+    },
+    {
+      "packIndex": 20,
+      "type": "B",
+      "ids": [
+        "bin_laden_killing",
+        "tolstoy_birth",
+        "indian_ocean_tsunami",
+        "battle_of_vienna",
+        "battle_of_kosovo"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 3,
+        "arts_culture": 1,
+        "science_infrastructure": 1
+      }
+    },
+    {
+      "packIndex": 21,
+      "type": "A",
+      "ids": [
+        "gateway_arch",
+        "pearl_harbor",
         "buddha_birth",
-        "darwin_birth",
+        "byblos_lebanon",
+        "bru_na_boinne"
+      ],
+      "difficultyCounts": {
+        "easy": 3,
+        "medium": 1,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 3,
+        "conflict_politics_society": 1,
+        "arts_culture": 1
+      }
+    },
+    {
+      "packIndex": 22,
+      "type": "B",
+      "ids": [
+        "christ_the_redeemer",
+        "gettysburg",
+        "battle_of_dien_bien_phu",
+        "nazca_lines",
+        "austrian_state_treaty"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 2,
+      "categoryCounts": {
+        "science_infrastructure": 2,
+        "conflict_politics_society": 3
+      }
+    },
+    {
+      "packIndex": 23,
+      "type": "A",
+      "ids": [
         "terracotta_army",
-        "pasteur_birth",
-        "alodia_soba"
+        "edison_birth",
+        "abu_simbel",
+        "battle_of_grunwald",
+        "spitak_earthquake"
       ],
       "difficultyCounts": {
         "easy": 3,
@@ -448,18 +535,18 @@
       },
       "categoriesCovered": 2,
       "categoryCounts": {
-        "arts_culture": 1,
-        "science_infrastructure": 4
+        "science_infrastructure": 4,
+        "conflict_politics_society": 1
       }
     },
     {
-      "packIndex": 20,
+      "packIndex": 24,
       "type": "B",
       "ids": [
-        "copernicus_birth",
-        "great_pyramid_giza",
-        "battle_of_vienna",
-        "nazca_lines",
+        "hollywood_walk_of_fame",
+        "colosseum",
+        "ibn_battuta_birth",
+        "battle_of_teutoburg_forest",
         "first_geneva_convention"
       ],
       "difficultyCounts": {
@@ -474,35 +561,34 @@
       }
     },
     {
-      "packIndex": 21,
+      "packIndex": 25,
       "type": "A",
       "ids": [
-        "persepolis",
-        "chichen_itza",
-        "edison_birth",
-        "battle_of_grunwald",
-        "iron_pillar_delhi"
+        "valley_of_the_kings",
+        "petra_jordan",
+        "pompeii",
+        "tower_of_hercules",
+        "minaret_of_jam"
       ],
       "difficultyCounts": {
         "easy": 3,
         "medium": 1,
         "hard": 1
       },
-      "categoriesCovered": 2,
+      "categoriesCovered": 1,
       "categoryCounts": {
-        "science_infrastructure": 4,
-        "conflict_politics_society": 1
+        "science_infrastructure": 5
       }
     },
     {
-      "packIndex": 22,
+      "packIndex": 26,
       "type": "B",
       "ids": [
-        "borobudur_temple",
-        "disney_birth",
+        "stonehenge",
+        "machu_picchu",
+        "karakorum",
         "lisbon_earthquake",
-        "indian_ocean_tsunami",
-        "austrian_state_treaty"
+        "svalbard_treaty"
       ],
       "difficultyCounts": {
         "easy": 2,

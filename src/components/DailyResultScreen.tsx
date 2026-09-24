@@ -7,6 +7,7 @@ import { useLanguage } from "./LanguageProvider";
 import { MAX_LOCATION_POINTS, MAX_ORDER_POINTS, ROUNDS_PER_GAME, rankTier, type RankTier } from "@/lib/scoring";
 import { RANK_ICON_COMPONENTS, RANK_LABEL_KEYS } from "@/lib/rank-icons";
 import { PRIMARY_BUTTON, PANEL, GAME_TITLE, SHARE_BUTTON } from "@/lib/theme";
+import { getCurrentStreak } from "@/lib/daily-streak";
 import TodaysStatsPanel from "./TodaysStatsPanel";
 
 const MAX_TOTAL_SCORE = ROUNDS_PER_GAME * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
@@ -39,7 +40,9 @@ export default function DailyResultScreen({ score, onBack }: Props) {
   const rankLabel = t[RANK_LABEL_KEYS[tier]];
 
   async function share() {
-    const url = `${window.location.origin}/share/${score}`;
+    const streak = getCurrentStreak();
+    const scoreSegment = streak > 0 ? `${score}-${streak}` : score;
+    const url = `${window.location.origin}/share/${scoreSegment}`;
     if (navigator.share) {
       try {
         await navigator.share({ title: t.gameTitle, text: t.landingIntro, url });

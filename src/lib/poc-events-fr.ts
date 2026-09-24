@@ -595,4 +595,104 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     clue: "Dans une région d'habitations creusées à flanc de falaise, un séisme les effondre en une nuit, tuant plus que tout autre séisme connu.",
     explanation: "Les estimations modernes situent le nombre de victimes autour de 830 000 personnes, un record encore inégalé pour un séisme unique, et la catastrophe pousse à la rédaction de premiers écrits chinois sur les secours et la reconstruction après sinistre.",
   },
+  battle_of_verdun: {
+    name: "Bataille de Verdun",
+    clue: "Le long de la Meuse, des défenseurs tiennent une ville fortifiée durant la plus longue bataille d'une guerre mondiale, refusant de laisser passer l'ennemi.",
+    explanation: "La bataille de Verdun a duré presque toute l'année et est devenue un symbole d'endurance nationale dans une guerre d'usure impitoyable. Les défenseurs de la ville ont forgé le serment de ne jamais laisser passer l'ennemi, une formule reprise plus tard dans d'autres conflits.",
+  },
+  battle_of_teutoburg_forest: {
+    name: "Bataille de la forêt de Teutobourg",
+    clue: "Dans une forêt détrempée et truffée de marécages cachés, un officier de confiance mène une embuscade qui anéantit trois légions entières en trois jours.",
+    explanation: "Trois légions furent attirées hors de la route et détruites en trois jours par des guerriers menés par Arminius, un chef local formé comme officier avant de se retourner contre ses anciens commandants. La défaite mit fin pour de bon aux tentatives d'étendre l'empire au-delà du fleuve marquant sa frontière.",
+  },
+  battle_of_kosovo: {
+    name: "Bataille du Kosovo",
+    clue: "Un prince régional rallie des seigneurs alliés face à une armée bien plus nombreuse, et en l'espace d'un jour, les deux commandants adverses sont morts.",
+    explanation: "La bataille du Kosovo opposa une coalition de seigneurs régionaux menée par le prince Lazar à une armée ottomane envahissante commandée par le sultan Mourad Ier. Mourad fut tué par un soldat qui s'approcha de sa tente en prétendant faire défection, et Lazar fut capturé puis exécuté une fois les combats terminés. L'affrontement devint une légende fondatrice dans la mémoire serbe, racontée dans des poèmes épiques pendant des siècles.",
+  },
+  carnation_revolution: {
+    name: "Révolution des Œillets",
+    clue: "Sur la côte atlantique, des soldats renversent en un jour une dictature de plusieurs décennies, et des civils glissent des fleurs rouges dans leurs fusils.",
+    explanation: "La Révolution des Œillets a mis fin en moins d'une journée à des décennies de régime autoritaire au Portugal, presque sans effusion de sang. Son nom vient des fleurs offertes aux soldats par des civils, dont certaines finirent glissées dans le canon des fusils, et elle a ouvert la voie à des élections démocratiques et à l'indépendance des colonies africaines du Portugal.",
+  },
+  haitian_revolution: {
+    name: "Révolution haïtienne",
+    clue: "Sur une île sucrière des Caraïbes, des esclaves se soulèvent et, après des années de guerre, fondent la seule nation née d'une révolte d'esclaves victorieuse.",
+    explanation: "La Révolution haïtienne a commencé par un soulèvement de travailleurs réduits en esclavage dans des plantations de sucre et de café. Après plus d'une décennie de guerre contre des armées coloniales et impériales, les insurgés ont obtenu l'indépendance complète, fondant Haïti comme la première nation au monde établie par d'anciens esclaves.",
+  },
+  council_of_constance: {
+    name: "Concile de Constance",
+    clue: "Là où trois pays se rejoignent au bord d'un grand lac, des dignitaires religieux passent des années à trancher entre trois hommes se disant chacun le vrai pape.",
+    explanation: "Le Concile de Constance a mis fin au Grand Schisme d'Occident, une impasse de plusieurs décennies durant laquelle trois prétendants rivaux affirmaient chacun être le pape légitime. Le concile a destitué ou accepté la démission des trois hommes et en a élu un seul nouveau. Il a aussi condamné le réformateur Jan Hus, brûlé vif malgré la promesse d'un sauf-conduit pour venir y assister.",
+  },
+  hollywood_walk_of_fame: {
+    name: "Allée des célébrités d'Hollywood",
+    clue: "Dans une vaste ville bâtie autour du cinéma, des milliers d'étoiles en laiton incrustent les trottoirs, chacune honorant un nom du divertissement.",
+    explanation: "Le Hollywood Walk of Fame incruste plus de 2 700 étoiles de terrazzo et de laiton le long des trottoirs d'Hollywood Boulevard et de Vine Street. Chaque étoile honore une personne ou, parfois, un personnage de fiction issu du cinéma, de la télévision, de la musique, de la radio ou du théâtre, et de nouveaux noms continuent d'y être ajoutés.",
+  },
+  valley_of_the_kings: {
+    name: "Vallée des Rois",
+    clue: "Sur la rive occidentale du Nil, des rois sont enterrés dans des tombes creusées dans la roche, dont un jeune roi dont le trésor fut retrouvé presque intact.",
+    explanation: "La Vallée des Rois a servi de nécropole royale pour des pharaons et de puissants nobles pendant des siècles. La plupart des tombes furent pillées dans l'Antiquité, mais celle du jeune pharaon Toutânkhamon fut découverte encore largement intacte, son trésor formant la sépulture pharaonique la plus complète jamais retrouvée.",
+  },
+  valdivia_earthquake: {
+    name: "Séisme de Valdivia",
+    clue: "Sur la côte pacifique, le séisme le plus puissant jamais enregistré secoue le sol dix minutes, envoyant des vagues de tsunami traverser tout l'océan.",
+    explanation: "Le séisme de Valdivia, au Chili, reste le plus puissant jamais enregistré par des instruments modernes, avec une magnitude comprise entre 9,4 et 9,6. Il a dévasté la ville de Valdivia et déclenché des vagues de tsunami qui ont traversé l'océan Pacifique, causant encore des dégâts et des morts jusqu'à Hawaï, au Japon et aux Philippines, de nombreuses heures après la fin de la secousse.",
+  },
+  krakatoa_eruption: {
+    name: "Éruption du Krakatoa",
+    clue: "Une île volcanique dans un détroit entre deux îles bien plus grandes explose dans un fracas toujours reconnu comme le son le plus fort jamais enregistré.",
+    explanation: "L'éruption du Krakatoa a détruit la majeure partie de l'île en une série d'explosions, dont la plus forte fut entendue à environ 4 800 kilomètres de distance et reste le son le plus fort jamais enregistré scientifiquement. L'éruption a provoqué des vagues de tsunami qui ont tué des dizaines de milliers de personnes et teinté les couchers de soleil d'un rouge étrange partout dans le monde pendant des mois.",
+  },
+  mexico_1968_olympics: {
+    name: "Jeux olympiques de Mexico",
+    clue: "Dans une capitale d'altitude entourée de volcans, l'air raréfié aide à pulvériser des records, tandis que deux sprinteurs lèvent un poing ganté pendant l'hymne.",
+    explanation: "Les Jeux olympiques de Mexico ont été les premiers organisés en Amérique latine et les premiers en haute altitude, ce qui a contribué à un record du monde du saut en longueur resté imbattu pendant des décennies. Sur le podium, les sprinteurs Tommie Smith et John Carlos ont chacun levé un poing ganté de noir pendant l'hymne, dans une protestation silencieuse devenue l'une des images les plus célèbres de l'histoire olympique.",
+  },
+  antwerp_1920_olympics: {
+    name: "Jeux olympiques d'Anvers",
+    clue: "Dans une ville portuaire en reconstruction après une guerre mondiale, des colombes sont lâchées et un drapeau à cinq anneaux flotte pour la première fois.",
+    explanation: "Les Jeux olympiques d'Anvers furent les premiers organisés après une guerre mondiale et les premiers à hisser le drapeau olympique à cinq anneaux et à lâcher des colombes en symbole de paix. Les organisateurs ont aussi introduit le serment des athlètes, promettant une compétition loyale, une tradition toujours suivie lors de la cérémonie d'ouverture de chaque édition depuis.",
+  },
+  maiden_tower_baku: {
+    name: "Tour de la Vierge",
+    clue: "Sur un promontoire dominant la plus grande mer fermée du monde, une tour de pierre fut bâtie dans un but débattu: forteresse, phare, ou temple du feu.",
+    explanation: "La Tour de la Vierge se dresse dans la vieille ville de Bakou, au bord de la mer Caspienne, la plus grande étendue d'eau intérieure de la planète. Les historiens débattent encore de sa fonction d'origine, entre observatoire astronomique et temple du feu zoroastrien, faute d'inscription ou de document expliquant pourquoi elle fut construite.",
+  },
+  karakorum: {
+    name: "Karakorum",
+    clue: "Sur une steppe venteuse loin de toute mer, les héritiers d'un conquérant nomade bâtissent une capitale, démantelée plus tard pour un monastère voisin.",
+    explanation: "Karakorum a servi de capitale à l'empire mongol sous les successeurs de Gengis Khan, au cœur de l'immense territoire qu'ils contrôlaient à travers l'Asie. Après que la capitale impériale eut déménagé ailleurs, la ville a décliné, et une grande partie de ses pierres a été réutilisée pour construire un monastère bouddhiste voisin encore debout aujourd'hui.",
+  },
+  ottawa_treaty: {
+    name: "Traité d'Ottawa",
+    clue: "Dans une capitale enneigée, des dizaines de pays signent un traité interdisant une arme enfouie dans le sol qui mutile des civils bien après la fin des guerres.",
+    explanation: "Le Traité d'Ottawa a interdit l'usage, la production et le stockage des mines antipersonnel, des armes qui continuaient à tuer et mutiler des civils longtemps après la fin des conflits qui les avaient posées. La campagne pour une interdiction a gagné une immense attention publique après que la princesse Diana s'est rendue dans des champs de mines en Angola et a traversé une zone déminée pour attirer l'attention sur la cause, peu avant la signature du traité.",
+  },
+  belovezh_accords: {
+    name: "Accords de Belavezha",
+    clue: "Dans un pavillon de chasse isolé en forêt ancienne, trois dirigeants dissolvent une vaste union de républiques s'étendant sur onze fuseaux horaires.",
+    explanation: "Les accords de Belavezha ont été signés dans une datcha gouvernementale de la forêt de Białowieża par les dirigeants de la Russie, de l'Ukraine et de la Biélorussie. Le bref accord a déclaré qu'une vaste union de républiques avait cessé d'exister et créé à sa place une confédération plus souple, un tournant qui a redessiné la carte de l'Europe et de l'Asie.",
+  },
+  jorge_luis_borges_birth: {
+    name: "Jorge Luis Borges",
+    clue: "Né dans une capitale portuaire où un fleuve rejoint la mer, cet écrivain devient aveugle en dirigeant une bibliothèque, imaginant des bibliothèques infinies.",
+    explanation: "Jorge Luis Borges est né à Buenos Aires. Il perdit progressivement la vue pendant des décennies alors qu'il dirigeait la bibliothèque nationale, plaisantant plus tard que le destin lui avait donné à la fois 800 000 livres et l'obscurité en même temps. Ses récits peuplés de bibliothèques infinies, de labyrinthes et de miroirs ont influencé des générations d'écrivains.",
+  },
+  edmund_hillary_birth: {
+    name: "Edmund Hillary",
+    clue: "Né entre deux ports naturels sur une étroite bande de terre, cet apiculteur devenu alpiniste atteint, avec un compagnon sherpa, le point culminant du globe.",
+    explanation: "Edmund Hillary est né près d'Auckland et travailla comme apiculteur avant de se tourner vers l'alpinisme. Avec le sherpa Tenzing Norgay, il devint l'un des premiers grimpeurs confirmés à atteindre le sommet de l'Everest, dans le cadre d'une expédition menée par les Britanniques. Hillary consacra une grande partie de sa vie ultérieure à collecter des fonds pour construire des écoles et des hôpitaux pour les communautés sherpas de la région de l'Everest.",
+  },
+  cahokia: {
+    name: "Cahokia",
+    clue: "Au bord d'un grand fleuve, des bâtisseurs autochtones élèvent à la main des buttes de terre, formant une cité alors plus peuplée que la plupart des villes.",
+    explanation: "Cahokia était la plus grande ville au nord du Rio Grande avant le contact européen, construite par la culture du Mississippi dans la plaine inondable en face de l'actuelle Saint-Louis. Son plus grand ouvrage, Monks Mound, demeure la plus grande structure de terre des Amériques en volume. La ville fut ensuite abandonnée pour des raisons encore débattues par les archéologues, peut-être liées à l'épuisement des ressources, aux inondations ou à des bouleversements sociaux.",
+  },
+  chiang_kai_shek_memorial_hall: {
+    name: "Mémorial Tchang Kaï-chek",
+    clue: "Sous un toit émaillé de bleu, une garde change de poste chaque heure dans une salle de marbre flanquée de deux théâtres, bâtie pour un ancien chef d'État.",
+    explanation: "Le mémorial Tchang Kaï-chek a été construit à Taipei en l'honneur d'un ancien président et chef militaire. Sa statue de bronze et sa salle de marbre sont gardées en permanence, avec une cérémonie de relève de la garde élaborée exécutée chaque heure pile, attirant des foules de visiteurs venus observer ce rituel précis et chorégraphié.",
+  },
 };

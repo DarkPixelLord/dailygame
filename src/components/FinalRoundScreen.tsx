@@ -129,8 +129,8 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
   const burstParticles = useMemo(() => buildBurstParticles(BADGE_BURST_COUNT), [phase]);
 
   async function share() {
-    const streakParam = streak > 0 ? `?streak=${streak}` : "";
-    const url = `${window.location.origin}/share/${totalScore}${streakParam}`;
+    const scoreSegment = streak > 0 ? `${totalScore}-${streak}` : totalScore;
+    const url = `${window.location.origin}/share/${scoreSegment}`;
     if (navigator.share) {
       try {
         await navigator.share({ title: t.gameTitle, text: t.landingIntro, url });

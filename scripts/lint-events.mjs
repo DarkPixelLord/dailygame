@@ -136,6 +136,8 @@ const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   "dnieper", "dniepr", "irrawaddy", "cantabrian", "cantabriques",
   "himalaya", "himalayas", "saint", "lawrence", "laurent", "moselle",
   "nile", "nil", "rhine", "rhin", "mediterranean", "méditerranée", "volga",
+  // Added for the 2026-09-24 batch (see docs/pool-stats.md history):
+  "meuse", "atlantic", "atlantique", "caribbean", "caraïbes", "pacific", "pacifique",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {
