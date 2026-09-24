@@ -163,7 +163,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
     pinIsBirthplace: false,
     difficulty: "easy",
     category: "conflict_politics_society",
-    clue: "On the Gulf of Finland, a revolutionary group stormed a royal palace at night, overthrowing the government and founding the world's first communist state.",
+    clue: "In the capital of a vast empire, revolutionaries stormed a royal palace at night, toppling the government and founding the world's first communist state.",
     name: "October Revolution",
     explanation: "The uprising in Petrograd was led by Lenin's Bolsheviks and triggered a long civil war across the country before their new government secured full control.",
     year: 1917,
@@ -384,7 +384,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
     pinIsBirthplace: false,
     difficulty: "easy",
     category: "science_infrastructure",
-    clue: "On the island of Java, the world's largest Buddhist monument was built as a stone mandala, meant to be climbed level by level as a journey toward enlightenment.",
+    clue: "On a volcanic island near the equator, the world's largest Buddhist monument is a stone mandala, climbed level by level as a journey toward enlightenment.",
     name: "Borobudur",
     explanation: "Borobudur was abandoned for centuries, buried under volcanic ash and jungle growth, before being rediscovered and painstakingly restored.",
     year: 800,
@@ -1304,7 +1304,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   },
 ];
 
-export type GameMode = "daily" | "free";
+export type GameMode = "daily" | "archive";
 
 export function pickRandomEvents(events: HistoricalEvent[], count: number, excludeIds: string[] = []): HistoricalEvent[] {
   const excluded = new Set(excludeIds);

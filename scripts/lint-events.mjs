@@ -59,6 +59,9 @@ const BANNED_ALWAYS_WORDS_EN = [
   "scandinavian", "balkan", "iberian", "slavic",
   "tsar", "tzar", "caliph", "shogun", "pharaoh", "viking", "norman",
   "celtic", "gallic", "gaul", "prussia", "prussian",
+  // Country names hidden inside a feature name ("Gulf of Finland") or an
+  // island synonymous with one country (Java = Indonesia) leak the same way.
+  "finland", "finnish", "indonesia", "indonesian", "java", "javanese",
 ];
 // Named geographic/cultural features (a city, sea, river, mountain range,
 // region...) that let a player deduce the country without being told it
@@ -129,10 +132,10 @@ const CAPITALIZED_WORD_EXCEPTIONS = new Set([
 ]);
 const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   "euphrates", "euphrate", "urubamba", "tōhoku", "catskill", "catskills",
-  "baltic", "baltique", "tonlé", "tonle", "sap", "yucatán", "zagros", "java",
+  "baltic", "baltique", "tonlé", "tonle", "sap", "yucatán", "zagros",
   "dnieper", "dniepr", "irrawaddy", "cantabrian", "cantabriques",
   "himalaya", "himalayas", "saint", "lawrence", "laurent", "moselle",
-  "nile", "nil", "finland", "finlande", "rhine", "rhin",
+  "nile", "nil", "rhine", "rhin",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {
@@ -162,6 +165,8 @@ const BANNED_ALWAYS_WORDS_FR = [
   "tsar", "calife", "shogun", "pharaon",
   "viking", "normand", "normande", "celtique", "gaulois",
   "gauloise", "prussien", "prussienne",
+  "finlande", "finlandais", "finlandaise", "indonésie", "indonésien",
+  "indonésienne", "java", "javanais", "javanaise",
 ];
 const BANNED_GEO_FEATURE_WORDS_FR = [
   "caraïbe", "méditerranéen", "méditerranéenne", "atlantique", "pacifique",

@@ -3,14 +3,14 @@ import { isDashboardAuthed } from "@/lib/dashboard-auth";
 import { supabase } from "@/lib/supabase";
 import type { RankTier } from "@/lib/scoring";
 import LoginForm from "./LoginForm";
-import BarChart from "./BarChart";
+import LineChart from "./LineChart";
 import TierBreakdown, { TIER_ORDER } from "./TierBreakdown";
 import { logoutAction } from "./actions";
 import { PANEL, GHOST_BUTTON, PRIMARY_BUTTON, GAME_TITLE } from "@/lib/theme";
 
 export const dynamic = "force-dynamic";
 
-type Tab = "daily" | "free";
+type Tab = "daily" | "archive";
 type TierRange = "today" | "60d";
 
 const HISTORY_DAYS = 60;
@@ -48,7 +48,9 @@ async function loadDailyStats() {
   };
 }
 
-async function loadFreeStats() {
+// free_mode_plays predates the "archive" rename — table name kept as-is to
+// avoid a migration, but it's the archive activity log now.
+async function loadArchiveStats() {
   const { data, error } = await supabase
     .from("free_mode_plays")
     .select("played_at, score")
@@ -95,8 +97,8 @@ function Tabs({ active }: { active: Tab }) {
       <Link href="/dashboard?tab=daily" className={active === "daily" ? PRIMARY_BUTTON : GHOST_BUTTON}>
         Défi du jour
       </Link>
-      <Link href="/dashboard?tab=free" className={active === "free" ? PRIMARY_BUTTON : GHOST_BUTTON}>
-        Mode libre
+      <Link href="/dashboard?tab=archive" className={active === "archive" ? PRIMARY_BUTTON : GHOST_BUTTON}>
+        Archive
       </Link>
     </div>
   );
@@ -130,7 +132,7 @@ export default async function DashboardPage({
   if (!authed) return <LoginForm />;
 
   const { tab, range } = await searchParams;
-  const activeTab: Tab = tab === "free" ? "free" : "daily";
+  const activeTab: Tab = tab === "archive" ? "archive" : "daily";
   const activeRange: TierRange = range === "60d" ? "60d" : "today";
 
   return (
@@ -147,7 +149,7 @@ export default async function DashboardPage({
 
         <Tabs active={activeTab} />
 
-        {activeTab === "daily" ? <DailyTab range={activeRange} /> : <FreeTab range={activeRange} />}
+        {activeTab === "daily" ? <DailyTab range={activeRange} /> : <ArchiveTab range={activeRange} />}
       </div>
     </div>
   );
@@ -164,14 +166,14 @@ async function DailyTab({ range }: { range: TierRange }) {
         <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">
           Joueurs par jour ({HISTORY_DAYS}j)
         </h2>
-        <BarChart points={stats.playersPerDay} />
+        <LineChart points={stats.playersPerDay} />
       </section>
 
       <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
         <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">
           Score moyen par jour ({HISTORY_DAYS}j)
         </h2>
-        <BarChart points={stats.avgScorePerDay} />
+        <LineChart points={stats.avgScorePerDay} />
       </section>
 
       <section className={PANEL + " flex flex-col gap-3 px-4 py-4"}>
@@ -189,8 +191,8 @@ async function DailyTab({ range }: { range: TierRange }) {
   );
 }
 
-async function FreeTab({ range }: { range: TierRange }) {
-  const [stats, tiers] = await Promise.all([loadFreeStats(), loadTierBreakdown("free_mode_plays", range)]);
+async function ArchiveTab({ range }: { range: TierRange }) {
+  const [stats, tiers] = await Promise.all([loadArchiveStats(), loadTierBreakdown("free_mode_plays", range)]);
 
   if (!stats) return <p className="text-white/50">Impossible de charger les statistiques.</p>;
 
@@ -200,20 +202,20 @@ async function FreeTab({ range }: { range: TierRange }) {
         <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">
           Parties jouées par jour ({HISTORY_DAYS}j)
         </h2>
-        <BarChart points={stats.playsPerDay} />
+        <LineChart points={stats.playsPerDay} />
       </section>
 
       <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
         <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">
           Score moyen par jour ({HISTORY_DAYS}j)
         </h2>
-        <BarChart points={stats.avgScorePerDay} />
+        <LineChart points={stats.avgScorePerDay} />
       </section>
 
       <section className={PANEL + " flex flex-col gap-3 px-4 py-4"}>
         <div className="flex items-center justify-between gap-2">
           <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">Répartition par tier</h2>
-          <RangeSelector tab="free" active={range} />
+          <RangeSelector tab="archive" active={range} />
         </div>
         {!tiers || tiers.total === 0 ? (
           <p className="text-sm text-white/40">Aucune partie sur cette période.</p>

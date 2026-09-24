@@ -84,3 +84,28 @@ body {
     filter: drop-shadow(0 0 5px rgba(251, 191, 36, 0.5));
   }
 }
+
+/* Thin amber-on-navy scrollbar for the archive date list — the default OS
+   scrollbar is light gray and clashes with the dark/amber theme. */
+.themed-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(251, 191, 36, 0.4) rgba(255, 255, 255, 0.05);
+}
+
+.themed-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.themed-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+}
+
+.themed-scroll::-webkit-scrollbar-thumb {
+  background: rgba(251, 191, 36, 0.4);
+  border-radius: 9999px;
+}
+
+.themed-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.6);
+}

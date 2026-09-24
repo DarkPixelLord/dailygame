@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import LaurelIcon from "./LaurelIcon";
 import { useLanguage } from "./LanguageProvider";
 import { MAX_LOCATION_POINTS, MAX_ORDER_POINTS, ROUNDS_PER_GAME, rankTier, type RankTier } from "@/lib/scoring";
@@ -59,6 +59,23 @@ export default function DailyResultScreen({ score, onBack }: Props) {
 
   return (
     <div className="final-spotlight flex h-dvh w-full flex-col items-center">
+      <div className="pointer-events-none fixed inset-x-0 top-3 z-40 flex justify-center sm:top-4">
+        <div className="flex w-full max-w-md justify-end px-3 sm:px-4">
+          <AnimatePresence>
+            {tierPercentages && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: 0.6, duration: 0.3 }}
+                className="pointer-events-auto"
+              >
+                <TodaysStatsPanel tierPercentages={tierPercentages} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
       <div className="flex h-dvh w-full max-w-md flex-col items-center justify-center gap-4 overflow-hidden px-3 py-2 sm:px-4 sm:py-6">
         <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
           <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
@@ -88,12 +105,6 @@ export default function DailyResultScreen({ score, onBack }: Props) {
               </span>
             </div>
           </div>
-
-          {tierPercentages && (
-            <div className="flex justify-center border-t border-white/10 pt-2.5">
-              <TodaysStatsPanel tierPercentages={tierPercentages} />
-            </div>
-          )}
 
           <div className="flex w-full gap-2">
             <button type="button" onClick={onBack} className={PRIMARY_BUTTON + " flex-1"}>

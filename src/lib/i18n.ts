@@ -5,7 +5,8 @@ export type UiStrings = {
   landingIntro: string;
   start: string;
   dailyChallenge: string;
-  freeMode: string;
+  archiveMode: string;
+  archivePickDate: string;
   round: string;
   pts: string;
   clickMapToPlaceYourPin: string;
@@ -47,6 +48,7 @@ export type UiStrings = {
   todaysStatsButton: string;
   alreadyPlayedToday: string;
   back: string;
+  dayStreak: string;
 };
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
@@ -55,7 +57,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     landingIntro: "Guess where five real historical events took place, then put them in chronological order.",
     start: "Start",
     dailyChallenge: "Daily challenge",
-    freeMode: "Free mode",
+    archiveMode: "Archive",
+    archivePickDate: "Pick a past challenge",
     round: "Round",
     pts: "pts",
     clickMapToPlaceYourPin: "Click the map to locate this event",
@@ -97,13 +100,15 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     todaysStatsButton: "Today's stats",
     alreadyPlayedToday: "You've already played today's challenge. Come back tomorrow for a new one!",
     back: "Back",
+    dayStreak: "day streak",
   },
   fr: {
     gameTitle: "Laurus",
     landingIntro: "Devine où se sont déroulés cinq événements historiques réels, puis remets-les dans l'ordre chronologique.",
     start: "Commencer",
     dailyChallenge: "Défi du jour",
-    freeMode: "Mode libre",
+    archiveMode: "Archive",
+    archivePickDate: "Choisir un défi passé",
     round: "Manche",
     pts: "pts",
     clickMapToPlaceYourPin: "Clique sur la carte pour localiser cet événement",
@@ -145,5 +150,6 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     todaysStatsButton: "Stat du jour",
     alreadyPlayedToday: "Tu as déjà joué au défi du jour. Reviens demain pour un nouveau !",
     back: "Retour",
+    dayStreak: "jours de suite",
   },
 };

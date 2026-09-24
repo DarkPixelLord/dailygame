@@ -57,7 +57,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   october_revolution_petrograd: {
     name: "Révolution d'Octobre",
-    clue: "Sur le golfe de Finlande, un groupe révolutionnaire prend d'assaut un palais royal de nuit, renversant le gouvernement et fondant le premier État communiste.",
+    clue: "Dans la capitale d'un immense empire, des révolutionnaires prennent un palais royal de nuit, renversent le gouvernement et fondent le premier État communiste.",
     explanation: "Le soulèvement de Petrograd a été mené par les bolcheviks de Lénine et a déclenché une longue guerre civile dans le pays avant que le nouveau gouvernement n'obtienne le plein contrôle.",
   },
   fall_of_constantinople: {
@@ -142,7 +142,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   borobudur_temple: {
     name: "Borobudur",
-    clue: "Sur l'île de Java, le plus grand monument bouddhiste du monde est un mandala de pierre géant, conçu pour être gravi niveau par niveau vers l'éveil.",
+    clue: "Sur une île volcanique proche de l'équateur, le plus grand monument bouddhiste du monde est un mandala de pierre, gravi niveau par niveau vers l'éveil.",
     explanation: "Borobudur a été abandonné pendant des siècles, enseveli sous la cendre volcanique et la jungle, avant d'être redécouvert et restauré avec soin.",
   },
   stockholm_1912_olympics: {

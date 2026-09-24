@@ -7,10 +7,11 @@ function isFiniteNumber(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value);
 }
 
-// Records one completed free-mode game — unlike api/finish, there's no
-// per-device-per-day dedupe here: free mode is meant to be replayed, and
+// Records one completed archive game — unlike api/finish, there's no
+// per-device-per-day dedupe here: archive is meant to be replayed, and
 // each play is its own row so the dashboard's "activity" chart reflects
-// actual play volume, not just distinct players.
+// actual play volume, not just distinct players. Table is still named
+// free_mode_plays from before the mode was renamed to "archive".
 export async function POST(request: Request) {
   let body: unknown;
   try {
@@ -21,8 +22,8 @@ export async function POST(request: Request) {
 
   const { score, deviceId, mode } = (body ?? {}) as Record<string, unknown>;
 
-  if (mode !== "free") {
-    return Response.json({ ok: false, reason: "not-free" });
+  if (mode !== "archive") {
+    return Response.json({ ok: false, reason: "not-archive" });
   }
   if (!isFiniteNumber(score) || score < 0 || score > MAX_TOTAL_SCORE || typeof deviceId !== "string" || !deviceId) {
     return Response.json({ error: "Invalid play submission" }, { status: 400 });

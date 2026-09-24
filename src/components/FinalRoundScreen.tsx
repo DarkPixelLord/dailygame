@@ -13,7 +13,10 @@ import type { OrderableEvent } from "@/lib/game-types";
 import { PRIMARY_BUTTON, PANEL, GAME_TITLE } from "@/lib/theme";
 import { getDeviceId } from "@/lib/device-id";
 import { saveTodaysDailyResult } from "@/lib/daily-result";
+import { clearTodaysProgress } from "@/lib/daily-progress";
+import { recordTodaysDailyPlayed, getCurrentStreak } from "@/lib/daily-streak";
 import TodaysStatsPanel from "./TodaysStatsPanel";
+import StreakBadge from "./StreakBadge";
 
 // The final-score rank, shown once at the end of the game — a coarser,
 // higher-stakes tier list than the per-round scoreFeedback in HistoryGuessPoc.
@@ -61,43 +64,55 @@ type Props = {
   initialScore: number;
   events: OrderableEvent[];
   onPlayAgain: () => void;
+  // Dev-only escape hatch, used by both /dev-results (preset score previews)
+  // and HomeClient (every local `next dev` play): renders the real screen
+  // (label, stats panel) but skips every write — no api/finish row, no
+  // api/track-play row, no localStorage "already played today" flag — so it
+  // never counts as a real play or gets capped by the daily limit.
+  previewOnly?: boolean;
 };
 
-export default function FinalRoundScreen({ mode, initialScore, events, onPlayAgain }: Props) {
+export default function FinalRoundScreen({ mode, initialScore, events, onPlayAgain, previewOnly = false }: Props) {
   const { t } = useLanguage();
   const [phase, setPhase] = useState<"ordering" | "done">("ordering");
   const [totalScore, setTotalScore] = useState(initialScore);
   const [linkCopied, setLinkCopied] = useState(false);
   const [orderSubmitted, setOrderSubmitted] = useState(false);
   const [tierPercentages, setTierPercentages] = useState<Record<RankTier, number> | null>(null);
+  const [streak, setStreak] = useState(0);
 
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
   const rank = phase === "done" ? finalRank(totalScore, maxTotalScore, t) : null;
 
   // Daily-challenge scores go through api/finish (one row per device/day,
-  // feeds the today's-stats breakdown below). Free-mode runs aren't part of
+  // feeds the today's-stats breakdown below). Archive runs aren't part of
   // that leaderboard — they're just logged as activity via api/track-play,
-  // for the admin dashboard's "Mode libre" tab.
+  // for the admin dashboard's "Archive" tab.
   useEffect(() => {
     if (phase !== "done") return;
     const deviceId = getDeviceId();
     if (mode === "daily") {
-      fetch("/api/finish", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ score: totalScore, deviceId, mode }),
-      })
-        .then(() => {
-          saveTodaysDailyResult(totalScore);
-          return fetch("/api/stats");
-        })
+      const recordResult = previewOnly
+        ? Promise.resolve()
+        : fetch("/api/finish", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ score: totalScore, deviceId, mode }),
+          }).then(() => {
+            saveTodaysDailyResult(totalScore);
+            clearTodaysProgress();
+            recordTodaysDailyPlayed();
+            setStreak(getCurrentStreak());
+          });
+      recordResult
+        .then(() => fetch("/api/stats"))
         .then((res) => res.json())
         .then((data) => setTierPercentages(data.percentages ?? null))
         .catch(() => {
           // Stats are a nice-to-have on the results screen — silently skip
           // the breakdown rather than blocking or erroring the final screen.
         });
-    } else {
+    } else if (!previewOnly) {
       fetch("/api/track-play", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -134,15 +149,33 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
 
   return (
     <div className="final-spotlight flex h-dvh w-full flex-col items-center">
+      <div className="pointer-events-none fixed inset-x-0 top-3 z-40 flex justify-center sm:top-4">
+        <div className="flex w-full max-w-md justify-end px-3 sm:px-4">
+          <AnimatePresence>
+            {phase === "done" && tierPercentages && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: TEXT_REVEAL_DELAY + 0.6, duration: 0.3 }}
+                className="pointer-events-auto flex items-center gap-2"
+              >
+                <StreakBadge streak={streak} className="text-[10px] sm:text-xs" />
+                <TodaysStatsPanel tierPercentages={tierPercentages} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
       <div className="flex h-dvh w-full max-w-md flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
         <header className="flex w-full shrink-0 items-center justify-between gap-2">
           <div className="flex flex-col">
             <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
               <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
-              {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
+              {t.gameTitle}
             </h1>
             <span className="text-[10px] font-bold uppercase tracking-wide text-white/40 sm:text-xs">
-              {mode === "daily" ? t.dailyChallenge : t.freeMode}
+              {mode === "daily" ? t.dailyChallenge : t.archiveMode}
             </span>
           </div>
           <AnimatePresence>
@@ -238,16 +271,6 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                 )}
               </motion.div>
             </div>
-            {tierPercentages && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: TEXT_REVEAL_DELAY + 0.2, duration: 0.4 }}
-                className="border-t border-white/10 pt-2.5"
-              >
-                <TodaysStatsPanel tierPercentages={tierPercentages} />
-              </motion.div>
-            )}
             <div className="flex w-full gap-2">
               <button type="button" onClick={onPlayAgain} className={PRIMARY_BUTTON + " flex-1"}>
                 {t.playAgain}

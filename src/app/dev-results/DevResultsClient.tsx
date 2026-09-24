@@ -34,7 +34,8 @@ export default function DevResultsClient() {
     <div className="relative h-dvh w-full">
       <FinalRoundScreen
         key={key}
-        mode="free"
+        mode="daily"
+        previewOnly
         initialScore={PRESETS[presetIndex].initialScore}
         events={events}
         onPlayAgain={() => reroll(presetIndex)}

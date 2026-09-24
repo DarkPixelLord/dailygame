@@ -9,7 +9,7 @@ import LaurelIcon from "./LaurelIcon";
 import { useLanguage } from "./LanguageProvider";
 import type { UiStrings } from "@/lib/i18n";
 import type { GameMode } from "@/lib/poc-events";
-import { getRecentEventIds, addRecentEventIds } from "@/lib/recent-events";
+import { saveTodaysProgress } from "@/lib/daily-progress";
 import { MAX_LOCATION_POINTS, ROUNDS_PER_GAME } from "@/lib/scoring";
 import type { EventPrompt, GuessResult, OrderableEvent } from "@/lib/game-types";
 import { PRIMARY_BUTTON, FINAL_ROUND_BUTTON, PANEL, PIN_GUESS_COLOR, PIN_ANSWER_COLOR, GAME_TITLE } from "@/lib/theme";
@@ -24,7 +24,7 @@ const MapPin = dynamic(() => import("./MapLibrePin"), { ssr: false });
 export function scoreFeedback(points: number, t: UiStrings): { emoji: string; label: string } {
   const ratio = points / MAX_LOCATION_POINTS;
   if (points >= MAX_LOCATION_POINTS) return { emoji: "🎯", label: t.scorePerfect };
-  if (ratio >= 0.8) return { emoji: "🔥", label: t.scoreExcellent };
+  if (ratio >= 0.8) return { emoji: "⚡", label: t.scoreExcellent };
   if (ratio >= 0.6) return { emoji: "💪", label: t.scoreGreat };
   if (ratio >= 0.35) return { emoji: "👍", label: t.scoreGood };
   if (ratio >= 0.1) return { emoji: "😅", label: t.scoreMeh };
@@ -36,19 +36,41 @@ type Phase = "loading" | "loadError" | "playing" | "ordering" | "done";
 type Props = {
   mode: GameMode;
   onPlayAgain: () => void;
+  // Resumes a daily run saved by daily-progress.ts (round already played up
+  // to, score/reveals accumulated so far) instead of starting at round 0.
+  initialRound?: number;
+  initialScore?: number;
+  initialRevealedEvents?: OrderableEvent[];
+  // Which past day's pack to replay, for mode "archive".
+  archiveDate?: string;
+  // Dev-only: play these exact event ids instead of a normal pack.
+  testIds?: string[];
+  // Dev-only escape hatch, forwarded to FinalRoundScreen: skips every write
+  // (no api/finish, no api/track-play, no localStorage) so local testing
+  // never counts as a real play. See HomeClient.
+  previewOnly?: boolean;
 };
 
-export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
+export default function HistoryGuessPoc({
+  mode,
+  onPlayAgain,
+  initialRound = 0,
+  initialScore = 0,
+  initialRevealedEvents = [],
+  archiveDate,
+  testIds,
+  previewOnly = false,
+}: Props) {
   const { lang, t } = useLanguage();
   const [phase, setPhase] = useState<Phase>("loading");
   const [prompts, setPrompts] = useState<EventPrompt[]>([]);
-  const [round, setRound] = useState(0);
-  const [totalScore, setTotalScore] = useState(0);
+  const [round, setRound] = useState(initialRound);
+  const [totalScore, setTotalScore] = useState(initialScore);
   const [guess, setGuess] = useState<LatLng | null>(null);
   const [result, setResult] = useState<GuessResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(false);
-  const [revealedEvents, setRevealedEvents] = useState<OrderableEvent[]>([]);
+  const [revealedEvents, setRevealedEvents] = useState<OrderableEvent[]>(initialRevealedEvents);
   const [showExplanation, setShowExplanation] = useState(false);
 
   // Fetches this session's rounds from the server — only a clue and an id
@@ -61,17 +83,14 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
 
     async function load() {
       const params = new URLSearchParams({ mode, lang });
-      if (mode === "free") {
-        const excludeIds = getRecentEventIds();
-        if (excludeIds.length) params.set("exclude", excludeIds.join(","));
-      }
+      if (mode === "archive" && archiveDate) params.set("date", archiveDate);
+      if (testIds?.length) params.set("testIds", testIds.join(","));
       try {
         const res = await fetch(`/api/session?${params}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = (await res.json()) as { prompts: EventPrompt[] };
         if (cancelled) return;
         setPrompts(data.prompts);
-        if (mode === "free") addRecentEventIds(data.prompts.map((p) => p.id));
         setPhase("playing");
       } catch (err) {
         console.error("Failed to load game session:", err);
@@ -132,6 +151,9 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
 
   function next() {
     setShowExplanation(false);
+    if (mode === "daily" && !previewOnly) {
+      saveTodaysProgress({ round: isLastRound ? ROUNDS_PER_GAME : round + 1, totalScore, revealedEvents });
+    }
     if (isLastRound) {
       setPhase("ordering");
       return;
@@ -170,7 +192,15 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
   }
 
   if (phase === "ordering" || phase === "done") {
-    return <FinalRoundScreen mode={mode} initialScore={totalScore} events={revealedEvents} onPlayAgain={playAgain} />;
+    return (
+      <FinalRoundScreen
+        mode={mode}
+        initialScore={totalScore}
+        events={revealedEvents}
+        onPlayAgain={playAgain}
+        previewOnly={previewOnly}
+      />
+    );
   }
 
   return (
@@ -180,10 +210,10 @@ export default function HistoryGuessPoc({ mode, onPlayAgain }: Props) {
           <div className="flex flex-col">
             <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
               <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
-              {t.gameTitle} <span className="hidden sm:inline">(POC)</span>
+              {t.gameTitle}
             </h1>
             <span className="text-[10px] font-bold uppercase tracking-wide text-white/40 sm:text-xs">
-              {mode === "daily" ? t.dailyChallenge : t.freeMode}
+              {mode === "daily" ? t.dailyChallenge : t.archiveMode}
             </span>
           </div>
           <div className="flex items-center gap-1.5 text-xs sm:gap-2 sm:text-sm">
