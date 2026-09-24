@@ -129,7 +129,8 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
   const burstParticles = useMemo(() => buildBurstParticles(BADGE_BURST_COUNT), [phase]);
 
   async function share() {
-    const url = `${window.location.origin}/share/${totalScore}`;
+    const streakParam = streak > 0 ? `?streak=${streak}` : "";
+    const url = `${window.location.origin}/share/${totalScore}${streakParam}`;
     if (navigator.share) {
       try {
         await navigator.share({ title: t.gameTitle, text: t.landingIntro, url });
@@ -170,10 +171,14 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
       <div className="flex h-dvh w-full max-w-md flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
         <header className="flex w-full shrink-0 items-center justify-between gap-2">
           <div className="flex flex-col">
-            <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
+            <button
+              type="button"
+              onClick={onPlayAgain}
+              className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}
+            >
               <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
               {t.gameTitle}
-            </h1>
+            </button>
             <span className="text-[10px] font-bold uppercase tracking-wide text-white/40 sm:text-xs">
               {mode === "daily" ? t.dailyChallenge : t.archiveMode}
             </span>
@@ -275,13 +280,15 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
               <button type="button" onClick={onPlayAgain} className={PRIMARY_BUTTON + " flex-1"}>
                 {t.playAgain}
               </button>
-              <button
-                type="button"
-                onClick={share}
-                className="flex-1 rounded-md border-2 border-amber-400/50 px-5 py-2.5 font-extrabold uppercase tracking-wide text-amber-300 transition hover:bg-amber-400/10"
-              >
-                {linkCopied ? t.linkCopied : t.share}
-              </button>
+              {mode === "daily" && (
+                <button
+                  type="button"
+                  onClick={share}
+                  className="flex-1 rounded-md border-2 border-amber-400/50 px-5 py-2.5 font-extrabold uppercase tracking-wide text-amber-300 transition hover:bg-amber-400/10"
+                >
+                  {linkCopied ? t.linkCopied : t.share}
+                </button>
+              )}
             </div>
           </motion.div>
         )}

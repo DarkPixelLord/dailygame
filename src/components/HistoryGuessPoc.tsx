@@ -208,10 +208,14 @@ export default function HistoryGuessPoc({
       <div className="flex h-dvh w-full max-w-2xl flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
         <header className="flex w-full shrink-0 items-center justify-between gap-2">
           <div className="flex flex-col">
-            <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
+            <button
+              type="button"
+              onClick={playAgain}
+              className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}
+            >
               <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
               {t.gameTitle}
-            </h1>
+            </button>
             <span className="text-[10px] font-bold uppercase tracking-wide text-white/40 sm:text-xs">
               {mode === "daily" ? t.dailyChallenge : t.archiveMode}
             </span>

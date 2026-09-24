@@ -23,8 +23,22 @@ async function rankIconDataUri(tier: string): Promise<string> {
   return `data:image/png;base64,${file.toString("base64")}`;
 }
 
-export default async function Image({ params }: { params: Promise<{ score: string }> }) {
+// Same path as FlameIcon.tsx, inlined for satori (see rankIconDataUri above
+// for why the rank icons went the PNG route instead — this one's a single
+// path, simple enough to render directly).
+const FLAME_ICON_PATH =
+  "M12.963 2.286a.75.75 0 0 0-1.071-.136 9.742 9.742 0 0 0-3.539 6.176 7.547 7.547 0 0 1-1.705-1.715.75.75 0 0 0-1.152-.082A9 9 0 1 0 15.68 4.534a7.46 7.46 0 0 1-2.717-2.248ZM15.75 14.25a3.75 3.75 0 1 1-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 0 1 1.925-3.545 3.75 3.75 0 0 1 3.255 3.717Z";
+
+export default async function Image({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ score: string }>;
+  searchParams: Promise<{ streak?: string }>;
+}) {
   const { score } = await params;
+  const { streak: streakParam } = await searchParams;
+  const streak = Number(streakParam);
   const tier = rankTier(Number(score), MAX_TOTAL_SCORE);
   const label = UI_STRINGS.en[RANK_LABEL_KEYS[tier]];
   const iconSrc = await rankIconDataUri(tier);
@@ -51,6 +65,14 @@ export default async function Image({ params }: { params: Promise<{ score: strin
         <div style={{ display: "flex", fontSize: 40, fontWeight: 800, color: "#fbbf24", marginTop: 6, letterSpacing: 4 }}>
           {label.toUpperCase()}
         </div>
+        {streak > 0 && (
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 14 }}>
+            <svg width={28} height={28} viewBox="0 0 24 24" fill="#fbbf24">
+              <path fillRule="evenodd" clipRule="evenodd" d={FLAME_ICON_PATH} />
+            </svg>
+            <div style={{ display: "flex", fontSize: 28, fontWeight: 800, color: "#fbbf24" }}>{streak} day streak</div>
+          </div>
+        )}
         <div
           style={{
             display: "flex",
