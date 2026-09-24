@@ -128,14 +128,14 @@ const CAPITALIZED_WORD_EXCEPTIONS = new Set([
   "olympic", "olympics", "olympiques", "hindu", "buddhist", "games",
   "river", "peninsula", "state", "jeux", "état", "southern", "cold",
   "hemisphere", "war", "mountain", "mountains", "gulf",
-  "indigenous", "autochtones",
+  "indigenous", "autochtones", "south", "sud", "pole",
 ]);
 const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   "euphrates", "euphrate", "urubamba", "tōhoku", "catskill", "catskills",
   "baltic", "baltique", "tonlé", "tonle", "sap", "yucatán", "zagros",
   "dnieper", "dniepr", "irrawaddy", "cantabrian", "cantabriques",
   "himalaya", "himalayas", "saint", "lawrence", "laurent", "moselle",
-  "nile", "nil", "rhine", "rhin",
+  "nile", "nil", "rhine", "rhin", "mediterranean", "méditerranée", "volga",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {

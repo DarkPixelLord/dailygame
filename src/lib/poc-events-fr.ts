@@ -495,4 +495,104 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     clue: "Menée sur trois jours, cette bataille fit plus de morts qu'aucune autre d'une guerre civile, avant d'accueillir l'un des discours les plus cités de l'histoire.",
     explanation: "La bataille de Gettysburg repoussa une invasion du Nord et est souvent considérée comme le tournant de la guerre. Des mois plus tard, le président prononça un court discours lors de l'inauguration du cimetière du champ de bataille, devenu l'un des plus cités de l'histoire du pays.",
   },
+  columbus_birth: {
+    name: "Christophe Colomb",
+    clue: "Né dans une ville portuaire au bord de la Méditerranée, un marin convainc une cour royale de financer un voyage vers les Indes et atteint des îles inconnues.",
+    explanation: "Christophe Colomb effectue quatre voyages à travers l'océan, mais n'admet jamais avoir découvert un nouveau continent, affirmant jusqu'à sa mort avoir atteint les confins des Indes.",
+  },
+  chaplin_birth: {
+    name: "Charlie Chaplin",
+    clue: "Né dans la pauvreté au cœur d'une ville grise et surpeuplée, un garçon devient la figure comique la plus reconnue du cinéma, célèbre pour son chapeau melon.",
+    explanation: "Chaplin crée le personnage du Vagabond, un errant miséreux mais digne, dont les films font de lui l'une des toutes premières vedettes mondiales du cinéma, reconnu sur tous les continents.",
+  },
+  disney_birth: {
+    name: "Walt Disney",
+    clue: "Né dans une famille nombreuse au sein d'une grande ville, un garçon passionné de dessin crée une souris facétieuse et bâtit un empire du divertissement mondial.",
+    explanation: "Le studio de Walt Disney produit l'un des tout premiers longs métrages d'animation, puis il fait construire des parcs à thème qui deviennent parmi les destinations les plus visitées au monde.",
+  },
+  nobel_birth: {
+    name: "Alfred Nobel",
+    clue: "Né au bord de la Baltique, un chimiste invente un puissant explosif destiné aux mines, puis finance des prix récompensant la paix et les sciences.",
+    explanation: "Alfred Nobel détient plus de 350 brevets au cours de sa vie et est troublé par une nécrologie le qualifiant à tort de marchand de mort, ce qui le pousse à léguer sa fortune pour récompenser des réalisations bénéfiques à l'humanité.",
+  },
+  bach_birth: {
+    name: "Jean-Sébastien Bach",
+    clue: "Né dans une famille ayant produit plusieurs générations de musiciens municipaux, un garçon devient l'un des plus grands compositeurs de musique religieuse.",
+    explanation: "Bach compose des centaines d'œuvres pour orgue, chœur et orchestre tout en travaillant comme musicien d'église, mais sa musique tombe en désuétude après sa mort avant d'être largement redécouverte des décennies plus tard grâce à des compositeurs admiratifs.",
+  },
+  tolstoy_birth: {
+    name: "Léon Tolstoï",
+    clue: "Né dans une famille noble sur un vaste domaine rural, un écrivain produit des romans fleuves sur la guerre et la société parmi les plus admirés jamais écrits.",
+    explanation: "Tolstoï finit par renoncer à sa fortune et à son titre, adoptant une philosophie simple et non-violente qui influencera plus tard des dirigeants politiques à la tête de grands mouvements pour les droits civiques et l'indépendance.",
+  },
+  hokusai_birth: {
+    name: "Katsushika Hokusai",
+    clue: "Né au bord d'une baie, dans une vaste ville, un artiste devient célèbre pour une estampe d'une immense vague, l'une des images les plus reproduites de l'art.",
+    explanation: "Hokusai crée des milliers d'estampes et de peintures au cours d'une longue carrière, signant ses dernières œuvres sous le nom de vieillard fou de dessin, perfectionnant encore sa technique jusqu'à ses derniers jours.",
+  },
+  battle_of_stalingrad: {
+    name: "Bataille de Stalingrad",
+    clue: "Le long de la Volga, une bataille de plusieurs mois pour une ville tourne aux combats de rue durant un hiver glacial, tournant décisif d'une guerre mondiale.",
+    explanation: "La bataille s'achève par l'encerclement complet d'une armée contrainte de se rendre, une défaite si importante qu'elle marque un basculement durable de l'élan en faveur du camp qui se défendait, pour le reste du conflit.",
+  },
+  jfk_assassination: {
+    name: "Assassinat de John F. Kennedy",
+    clue: "Un président est abattu au passage d'une voiture décapotable dans une foule en liesse, l'instant filmé sous plusieurs angles et débattu sans fin depuis.",
+    explanation: "Kennedy est tué alors qu'il saluait la foule depuis un cortège officiel, et la scène est filmée par un témoin, devenant l'une des images les plus étudiées jamais réalisées, alimentant des décennies de théories concurrentes sur les responsables.",
+  },
+  bin_laden_killing: {
+    name: "Mort d'Oussama ben Laden",
+    clue: "Dans une paisible ville de collines près d'une académie militaire, des soldats d'élite prennent d'assaut de nuit un complexe, visant l'homme le plus recherché.",
+    explanation: "L'opération met fin à une décennie de traque de l'homme responsable d'un attentat terroriste majeur, et son corps est ensuite immergé en mer pour empêcher que sa tombe ne devienne un lieu de pèlerinage.",
+  },
+  gateway_arch: {
+    name: "Gateway Arch",
+    clue: "Au bord d'un large fleuve qui portait les colons vers la frontière, une arche étincelante en acier s'élève comme la plus haute arche du monde.",
+    explanation: "Le Gateway Arch adopte une courbe en chaînette conçue pour que sa hauteur soit égale à la distance entre ses deux pieds au sol, et un système de tramway intérieur transporte les visiteurs jusqu'à une plateforme d'observation à son sommet.",
+  },
+  abu_simbel: {
+    name: "Abou Simbel",
+    clue: "Taillées dans une falaise au bord d'un fleuve coulant entièrement vers le nord à travers le désert, d'immenses statues d'un roi gardent un temple.",
+    explanation: "Les temples d'Abou Simbel sont découpés en blocs et reconstruits en hauteur lors d'une vaste opération internationale de sauvetage, après qu'un nouveau barrage a menacé d'engloutir le site, l'un des projets de préservation du patrimoine les plus ambitieux jamais menés.",
+  },
+  pasteur_birth: {
+    name: "Louis Pasteur",
+    clue: "Né dans une petite ville entourée de collines couvertes de vignes, un chimiste démontre que des microbes invisibles causent maladies et fermentation.",
+    explanation: "Pasteur met au point un traitement thermique qui élimine les microbes nuisibles du lait et du vin sans en altérer le goût, puis crée le premier vaccin contre la rage, le testant sur un garçon mordu par un animal infecté.",
+  },
+  amundsen_birth: {
+    name: "Roald Amundsen",
+    clue: "Né dans une petite ville côtière près d'un fjord profond, un explorateur mène la première expédition à atteindre le pôle Sud, devançant un rival de peu.",
+    explanation: "L'équipe d'Amundsen utilise skis et traîneaux à chiens pour se déplacer efficacement sur la glace, tandis qu'une expédition rivale s'appuyant sur des poneys et des traîneaux tirés à la main périt sur le chemin du retour.",
+  },
+  dali_birth: {
+    name: "Salvador Dalí",
+    clue: "Né dans une petite ville sur une plaine fertile près d'une chaîne de montagnes, un peintre devient célèbre pour ses montres fondantes et images surréalistes.",
+    explanation: "Dalí collabore avec des cinéastes sur une séquence de rêve et participe à la conception d'un logo célèbre encore utilisé par une marque de confiseries, illustrant une influence allant bien au-delà de la peinture, jusqu'au cinéma et à l'art commercial.",
+  },
+  lisbon_earthquake: {
+    name: "Séisme de Lisbonne",
+    clue: "Au large d'une côte rocheuse, un matin de fête religieuse, un séisme sous-marin déclenche incendies et raz-de-marée qui dévastent une capitale.",
+    explanation: "Le séisme, les incendies et le raz-de-marée tuent des dizaines de milliers de personnes et détruisent la majeure partie de la ville en quelques heures, suscitant l'une des toutes premières tentatives d'étude scientifique systématique des causes et effets d'un tremblement de terre.",
+  },
+  battle_of_vienna: {
+    name: "Bataille de Vienne",
+    clue: "Sur une plaine fluviale près d'une capitale assiégée, une armée de secours lance la plus grande charge de cavalerie de l'histoire en une après-midi.",
+    explanation: "La charge de l'armée de secours est menée par un roi arrivé avec des milliers de lanciers lourdement blindés, et la bataille marque la dernière grande tentative d'expansion de la puissance assiégeante vers le cœur du continent.",
+  },
+  battle_of_tours: {
+    name: "Bataille de Poitiers",
+    clue: "Une armée de cavaliers venue d'une péninsule conquise peu avant s'enfonce en territoire étranger, stoppée en un jour par une infanterie lourdement armée à pied.",
+    explanation: "Le chef vainqueur reçut le surnom d'un outil de forgeron pour la force écrasante de sa ligne d'infanterie, et cette victoire aida sa famille à fonder une nouvelle dynastie royale en l'espace d'une génération.",
+  },
+  tower_of_hercules: {
+    name: "Tour d'Hercule",
+    clue: "Sur un promontoire rocheux balayé par les vents, des ingénieurs antiques construisent un phare de pierre guidant encore les navires deux mille ans plus tard.",
+    explanation: "La tour d'Hercule est le plus ancien phare du monde encore en fonctionnement, et la légende raconte qu'il fut construit sur les restes d'un géant mythique vaincu par le héros dont il porte le nom.",
+  },
+  shaanxi_earthquake: {
+    name: "Séisme du Shaanxi",
+    clue: "Dans une région d'habitations creusées à flanc de falaise, un séisme les effondre en une nuit, tuant plus que tout autre séisme connu.",
+    explanation: "Les estimations modernes situent le nombre de victimes autour de 830 000 personnes, un record encore inégalé pour un séisme unique, et la catastrophe pousse à la rédaction de premiers écrits chinois sur les secours et la reconstruction après sinistre.",
+  },
 };

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { isDashboardAuthed } from "@/lib/dashboard-auth";
 import { supabase } from "@/lib/supabase";
 import type { RankTier } from "@/lib/scoring";
+import { POC_EVENTS } from "@/lib/poc-events";
+import DAILY_PACKS_PLAN from "../../../data/daily-packs-plan.json";
 import LoginForm from "./LoginForm";
 import LineChart from "./LineChart";
 import TierBreakdown, { TIER_ORDER } from "./TierBreakdown";
@@ -10,7 +12,7 @@ import { PANEL, GHOST_BUTTON, PRIMARY_BUTTON, GAME_TITLE } from "@/lib/theme";
 
 export const dynamic = "force-dynamic";
 
-type Tab = "daily" | "archive";
+type Tab = "daily" | "archive" | "content";
 type TierRange = "today" | "60d";
 
 const HISTORY_DAYS = 60;
@@ -93,12 +95,15 @@ async function loadTierBreakdown(table: "daily_scores" | "free_mode_plays", rang
 
 function Tabs({ active }: { active: Tab }) {
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap gap-2">
       <Link href="/dashboard?tab=daily" className={active === "daily" ? PRIMARY_BUTTON : GHOST_BUTTON}>
         Défi du jour
       </Link>
       <Link href="/dashboard?tab=archive" className={active === "archive" ? PRIMARY_BUTTON : GHOST_BUTTON}>
         Archive
+      </Link>
+      <Link href="/dashboard?tab=content" className={active === "content" ? PRIMARY_BUTTON : GHOST_BUTTON}>
+        Contenu
       </Link>
     </div>
   );
@@ -132,7 +137,7 @@ export default async function DashboardPage({
   if (!authed) return <LoginForm />;
 
   const { tab, range } = await searchParams;
-  const activeTab: Tab = tab === "archive" ? "archive" : "daily";
+  const activeTab: Tab = tab === "archive" ? "archive" : tab === "content" ? "content" : "daily";
   const activeRange: TierRange = range === "60d" ? "60d" : "today";
 
   return (
@@ -149,7 +154,13 @@ export default async function DashboardPage({
 
         <Tabs active={activeTab} />
 
-        {activeTab === "daily" ? <DailyTab range={activeRange} /> : <ArchiveTab range={activeRange} />}
+        {activeTab === "daily" ? (
+          <DailyTab range={activeRange} />
+        ) : activeTab === "archive" ? (
+          <ArchiveTab range={activeRange} />
+        ) : (
+          <ContentTab />
+        )}
       </div>
     </div>
   );
@@ -186,6 +197,71 @@ async function DailyTab({ range }: { range: TierRange }) {
         ) : (
           <TierBreakdown tierCounts={tiers.tierCounts} total={tiers.total} />
         )}
+      </section>
+    </>
+  );
+}
+
+function StatRow({ label, value }: { label: string; value: string | number }) {
+  return (
+    <div className="flex items-baseline justify-between gap-2">
+      <span className="text-sm text-white/60">{label}</span>
+      <span className="text-sm font-semibold text-white">{value}</span>
+    </div>
+  );
+}
+
+// Pool + pack status, computed live from src/lib/poc-events.ts and
+// data/daily-packs-plan.json — no Supabase query, this is build-time content
+// state, not player activity. See docs/event-writing-guide-v2.md and
+// scripts/build-final-daily-packs.mjs for how these numbers are produced.
+//
+// Deliberately doesn't show anything derived from pickDailyEvents()'s
+// rotation math (days-since-epoch modulo total packs): that quotient isn't
+// stable across regenerations — build-final-daily-packs.mjs rebuilds every
+// pack from scratch each time (not an append), and the modulo's divisor
+// changes the moment totalPacks does. Any "already played / remaining in
+// cycle" figure would only be a snapshot valid until the next regeneration,
+// not a real running count, so it doesn't belong on a status dashboard.
+function ContentTab() {
+  const difficultyCounts = { easy: 0, medium: 0, hard: 0 } as Record<string, number>;
+  for (const e of POC_EVENTS) {
+    if (e.difficulty) difficultyCounts[e.difficulty] = (difficultyCounts[e.difficulty] ?? 0) + 1;
+  }
+
+  const totalPacks = DAILY_PACKS_PLAN.packs.length;
+  const leftover = DAILY_PACKS_PLAN.summary.leftoverUnused;
+  const leftoverTotal = leftover.easy + leftover.medium + leftover.hard;
+
+  const activePool = process.env.NEXT_PUBLIC_EVENT_POOL === "v2" ? "v2 (poc-events)" : "v1 (legacy)";
+
+  return (
+    <>
+      <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
+        <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">Pool actif en production</h2>
+        <p className="text-sm text-white/80">{activePool}</p>
+        <p className="text-xs text-white/40">
+          Piloté par NEXT_PUBLIC_EVENT_POOL. Les stats ci-dessous décrivent toujours le pool v2 (poc-events.ts),
+          qu&rsquo;il soit servi en prod ou non.
+        </p>
+      </section>
+
+      <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
+        <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">Pool de clues (v2)</h2>
+        <StatRow label="Total" value={POC_EVENTS.length} />
+        <StatRow label="Faciles" value={difficultyCounts.easy ?? 0} />
+        <StatRow label="Moyennes" value={difficultyCounts.medium ?? 0} />
+        <StatRow label="Difficiles" value={difficultyCounts.hard ?? 0} />
+      </section>
+
+      <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
+        <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">Packs (5 cartes/jour)</h2>
+        <StatRow label="Packs disponibles" value={totalPacks} />
+        <StatRow label="Clues pas encore dans un pack" value={leftoverTotal} />
+        <p className="text-xs text-white/40">
+          Recalculé à chaque exécution de scripts/build-final-daily-packs.mjs (à relancer après tout ajout de
+          clues) — voir data/daily-packs-plan.json.
+        </p>
       </section>
     </>
   );
