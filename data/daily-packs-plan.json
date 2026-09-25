@@ -1,16 +1,18 @@
 {
-  "generatedAt": "2026-09-24T10:37:13.670Z",
+  "generatedAt": "2026-09-25T13:04:14.484Z",
   "seed": 42,
   "note": "Consumed directly by pickDailyEvents() in src/lib/poc-events.ts. One pack = one calendar day, packs cycle in a seeded-shuffled order per full pass so no pack repeats until every pack has been played.",
   "summary": {
     "totalCluesInPool": 237,
     "totalPacks": 46,
-    "packsWithAllThreeCategories": 13,
+    "packsWithAllThreeCategories": 39,
     "leftoverUnused": {
       "easy": 2,
-      "medium": 1,
-      "hard": 4
-    }
+      "medium": 0,
+      "hard": 5
+    },
+    "packsWithSubcategoryCollision": 3,
+    "forcedSubcategoryCollisions": 4
   },
   "packs": [
     {
@@ -18,9 +20,9 @@
       "type": "B",
       "ids": [
         "fall_of_constantinople",
-        "beethoven_birth",
-        "second_council_of_nicaea",
-        "mozart_birth",
+        "martin_luther",
+        "susa",
+        "charminar",
         "svalbard_treaty"
       ],
       "difficultyCounts": {
@@ -28,20 +30,28 @@
         "medium": 2,
         "hard": 1
       },
-      "categoriesCovered": 2,
+      "categoriesCovered": 3,
       "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
+        "conflict_politics_society": 2,
+        "arts_culture": 1,
+        "science_infrastructure": 2
+      },
+      "subcategoryCounts": {
+        "war": 1,
+        "major_artist": 1,
+        "archaeological_site": 1,
+        "civil_engineering": 1,
+        "treaty": 1
       }
     },
     {
       "packIndex": 1,
       "type": "B",
       "ids": [
-        "machu_picchu",
+        "persepolis",
         "paris_agreement",
-        "niels_bohr",
-        "battle_of_manzikert",
+        "battle_of_kursk",
+        "mozart_birth",
         "paris_world_fair_1889"
       ],
       "difficultyCounts": {
@@ -51,30 +61,45 @@
       },
       "categoriesCovered": 3,
       "categoryCounts": {
-        "science_infrastructure": 2,
+        "science_infrastructure": 1,
         "conflict_politics_society": 2,
-        "arts_culture": 1
+        "arts_culture": 2
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "treaty": 1,
+        "war": 1,
+        "major_artist": 1,
+        "world_gathering": 1
       }
     },
     {
       "packIndex": 2,
       "type": "B",
       "ids": [
-        "buddha_birth",
-        "tangshan_earthquake",
-        "ernest_hemingway",
-        "indian_ocean_tsunami",
-        "temple_of_zeus_olympia"
+        "beethoven_birth",
+        "grand_palace",
+        "first_battle_of_the_marne",
+        "marco_polo",
+        "treaty_of_brussels"
       ],
       "difficultyCounts": {
         "easy": 2,
         "medium": 2,
         "hard": 1
       },
-      "categoriesCovered": 2,
+      "categoriesCovered": 3,
       "categoryCounts": {
-        "arts_culture": 2,
-        "science_infrastructure": 3
+        "arts_culture": 1,
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2
+      },
+      "subcategoryCounts": {
+        "major_artist": 1,
+        "archaeological_site": 1,
+        "war": 1,
+        "pioneer": 1,
+        "treaty": 1
       }
     },
     {
@@ -82,31 +107,126 @@
       "type": "B",
       "ids": [
         "assassination_of_gandhi",
-        "bach_birth",
-        "potsdam_conference",
-        "cannes_film_festival",
-        "belovezh_accords"
+        "tolstoy_birth",
+        "battle_of_plassey",
+        "ada_lovelace",
+        "temple_of_zeus_olympia"
       ],
       "difficultyCounts": {
         "easy": 2,
         "medium": 2,
         "hard": 1
       },
-      "categoriesCovered": 2,
+      "categoriesCovered": 3,
       "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
+        "conflict_politics_society": 2,
+        "arts_culture": 1,
+        "science_infrastructure": 2
+      },
+      "subcategoryCounts": {
+        "rupture": 1,
+        "major_artist": 1,
+        "war": 1,
+        "pioneer": 1,
+        "archaeological_site": 1
       }
     },
     {
       "packIndex": 4,
       "type": "B",
       "ids": [
-        "bagan",
+        "gateway_arch",
         "battle_of_verdun",
+        "gabriel_garcia_marquez",
+        "uruk",
+        "robert_bunsen"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 3,
+        "conflict_politics_society": 1,
+        "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "civil_engineering": 1,
+        "war": 1,
+        "major_artist": 1,
+        "archaeological_site": 1,
+        "pioneer": 1
+      }
+    },
+    {
+      "packIndex": 5,
+      "type": "B",
+      "ids": [
+        "stockholm_1912_olympics",
+        "machu_picchu",
+        "bach_birth",
+        "battle_of_karbala",
+        "klondike_gold_rush"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "arts_culture": 2,
+        "science_infrastructure": 1,
+        "conflict_politics_society": 2
+      },
+      "subcategoryCounts": {
+        "world_gathering": 1,
+        "archaeological_site": 1,
+        "major_artist": 1,
+        "war": 1,
+        "economy": 1
+      }
+    },
+    {
+      "packIndex": 6,
+      "type": "B",
+      "ids": [
+        "battle_of_iwo_jima",
+        "melbourne_1956_olympics",
+        "mark_twain",
         "pasteur_birth",
-        "battle_of_grunwald",
-        "du_fu_birth"
+        "odeon_of_herodes_atticus"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 1,
+        "arts_culture": 2,
+        "science_infrastructure": 2
+      },
+      "subcategoryCounts": {
+        "war": 1,
+        "world_gathering": 1,
+        "major_artist": 1,
+        "pioneer": 1,
+        "archaeological_site": 1
+      }
+    },
+    {
+      "packIndex": 7,
+      "type": "B",
+      "ids": [
+        "bagan",
+        "schengen_agreement",
+        "battle_of_thermopylae",
+        "cervantes_birth",
+        "karl_landsteiner"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -118,38 +238,53 @@
         "science_infrastructure": 2,
         "conflict_politics_society": 2,
         "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "treaty": 1,
+        "war": 1,
+        "major_artist": 1,
+        "pioneer": 1
       }
     },
     {
-      "packIndex": 5,
+      "packIndex": 8,
       "type": "B",
       "ids": [
-        "stockholm_1912_olympics",
-        "borobudur_temple",
-        "first_winter_olympics",
-        "tower_of_hercules",
-        "robert_bunsen"
+        "oktoberfest_munich",
+        "colosseum",
+        "battle_of_bannockburn",
+        "andy_warhol",
+        "treaty_of_rapallo"
       ],
       "difficultyCounts": {
         "easy": 2,
         "medium": 2,
         "hard": 1
       },
-      "categoriesCovered": 2,
+      "categoriesCovered": 3,
       "categoryCounts": {
         "arts_culture": 2,
-        "science_infrastructure": 3
+        "science_infrastructure": 1,
+        "conflict_politics_society": 2
+      },
+      "subcategoryCounts": {
+        "world_gathering": 1,
+        "archaeological_site": 1,
+        "war": 1,
+        "major_artist": 1,
+        "treaty": 1
       }
     },
     {
-      "packIndex": 6,
+      "packIndex": 9,
       "type": "B",
       "ids": [
-        "battle_of_iwo_jima",
-        "oktoberfest_munich",
-        "assassination_of_soleimani",
-        "basho_birth",
-        "treaty_of_rapallo"
+        "october_revolution_petrograd",
+        "buddha_birth",
+        "council_of_trent",
+        "cannes_film_festival",
+        "battle_of_kosovo"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -160,16 +295,283 @@
       "categoryCounts": {
         "conflict_politics_society": 3,
         "arts_culture": 2
+      },
+      "subcategoryCounts": {
+        "rupture": 1,
+        "major_artist": 1,
+        "beliefs": 1,
+        "war": 1
       }
     },
     {
-      "packIndex": 7,
+      "packIndex": 10,
       "type": "B",
       "ids": [
-        "babylon_hanging_gardens",
-        "schengen_agreement",
-        "ada_lovelace",
-        "battle_of_thermopylae",
+        "nobel_birth",
+        "assassination_of_lincoln",
+        "battle_of_grunwald",
+        "haruki_murakami",
+        "sybaris"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2,
+        "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "pioneer": 1,
+        "rupture": 1,
+        "war": 1,
+        "major_artist": 1,
+        "archaeological_site": 1
+      }
+    },
+    {
+      "packIndex": 11,
+      "type": "B",
+      "ids": [
+        "andersen_birth",
+        "amundsen_birth",
+        "battle_of_tours",
+        "ctesiphon",
+        "treaty_of_pyrenees"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "arts_culture": 1,
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2
+      },
+      "subcategoryCounts": {
+        "major_artist": 1,
+        "pioneer": 1,
+        "war": 1,
+        "archaeological_site": 1,
+        "treaty": 1
+      }
+    },
+    {
+      "packIndex": 12,
+      "type": "B",
+      "ids": [
+        "franz_ferdinand",
+        "louisiana_purchase_exposition",
+        "niels_bohr",
+        "dali_birth",
+        "khirokitia"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 1,
+        "arts_culture": 2,
+        "science_infrastructure": 2
+      },
+      "subcategoryCounts": {
+        "rupture": 1,
+        "world_gathering": 1,
+        "pioneer": 1,
+        "major_artist": 1,
+        "archaeological_site": 1
+      }
+    },
+    {
+      "packIndex": 13,
+      "type": "B",
+      "ids": [
+        "cave_of_altamira",
+        "gettysburg",
+        "vasco_da_gama",
+        "shakespeare_birth",
+        "belovezh_accords"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2,
+        "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "civil_engineering": 1,
+        "war": 1,
+        "pioneer": 1,
+        "major_artist": 1,
+        "treaty": 1
+      }
+    },
+    {
+      "packIndex": 14,
+      "type": "B",
+      "ids": [
+        "wilde_birth",
+        "edinburgh_castle",
+        "carl_sagan",
+        "battle_of_adrianople",
+        "first_geneva_convention"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "arts_culture": 1,
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2
+      },
+      "subcategoryCounts": {
+        "major_artist": 1,
+        "archaeological_site": 1,
+        "pioneer": 1,
+        "war": 1,
+        "treaty": 1
+      }
+    },
+    {
+      "packIndex": 15,
+      "type": "B",
+      "ids": [
+        "agincourt",
+        "first_modern_olympics",
+        "james_cook",
+        "edgar_allan_poe",
+        "minaret_of_jam"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 1,
+        "arts_culture": 2,
+        "science_infrastructure": 2
+      },
+      "subcategoryCounts": {
+        "war": 1,
+        "world_gathering": 1,
+        "pioneer": 1,
+        "major_artist": 1,
+        "archaeological_site": 1
+      }
+    },
+    {
+      "packIndex": 16,
+      "type": "B",
+      "ids": [
+        "tangshan_earthquake",
+        "siege_of_mariupol",
+        "agatha_christie",
+        "first_winter_olympics",
+        "cahokia"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 2,
+        "conflict_politics_society": 1,
+        "arts_culture": 2
+      },
+      "subcategoryCounts": {
+        "natural_hazard": 1,
+        "war": 1,
+        "major_artist": 1,
+        "world_gathering": 1,
+        "archaeological_site": 1
+      }
+    },
+    {
+      "packIndex": 17,
+      "type": "B",
+      "ids": [
+        "montreal_1976_olympics",
+        "leshan_giant_buddha",
+        "battle_of_crecy",
+        "haiti_earthquake",
+        "bartolome_esteban_murillo"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "arts_culture": 2,
+        "science_infrastructure": 2,
+        "conflict_politics_society": 1
+      },
+      "subcategoryCounts": {
+        "world_gathering": 1,
+        "archaeological_site": 1,
+        "war": 1,
+        "natural_hazard": 1,
+        "major_artist": 1
+      }
+    },
+    {
+      "packIndex": 18,
+      "type": "B",
+      "ids": [
+        "battle_of_waterloo",
+        "great_exhibition",
+        "alexander_graham_bell",
+        "charles_dickens",
+        "union_of_utrecht"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 2,
+        "arts_culture": 2,
+        "science_infrastructure": 1
+      },
+      "subcategoryCounts": {
+        "war": 1,
+        "world_gathering": 1,
+        "pioneer": 1,
+        "major_artist": 1,
+        "treaty": 1
+      }
+    },
+    {
+      "packIndex": 19,
+      "type": "B",
+      "ids": [
+        "chichen_itza",
+        "bin_laden_killing",
+        "battle_of_hattin",
+        "nikola_tesla_birth",
         "abu_nuwas_birth"
       ],
       "difficultyCounts": {
@@ -182,59 +584,82 @@
         "science_infrastructure": 2,
         "conflict_politics_society": 2,
         "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "rupture": 1,
+        "war": 1,
+        "pioneer": 1,
+        "major_artist": 1
       }
     },
     {
-      "packIndex": 8,
+      "packIndex": 20,
       "type": "B",
       "ids": [
-        "great_exhibition",
-        "colosseum",
-        "andy_warhol",
-        "steve_jobs",
-        "odeon_of_herodes_atticus"
+        "chaplin_birth",
+        "abu_simbel",
+        "battle_of_dien_bien_phu",
+        "potsdam_conference",
+        "niels_henrik_abel"
       ],
       "difficultyCounts": {
         "easy": 2,
         "medium": 2,
         "hard": 1
       },
-      "categoriesCovered": 2,
+      "categoriesCovered": 3,
       "categoryCounts": {
-        "arts_culture": 2,
-        "science_infrastructure": 3
-      }
-    },
-    {
-      "packIndex": 9,
-      "type": "B",
-      "ids": [
-        "october_revolution_petrograd",
-        "helsinki_1952_olympics",
-        "siege_of_leningrad",
-        "cervantes_birth",
-        "klondike_gold_rush"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
+        "arts_culture": 1,
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2
       },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
+      "subcategoryCounts": {
+        "major_artist": 1,
+        "archaeological_site": 1,
+        "war": 1,
+        "treaty": 1,
+        "pioneer": 1
       }
     },
     {
-      "packIndex": 10,
+      "packIndex": 21,
       "type": "B",
       "ids": [
-        "edison_birth",
-        "assassination_of_lincoln",
+        "battle_of_berlin",
+        "mexico_1968_olympics",
+        "jane_austen",
         "john_nash",
-        "battle_of_vienna",
-        "bartolome_esteban_murillo"
+        "locarno_treaties"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 2,
+        "arts_culture": 2,
+        "science_infrastructure": 1
+      },
+      "subcategoryCounts": {
+        "war": 1,
+        "world_gathering": 1,
+        "major_artist": 1,
+        "pioneer": 1,
+        "treaty": 1
+      }
+    },
+    {
+      "packIndex": 22,
+      "type": "B",
+      "ids": [
+        "babylon_hanging_gardens",
+        "pearl_harbor",
+        "franz_kafka",
+        "indian_ocean_tsunami",
+        "montevideo_convention"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -246,58 +671,313 @@
         "science_infrastructure": 2,
         "conflict_politics_society": 2,
         "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "war": 1,
+        "major_artist": 1,
+        "natural_hazard": 1,
+        "treaty": 1
       }
     },
     {
-      "packIndex": 11,
+      "packIndex": 23,
       "type": "B",
       "ids": [
-        "louisiana_purchase_exposition",
+        "worlds_columbian_exposition",
         "valley_of_the_kings",
-        "gabriel_garcia_marquez",
-        "hedy_lamarr",
-        "karl_landsteiner"
+        "battle_of_manzikert",
+        "leonardo_da_vinci_birth",
+        "convention_of_kanagawa"
       ],
       "difficultyCounts": {
         "easy": 2,
         "medium": 2,
         "hard": 1
       },
-      "categoriesCovered": 2,
+      "categoriesCovered": 3,
       "categoryCounts": {
         "arts_culture": 2,
-        "science_infrastructure": 3
+        "science_infrastructure": 1,
+        "conflict_politics_society": 2
+      },
+      "subcategoryCounts": {
+        "world_gathering": 1,
+        "archaeological_site": 1,
+        "war": 1,
+        "major_artist": 1,
+        "treaty": 1
       }
     },
     {
-      "packIndex": 12,
+      "packIndex": 24,
       "type": "B",
       "ids": [
-        "franz_ferdinand",
-        "worlds_columbian_exposition",
-        "battle_of_yarmouk",
-        "dali_birth",
-        "treaty_of_brussels"
+        "battle_of_hastings",
+        "woodstock_festival",
+        "hedy_lamarr",
+        "second_council_of_nicaea",
+        "theophile_gautier"
       ],
       "difficultyCounts": {
         "easy": 2,
         "medium": 2,
         "hard": 1
       },
-      "categoriesCovered": 2,
+      "categoriesCovered": 3,
       "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
+        "conflict_politics_society": 2,
+        "arts_culture": 2,
+        "science_infrastructure": 1
+      },
+      "subcategoryCounts": {
+        "war": 1,
+        "world_gathering": 1,
+        "pioneer": 1,
+        "beliefs": 1,
+        "major_artist": 1
       }
     },
     {
-      "packIndex": 13,
+      "packIndex": 25,
       "type": "B",
       "ids": [
-        "copernicus_birth",
-        "gettysburg",
-        "james_cook",
-        "first_battle_of_the_marne",
+        "skara_brae",
+        "battle_of_the_somme",
+        "confucius_birth",
+        "lisbon_earthquake",
+        "montreal_protocol"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2,
+        "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "war": 1,
+        "major_artist": 1,
+        "natural_hazard": 1,
+        "treaty": 1
+      }
+    },
+    {
+      "packIndex": 26,
+      "type": "B",
+      "ids": [
+        "van_gogh_birth",
+        "terracotta_army",
+        "battle_of_vienna",
+        "ottawa_treaty",
+        "spitak_earthquake"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "arts_culture": 1,
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2
+      },
+      "subcategoryCounts": {
+        "major_artist": 1,
+        "archaeological_site": 1,
+        "war": 1,
+        "treaty": 1,
+        "natural_hazard": 1
+      }
+    },
+    {
+      "packIndex": 27,
+      "type": "B",
+      "ids": [
+        "battle_of_the_alamo",
+        "helsinki_1952_olympics",
+        "jorge_luis_borges_birth",
+        "byblos_lebanon",
+        "vitus_bering"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 1,
+        "arts_culture": 2,
+        "science_infrastructure": 2
+      },
+      "subcategoryCounts": {
+        "war": 1,
+        "world_gathering": 1,
+        "major_artist": 1,
+        "archaeological_site": 1,
+        "pioneer": 1
+      }
+    },
+    {
+      "packIndex": 28,
+      "type": "B",
+      "ids": [
+        "independence_hall",
+        "carnation_revolution",
+        "battle_of_stamford_bridge",
+        "frederic_chopin",
+        "austrian_state_treaty"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 1,
+        "conflict_politics_society": 3,
+        "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "rupture": 1,
+        "war": 1,
+        "major_artist": 1,
+        "treaty": 1
+      }
+    },
+    {
+      "packIndex": 29,
+      "type": "B",
+      "ids": [
+        "hokusai_birth",
+        "krakatoa_eruption",
+        "battle_of_cannae",
+        "newton_birth",
+        "herodium"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "arts_culture": 1,
+        "science_infrastructure": 3,
+        "conflict_politics_society": 1
+      },
+      "subcategoryCounts": {
+        "major_artist": 1,
+        "natural_hazard": 1,
+        "war": 1,
+        "pioneer": 1,
+        "archaeological_site": 1
+      }
+    },
+    {
+      "packIndex": 30,
+      "type": "B",
+      "ids": [
+        "battle_of_austerlitz",
+        "michelangelo_birth",
+        "assassination_of_mlk",
+        "john_von_neumann",
+        "danevirke"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "conflict_politics_society": 2,
+        "arts_culture": 1,
+        "science_infrastructure": 2
+      },
+      "subcategoryCounts": {
+        "war": 1,
+        "major_artist": 1,
+        "rupture": 1,
+        "pioneer": 1,
+        "archaeological_site": 1
+      }
+    },
+    {
+      "packIndex": 31,
+      "type": "B",
+      "ids": [
+        "darwin_birth",
+        "little_bighorn",
+        "basho_birth",
+        "tel_megiddo",
+        "evian_accords"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2,
+        "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "pioneer": 1,
+        "war": 1,
+        "major_artist": 1,
+        "archaeological_site": 1,
+        "treaty": 1
+      }
+    },
+    {
+      "packIndex": 32,
+      "type": "B",
+      "ids": [
+        "antwerp_1920_olympics",
+        "western_wall",
+        "battle_of_borodino",
+        "ernest_hemingway",
+        "charles_augustin_de_coulomb"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "arts_culture": 2,
+        "science_infrastructure": 2,
+        "conflict_politics_society": 1
+      },
+      "subcategoryCounts": {
+        "world_gathering": 1,
+        "archaeological_site": 1,
+        "war": 1,
+        "major_artist": 1,
+        "pioneer": 1
+      }
+    },
+    {
+      "packIndex": 33,
+      "type": "B",
+      "ids": [
+        "council_of_constance",
+        "olympic_flame_debut",
+        "california_gold_rush",
+        "nazca_lines",
         "la_fontaine_birth"
       ],
       "difficultyCounts": {
@@ -307,61 +987,26 @@
       },
       "categoriesCovered": 3,
       "categoryCounts": {
-        "science_infrastructure": 2,
         "conflict_politics_society": 2,
-        "arts_culture": 1
-      }
-    },
-    {
-      "packIndex": 14,
-      "type": "B",
-      "ids": [
-        "wilde_birth",
-        "columbus_birth",
-        "van_gogh_birth",
-        "alexander_graham_bell",
-        "sybaris"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
         "arts_culture": 2,
-        "science_infrastructure": 3
-      }
-    },
-    {
-      "packIndex": 15,
-      "type": "B",
-      "ids": [
-        "agincourt",
-        "andersen_birth",
-        "battle_of_hattin",
-        "edgar_allan_poe",
-        "montevideo_convention"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
+        "science_infrastructure": 1
       },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
+      "subcategoryCounts": {
+        "beliefs": 1,
+        "world_gathering": 1,
+        "economy": 1,
+        "archaeological_site": 1,
+        "major_artist": 1
       }
     },
     {
-      "packIndex": 16,
+      "packIndex": 34,
       "type": "B",
       "ids": [
-        "nepal_earthquake",
-        "siege_of_mariupol",
-        "susa",
-        "assassination_of_mlk",
+        "steve_jobs",
+        "jfk_assassination",
+        "ur_mesopotamia",
+        "battle_of_dunkirk",
         "bunin_birth"
       ],
       "difficultyCounts": {
@@ -374,58 +1019,23 @@
         "science_infrastructure": 2,
         "conflict_politics_society": 2,
         "arts_culture": 1
-      }
-    },
-    {
-      "packIndex": 17,
-      "type": "B",
-      "ids": [
-        "first_modern_olympics",
-        "mesa_verde",
-        "agatha_christie",
-        "marco_polo",
-        "khirokitia"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
       },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "arts_culture": 2,
-        "science_infrastructure": 3
+      "subcategoryCounts": {
+        "pioneer": 1,
+        "rupture": 1,
+        "archaeological_site": 1,
+        "war": 1,
+        "major_artist": 1
       }
     },
     {
-      "packIndex": 18,
+      "packIndex": 35,
       "type": "B",
       "ids": [
-        "battle_of_waterloo",
-        "chaplin_birth",
-        "battle_of_cannae",
-        "martin_luther",
-        "austrian_state_treaty"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
-      }
-    },
-    {
-      "packIndex": 19,
-      "type": "B",
-      "ids": [
-        "chichen_itza",
-        "bin_laden_killing",
-        "archimedes",
-        "battle_of_crecy",
+        "pompeii",
+        "euromaidan",
+        "ibn_battuta_birth",
+        "battle_of_teutoburg_forest",
         "lope_de_vega"
       ],
       "difficultyCounts": {
@@ -438,59 +1048,24 @@
         "science_infrastructure": 2,
         "conflict_politics_society": 2,
         "arts_culture": 1
-      }
-    },
-    {
-      "packIndex": 20,
-      "type": "B",
-      "ids": [
-        "hokusai_birth",
-        "gateway_arch",
-        "charles_dickens",
-        "tel_megiddo",
-        "minaret_of_jam"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
       },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "arts_culture": 2,
-        "science_infrastructure": 3
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "rupture": 1,
+        "pioneer": 1,
+        "war": 1,
+        "major_artist": 1
       }
     },
     {
-      "packIndex": 21,
+      "packIndex": 36,
       "type": "B",
       "ids": [
-        "battle_of_berlin",
-        "antwerp_1920_olympics",
-        "battle_of_stamford_bridge",
-        "jane_austen",
-        "locarno_treaties"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
-      }
-    },
-    {
-      "packIndex": 22,
-      "type": "B",
-      "ids": [
-        "krakatoa_eruption",
-        "pearl_harbor",
-        "nikola_tesla_birth",
-        "council_of_trent",
-        "theophile_gautier"
+        "petra_jordan",
+        "first_council_of_nicaea",
+        "assassination_of_soleimani",
+        "archimedes",
+        "fyodor_dostoyevsky"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -502,58 +1077,23 @@
         "science_infrastructure": 2,
         "conflict_politics_society": 2,
         "arts_culture": 1
-      }
-    },
-    {
-      "packIndex": 23,
-      "type": "B",
-      "ids": [
-        "woodstock_festival",
-        "persepolis",
-        "franz_kafka",
-        "vasco_da_gama",
-        "cahokia"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
       },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "arts_culture": 2,
-        "science_infrastructure": 3
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "beliefs": 1,
+        "rupture": 1,
+        "pioneer": 1,
+        "major_artist": 1
       }
     },
     {
-      "packIndex": 24,
+      "packIndex": 37,
       "type": "B",
       "ids": [
-        "battle_of_hastings",
-        "montreal_1976_olympics",
-        "battle_of_bannockburn",
-        "leonardo_da_vinci_birth",
-        "black_january"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
-      }
-    },
-    {
-      "packIndex": 25,
-      "type": "B",
-      "ids": [
-        "pompeii",
-        "battle_of_the_somme",
-        "haiti_earthquake",
-        "battle_of_teutoburg_forest",
+        "hollywood_walk_of_fame",
+        "normandy_landings",
+        "miletus",
+        "sichuan_earthquake",
         "maurice_maeterlinck"
       ],
       "difficultyCounts": {
@@ -563,61 +1103,26 @@
       },
       "categoriesCovered": 3,
       "categoryCounts": {
-        "science_infrastructure": 2,
-        "conflict_politics_society": 2,
+        "science_infrastructure": 3,
+        "conflict_politics_society": 1,
         "arts_culture": 1
-      }
-    },
-    {
-      "packIndex": 26,
-      "type": "B",
-      "ids": [
-        "melbourne_1956_olympics",
-        "hollywood_walk_of_fame",
-        "shakespeare_birth",
-        "ibn_battuta_birth",
-        "niels_henrik_abel"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
       },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "arts_culture": 2,
-        "science_infrastructure": 3
+      "subcategoryCounts": {
+        "civil_engineering": 1,
+        "war": 1,
+        "archaeological_site": 1,
+        "natural_hazard": 1,
+        "major_artist": 1
       }
     },
     {
-      "packIndex": 27,
-      "type": "B",
-      "ids": [
-        "battle_of_the_alamo",
-        "tolstoy_birth",
-        "ottawa_treaty",
-        "jorge_luis_borges_birth",
-        "treaty_of_pyrenees"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
-      }
-    },
-    {
-      "packIndex": 28,
+      "packIndex": 38,
       "type": "B",
       "ids": [
         "disney_birth",
-        "carnation_revolution",
-        "uruk",
-        "battle_of_plassey",
+        "fall_of_kabul",
+        "bretton_woods_system",
+        "halicarnassus",
         "masaccio_birth"
       ],
       "difficultyCounts": {
@@ -630,17 +1135,53 @@
         "science_infrastructure": 2,
         "conflict_politics_society": 2,
         "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "pioneer": 1,
+        "war": 1,
+        "treaty": 1,
+        "archaeological_site": 1,
+        "major_artist": 1
       }
     },
     {
-      "packIndex": 29,
+      "packIndex": 39,
       "type": "B",
       "ids": [
-        "michelangelo_birth",
-        "independence_hall",
-        "frederic_chopin",
-        "byblos_lebanon",
-        "herodium"
+        "angkor_wat",
+        "assassination_of_julius_caesar",
+        "battle_of_badr",
+        "wernher_von_braun",
+        "du_fu_birth"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 3,
+      "categoryCounts": {
+        "science_infrastructure": 2,
+        "conflict_politics_society": 2,
+        "arts_culture": 1
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "rupture": 1,
+        "war": 1,
+        "pioneer": 1,
+        "major_artist": 1
+      }
+    },
+    {
+      "packIndex": 40,
+      "type": "B",
+      "ids": [
+        "valdivia_earthquake",
+        "battle_of_stalingrad",
+        "edison_birth",
+        "tower_of_hercules",
+        "iron_pillar_delhi"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -649,40 +1190,26 @@
       },
       "categoriesCovered": 2,
       "categoryCounts": {
-        "arts_culture": 2,
-        "science_infrastructure": 3
-      }
-    },
-    {
-      "packIndex": 30,
-      "type": "B",
-      "ids": [
-        "battle_of_austerlitz",
-        "mexico_1968_olympics",
-        "california_gold_rush",
-        "confucius_birth",
-        "union_of_utrecht"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
+        "science_infrastructure": 4,
+        "conflict_politics_society": 1
       },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "arts_culture": 2
+      "subcategoryCounts": {
+        "natural_hazard": 1,
+        "war": 1,
+        "pioneer": 1,
+        "civil_engineering": 1,
+        "archaeological_site": 1
       }
     },
     {
-      "packIndex": 31,
+      "packIndex": 41,
       "type": "B",
       "ids": [
-        "western_wall",
-        "little_bighorn",
-        "newton_birth",
-        "battle_of_karbala",
-        "danevirke"
+        "columbus_birth",
+        "haitian_revolution",
+        "battle_of_yarmouk",
+        "templo_mayor",
+        "messina_earthquake_1908"
       ],
       "difficultyCounts": {
         "easy": 2,
@@ -693,229 +1220,105 @@
       "categoryCounts": {
         "science_infrastructure": 3,
         "conflict_politics_society": 2
-      }
-    },
-    {
-      "packIndex": 32,
-      "type": "B",
-      "ids": [
-        "olympic_flame_debut",
-        "roman_forum",
-        "fyodor_dostoyevsky",
-        "miletus",
-        "evian_accords"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
       },
-      "categoriesCovered": 3,
-      "categoryCounts": {
-        "arts_culture": 2,
-        "science_infrastructure": 2,
-        "conflict_politics_society": 1
-      }
-    },
-    {
-      "packIndex": 33,
-      "type": "B",
-      "ids": [
-        "council_of_constance",
-        "petra_jordan",
-        "battle_of_kursk",
-        "mark_twain",
-        "iron_pillar_delhi"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 3,
-      "categoryCounts": {
-        "conflict_politics_society": 2,
-        "science_infrastructure": 2,
-        "arts_culture": 1
-      }
-    },
-    {
-      "packIndex": 34,
-      "type": "B",
-      "ids": [
-        "jfk_assassination",
-        "nobel_birth",
-        "carl_sagan",
-        "battle_of_tours",
-        "battle_of_kosovo"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "science_infrastructure": 2
-      }
-    },
-    {
-      "packIndex": 35,
-      "type": "B",
-      "ids": [
-        "euromaidan",
-        "leshan_giant_buddha",
-        "haruki_murakami",
-        "ur_mesopotamia",
-        "spitak_earthquake"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 3,
-      "categoryCounts": {
-        "conflict_politics_society": 1,
-        "science_infrastructure": 3,
-        "arts_culture": 1
-      }
-    },
-    {
-      "packIndex": 36,
-      "type": "B",
-      "ids": [
-        "first_council_of_nicaea",
-        "angkor_wat",
-        "battle_of_badr",
-        "charminar",
-        "convention_of_kanagawa"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "science_infrastructure": 2
-      }
-    },
-    {
-      "packIndex": 37,
-      "type": "B",
-      "ids": [
-        "normandy_landings",
-        "abu_simbel",
-        "battle_of_borodino",
-        "nazca_lines",
-        "vitus_bering"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 2,
-        "science_infrastructure": 3
-      }
-    },
-    {
-      "packIndex": 38,
-      "type": "B",
-      "ids": [
-        "fall_of_kabul",
-        "darwin_birth",
-        "battle_of_zama",
-        "john_von_neumann",
-        "montreal_protocol"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "science_infrastructure": 2
-      }
-    },
-    {
-      "packIndex": 39,
-      "type": "B",
-      "ids": [
-        "assassination_of_julius_caesar",
-        "cave_of_altamira",
-        "battle_of_dien_bien_phu",
-        "wernher_von_braun",
-        "ggantija_malta"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 2,
-        "science_infrastructure": 3
-      }
-    },
-    {
-      "packIndex": 40,
-      "type": "B",
-      "ids": [
-        "battle_of_stalingrad",
-        "terracotta_army",
-        "battle_of_dunkirk",
-        "sichuan_earthquake",
-        "first_geneva_convention"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 3,
-        "science_infrastructure": 2
-      }
-    },
-    {
-      "packIndex": 41,
-      "type": "B",
-      "ids": [
-        "haitian_revolution",
-        "great_pyramid_giza",
-        "battle_of_marathon",
-        "karakorum",
-        "charles_augustin_de_coulomb"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "conflict_politics_society": 2,
-        "science_infrastructure": 3
+      "subcategoryCounts": {
+        "pioneer": 1,
+        "rupture": 1,
+        "war": 1,
+        "archaeological_site": 1,
+        "natural_hazard": 1
       }
     },
     {
       "packIndex": 42,
+      "type": "A",
+      "ids": [
+        "nepal_earthquake",
+        "borobudur_temple",
+        "stonehenge",
+        "siege_of_leningrad",
+        "black_january"
+      ],
+      "difficultyCounts": {
+        "easy": 3,
+        "medium": 1,
+        "hard": 1
+      },
+      "categoriesCovered": 2,
+      "categoryCounts": {
+        "science_infrastructure": 3,
+        "conflict_politics_society": 2
+      },
+      "subcategoryCounts": {
+        "natural_hazard": 1,
+        "archaeological_site": 1,
+        "civil_engineering": 1,
+        "war": 2
+      }
+    },
+    {
+      "packIndex": 43,
       "type": "B",
       "ids": [
-        "mexico_city_earthquake_1985",
+        "great_pyramid_giza",
         "tohoku_earthquake_tsunami",
-        "bretton_woods_system",
-        "amundsen_birth",
+        "battle_of_zama",
+        "copernicus_birth",
+        "chiang_kai_shek_memorial_hall"
+      ],
+      "difficultyCounts": {
+        "easy": 2,
+        "medium": 2,
+        "hard": 1
+      },
+      "categoriesCovered": 2,
+      "categoryCounts": {
+        "science_infrastructure": 4,
+        "conflict_politics_society": 1
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 1,
+        "natural_hazard": 1,
+        "war": 1,
+        "pioneer": 1,
+        "civil_engineering": 1
+      }
+    },
+    {
+      "packIndex": 44,
+      "type": "A",
+      "ids": [
+        "mesa_verde",
+        "eyjafjallajokull_2010",
+        "christ_the_redeemer",
+        "battle_of_marathon",
+        "ggantija_malta"
+      ],
+      "difficultyCounts": {
+        "easy": 3,
+        "medium": 1,
+        "hard": 1
+      },
+      "categoriesCovered": 2,
+      "categoryCounts": {
+        "science_infrastructure": 4,
+        "conflict_politics_society": 1
+      },
+      "subcategoryCounts": {
+        "archaeological_site": 2,
+        "natural_hazard": 1,
+        "civil_engineering": 1,
+        "war": 1
+      }
+    },
+    {
+      "packIndex": 45,
+      "type": "B",
+      "ids": [
+        "roman_forum",
+        "mexico_city_earthquake_1985",
+        "maiden_tower_baku",
+        "karakorum",
         "bru_na_boinne"
       ],
       "difficultyCounts": {
@@ -923,71 +1326,14 @@
         "medium": 2,
         "hard": 1
       },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "science_infrastructure": 4,
-        "conflict_politics_society": 1
-      }
-    },
-    {
-      "packIndex": 43,
-      "type": "B",
-      "ids": [
-        "grand_palace",
-        "stonehenge",
-        "battle_of_adrianople",
-        "halicarnassus",
-        "dura_europos"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
-      "categoriesCovered": 2,
-      "categoryCounts": {
-        "science_infrastructure": 4,
-        "conflict_politics_society": 1
-      }
-    },
-    {
-      "packIndex": 44,
-      "type": "B",
-      "ids": [
-        "eyjafjallajokull_2010",
-        "christ_the_redeemer",
-        "lisbon_earthquake",
-        "maiden_tower_baku",
-        "messina_earthquake_1908"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
-      },
       "categoriesCovered": 1,
       "categoryCounts": {
         "science_infrastructure": 5
-      }
-    },
-    {
-      "packIndex": 45,
-      "type": "B",
-      "ids": [
-        "skara_brae",
-        "edinburgh_castle",
-        "templo_mayor",
-        "edmund_hillary_birth",
-        "alodia_soba"
-      ],
-      "difficultyCounts": {
-        "easy": 2,
-        "medium": 2,
-        "hard": 1
       },
-      "categoriesCovered": 1,
-      "categoryCounts": {
-        "science_infrastructure": 5
+      "subcategoryCounts": {
+        "archaeological_site": 3,
+        "natural_hazard": 1,
+        "civil_engineering": 1
       }
     }
   ]

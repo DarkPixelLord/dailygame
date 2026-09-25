@@ -275,16 +275,46 @@ capital city that has nothing else to do with the story, check the full
 source article for an actual handover/signing-site scene before defaulting
 to the treaty's negotiating city.
 
-## Person entries: the clue must signal it wants the birthplace
+## Person entries: decide the pin before you write toward it
 
-For a person-subject entry, `lat`/`lng`/`year` point at where and when they
-were *born* — not where they worked, made their famous discovery, died, or
-any other place tied to them. The game shows only the clue text; there's no
-separate "guess the birthplace" instruction anywhere in the UI. So if the
-clue doesn't say so, the player has no way to know the pin isn't, say, where
-the person did the thing the clue just described. A clue that's all career
-facts ("this artist turned soup cans into fine art...") lets a player
-correctly identify the person and still guess the wrong point on the map.
+Don't default a person entry to the birthplace out of habit. First ask: does
+their signature achievement have its own precise, nameable, single location —
+one a player could actually point at — that's more notable or more legible
+than where they were born? If yes, pin there instead (`pinIsBirthplace:
+false`) and write the clue around that fact. If no — the achievement is a
+body of work, a theory, a journey with no single point, or its location is
+effectively the same city as the birthplace anyway — birthplace is still the
+right default, and that's true for most person entries.
+
+Real failure case: `edmund_hillary_birth`'s clue used to open "Born between
+two harbours..." (Auckland) but the rest of the clue described reaching the
+summit of Everest — the vivid, memorable image in the text was Everest, not
+the obscure birth description, so players guessed Everest and were marked
+wrong. The fix wasn't a better birth clue, it was moving the pin to Everest.
+A full audit of the existing pool (`docs/audit-birth-vs-fact.md`) found this
+same mismatch in 22 of 70 person entries — roughly a third — split across two
+recognizable shapes: explorers/inventors/scientists ("pioneer" subcategory)
+convert far more often than artists/writers/composers ("major_artist"),
+because a pioneer's fame is usually tied to a place (a summit, an island, a
+lab) while an artist's is usually tied to a work or a style.
+
+**Quick test**: if you can name a real, specific, checkable place tied to the
+achievement (a building, a summit, an island, a lab, a chapel — not "the
+ocean" or "a journey through three countries"), and it beats the birth
+description you'd otherwise write, use it. Don't force it — a tonally heavy
+pin (an author's imprisonment, a weapons-development site) needs a
+deliberate judgment call, not a reflex; when in doubt, default back to
+birthplace and flag it for a second opinion instead of deciding alone.
+
+Once you've decided the pin **is** the birthplace, the clue must signal that.
+`lat`/`lng`/`year` then point at where and when the person was *born* — not
+where they worked, made their famous discovery, died, or any other place
+tied to them. The game shows only the clue text; there's no separate "guess
+the birthplace" instruction anywhere in the UI. So if the clue doesn't say
+so, the player has no way to know the pin isn't, say, where the person did
+the thing the clue just described. A clue that's all career facts ("this
+artist turned soup cans into fine art...") lets a player correctly identify
+the person and still guess the wrong point on the map.
 
 **Fix: open with an explicit birth verb** ("Born in ...", "Né(e) dans...",
 "naît"/"naquit" à la rigueur), paired with a vague, non-eliminating
@@ -314,6 +344,17 @@ Judgment calls, checked by eye against `src/lib/poc-events.ts` — not against
   fine, risky in volume — skim the new pool for how many entries already
   open the same way before finalizing a batch.
 - **Don't over-draw from the same cities.**
+- **Watch the `subcategory` mix, not just difficulty.** Every candidate in
+  `data/candidates-*.json` carries a `subcategory` (`natural_hazard`, `war`,
+  `pioneer`, `major_artist`, `archaeological_site`, ...), which is what
+  `build-final-daily-packs.mjs` uses to keep two same-subcategory events out
+  of the same daily pack (see `data/event-subtopics.json`). That guard only
+  works if the pool itself has enough spread — if a batch draws heavily from
+  one subcategory (e.g. several `natural_hazard` entries: two eruptions and
+  an earthquake, all technically different "categories" but the same kind of
+  story), the pack builder eventually runs out of non-colliding options and
+  is forced to double up anyway. Skim the subcategory counts in the new pool
+  before finalizing a batch, the same way you'd check difficulty counts.
 - **Deep-time/prehistoric events are in scope**, if they pin to one exact,
   identifiable physical location with real coordinates — not a vague era or
   region.

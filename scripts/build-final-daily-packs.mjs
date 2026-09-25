@@ -36,9 +36,23 @@ function shuffle(arr, rng) {
   return a;
 }
 
+// data/event-subtopics.json is an audit artifact (id -> subcategory),
+// recovered by joining poc-events.ts back to data/candidates-*.json via
+// wikipediaTitle — see scripts note in that file. A handful of ids (drafted
+// before the field existed, or through another path) have no subcategory;
+// those just never trigger the same-subtopic constraint below.
+function loadSubtopics() {
+  try {
+    const parsed = JSON.parse(readFileSync("data/event-subtopics.json", "utf8"));
+    return parsed.subtopics ?? {};
+  } catch {
+    return {};
+  }
+}
+
 // Extract structured fields per entry via regex, without parsing the TS AST
 // or touching clue/name/explanation text.
-function loadClues() {
+function loadClues(subtopics) {
   const src = readFileSync("src/lib/poc-events.ts", "utf8");
   const idRe = /id:\s*"([^"]+)"/g;
   const anchors = [];
@@ -56,7 +70,8 @@ function loadClues() {
     const lat = Number(block.match(/lat:\s*(-?[\d.]+)/)?.[1]);
     const lng = Number(block.match(/lng:\s*(-?[\d.]+)/)?.[1]);
     if (!difficulty || !category) continue; // skip legacy/incomplete entries
-    clues.push({ id: anchors[i].id, difficulty, category, year, lat, lng });
+    const subcategory = subtopics[anchors[i].id];
+    clues.push({ id: anchors[i].id, difficulty, category, subcategory, year, lat, lng });
   }
   return clues;
 }
@@ -146,22 +161,49 @@ function buildPacks(clues, rng) {
     }
   }
 
+  // Scans `queue` for `count` items whose subcategory isn't already in
+  // `usedSubcats` for this pack, removing matches in place (so a skipped
+  // item just waits for a later pack, nothing is lost — the queues still
+  // partition the pool exactly once each). Items with no known subcategory
+  // never collide. Falls back to force-taking from the front if the queue
+  // runs out of non-colliding options, so every pack still gets exactly
+  // `count` items — collisionStats tracks how often that happened.
+  function takeAvoidingSubcategory(queue, count, usedSubcats, collisionStats) {
+    const picked = [];
+    let i = 0;
+    while (picked.length < count && i < queue.length) {
+      const item = queue[i];
+      if (item.subcategory && usedSubcats.has(item.subcategory)) {
+        i++;
+        continue;
+      }
+      picked.push(item);
+      queue.splice(i, 1);
+      if (item.subcategory) usedSubcats.add(item.subcategory);
+    }
+    while (picked.length < count && queue.length > 0) {
+      const item = queue.shift();
+      picked.push(item);
+      if (item.subcategory) usedSubcats.add(item.subcategory);
+      collisionStats.forced++;
+    }
+    return picked;
+  }
+
+  const collisionStats = { forced: 0 };
   const packs = [];
-  let ei = 0;
-  let mi = 0;
-  let hi = 0;
   for (let i = 0; i < types.length; i++) {
     const [eCount, mCount, hCount] = types[i] === "A" ? [3, 1, 1] : [2, 2, 1];
+    const usedSubcats = new Set();
     const items = [
-      ...easyQ.slice(ei, ei + eCount),
-      ...mediumQ.slice(mi, mi + mCount),
-      ...hardQ.slice(hi, hi + hCount),
+      ...takeAvoidingSubcategory(easyQ, eCount, usedSubcats, collisionStats),
+      ...takeAvoidingSubcategory(mediumQ, mCount, usedSubcats, collisionStats),
+      ...takeAvoidingSubcategory(hardQ, hCount, usedSubcats, collisionStats),
     ];
-    ei += eCount;
-    mi += mCount;
-    hi += hCount;
     const categoryCounts = {};
     for (const it of items) categoryCounts[it.category] = (categoryCounts[it.category] || 0) + 1;
+    const subcategoryCounts = {};
+    for (const it of items) if (it.subcategory) subcategoryCounts[it.subcategory] = (subcategoryCounts[it.subcategory] || 0) + 1;
     packs.push({
       packIndex: i,
       type: types[i],
@@ -169,28 +211,36 @@ function buildPacks(clues, rng) {
       difficultyCounts: { easy: eCount, medium: mCount, hard: hCount },
       categoriesCovered: Object.keys(categoryCounts).length,
       categoryCounts,
+      subcategoryCounts,
     });
   }
 
   const leftover = {
-    easy: easyQ.length - ei,
-    medium: mediumQ.length - mi,
-    hard: hardQ.length - hi,
+    easy: easyQ.length,
+    medium: mediumQ.length,
+    hard: hardQ.length,
   };
 
-  return { packs, leftover };
+  return { packs, leftover, collisionStats };
 }
 
 const args = parseArgs(process.argv.slice(2));
 const rng = mulberry32(args.seed);
-const clues = loadClues();
-const { packs, leftover } = buildPacks(clues, rng);
+const subtopics = loadSubtopics();
+const clues = loadClues(subtopics);
+const { packs, leftover, collisionStats } = buildPacks(clues, rng);
+
+const packsWithSubcategoryCollision = packs.filter((p) =>
+  Object.values(p.subcategoryCounts).some((n) => n > 1),
+).length;
 
 const summary = {
   totalCluesInPool: clues.length,
   totalPacks: packs.length,
   packsWithAllThreeCategories: packs.filter((p) => p.categoriesCovered === 3).length,
   leftoverUnused: leftover,
+  packsWithSubcategoryCollision,
+  forcedSubcategoryCollisions: collisionStats.forced,
 };
 
 const output = {
@@ -207,4 +257,7 @@ console.log(`Clues in pool: ${clues.length}`);
 console.log(`Packs built: ${packs.length} (types: ${packs.filter(p=>p.type==="A").length}xA[3E/1M/1H], ${packs.filter(p=>p.type==="B").length}xB[2E/2M/1H])`);
 console.log(`Leftover unused: ${JSON.stringify(leftover)}`);
 console.log(`Packs with all 3 categories: ${summary.packsWithAllThreeCategories}/${packs.length}`);
+console.log(`Subtopics loaded for: ${Object.keys(subtopics).length} ids`);
+console.log(`Packs with a same-subcategory collision: ${packsWithSubcategoryCollision}/${packs.length}`);
+console.log(`Forced collisions (no non-colliding option left): ${collisionStats.forced}`);
 console.log(`Written to ${args.out}`);

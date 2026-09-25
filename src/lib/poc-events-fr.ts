@@ -232,8 +232,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   van_gogh_birth: {
     name: "Vincent van Gogh",
-    clue: "Né dans le presbytère d'un village en pays de plaine, ce peintre devient célèbre pour un ciel étoilé tourbillonnant, peint lors d'un séjour en asile.",
-    explanation: "Vincent van Gogh est né dans le village de Groot-Zundert, fils d'un pasteur protestant. Il n'a vendu qu'une poignée de tableaux durant sa vie, mais figure aujourd'hui parmi les artistes les plus reconnus de l'histoire.",
+    clue: "Depuis la fenêtre d'un asile, dans une ville perchée du sud, un peintre observe la nuit et en tire l'une des images les plus célèbres de l'art.",
+    explanation: "Vincent van Gogh peignit La Nuit étoilée alors qu'il était patient volontaire à l'asile de Saint-Paul-de-Mausole, près de Saint-Rémy-de-Provence, en s'inspirant semble-t-il de la vue depuis la fenêtre de sa chambre avant le lever du jour. Né dans le village néerlandais de Groot-Zundert, il ne vendit qu'une poignée de tableaux de son vivant mais compte aujourd'hui parmi les artistes les plus reconnus de l'histoire.",
   },
   battle_of_marathon: {
     name: "Bataille de Marathon",
@@ -367,8 +367,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   masaccio_birth: {
     name: "Masaccio",
-    clue: "Né dans une ville de collines, ce peintre maîtrisa la perspective réaliste, puis mourut à vingt-six ans, ayant déjà transformé la peinture pour toujours.",
-    explanation: "Masaccio est né à San Giovanni Valdarno. Sa maîtrise de la perspective et de la lumière naturaliste rendit son petit corpus de fresques conservées immensément influent sur les peintres qui lui succédèrent, bien qu'il soit mort subitement alors qu'il était encore dans la vingtaine.",
+    clue: "Dans une chapelle, de l'autre côté du fleuve face à un centre historique, les fresques d'un jeune peintre introduisent une perspective inédite dans l'art.",
+    explanation: "Masaccio peignit ses fresques les plus influentes dans la chapelle Brancacci de Santa Maria del Carmine, à Florence, maîtrisant la perspective et une lumière naturaliste qui marqua des générations de peintres venus les étudier, dont Michel-Ange. Il mourut subitement à vingt-six ans, peu après avoir achevé l'œuvre.",
   },
   treaty_of_pyrenees: {
     name: "Traité des Pyrénées",
@@ -427,8 +427,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   michelangelo_birth: {
     name: "Michel-Ange",
-    clue: "Né dans un petit village, ce sculpteur tailla un chef-d'œuvre dans un bloc de marbre rejeté par d'autres, puis peignit une immense fresque au plafond.",
-    explanation: "Michel-Ange est né dans le village de Caprese. Il tailla sa célèbre statue dans un bloc de marbre que deux sculpteurs avant lui avaient abandonné comme irrécupérable, et peignit plus tard le plafond d'une importante chapelle presque entièrement seul.",
+    clue: "Allongé sur un échafaudage au-dessus d'une chapelle où l'on élit les papes, un sculpteur peint un plafond parmi les plus grands chefs-d'œuvre de l'art.",
+    explanation: "Michel-Ange peignit le plafond de la chapelle Sixtine presque entièrement seul, sur plusieurs années, en travaillant sur un échafaudage qu'il avait lui-même conçu. Né dans le petit village toscan de Caprese, il sculpta aussi sa célèbre statue de David dans un bloc de marbre que deux sculpteurs avant lui avaient abandonné comme irrécupérable.",
   },
   beethoven_birth: {
     name: "Ludwig van Beethoven",
@@ -457,18 +457,18 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   darwin_birth: {
     name: "Charles Darwin",
-    clue: "Né dans une famille aisée, ce naturaliste passa cinq ans à naviguer autour du monde, avant de publier sa théorie de l'évolution des espèces vivantes.",
-    explanation: "Charles Darwin est né à Shrewsbury. Son tour du monde en tant que jeune naturaliste lui fournit les observations qui menèrent, des décennies plus tard, à sa théorie de l'évolution par sélection naturelle.",
+    clue: "Sur un archipel volcanique au large d'une côte occidentale, un naturaliste étudie pinsons et tortues géantes qui inspireront une théorie de l'évolution.",
+    explanation: "Charles Darwin passa cinq semaines à étudier la faune des îles Galápagos lors de son tour du monde à bord du Beagle. Les pinsons et les tortues de l'archipel, subtilement différents d'une île à l'autre, devinrent des décennies plus tard des preuves clés lorsqu'il publia sa théorie de l'évolution par sélection naturelle.",
   },
   edison_birth: {
     name: "Thomas Edison",
-    clue: "Né dans une famille nombreuse, cet inventeur déposa plus de mille brevets, dont l'ampoule électrique, le phonographe et une des premières caméras de cinéma.",
-    explanation: "Thomas Edison est né à Milan, dans l'Ohio. Il créa l'un des premiers laboratoires de recherche industrielle, où des équipes l'aidèrent à développer et à breveter des inventions à un rythme remarquable tout au long de sa carrière.",
+    clue: "Dans un laboratoire conçu pour l'invention, dans une petite ville, un inventeur prolifique met au point une ampoule électrique pratique.",
+    explanation: "Thomas Edison construisit l'un des premiers laboratoires de recherche industrielle à Menlo Park, dans le New Jersey, où des équipes d'employés l'aidèrent à développer et breveter des inventions à un rythme remarquable, lui valant le surnom de magicien de Menlo Park. Il détint au total plus d'un millier de brevets, dont le phonographe et une des premières caméras de cinéma.",
   },
   copernicus_birth: {
     name: "Nicolas Copernic",
-    clue: "Né dans une famille de marchands, cet astronome proposa que le soleil, non la terre, soit le centre de l'univers, une théorie publiée alors qu'il agonisait.",
-    explanation: "Nicolas Copernic est né à Toruń. Il travailla sur son modèle héliocentrique pendant des décennies mais retarda sa publication par crainte du ridicule, ne recevant, dit-on, un exemplaire imprimé de son livre que le jour de sa mort.",
+    clue: "Dans une ville-cathédrale au bord d'une lagune, un astronome passe des décennies à établir, en secret, que le soleil, non la terre, est le centre de l'univers.",
+    explanation: "Nicolas Copernic travailla pendant des décennies sur son modèle héliocentrique tout en exerçant comme chanoine à la cathédrale de Frombork, surplombant la lagune de la Vistule. Il retarda la publication de sa théorie par crainte du ridicule, ne recevant, dit-on, un exemplaire imprimé de son livre que le jour de sa mort.",
   },
   pearl_harbor: {
     name: "Attaque de Pearl Harbor",
@@ -497,8 +497,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   columbus_birth: {
     name: "Christophe Colomb",
-    clue: "Né dans une ville portuaire au bord de la Méditerranée, un marin convainc une cour royale de financer un voyage vers les Indes et atteint des îles inconnues.",
-    explanation: "Christophe Colomb effectue quatre voyages à travers l'océan, mais n'admet jamais avoir découvert un nouveau continent, affirmant jusqu'à sa mort avoir atteint les confins des Indes.",
+    clue: "Sur une petite île d'un archipel turquoise, le voyage vers l'ouest d'un marin touche terre sur un territoire qu'aucune carte ne montrait encore.",
+    explanation: "Christophe Colomb toucha terre sur une île des Bahamas après avoir navigué vers l'ouest depuis l'Espagne, persuadé d'avoir atteint les abords de l'Asie. Il effectua trois autres voyages à travers l'Atlantique mais n'admit jamais avoir découvert un continent inconnu des Européens, affirmant jusqu'à sa mort avoir atteint les confins des Indes.",
   },
   chaplin_birth: {
     name: "Charlie Chaplin",
@@ -507,8 +507,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   disney_birth: {
     name: "Walt Disney",
-    clue: "Né dans une famille nombreuse au sein d'une grande ville, un garçon passionné de dessin crée une souris facétieuse et bâtit un empire du divertissement mondial.",
-    explanation: "Le studio de Walt Disney produit l'un des tout premiers longs métrages d'animation, puis il fait construire des parcs à thème qui deviennent parmi les destinations les plus visitées au monde.",
+    clue: "Dans un ancien champ d'orangers devenu parc d'attractions, un dessinateur ouvre le premier parc à thème bâti autour d'un seul univers imaginaire.",
+    explanation: "Walt Disney ouvrit Disneyland sur d'anciennes terres d'orangers à Anaheim, en Californie, le premier parc à thème conçu autour d'un univers imaginaire unifié plutôt que d'attractions foraines éparses. Son studio avait déjà produit l'un des premiers longs métrages d'animation, et il fit construire plus tard un second parc, bien plus grand, en Floride, qu'il ne vit jamais achevé.",
   },
   nobel_birth: {
     name: "Alfred Nobel",
@@ -517,8 +517,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   bach_birth: {
     name: "Jean-Sébastien Bach",
-    clue: "Né dans une famille ayant produit plusieurs générations de musiciens municipaux, un garçon devient l'un des plus grands compositeurs de musique religieuse.",
-    explanation: "Bach compose des centaines d'œuvres pour orgue, chœur et orchestre tout en travaillant comme musicien d'église, mais sa musique tombe en désuétude après sa mort avant d'être largement redécouverte des décennies plus tard grâce à des compositeurs admiratifs.",
+    clue: "Maître de chœur dans une ville marchande animée, un compositeur écrit et joue une nouvelle cantate sacrée presque chaque semaine, des années durant.",
+    explanation: "Johann Sebastian Bach fut cantor de l'église Saint-Thomas de Leipzig pendant vingt-sept ans, composant des centaines d'œuvres pour orgue, chœur et orchestre, et repose dans cette même église. Sa musique tomba en désuétude après sa mort et fut largement redécouverte des décennies plus tard grâce à des compositeurs admiratifs.",
   },
   tolstoy_birth: {
     name: "Léon Tolstoï",
@@ -557,13 +557,13 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   pasteur_birth: {
     name: "Louis Pasteur",
-    clue: "Né dans une petite ville entourée de collines couvertes de vignes, un chimiste démontre que des microbes invisibles causent maladies et fermentation.",
-    explanation: "Pasteur met au point un traitement thermique qui élimine les microbes nuisibles du lait et du vin sans en altérer le goût, puis crée le premier vaccin contre la rage, le testant sur un garçon mordu par un animal infecté.",
+    clue: "Dans un laboratoire privé d'une vieille capitale, un chimiste teste un traitement expérimental contre la rage sur un garçon mordu par un chien infecté.",
+    explanation: "Louis Pasteur testa son vaccin expérimental contre la rage sur un garçon de neuf ans grièvement mordu par un chien infecté, dans son laboratoire parisien. Le traitement réussit, et l'institut fondé plus tard pour poursuivre ses travaux demeure aujourd'hui un centre de référence en recherche sur les maladies infectieuses.",
   },
   amundsen_birth: {
     name: "Roald Amundsen",
-    clue: "Né dans une petite ville côtière près d'un fjord profond, un explorateur mène la première expédition à atteindre le pôle Sud, devançant un rival de peu.",
-    explanation: "L'équipe d'Amundsen utilise skis et traîneaux à chiens pour se déplacer efficacement sur la glace, tandis qu'une expédition rivale s'appuyant sur des poneys et des traîneaux tirés à la main périt sur le chemin du retour.",
+    clue: "Au point le plus au sud de la Terre, où toute direction mène vers le nord, une équipe polaire en skis et traîneaux à chiens arrive avant une équipe rivale.",
+    explanation: "Roald Amundsen mena la première expédition à atteindre le pôle Sud, se déplaçant efficacement sur la glace grâce à des skis et des traîneaux à chiens. Une expédition rivale britannique, qui comptait sur des poneys et des traîneaux tirés à la main, arriva plusieurs semaines plus tard et périt sur le chemin du retour.",
   },
   dali_birth: {
     name: "Salvador Dalí",
@@ -682,8 +682,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   edmund_hillary_birth: {
     name: "Edmund Hillary",
-    clue: "Né entre deux ports naturels sur une étroite bande de terre, cet apiculteur devenu alpiniste atteint, avec un compagnon sherpa, le point culminant du globe.",
-    explanation: "Edmund Hillary est né près d'Auckland et travailla comme apiculteur avant de se tourner vers l'alpinisme. Avec le sherpa Tenzing Norgay, il devint l'un des premiers grimpeurs confirmés à atteindre le sommet de l'Everest, dans le cadre d'une expédition menée par les Britanniques. Hillary consacra une grande partie de sa vie ultérieure à collecter des fonds pour construire des écoles et des hôpitaux pour les communautés sherpas de la région de l'Everest.",
+    clue: "Sur le plus haut sommet du monde, un apiculteur et son compagnon de cordée sont les premiers grimpeurs confirmés à l'atteindre, encordés jusqu'au bout.",
+    explanation: "Edmund Hillary et l'alpiniste sherpa Tenzing Norgay devinrent les premiers grimpeurs confirmés à atteindre le sommet de l'Everest, dans le cadre d'une expédition menée par les Britanniques. Hillary, né près d'Auckland, avait travaillé comme apiculteur avant de se tourner vers l'alpinisme. Il consacra une grande partie de sa vie ultérieure à collecter des fonds pour construire des écoles et des hôpitaux pour les communautés sherpas de la région de l'Everest.",
   },
   cahokia: {
     name: "Cahokia",
@@ -757,8 +757,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   james_cook: {
     name: "James Cook",
-    clue: "Né dans un village agricole, un officier de marine cartographie un continent lointain et devient le premier étranger connu à atteindre un archipel isolé.",
-    explanation: "James Cook est né à Marton, dans le Yorkshire. Il commanda trois expéditions dans le Pacifique pour la marine royale britannique, cartographiant la côte est de l'Australie et devenant le premier Européen connu à atteindre les îles Hawaï.",
+    clue: "Sur un archipel volcanique perdu dans un vaste océan, des navires deviennent les premiers connus à atteindre des rivages qu'aucune carte n'avait tracés.",
+    explanation: "Les navires de James Cook touchèrent terre dans l'archipel d'Hawaï, une première pour des Européens recensée dans l'histoire. Cook, qui avait aussi cartographié la côte est de l'Australie lors de ses voyages dans le Pacifique pour la marine royale britannique, y retourna l'année suivante et fut tué lors d'un affrontement avec des habitants de la baie de Kealakekua.",
   },
   john_nash: {
     name: "John Nash",
@@ -857,13 +857,13 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   steve_jobs: {
     name: "Steve Jobs",
-    clue: "Né dans une ville côtière, un étudiant sans diplôme cofonde une entreprise informatique dans un garage, en est écarté, puis revient la mener au succès.",
-    explanation: "Steve Jobs est né à San Francisco. Il cofonda Apple dans un garage avec Steve Wozniak, fut écarté de l'entreprise, puis y revint des années plus tard pour la mener vers un redressement spectaculaire.",
+    clue: "Dans un garage de banlieue, deux amis construisent les premiers ordinateurs d'une entreprise qui deviendra l'une des plus valorisées au monde.",
+    explanation: "Steve Jobs et Steve Wozniak fondèrent Apple dans le garage familial des Jobs, à Los Altos, en Californie. Jobs, qui avait abandonné ses études, fut plus tard évincé de l'entreprise qu'il avait cofondée, avant d'y revenir des années plus tard pour mener son redressement et en faire l'une des entreprises les plus valorisées au monde.",
   },
   alexander_graham_bell: {
     name: "Alexander Graham Bell",
-    clue: "Né dans une capitale froide du nord, un inventeur enseignant aux sourds dépose le brevet du premier appareil à transmettre une voix humaine par fil.",
-    explanation: "Alexander Graham Bell est né à Édimbourg. Très investi dans l'éducation des sourds, il déposa le brevet du premier téléphone pratique et cofonda AT&T.",
+    clue: "Dans un atelier d'une ville côtière, un inventeur qui enseignait aux sourds prononce les premiers mots jamais transmis par fil à un assistant.",
+    explanation: "Alexander Graham Bell passa le premier appel téléphonique réussi depuis son atelier de Boston, disant à son assistant Thomas Watson, à travers le fil, Monsieur Watson, venez, j'ai besoin de vous. Profondément impliqué dans l'éducation des élèves sourds, Bell breveta l'appareil et cofonda l'entreprise devenue AT&T.",
   },
   carl_sagan: {
     name: "Carl Sagan",
@@ -877,8 +877,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   andy_warhol: {
     name: "Andy Warhol",
-    clue: "Né dans une ville industrielle, un artiste transforme boîtes de soupe et portraits de célébrités en art, inventant une formule sur la gloire éphémère.",
-    explanation: "Andy Warhol est né à Pittsburgh. Figure majeure du pop art, il transforma les boîtes de soupe Campbell's et des portraits sérigraphiés de célébrités en icônes, popularisant l'expression des « 15 minutes de célébrité ».",
+    clue: "Dans un studio tapissé d'aluminium, lieu de passage d'artistes et de célébrités, un peintre fait de boîtes de soupe des images parmi les plus célèbres de l'art.",
+    explanation: "Andy Warhol dirigeait son studio new-yorkais, surnommé la Factory, à la fois comme lieu de travail et comme lieu de rassemblement social pour artistes, musiciens et célébrités. Il y produisit en série des images sérigraphiées de boîtes de soupe Campbell's et des portraits de célébrités devenus des icônes du pop art, et popularisa la formule quinze minutes de célébrité.",
   },
   haruki_murakami: {
     name: "Haruki Murakami",
@@ -902,8 +902,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   vitus_bering: {
     name: "Vitus Béring",
-    clue: "Né dans une petite ville côtière, un navigateur cartographie une côte lointaine pour un vaste empire, et meurt sur une île qui porte son nom.",
-    explanation: "Vitus Béring est né à Horsens, au Danemark. Au service de la marine russe, il dirigea deux expéditions qui cartographièrent la côte nord-est de l'Asie et atteignirent l'Amérique du Nord, avant de mourir sur une île du détroit qui porte aujourd'hui son nom.",
+    clue: "Naufragé sur une île isolée et sans arbres d'une mer froide du nord, un navigateur au service d'un empire lointain meurt échoué sur l'île qui porte son nom.",
+    explanation: "Vitus Béring fit naufrage sur une île inhabitée du détroit qu'il avait lui-même cartographié au service de la marine russe, et y mourut avec plusieurs membres de son équipage. L'île, le détroit et la mer environnante portent depuis son nom, en hommage à ses deux expéditions qui cartographièrent la côte nord-est de l'Asie et atteignirent l'Amérique du Nord.",
   },
   battle_of_iwo_jima: {
     name: "Bataille d'Iwo Jima",
@@ -977,8 +977,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   martin_luther: {
     name: "Martin Luther",
-    clue: "Né dans une ville minière, un moine cloue quatre-vingt-quinze griefs sur une porte d'église, divisant une religion et changeant l'histoire d'un continent.",
-    explanation: "Martin Luther est né à Eisleben, une ville minière de Saxe. Ses quatre-vingt-quinze thèses contestant les pratiques de l'Église déclenchèrent la Réforme protestante, et sa traduction allemande de la Bible façonna la langue elle-même.",
+    clue: "Sur la porte de l'église d'un château, dans une petite ville, un moine affiche quatre-vingt-quinze griefs qui divisent en deux une grande religion.",
+    explanation: "Martin Luther afficha ses quatre-vingt-quinze thèses contestant les pratiques de l'Église sur la porte de l'église du château de Wittenberg, un geste qui déclencha la Réforme protestante. Né dans la ville minière d'Eisleben, Luther traduisit plus tard la Bible en allemand, façonnant la langue elle-même.",
   },
   first_winter_olympics: {
     name: "Premiers Jeux olympiques d'hiver",
@@ -1062,8 +1062,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   vasco_da_gama: {
     name: "Vasco de Gama",
-    clue: "Né dans une petite ville côtière, un navigateur devient le premier à atteindre par la mer un lointain sous-continent en contournant un continent austral.",
-    explanation: "Vasco de Gama est né à Sines, au Portugal. Il devint le premier Européen à relier directement l'Europe à l'Inde en contournant le cap de Bonne-Espérance, ouvrant une nouvelle route maritime vers l'Asie.",
+    clue: "Sur une côte d'épices d'un vaste sous-continent, une flotte devient la première à s'y rendre par la mer, en contournant un continent austral.",
+    explanation: "La flotte de Vasco de Gama atteignit Calicut, sur la côte de Malabar en Inde, après avoir contourné le cap de Bonne-Espérance en Afrique, devenant ainsi la première à relier l'Inde par la mer. Cette nouvelle route brisa le monopole terrestre sur le commerce des épices et ouvrit plus d'un siècle de domination portugaise sur l'océan Indien.",
   },
   niels_bohr: {
     name: "Niels Bohr",
@@ -1072,8 +1072,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   fyodor_dostoyevsky: {
     name: "Fiodor Dostoïevski",
-    clue: "Né dans une grande capitale, un romancier affronte un peloton d'exécution, gracié à la dernière minute et exilé dans un camp de travail à la place.",
-    explanation: "Fiodor Dostoïevski est né à Moscou. Condamné à mort pour activité politique, il affronta un peloton d'exécution avant d'être gracié à la dernière minute et envoyé dans un camp de travail sibérien.",
+    clue: "Dans une prison-forteresse aux confins d'une immense frontière gelée, un romancier purge quatre ans de travaux forcés après une grâce de dernière minute.",
+    explanation: "Fiodor Dostoïevski purgea quatre ans de travaux forcés dans une prison-forteresse d'Omsk, en Sibérie, après avoir été condamné à mort pour activité politique et gracié à la toute dernière minute devant un peloton d'exécution. Cette expérience inspira plus tard son roman Souvenirs de la maison des morts.",
   },
   mark_twain: {
     name: "Mark Twain",
@@ -1092,8 +1092,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   robert_bunsen: {
     name: "Robert Bunsen",
-    clue: "Né dans une ville universitaire, un chimiste analyse la lumière émise par des éléments chauffés et découvre ainsi deux éléments chimiques inconnus.",
-    explanation: "Robert Bunsen est né à Göttingen, en Allemagne. Grâce à la spectroscopie de flamme, il découvrit les éléments césium et rubidium. Le bec de laboratoire perfectionné pour ses expériences porte toujours son nom.",
+    clue: "Dans un laboratoire universitaire au bord d'une rivière, un chimiste analyse la lumière d'éléments chauffés et en découvre deux inconnus jusque-là.",
+    explanation: "Robert Bunsen, travaillant à l'université de Heidelberg avec le physicien Gustav Kirchhoff, utilisa la spectroscopie de flamme pour découvrir les éléments césium et rubidium. Le brûleur de laboratoire perfectionné pour ses expériences porte toujours son nom.",
   },
   theophile_gautier: {
     name: "Théophile Gautier",
@@ -1152,8 +1152,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   wernher_von_braun: {
     name: "Wernher von Braun",
-    clue: "Né sur un petit domaine rural, un ingénieur ayant conçu des armes pour un régime en guerre conçoit plus tard les fusées menant des astronautes sur la Lune.",
-    explanation: "Wernher von Braun est né à Wirsitz, alors en territoire allemand. Il dirigea le développement de la fusée V2 pour le régime nazi, avant de concevoir plus tard les fusées Saturn V qui menèrent les astronautes de la NASA sur la Lune.",
+    clue: "Sur une île isolée d'une mer froide du nord, une fusée conçue pour un régime en guerre devient le premier objet humain à atteindre l'espace.",
+    explanation: "Wernher von Braun dirigea le développement de fusées sur un site d'essai isolé, sur l'île d'Usedom, où le vol d'essai de la fusée V2 devint le premier objet fabriqué par l'homme à atteindre l'espace. Cette fusée fut conçue comme une arme pour le régime nazi et tua des milliers de civils lors d'attaques contre des villes alliées ; von Braun dirigea plus tard l'équipe qui conçut les fusées Saturn V ayant emmené les astronautes de la NASA vers la Lune.",
   },
   archimedes: {
     name: "Archimède",
