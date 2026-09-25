@@ -123,8 +123,14 @@ function buildPacks(clues, rng) {
   const hardQ = categoryInterleaved(byDifficulty.hard, rng);
 
   // Solve for max packs under composition rule (2-3 easy / 1-2 medium / max 1
-  // hard) given current pool sizes, alternating pack "type A" (3E/1M/1H) and
+  // hard) given current pool sizes, mixing pack "type A" (3E/1M/1H) and
   // "type B" (2E/2M/1H) — see docs/difficulty-calibration-protocol.md.
+  // For a given total n, prefer as much type A as the pool can support
+  // (a from n down to 0) and only fall back to type B for whatever n can't
+  // be covered by type A alone — type B no longer wins by default just
+  // because it was checked first. This still maximizes total pack count
+  // (the outer loop is unchanged), it only changes which mix is picked
+  // among the ties.
   const E = easyQ.length;
   const M = mediumQ.length;
   const H = hardQ.length;
@@ -132,7 +138,7 @@ function buildPacks(clues, rng) {
   const maxN = Math.floor((E + M + H) / 5);
   for (let n = maxN; n >= 0; n--) {
     let found = false;
-    for (let a = 0; a <= n; a++) {
+    for (let a = n; a >= 0; a--) {
       const b = n - a;
       const e = 3 * a + 2 * b;
       const m = a + 2 * b;
