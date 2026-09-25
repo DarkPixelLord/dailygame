@@ -1331,7 +1331,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   {
     id: "disney_birth",
     pinIsBirthplace: false,
-    difficulty: "easy",
+    difficulty: "medium",
     category: "science_infrastructure",
     clue: "In a former orange grove turned amusement park, a cartoonist opens the first theme park built entirely around one unified make-believe setting.",
     name: "Walt Disney",
@@ -1461,7 +1461,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   {
     id: "pasteur_birth",
     pinIsBirthplace: false,
-    difficulty: "medium",
+    difficulty: "easy",
     category: "science_infrastructure",
     clue: "In a private laboratory in a grand old capital, a chemist tests an experimental rabies treatment on a boy who had been bitten by an infected dog.",
     name: "Louis Pasteur",
@@ -2800,7 +2800,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
   {
     id: "fyodor_dostoyevsky",
     pinIsBirthplace: false,
-    difficulty: "hard",
+    difficulty: "medium",
     category: "arts_culture",
     clue: "In a fortress prison on the edge of a vast frozen frontier, a novelist serves four years of hard labor after a last-minute pardon from a firing squad.",
     name: "Fyodor Dostoyevsky",
@@ -3010,7 +3010,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
     pinIsBirthplace: false,
     difficulty: "medium",
     category: "science_infrastructure",
-    clue: "On a remote island in a cold northern sea, engineers test a rocket that becomes the first human-made object to reach space, built for a wartime regime.",
+    clue: "On a remote island in an almost enclosed, low-salinity sea, a rocket built for a wartime regime becomes the first human-made object to reach space.",
     name: "Wernher von Braun",
     explanation: "Wernher von Braun led rocket development at a remote testing facility on the island of Usedom, where a test flight of the V-2 rocket became the first human-made object to reach space. The rocket was built as a weapon for the Nazi regime and killed thousands of civilians in attacks on Allied cities; von Braun later led the team that designed the Saturn V rockets that carried NASA astronauts to the Moon.",
     year: 1944,

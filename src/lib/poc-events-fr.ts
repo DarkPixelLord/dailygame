@@ -1152,7 +1152,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   wernher_von_braun: {
     name: "Wernher von Braun",
-    clue: "Sur une île isolée d'une mer froide du nord, une fusée conçue pour un régime en guerre devient le premier objet humain à atteindre l'espace.",
+    clue: "Sur une île isolée d'une mer presque fermée et peu salée, une fusée conçue pour un régime en guerre devient le premier objet humain à atteindre l'espace.",
     explanation: "Wernher von Braun dirigea le développement de fusées sur un site d'essai isolé, sur l'île d'Usedom, où le vol d'essai de la fusée V2 devint le premier objet fabriqué par l'homme à atteindre l'espace. Cette fusée fut conçue comme une arme pour le régime nazi et tua des milliers de civils lors d'attaques contre des villes alliées ; von Braun dirigea plus tard l'équipe qui conçut les fusées Saturn V ayant emmené les astronautes de la NASA vers la Lune.",
   },
   archimedes: {
