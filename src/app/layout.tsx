@@ -49,8 +49,14 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
   },
   // Domain-ownership proof for the Alldle directory listing (docs/promotion.md).
+  // "google": "notranslate" tells Chrome/Google Translate not to offer
+  // translation for this page at all — the game already has its own EN/FR
+  // switcher (LanguageProvider), and browser auto-translate rewrites the DOM
+  // outside React's control, which crashes the app (see LanguageProvider.tsx
+  // for the confirmed removeChild crash this caused on mobile).
   other: {
     "alldle-verify": "Oom0I4WiKSySO08DFb9TfYaLNBMMsAkK",
+    google: "notranslate",
   },
 };
 
@@ -58,7 +64,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} h-full antialiased`}
+      translate="no"
+      className={`notranslate ${geistSans.variable} ${geistMono.variable} ${cinzel.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <LanguageProvider>{children}</LanguageProvider>
