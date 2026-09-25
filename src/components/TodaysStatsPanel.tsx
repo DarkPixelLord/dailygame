@@ -11,13 +11,19 @@ import { GHOST_BUTTON } from "@/lib/theme";
 // it's the one players scan for first ("am I Master-tier today?").
 const TIER_DISPLAY_ORDER: RankTier[] = ["master", "expert", "historian", "scholar", "amateur", "novice"];
 
-type Props = { tierPercentages: Record<RankTier, number> | null };
+type Props = {
+  tierPercentages: Record<RankTier, number> | null;
+  // Lets callers swap the small top-right ghost button (FinalRoundScreen)
+  // for a full-width button matching the other panel actions
+  // (DailyResultScreen).
+  buttonClassName?: string;
+};
 
-// A small "today's stats" button that opens a popup with the rank
-// distribution, illustrated with each tier's badge. Shared between the
-// fresh end-of-game reveal (FinalRoundScreen) and the "already played
-// today" screen (DailyResultScreen).
-export default function TodaysStatsPanel({ tierPercentages }: Props) {
+// A "today's stats" button that opens a popup with the rank distribution,
+// illustrated with each tier's badge. Shared between the fresh end-of-game
+// reveal (FinalRoundScreen) and the "already played today" screen
+// (DailyResultScreen).
+export default function TodaysStatsPanel({ tierPercentages, buttonClassName }: Props) {
   const { t } = useLanguage();
   const [statsOpen, setStatsOpen] = useState(false);
 
@@ -25,7 +31,11 @@ export default function TodaysStatsPanel({ tierPercentages }: Props) {
 
   return (
     <>
-      <button type="button" onClick={() => setStatsOpen(true)} className={GHOST_BUTTON + " text-[10px] sm:text-xs"}>
+      <button
+        type="button"
+        onClick={() => setStatsOpen(true)}
+        className={buttonClassName ?? GHOST_BUTTON + " text-[10px] sm:text-xs"}
+      >
         {t.todaysStatsButton}
       </button>
       <AnimatePresence>

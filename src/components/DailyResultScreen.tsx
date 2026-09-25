@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import LaurelIcon from "./LaurelIcon";
 import { useLanguage } from "./LanguageProvider";
 import { MAX_LOCATION_POINTS, MAX_ORDER_POINTS, ROUNDS_PER_GAME, rankTier, type RankTier } from "@/lib/scoring";
 import { RANK_ICON_COMPONENTS, RANK_LABEL_KEYS } from "@/lib/rank-icons";
-import { PRIMARY_BUTTON, PANEL, GAME_TITLE, SHARE_BUTTON } from "@/lib/theme";
+import { PRIMARY_BUTTON, PANEL, GAME_TITLE, SHARE_BUTTON, SECONDARY_BUTTON } from "@/lib/theme";
 import { getCurrentStreak } from "@/lib/daily-streak";
 import TodaysStatsPanel from "./TodaysStatsPanel";
 
@@ -62,23 +62,6 @@ export default function DailyResultScreen({ score, onBack }: Props) {
 
   return (
     <div className="final-spotlight flex h-dvh w-full flex-col items-center">
-      <div className="pointer-events-none fixed inset-x-0 top-3 z-40 flex justify-center sm:top-4">
-        <div className="flex w-full max-w-md justify-end px-3 sm:px-4">
-          <AnimatePresence>
-            {tierPercentages && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ delay: 0.6, duration: 0.3 }}
-                className="pointer-events-auto"
-              >
-                <TodaysStatsPanel tierPercentages={tierPercentages} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
       <div className="flex h-dvh w-full max-w-md flex-col items-center justify-center gap-4 overflow-hidden px-3 py-2 sm:px-4 sm:py-6">
         <h1 className={`flex items-center gap-1.5 text-base sm:gap-2 sm:text-2xl ${GAME_TITLE}`}>
           <LaurelIcon className="h-5 w-5 shrink-0 text-amber-400 sm:h-7 sm:w-7" />
@@ -117,6 +100,10 @@ export default function DailyResultScreen({ score, onBack }: Props) {
               {linkCopied ? t.linkCopied : t.share}
             </button>
           </div>
+
+          {tierPercentages && (
+            <TodaysStatsPanel tierPercentages={tierPercentages} buttonClassName={SECONDARY_BUTTON + " w-full"} />
+          )}
         </motion.div>
       </div>
     </div>
