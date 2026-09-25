@@ -231,22 +231,14 @@ export default function HistoryGuessPoc({
         </header>
 
         <div className="flex min-h-0 flex-1 flex-col">
-          {/* Fixed height (not just min-height), shared by both branches —
-              DIAGNOSTIC: the clue banner (often 2-3 lines) and the result
-              banner (one short name) used to have different natural
-              heights, resizing the map container right as fitBounds/flyTo
-              fires on submit/next — same resize-retriggers-camera-move risk
-              already called out below for the explanation panel, just never
-              applied here. Testing whether that's what's crashing the tab
-              on some mobile browsers (Chrome Android, iPhone 12). */}
           {!result ? (
-            <div className={PANEL + " mb-2 flex h-24 shrink-0 items-center overflow-hidden px-0 py-0 sm:mb-4 sm:h-28"}>
-              <span className="w-1.5 shrink-0 self-stretch bg-amber-400" aria-hidden />
-              <p className="max-h-full overflow-y-auto px-4 py-3 italic text-slate-100 sm:py-4">{prompt?.clue}</p>
+            <div className={PANEL + " mb-2 flex shrink-0 overflow-hidden px-0 py-0 sm:mb-4"}>
+              <span className="w-1.5 shrink-0 bg-amber-400" aria-hidden />
+              <p className="px-4 py-3 italic text-slate-100 sm:py-4">{prompt?.clue}</p>
             </div>
           ) : (
             <div
-              className={`relative mb-2 flex h-24 shrink-0 items-center justify-center rounded-md border-2 border-emerald-400/50 bg-emerald-400/10 px-4 py-3 pr-12 text-center font-bold text-emerald-300 sm:mb-4 sm:h-28 ${
+              className={`relative mb-2 shrink-0 rounded-md border-2 border-emerald-400/50 bg-emerald-400/10 px-4 py-3 pr-12 text-center font-bold text-emerald-300 sm:mb-4 ${
                 showExplanation ? "rounded-b-none" : ""
               }`}
             >

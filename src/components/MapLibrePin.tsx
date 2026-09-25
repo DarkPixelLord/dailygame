@@ -310,15 +310,10 @@ export default function MapLibrePin({ onGuess, pins = [], disabled }: Props) {
             [Math.min(...lngs), Math.min(...lats)],
             [Math.max(...lngs), Math.max(...lats)],
           ];
-          // DIAGNOSTIC: duration 0 (was 800) — testing whether the animated
-          // camera transition itself is what's crashing the tab on some
-          // mobile browsers (reported on Chrome Android and an iPhone 12,
-          // not reproducible on PC or Samsung Internet). Revert to 800 once
-          // confirmed either way.
-          runProtectedCameraMove(map!, () => map!.fitBounds(bounds, { padding: 60, maxZoom: 10, duration: 0 }));
+          runProtectedCameraMove(map!, () => map!.fitBounds(bounds, { padding: 60, maxZoom: 10, duration: 800 }));
         }
       } else if (pins.length === 0) {
-        runProtectedCameraMove(map!, () => map!.flyTo({ center: INITIAL_CENTER, zoom: INITIAL_ZOOM, duration: 0 }));
+        runProtectedCameraMove(map!, () => map!.flyTo({ center: INITIAL_CENTER, zoom: INITIAL_ZOOM, duration: 800 }));
       }
     }
 
