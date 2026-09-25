@@ -92,19 +92,34 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
     if (phase !== "done") return;
     const deviceId = getDeviceId();
     if (mode === "daily") {
-      const recordResult = previewOnly
+      // Local result/streak bookkeeping happens as soon as the round ends,
+      // independent of the network — the player has already seen their
+      // score, so a dropped request shouldn't cost them their streak (this
+      // used to run inside api/finish's .then(), which silently skipped it
+      // on any network failure, more common on mobile than desktop).
+      if (!previewOnly) {
+        saveTodaysDailyResult(totalScore);
+        clearTodaysProgress();
+        recordTodaysDailyPlayed();
+        // Deferred a tick so setState isn't called synchronously in the
+        // effect body (react-hooks/set-state-in-effect) — still runs
+        // immediately, just outside this render's commit.
+        Promise.resolve().then(() => setStreak(getCurrentStreak()));
+      }
+
+      const finished = previewOnly
         ? Promise.resolve()
         : fetch("/api/finish", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ score: totalScore, deviceId, mode }),
-          }).then(() => {
-            saveTodaysDailyResult(totalScore);
-            clearTodaysProgress();
-            recordTodaysDailyPlayed();
-            setStreak(getCurrentStreak());
+          }).catch(() => {
+            // The server row (today's-stats breakdown, admin dashboard) is a
+            // nice-to-have — the player's own result and streak are already
+            // saved locally above.
           });
-      recordResult
+
+      finished
         .then(() => fetch("/api/stats"))
         .then((res) => res.json())
         .then((data) => setTierPercentages(data.percentages ?? null))

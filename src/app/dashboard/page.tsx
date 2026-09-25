@@ -399,19 +399,37 @@ function StatRow({ label, value }: { label: string; value: string | number }) {
   );
 }
 
-// Pool + pack status, computed live from src/lib/poc-events.ts and
-// data/daily-packs-plan.json — no Supabase query, this is build-time content
-// state, not player activity. See docs/event-writing-guide-v2.md and
-// scripts/build-final-daily-packs.mjs for how these numbers are produced.
-//
-// Deliberately doesn't show anything derived from pickDailyEvents()'s
-// rotation math (days-since-epoch modulo total packs): that quotient isn't
-// stable across regenerations — build-final-daily-packs.mjs rebuilds every
-// pack from scratch each time (not an append), and the modulo's divisor
-// changes the moment totalPacks does. Any "already played / remaining in
-// cycle" figure would only be a snapshot valid until the next regeneration,
-// not a real running count, so it doesn't belong on a status dashboard.
-function ContentTab() {
+// How many packs in the CURRENT plan still have every one of their ids
+// unused, versus already served (in full or in part — a regeneration can
+// remix a used id into a new grouping alongside fresh ones; api/session's
+// assignFreshPack only ever hands out packs where every id is still fresh,
+// so a partially-used pack counts the same as fully-used here). Real usage,
+// read from daily_packs — see assignFreshPack in api/session/route.ts for
+// the assignment logic this mirrors.
+async function loadPackUsageStats() {
+  const { data, error } = await supabase.from("daily_packs").select("played_at, event_ids").order("played_at", { ascending: true });
+  if (error || !data) return null;
+
+  const usedIds = new Set<string>();
+  for (const row of data) for (const id of row.event_ids as string[]) usedIds.add(id);
+
+  const totalPacks = DAILY_PACKS_PLAN.packs.length;
+  const freshPacksRemaining = DAILY_PACKS_PLAN.packs.filter((p) => p.ids.every((id) => !usedIds.has(id))).length;
+
+  return {
+    daysRecorded: data.length,
+    lastPlayedAt: data.length ? data[data.length - 1].played_at : null,
+    freshPacksRemaining,
+    totalPacks,
+  };
+}
+
+// Pool + pack status. The pool/plan numbers are computed live from
+// src/lib/poc-events.ts and data/daily-packs-plan.json (build-time content
+// state, no query needed); pack usage below comes from Supabase's
+// daily_packs — see docs/event-writing-guide-v2.md and
+// scripts/build-final-daily-packs.mjs for how the plan itself is produced.
+async function ContentTab() {
   const difficultyCounts = { easy: 0, medium: 0, hard: 0 } as Record<string, number>;
   for (const e of POC_EVENTS) {
     if (e.difficulty) difficultyCounts[e.difficulty] = (difficultyCounts[e.difficulty] ?? 0) + 1;
@@ -422,6 +440,7 @@ function ContentTab() {
   const leftoverTotal = leftover.easy + leftover.medium + leftover.hard;
 
   const activePool = process.env.NEXT_PUBLIC_EVENT_POOL === "v2" ? "v2 (poc-events)" : "v1 (legacy)";
+  const usage = await loadPackUsageStats();
 
   return (
     <>
@@ -450,6 +469,26 @@ function ContentTab() {
           Recalculé à chaque exécution de scripts/build-final-daily-packs.mjs (à relancer après tout ajout de
           clues) — voir data/daily-packs-plan.json.
         </p>
+      </section>
+
+      <section className={PANEL + " flex flex-col gap-2 px-4 py-4"}>
+        <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">Suivi des packs (usage réel)</h2>
+        {!usage ? (
+          <p className="text-sm text-white/40">
+            Table daily_packs introuvable ou vide — rien n&rsquo;a encore été servi depuis sa création.
+          </p>
+        ) : (
+          <>
+            <StatRow label="Jours mémorisés" value={usage.daysRecorded} />
+            <StatRow label="Dernier pack assigné" value={usage.lastPlayedAt ?? "—"} />
+            <StatRow label="Packs neufs restants avant recyclage" value={`${usage.freshPacksRemaining} / ${usage.totalPacks}`} />
+            <p className="text-xs text-white/40">
+              {usage.freshPacksRemaining === 0
+                ? "Cycle épuisé : le prochain défi du jour peut réutiliser un pack déjà servi."
+                : "Tant que ce chiffre est > 0, un pack déjà servi ne peut pas ressortir en défi du jour."}
+            </p>
+          </>
+        )}
       </section>
     </>
   );

@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Dev-only route badge, bottom-left by default — off so it doesn't show
+  // up in local screen recordings/promo captures. No effect in production.
+  devIndicators: false,
 };
 
 export default nextConfig;

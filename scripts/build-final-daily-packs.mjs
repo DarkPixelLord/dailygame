@@ -66,6 +66,15 @@ const CATS = ["conflict_politics_society", "arts_culture", "science_infrastructu
 // Group by category, seeded-shuffle within each category, then round-robin
 // interleave across categories. Slicing this queue sequentially gives each
 // pack a naturally varied category mix without per-pack optimization.
+//
+// KNOWN GAP: the 3 CATS are broad (e.g. science_infrastructure covers both
+// natural disasters and unrelated science/infra events), and easy/medium/hard
+// are interleaved into separate queues sliced independently per pack — so a
+// pack can still land 2-3 same-subtopic events (e.g. two earthquakes + a
+// volcanic eruption, all tagged science_infrastructure) even though category
+// spread looks fine. Observed in production packs, not yet fixed. Would need
+// a finer subtopic tag (or a same-pack similarity check) at pack-build time,
+// on top of the pool-level diversity rules in event-writing-guide-v2.md.
 function categoryInterleaved(items, rng) {
   const byCategory = {};
   for (const cat of CATS) byCategory[cat] = [];

@@ -48,6 +48,10 @@ export const metadata: Metadata = {
     title: "Laurus",
     description: DESCRIPTION,
   },
+  // Domain-ownership proof for the Alldle directory listing (docs/promotion.md).
+  other: {
+    "alldle-verify": "Oom0I4WiKSySO08DFb9TfYaLNBMMsAkK",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

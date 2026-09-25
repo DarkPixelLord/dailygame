@@ -3142,8 +3142,10 @@ export function pickRandomEvents(events: HistoricalEvent[], count: number, exclu
 }
 
 // Deterministic day-of-year seed (UTC) so every player gets the same shuffle
-// on the same calendar day without any server round-trip.
-function dailySeed(date: Date): number {
+// on the same calendar day without any server round-trip. Exported for
+// api/session's usage-tracked pack assignment, which needs the same
+// per-date determinism when picking among several equally-fresh packs.
+export function dailySeed(date: Date): number {
   const key = date.toISOString().slice(0, 10); // "YYYY-MM-DD"
   let hash = 0;
   for (let i = 0; i < key.length; i++) {
@@ -3153,8 +3155,9 @@ function dailySeed(date: Date): number {
 }
 
 // xmur3-ish mix into mulberry32, seeded from dailySeed — good enough
-// distribution for shuffling a few dozen events, not cryptographic.
-function seededRandom(seed: number): () => number {
+// distribution for shuffling a few dozen events, not cryptographic. Exported
+// alongside dailySeed for the same reason.
+export function seededRandom(seed: number): () => number {
   let state = seed | 0;
   return () => {
     state = (state + 0x6d2b79f5) | 0;
@@ -3180,6 +3183,13 @@ function daysSinceEpoch(date: Date): number {
   return Math.floor(Date.parse(`${key}T00:00:00.000Z`) / 86400000);
 }
 
+// Pure function of (date, current plan) — recomputes differently every time
+// data/daily-packs-plan.json's pack count changes, so it can't tell whether a
+// pack has actually been served before. api/session's real assignment logic
+// tracks actual usage in Supabase instead (see assignFreshPack there) and
+// only falls back to this when that's unavailable (Supabase down, or a first
+// run with no daily_packs table yet) — a degraded but still-playable session,
+// not the source of truth for "which pack is today's".
 export function pickDailyEvents(events: HistoricalEvent[], count: number, date: Date = new Date()): HistoricalEvent[] {
   const packs = DAILY_PACKS_PLAN.packs;
   const totalPacks = packs.length;

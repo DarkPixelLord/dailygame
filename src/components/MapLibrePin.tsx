@@ -162,6 +162,22 @@ function forceEnglishLabels<T extends { layout?: Record<string, unknown> }>(laye
   return layer;
 }
 
+// Briefly disables the handlers that can steal/cancel an in-flight camera
+// animation (a touch drag or pinch calls map._stop() the instant it starts,
+// which on mobile reliably clobbered the fitBounds-in / flyTo-out transition
+// between rounds — MapLibre has no other way to make a programmatic camera
+// move immune to user interaction). Re-enabled on `moveend` so players can
+// still freely pan/zoom once the transition settles — only the ~800ms
+// animation itself is protected, not the whole reviewing phase.
+function runProtectedCameraMove(map: MaplibreMap, animate: () => void) {
+  const handlers = [map.scrollZoom, map.dragPan, map.doubleClickZoom, map.boxZoom, map.touchZoomRotate, map.keyboard];
+  handlers.forEach((h) => h.disable());
+  map.once("moveend", () => {
+    handlers.forEach((h) => h.enable());
+  });
+  animate();
+}
+
 export type LatLng = { lat: number; lng: number };
 
 type Pin = LatLng & { color: string; label: string };
@@ -294,10 +310,10 @@ export default function MapLibrePin({ onGuess, pins = [], disabled }: Props) {
             [Math.min(...lngs), Math.min(...lats)],
             [Math.max(...lngs), Math.max(...lats)],
           ];
-          map!.fitBounds(bounds, { padding: 60, maxZoom: 10, duration: 800 });
+          runProtectedCameraMove(map!, () => map!.fitBounds(bounds, { padding: 60, maxZoom: 10, duration: 800 }));
         }
       } else if (pins.length === 0) {
-        map!.flyTo({ center: INITIAL_CENTER, zoom: INITIAL_ZOOM, duration: 800 });
+        runProtectedCameraMove(map!, () => map!.flyTo({ center: INITIAL_CENTER, zoom: INITIAL_ZOOM, duration: 800 }));
       }
     }
 
