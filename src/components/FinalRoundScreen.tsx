@@ -186,7 +186,6 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                 className="pointer-events-auto flex items-center gap-2"
               >
                 <StreakBadge streak={streak} className="text-[10px] sm:text-xs" />
-                <TodaysStatsPanel tierPercentages={tierPercentages} leaderboard={leaderboard} />
               </motion.div>
             )}
           </AnimatePresence>
@@ -236,8 +235,18 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className={PANEL + " flex shrink-0 flex-col items-stretch gap-3 px-4 py-3 sm:gap-4 sm:py-6"}
+            className={PANEL + " relative flex shrink-0 flex-col items-stretch gap-3 px-4 py-3 sm:gap-4 sm:py-6"}
           >
+            {tierPercentages && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: TEXT_REVEAL_DELAY + 0.6, duration: 0.3 }}
+                className="absolute right-2 top-2 z-10"
+              >
+                <TodaysStatsPanel tierPercentages={tierPercentages} leaderboard={leaderboard} />
+              </motion.div>
+            )}
             <div className="flex items-center gap-3 sm:gap-4">
               {rank?.icon && (
                 <div className="relative h-16 w-16 shrink-0 sm:h-20 sm:w-20">

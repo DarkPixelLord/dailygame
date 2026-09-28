@@ -125,7 +125,7 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.15 }}
-              className="fixed inset-x-4 top-1/2 z-50 max-h-[60vh] -translate-y-1/2 overflow-y-auto rounded-md border-2 border-amber-600 bg-amber-400 p-4 shadow-lg shadow-black/40"
+              className="fixed inset-x-4 top-1/2 z-50 mx-auto max-h-[60vh] max-w-[26rem] -translate-y-1/2 overflow-y-auto rounded-md bg-[#FBDE90] p-4 shadow-lg shadow-black/40"
             >
               <button
                 type="button"
