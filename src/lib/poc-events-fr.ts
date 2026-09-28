@@ -1392,7 +1392,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   elizabeth_taylor_birth: {
     name: "Elizabeth Taylor",
-    clue: "Née de marchands d'art dans une capitale bientôt frappée par le Blitz, elle traversa l'océan enfant pour devenir une star d'Hollywood aux huit mariages.",
+    clue: "Née dans la capitale des bus rouges à impériale, cette actrice aux yeux violets partit enfant devenir une star d'Hollywood aux huit mariages.",
     explanation: "Elizabeth Taylor était une actrice britannico-américaine devenue l'une des plus grandes stars de l'âge d'or hollywoodien, célèbre autant pour son jeu que pour sa vie privée, marquée par huit mariages. Elle remporta deux Oscars de la meilleure actrice.",
   },
   stephen_king_birth: {

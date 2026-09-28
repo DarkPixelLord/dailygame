@@ -3634,7 +3634,7 @@ export const POC_EVENTS: HistoricalEvent[] = [
     pinIsBirthplace: true,
     difficulty: "easy",
     category: "arts_culture",
-    clue: "Born to art-dealer parents in a capital soon to face the Blitz, this actress sailed west as a child and became a Hollywood star wed eight times.",
+    clue: "Born in the city of red double-decker buses, this violet-eyed actress left as a child to become a Hollywood star wed eight times.",
     name: "Elizabeth Taylor",
     explanation: "Elizabeth Taylor was a British-American actress who became one of the biggest stars of Hollywood's classic era, famous both for her acting and for her personal life, including eight marriages. She won two Academy Awards for Best Actress.",
     year: 1932,
