@@ -15,7 +15,9 @@ import { getDeviceId } from "@/lib/device-id";
 import { saveTodaysDailyResult } from "@/lib/daily-result";
 import { clearTodaysProgress } from "@/lib/daily-progress";
 import { recordTodaysDailyPlayed, getCurrentStreak } from "@/lib/daily-streak";
+import type { DailyLeaderboard } from "@/lib/daily-leaderboard";
 import TodaysStatsPanel from "./TodaysStatsPanel";
+import ScoreGauge from "./ScoreGauge";
 import StreakBadge from "./StreakBadge";
 
 // The final-score rank, shown once at the end of the game — a coarser,
@@ -25,12 +27,15 @@ function finalRank(totalScore: number, maxTotalScore: number, t: UiStrings) {
   return { icon: RANK_ICON_COMPONENTS[tier], label: t[RANK_LABEL_KEYS[tier]] };
 }
 
-// Timing (seconds) for the final-score reveal sequence: a short beat of
-// anticipation, then the badge bursts open and grows in, then the score and
-// rank text fade in once the badge has landed.
-const BADGE_BURST_DELAY = 0.3;
-const BADGE_POP_DELAY = 0.55;
-const TEXT_REVEAL_DELAY = 1.3;
+// Timing (seconds) for the final-score reveal sequence: "Final score" shows
+// alone while the gauge fills to the player's share of the max score, then
+// the badge bursts open and grows in, then the score and rank text fade in
+// once the badge has landed.
+const GAUGE_FILL_DELAY = 0.5;
+const GAUGE_FILL_DURATION = 1.2;
+const BADGE_BURST_DELAY = GAUGE_FILL_DELAY + GAUGE_FILL_DURATION + 0.05;
+const BADGE_POP_DELAY = BADGE_BURST_DELAY + 0.25;
+const TEXT_REVEAL_DELAY = BADGE_POP_DELAY + 0.3;
 const BADGE_BURST_COUNT = 36;
 
 type BurstParticle = {
@@ -79,6 +84,7 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
   const [linkCopied, setLinkCopied] = useState(false);
   const [orderSubmitted, setOrderSubmitted] = useState(false);
   const [tierPercentages, setTierPercentages] = useState<Record<RankTier, number> | null>(null);
+  const [leaderboard, setLeaderboard] = useState<DailyLeaderboard | null>(null);
   const [streak, setStreak] = useState(0);
 
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
@@ -120,9 +126,12 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
           });
 
       finished
-        .then(() => fetch("/api/stats"))
+        .then(() => fetch(`/api/stats?score=${totalScore}&deviceId=${encodeURIComponent(deviceId)}`))
         .then((res) => res.json())
-        .then((data) => setTierPercentages(data.percentages ?? null))
+        .then((data) => {
+          setTierPercentages(data.percentages ?? null);
+          setLeaderboard(data.leaderboard ?? null);
+        })
         .catch(() => {
           // Stats are a nice-to-have on the results screen — silently skip
           // the breakdown rather than blocking or erroring the final screen.
@@ -177,7 +186,7 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                 className="pointer-events-auto flex items-center gap-2"
               >
                 <StreakBadge streak={streak} className="text-[10px] sm:text-xs" />
-                <TodaysStatsPanel tierPercentages={tierPercentages} />
+                <TodaysStatsPanel tierPercentages={tierPercentages} leaderboard={leaderboard} />
               </motion.div>
             )}
           </AnimatePresence>
@@ -271,25 +280,30 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                   </motion.div>
                 </div>
               )}
-              <motion.div
-                className="flex flex-col items-start text-left"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: TEXT_REVEAL_DELAY, duration: 0.45, ease: "easeOut" }}
-              >
+              <div className="flex flex-col items-start text-left">
                 <p className="text-xs font-bold uppercase tracking-widest text-white sm:text-sm">
                   {t.finalScore}
                 </p>
-                <div className="my-1 h-px w-32 bg-gradient-to-r from-amber-400 to-transparent sm:w-40" />
-                <p className="text-2xl font-black text-amber-400 sm:text-4xl">
-                  {totalScore} <span className="text-base font-bold text-white/50 sm:text-lg">/ {maxTotalScore}</span>
-                </p>
-                {rank && (
-                  <span className="text-xs font-extrabold uppercase tracking-wide text-amber-300 sm:text-sm">
-                    {rank.label}
-                  </span>
-                )}
-              </motion.div>
+                <ScoreGauge
+                  ratio={totalScore / maxTotalScore}
+                  animate={{ delay: GAUGE_FILL_DELAY, duration: GAUGE_FILL_DURATION }}
+                />
+                <motion.div
+                  className="flex flex-col items-start"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: TEXT_REVEAL_DELAY, duration: 0.45, ease: "easeOut" }}
+                >
+                  <p className="text-2xl font-black text-amber-400 sm:text-4xl">
+                    {totalScore} <span className="text-base font-bold text-white/50 sm:text-lg">/ {maxTotalScore}</span>
+                  </p>
+                  {rank && (
+                    <span className="text-xs font-extrabold uppercase tracking-wide text-amber-300 sm:text-sm">
+                      {rank.label}
+                    </span>
+                  )}
+                </motion.div>
+              </div>
             </div>
             <div className="flex w-full gap-2">
               <button type="button" onClick={onPlayAgain} className={PRIMARY_BUTTON + " flex-1"}>

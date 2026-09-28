@@ -44,7 +44,9 @@ export type UiStrings = {
   rankHistorian: string;
   rankExpert: string;
   rankMaster: string;
-  todaysPlayers: string;
+  todaysAchievements: string;
+  todaysTopScores: string;
+  you: string;
   todaysStatsButton: string;
   alreadyPlayedToday: string;
   back: string;
@@ -96,7 +98,9 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     rankHistorian: "Historian",
     rankExpert: "Expert",
     rankMaster: "Master",
-    todaysPlayers: "Today's players",
+    todaysAchievements: "Today's achievements",
+    todaysTopScores: "Today's top 5",
+    you: "you",
     todaysStatsButton: "Today's stats",
     alreadyPlayedToday: "You've already played today's challenge. Come back tomorrow for a new one!",
     back: "Back",
@@ -146,7 +150,9 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     rankHistorian: "Historien",
     rankExpert: "Expert",
     rankMaster: "Maître",
-    todaysPlayers: "Joueurs du jour",
+    todaysAchievements: "Succès du jour",
+    todaysTopScores: "Top 5 du jour",
+    you: "toi",
     todaysStatsButton: "Stat du jour",
     alreadyPlayedToday: "Tu as déjà joué au défi du jour. Reviens demain pour un nouveau !",
     back: "Retour",

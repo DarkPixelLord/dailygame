@@ -8,7 +8,10 @@ import { MAX_LOCATION_POINTS, MAX_ORDER_POINTS, ROUNDS_PER_GAME, rankTier, type 
 import { RANK_ICON_COMPONENTS, RANK_LABEL_KEYS } from "@/lib/rank-icons";
 import { PRIMARY_BUTTON, PANEL, GAME_TITLE, SHARE_BUTTON, SECONDARY_BUTTON } from "@/lib/theme";
 import { getCurrentStreak } from "@/lib/daily-streak";
+import { getDeviceId } from "@/lib/device-id";
+import type { DailyLeaderboard } from "@/lib/daily-leaderboard";
 import TodaysStatsPanel from "./TodaysStatsPanel";
+import ScoreGauge from "./ScoreGauge";
 
 const MAX_TOTAL_SCORE = ROUNDS_PER_GAME * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
 
@@ -25,15 +28,19 @@ export default function DailyResultScreen({ score, onBack }: Props) {
   const { t } = useLanguage();
   const [linkCopied, setLinkCopied] = useState(false);
   const [tierPercentages, setTierPercentages] = useState<Record<RankTier, number> | null>(null);
+  const [leaderboard, setLeaderboard] = useState<DailyLeaderboard | null>(null);
 
   useEffect(() => {
-    fetch("/api/stats")
+    fetch(`/api/stats?score=${score}&deviceId=${encodeURIComponent(getDeviceId())}`)
       .then((res) => res.json())
-      .then((data) => setTierPercentages(data.percentages ?? null))
+      .then((data) => {
+        setTierPercentages(data.percentages ?? null);
+        setLeaderboard(data.leaderboard ?? null);
+      })
       .catch(() => {
         // Stats are a nice-to-have here too — silently skip on failure.
       });
-  }, []);
+  }, [score]);
 
   const tier = rankTier(score, MAX_TOTAL_SCORE);
   const RankIcon = RANK_ICON_COMPONENTS[tier];
@@ -82,7 +89,7 @@ export default function DailyResultScreen({ score, onBack }: Props) {
             </div>
             <div className="flex flex-col items-start text-left">
               <p className="text-xs font-bold uppercase tracking-widest text-white sm:text-sm">{t.finalScore}</p>
-              <div className="my-1 h-px w-32 bg-gradient-to-r from-amber-400 to-transparent sm:w-40" />
+              <ScoreGauge ratio={score / MAX_TOTAL_SCORE} />
               <p className="text-2xl font-black text-amber-400 sm:text-4xl">
                 {score} <span className="text-base font-bold text-white/50 sm:text-lg">/ {MAX_TOTAL_SCORE}</span>
               </p>
@@ -102,7 +109,10 @@ export default function DailyResultScreen({ score, onBack }: Props) {
           </div>
 
           {tierPercentages && (
-            <TodaysStatsPanel tierPercentages={tierPercentages} buttonClassName={SECONDARY_BUTTON + " w-full"} />
+            <TodaysStatsPanel
+              tierPercentages={tierPercentages}
+              leaderboard={leaderboard}
+              buttonClassName={SECONDARY_BUTTON + " w-full"} />
           )}
         </motion.div>
       </div>
