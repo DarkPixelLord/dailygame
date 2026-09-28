@@ -51,8 +51,6 @@ export default function TodaysStatsPanel({ tierPercentages, leaderboard, buttonC
   }
   const [statsOpen, setStatsOpen] = useState(false);
 
-  if (!tierPercentages) return null;
-
   // The close button sits on the first section's title row: the top 5 when
   // there's at least one score today, otherwise the tier breakdown.
   const showTopScores = !!leaderboard && leaderboard.top.length > 0;
@@ -70,7 +68,9 @@ export default function TodaysStatsPanel({ tierPercentages, leaderboard, buttonC
         {t.todaysStatsButton}
       </button>
       <AnimatePresence>
-        {statsOpen && (
+        {/* The button shows right away; if clicked before the stats fetch
+            resolves, the popup opens as soon as the data lands. */}
+        {statsOpen && tierPercentages && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

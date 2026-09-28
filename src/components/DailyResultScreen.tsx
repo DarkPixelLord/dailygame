@@ -108,12 +108,10 @@ export default function DailyResultScreen({ score, onBack }: Props) {
             </button>
           </div>
 
-          {tierPercentages && (
-            <TodaysStatsPanel
-              tierPercentages={tierPercentages}
-              leaderboard={leaderboard}
-              buttonClassName={SECONDARY_BUTTON + " w-full"} />
-          )}
+          <TodaysStatsPanel
+            tierPercentages={tierPercentages}
+            leaderboard={leaderboard}
+            buttonClassName={SECONDARY_BUTTON + " w-full"} />
         </motion.div>
       </div>
     </div>
