@@ -148,6 +148,9 @@ const CAPITALIZED_WORD_EXCEPTIONS = new Set([
 ]);
 const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   // Added for the 2026-09-28 easy-clue disambiguation pass:
+  "bach", "grimm", "brothers",
+  "neva", "brussels", "bruxelles", "channel", "manche", "vienna", "vienne", "texas", "andes", "aztecs", "aztèques", "sea", "azov", "queen", "victoria", "carthage", "blitz", "island", "south", "sud", "silk", "road", "tang", "yellow", "river", "jaune", "rome", "naples", "adriatic", "adriatique", "midwest", "hanover", "hanovre", "wild", "west", "far", "elvis", "constantinople", "nobel", "prizes", "confucius", "way", "voie", "nile", "nil", "état", "shoguns", "pacific", "pacifique",
+  "moravian", "moravie", "hollywood", "oxford", "himalayan", "sava", "save", "numidia", "numidie",
   "appalachian", "appalaches", "nineveh", "ninive", "punjab", "pendjab",
   "est", "grande", "guerre", "eastern", "bloc", "great", "war",
   "euphrates", "euphrate", "urubamba", "tōhoku", "catskill", "catskills",

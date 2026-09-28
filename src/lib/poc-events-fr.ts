@@ -52,7 +52,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   battle_of_waterloo: {
     name: "Bataille de Waterloo",
-    clue: "Un empereur vaincu livre sa dernière bataille en pleine campagne, alors que des armées coalisées convergent vers lui de plusieurs directions.",
+    clue: "Au plat pays des frites et de la bande dessinée, un empereur vaincu livre sa dernière bataille, alors que des armées coalisées convergent de plusieurs côtés.",
     explanation: "La défaite de Napoléon à Waterloo a mis fin à son règne pour de bon et l'a contraint à l'exil sur une île isolée pour le reste de sa vie.",
   },
   october_revolution_petrograd: {
@@ -67,7 +67,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   battle_of_hastings: {
     name: "Bataille de Hastings",
-    clue: "Une armée venue de l'autre côté de la mer vaincut le roi en place en une seule journée de combat, installant une nouvelle dynastie royale sur le trône.",
+    clue: "L'armée d'un duc traverse la Manche, débarque sur la côte sud et vainc le roi en une journée, conquête brodée ensuite sur une célèbre tapisserie.",
     explanation: "La victoire du duc envahisseur à Hastings a inauguré une nouvelle dynastie royale, et la bataille a ensuite été commémorée dans une tapisserie brodée de près de 70 mètres de long.",
   },
   colosseum: {
@@ -87,7 +87,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   battle_of_austerlitz: {
     name: "Bataille d'Austerlitz",
-    clue: "L'armée d'un empereur, inférieure en nombre, piège deux forces alliées et gagne une bataille surnommée le choc des trois empereurs.",
+    clue: "Tout juste maître de Vienne, un empereur marche vers le nord et piège deux armées alliées plus nombreuses, gagnant la bataille dite des trois empereurs.",
     explanation: "La victoire de Napoléon à Austerlitz a pratiquement détruit la troisième coalition et est souvent considérée comme la plus grande victoire tactique de sa carrière.",
   },
   olympic_flame_debut: {
@@ -527,7 +527,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   hokusai_birth: {
     name: "Katsushika Hokusai",
-    clue: "Né au bord d'une baie, dans une vaste ville, un artiste devient célèbre pour une estampe d'une immense vague, l'une des images les plus reproduites de l'art.",
+    clue: "Né dans la vaste capitale des shoguns au bord d'une baie, cet artiste devint célèbre pour l'estampe d'une immense vague, parmi les images les plus reproduites.",
     explanation: "Hokusai crée des milliers d'estampes et de peintures au cours d'une longue carrière, signant ses dernières œuvres sous le nom de vieillard fou de dessin, perfectionnant encore sa technique jusqu'à ses derniers jours.",
   },
   battle_of_stalingrad: {
@@ -537,7 +537,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   jfk_assassination: {
     name: "Assassinat de John F. Kennedy",
-    clue: "Un président est abattu au passage d'une voiture décapotable dans une foule en liesse, l'instant filmé sous plusieurs angles et débattu sans fin depuis.",
+    clue: "Un président est abattu en voiture décapotable devant une foule en liesse dans une ville du Texas, l'instant filmé sous plusieurs angles et débattu sans fin.",
     explanation: "Kennedy est tué alors qu'il saluait la foule depuis un cortège officiel, et la scène est filmée par un témoin, devenant l'une des images les plus étudiées jamais réalisées, alimentant des décennies de théories concurrentes sur les responsables.",
   },
   bin_laden_killing: {
@@ -552,7 +552,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   abu_simbel: {
     name: "Abou Simbel",
-    clue: "Taillées dans une falaise au bord d'un fleuve coulant entièrement vers le nord à travers le désert, d'immenses statues d'un roi gardent un temple.",
+    clue: "Loin en amont sur le Nil, vers le sud du désert, d'immenses statues d'un roi taillées dans la falaise gardent un temple déplacé pour fuir le lac d'un barrage.",
     explanation: "Les temples d'Abou Simbel sont découpés en blocs et reconstruits en hauteur lors d'une vaste opération internationale de sauvetage, après qu'un nouveau barrage a menacé d'engloutir le site, l'un des projets de préservation du patrimoine les plus ambitieux jamais menés.",
   },
   pasteur_birth: {
@@ -637,7 +637,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   valdivia_earthquake: {
     name: "Séisme de Valdivia",
-    clue: "Sur la côte pacifique, le séisme le plus puissant jamais enregistré secoue le sol dix minutes, envoyant des vagues de tsunami traverser tout l'océan.",
+    clue: "Dans un port pluvieux du sud, côté Pacifique des Andes, le plus puissant séisme jamais mesuré secoue le sol dix minutes et lance des tsunamis sur l'océan.",
     explanation: "Le séisme de Valdivia, au Chili, reste le plus puissant jamais enregistré par des instruments modernes, avec une magnitude comprise entre 9,4 et 9,6. Il a dévasté la ville de Valdivia et déclenché des vagues de tsunami qui ont traversé l'océan Pacifique, causant encore des dégâts et des morts jusqu'à Hawaï, au Japon et aux Philippines, de nombreuses heures après la fin de la secousse.",
   },
   krakatoa_eruption: {
@@ -647,7 +647,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   mexico_1968_olympics: {
     name: "Jeux olympiques de Mexico",
-    clue: "Dans une capitale d'altitude entourée de volcans, l'air raréfié aide à pulvériser des records, tandis que deux sprinteurs lèvent un poing ganté pendant l'hymne.",
+    clue: "Dans une capitale d'altitude cernée de volcans, au pays des anciens Aztèques, l'air raréfié aide à battre des records et deux sprinteurs lèvent un poing ganté.",
     explanation: "Les Jeux olympiques de Mexico ont été les premiers organisés en Amérique latine et les premiers en haute altitude, ce qui a contribué à un record du monde du saut en longueur resté imbattu pendant des décennies. Sur le podium, les sprinteurs Tommie Smith et John Carlos ont chacun levé un poing ganté de noir pendant l'hymne, dans une protestation silencieuse devenue l'une des images les plus célèbres de l'histoire olympique.",
   },
   antwerp_1920_olympics: {
@@ -707,7 +707,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   siege_of_mariupol: {
     name: "Siège de Marioupol",
-    clue: "Lors d'une guerre récente, les défenseurs d'une ville portuaire assiégée résistent dans une immense aciérie, tenant des semaines sous terre avant de se rendre.",
+    clue: "Au bord de la mer d'Azov, les défenseurs d'une ville portuaire assiégée résistent dans une immense aciérie, tenant des semaines sous terre avant de se rendre.",
     explanation: "Le siège de Marioupol s'inscrit dans l'invasion de l'Ukraine par la Russie. Après des semaines de bombardements, les derniers défenseurs de la ville résistèrent dans l'aciérie d'Azovstal avant de recevoir l'ordre de se rendre.",
   },
   independence_hall: {
@@ -1117,12 +1117,12 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   san_francisco_earthquake_1906: {
     name: "Séisme de San Francisco",
-    clue: "Un séisme rompt une faille visible, mais les incendies qui suivent, brûlant des jours durant, détruisent plus de la ville que le séisme lui-même.",
+    clue: "Dans une ville de baie enrichie par une ruée vers l'or, un séisme rompt une faille, mais les incendies qui suivent ravagent plus que le séisme lui-même.",
     explanation: "Le séisme de San Francisco rompit la faille de San Andreas. Les incendies qui suivirent brûlèrent pendant des jours et causèrent plus de destruction que le séisme lui-même, contribuant à fonder la sismologie moderne.",
   },
   great_exhibition: {
     name: "Grande Exposition",
-    clue: "Dans un immense bâtiment de verre et de fer aux murs de cristal, la première foire industrielle internationale expose les inventions de toute une époque.",
+    clue: "Voulue par l'époux de la reine Victoria, une immense halle de verre et de fer aux murs de cristal accueille la première foire industrielle internationale.",
     explanation: "La Grande Exposition se tint au Crystal Palace de Londres, une vaste structure de verre et de fer. Organisée par le prince Albert, elle fut la première d'une longue série d'expositions universelles célébrant l'industrie et la culture.",
   },
   battle_of_plassey: {
@@ -1202,7 +1202,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   augustine_of_hippo_birth: {
     name: "Augustin d'Hippone",
-    clue: "Né d'une mère chrétienne et d'un père païen dans une petite ville de l'intérieur, ce théologien écrivit des mémoires célèbres avouant sa jeunesse tumultueuse.",
+    clue: "Né d'une mère chrétienne et d'un père païen dans l'arrière-pays de Carthage, ce saint et théologien écrivit des mémoires avouant sa jeunesse folle.",
     explanation: "Augustin écrivit les Confessions, l'une des premières autobiographies occidentales, racontant sa jeunesse agitée puis sa conversion. Il devint évêque et l'un des penseurs les plus influents de la théologie chrétienne.",
   },
   kurosawa_birth: {
@@ -1247,7 +1247,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   february_revolution_1917: {
     name: "Révolution de Février",
-    clue: "Des pénuries de pain et des soldats mutinés dans une capitale glacée du nord forcèrent un monarque au pouvoir depuis trois siècles à quitter le trône.",
+    clue: "Des pénuries de pain et des soldats mutinés dans une capitale glacée sur la Neva forcèrent un monarque dont la famille régnait depuis trois siècles à abdiquer.",
     explanation: "La révolution de Février entraîna l'abdication de l'empereur Nicolas II, mettant fin à trois cents ans de règne de la dynastie des Romanov. Un gouvernement provisoire prit le pouvoir, avant d'être lui-même renversé plus tard la même année.",
   },
   assassination_shinzo_abe: {
@@ -1382,7 +1382,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   kubrick_birth: {
     name: "Stanley Kubrick",
-    clue: "Né dans une grande ville, ce réalisateur tourna une épopée de science-fiction dans l'espace et un film d'horreur dans un hôtel hanté et enneigé.",
+    clue: "Né dans la ville des gratte-ciel et des taxis jaunes, ce réalisateur tourna une épopée spatiale et un film d'horreur dans un hôtel hanté et enneigé.",
     explanation: "Stanley Kubrick était un cinéaste américain dont les films méticuleux, traversant de nombreux genres, incluent une épopée de science-fiction devenue un classique et un film d'horreur culte se déroulant dans un hôtel hanté. Il est considéré comme l'un des réalisateurs les plus influents de l'histoire du cinéma.",
   },
   brando_birth: {
@@ -1392,7 +1392,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   elizabeth_taylor_birth: {
     name: "Elizabeth Taylor",
-    clue: "Née dans une grande ville, cette actrice devint une star du cinéma classique, remporta deux fois la plus haute récompense du métier et se maria huit fois.",
+    clue: "Née de marchands d'art dans une capitale bientôt frappée par le Blitz, elle traversa l'océan enfant pour devenir une star d'Hollywood aux huit mariages.",
     explanation: "Elizabeth Taylor était une actrice britannico-américaine devenue l'une des plus grandes stars de l'âge d'or hollywoodien, célèbre autant pour son jeu que pour sa vie privée, marquée par huit mariages. Elle remporta deux Oscars de la meilleure actrice.",
   },
   stephen_king_birth: {
@@ -1447,7 +1447,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   stravinsky_birth: {
     name: "Igor Stravinsky",
-    clue: "Né dans une ville en bord de mer, ce compositeur écrivit une partition de ballet si rythmiquement choquante que sa première provoqua une émeute dans le public.",
+    clue: "Né dans une ville côtière face à la capitale impériale sur la Neva, ce compositeur écrivit un ballet au rythme si choquant que sa première déclencha une émeute.",
     explanation: "Igor Stravinsky était un compositeur d'origine russe, l'une des figures les plus influentes de la musique classique moderne. Son ballet Le Sacre du printemps, avec ses harmonies dissonantes et ses rythmes irréguliers, provoqua une quasi-émeute dans le public lors de sa première à Paris.",
   },
   schrodinger_birth: {
@@ -1462,7 +1462,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   christchurch_earthquake_2011: {
     name: "Séisme de Christchurch",
-    clue: "Ce séisme frappa une ville de l'hémisphère sud à midi, faisant tomber la flèche de sa cathédrale, plus meurtrier qu'un séisme plus fort quelques mois avant.",
+    clue: "Dans la plus grande ville de l'île du Sud, un séisme à midi abat la flèche de la cathédrale, plus meurtrier qu'un séisme plus fort quelques mois avant.",
     explanation: "Ce séisme frappa Christchurch, en Nouvelle-Zélande, pendant l'heure du déjeuner, se révélant bien plus meurtrier qu'un séisme plus puissant ayant frappé la même région quelques mois auparavant. Il causa d'importantes destructions dans le centre-ville, dont l'effondrement partiel de la cathédrale qui symbolisait de longue date la ville.",
   },
   descartes_birth: {
@@ -1532,12 +1532,12 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   li_bai_birth: {
     name: "Li Bai",
-    clue: "Né loin du cœur de l'empire, ce poète erra toute sa vie en écrivant sur le vin et la lune, encore classé parmi les plus grands poètes de sa langue.",
+    clue: "Né dans une oasis de la route de la soie, loin à l'ouest de l'empire, ce poète Tang erra en chantant le vin et la lune, parmi les plus grands de sa langue.",
     explanation: "Li Bai est traditionnellement classé aux côtés de Du Fu parmi les plus grands poètes de la tradition classique de sa langue. Des milliers de ses poèmes ont survécu, célébrant souvent la nature, l'amitié et le vin, et il reste aujourd'hui largement mémorisé et cité.",
   },
   laozi_birth: {
     name: "Laozi",
-    clue: "Selon la tradition, ce sage né dans un village de paysans écrivit un court livre sur l'harmonie avec la nature, qui façonne encore philosophie et religion.",
+    clue: "Selon la tradition, ce sage né dans la plaine du fleuve Jaune écrivit un court livre sur la Voie, devenu le grand rival de l'école de Confucius.",
     explanation: "Laozi est traditionnellement considéré comme l'auteur du Tao-tö-king, un texte bref mais d'une influence immense sur l'harmonie avec l'ordre naturel. On sait très peu de choses vérifiables sur sa vie, et certains historiens doutent même de son existence.",
   },
   paul_the_apostle_birth: {
@@ -1597,7 +1597,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   paulo_coelho_birth: {
     name: "Paulo Coelho",
-    clue: "Né dans une ville côtière au pied de montagnes vertes, ce romancier a écrit un best-seller sur un berger traversant un désert en quête d'un rêve de trésor.",
+    clue: "Né dans une ville au carnaval célèbre, au pied de montagnes vertes, ce romancier écrivit un best-seller sur un berger traversant le désert en quête d'un trésor.",
     explanation: "Paulo Coelho a d'abord été parolier avant de se tourner vers la fiction. Son roman L'Alchimiste, qui suit un berger quittant sa maison pour chercher un trésor après un rêve récurrent, est devenu l'un des livres les plus vendus de l'histoire et a été traduit dans des dizaines de langues.",
   },
   margaret_atwood_birth: {
@@ -1617,7 +1617,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   thomas_aquinas_birth: {
     name: "Thomas Aquinas",
-    clue: "Né dans un château perché sur une péninsule montagneuse, ce frère a écrit une œuvre massive expliquant la foi chrétienne par la logique et le raisonnement.",
+    clue: "Né fils de comte dans un château perché de la péninsule en forme de botte, ce frère écrivit une œuvre massive expliquant la foi chrétienne par la logique.",
     explanation: "Thomas d'Aquin était un frère dominicain dont l'œuvre massive, la Somme théologique, tentait d'expliquer systématiquement la foi chrétienne par la logique et l'argumentation raisonnée plutôt que par la seule foi. Sa synthèse entre la foi et la philosophie aristotélicienne reste fondatrice pour la théologie catholique et une grande partie de la philosophie occidentale.",
   },
   toni_morrison_birth: {
@@ -1692,7 +1692,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   fellini_birth: {
     name: "Federico Fellini",
-    clue: "Né dans une ville balnéaire, ce réalisateur a filmé une actrice entrant tout habillée dans une fontaine la nuit, scène devenue symbole d'un luxe extravagant.",
+    clue: "Né dans une station balnéaire de l'Adriatique, ce réalisateur filma une actrice entrant tout habillée dans une fontaine la nuit, symbole d'un luxe extravagant.",
     explanation: "Federico Fellini est né à Rimini, une ville balnéaire sur l'Adriatique. Son film La Dolce Vita comprend une scène où une actrice entre dans une fontaine la nuit, en robe de soirée, une image devenue le symbole d'un luxe décadent.",
   },
   satyajit_ray_birth: {
@@ -1742,7 +1742,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   hubble_birth: {
     name: "Edwin Hubble",
-    clue: "Né dans une petite ville agricole, cet astronome montre que des taches floues dites nébuleuses sont en fait des galaxies, et que l'univers est en expansion.",
+    clue: "Né dans une petite ville agricole du Midwest, cet astronome, qui a donné son nom à un célèbre télescope spatial, prouva l'existence d'autres galaxies.",
     explanation: "Les observations d'Edwin Hubble ont prouvé que de nombreux objets pris pour des nuages de gaz dans notre propre galaxie étaient en fait des galaxies distinctes, et que celles-ci s'éloignent les unes des autres à mesure que l'univers s'étend.",
   },
   pascal_birth: {
@@ -1752,7 +1752,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   gauss_birth: {
     name: "Carl Friedrich Gauss",
-    clue: "Né dans une famille pauvre, ce mathématicien stupéfie son instituteur enfant en trouvant instantanément la somme de tous les nombres de un à cent.",
+    clue: "Né pauvre dans une ville ducale du pays de Bach et des frères Grimm, ce mathématicien stupéfia son instituteur en additionnant d'un coup les nombres de 1 à 100.",
     explanation: "Carl Friedrich Gauss a ensuite apporté des contributions majeures à la théorie des nombres, aux statistiques et à l'astronomie, et reste considéré comme l'un des plus grands mathématiciens de l'histoire.",
   },
   anne_boleyn_birth: {
@@ -1862,7 +1862,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   grieg_birth: {
     name: "Edvard Grieg",
-    clue: "Né dans une ville côtière, ce compositeur a écrit une musique de trolls dansant dans une salle de montagne, toujours reconnaissable dans les dessins animés.",
+    clue: "Né dans une ville côtière entourée de fjords, il écrivit une musique de trolls dansant dans une salle de montagne, culte dans les dessins animés.",
     explanation: "Edvard Grieg était un compositeur norvégien dont la musique de scène pour une pièce de théâtre comprend ce morceau galopant et de plus en plus rapide connu sous le nom du Hall du roi de la montagne. Il puisait largement dans les mélodies populaires norvégiennes, donnant à la musique de son pays une identité reconnue dans le monde entier.",
   },
   hillenburg_birth: {
@@ -1877,7 +1877,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   lawrence_bragg_birth: {
     name: "Lawrence Bragg",
-    clue: "Né dans une ville de l'hémisphère sud, ce physicien devint le plus jeune lauréat scientifique d'un prix Nobel, partageant l'honneur avec son propre père.",
+    clue: "Né dans une ville côtière du continent-île, ce physicien devint le plus jeune lauréat d'un Nobel scientifique, partagé avec son propre père.",
     explanation: "Lawrence Bragg était un physicien né en Australie qui mit au point, avec son père, une méthode pour déterminer la structure atomique des cristaux à l'aide des rayons X. Il avait vingt-cinq ans lorsqu'ils reçurent ensemble le prix, un record pour un Nobel scientifique qui tient toujours.",
   },
   heyerdahl_birth: {
@@ -1897,7 +1897,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   ronald_ross_birth: {
     name: "Ronald Ross",
-    clue: "Né dans une ville de collines, ce médecin a prouvé qu'un insecte piqueur transmettait le paludisme entre humains, une découverte récompensée par un prix Nobel.",
+    clue: "Né au pied des plus hauts sommets du monde, fils de général, ce médecin prouva qu'un insecte piqueur transmet le paludisme, découverte couronnée d'un Nobel.",
     explanation: "Ronald Ross était un médecin britannique travaillant comme médecin militaire en Inde lorsqu'il disséqua des moustiques et trouva des parasites du paludisme se développant dans leur estomac, prouvant comment la maladie se transmet. Sa découverte a ouvert la voie à des programmes de lutte antimoustique qui ont sauvé d'innombrables vies.",
   },
   bardeen_birth: {
@@ -1917,7 +1917,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   dennis_hopper_birth: {
     name: "Dennis Hopper",
-    clue: "Né au milieu des plaines d'une région agricole, un acteur et réalisateur tourne un road trip à moto à très petit budget qui transforme le cinéma d'un pays.",
+    clue: "Né dans une ville de bétail légendaire du Far West, cet acteur-réalisateur tourna un road trip à moto fauché qui transforma le cinéma de son pays.",
     explanation: "Dennis Hopper a été à la fois acteur et réalisateur d'Easy Rider, un road movie contestataire tourné avec un tout petit budget, devenu un succès énorme qui a contribué à lancer tout un courant de films plus provocateurs et à petit budget.",
   },
   paul_allen_birth: {
@@ -1972,7 +1972,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   quentin_tarantino_birth: {
     name: "Quentin Tarantino",
-    clue: "Né dans une ville de collines, ce réalisateur signe des films de gangsters violents racontés dans le désordre, primés au plus grand festival de cinéma au monde.",
+    clue: "Né dans l'État de la musique country et d'Elvis, ce réalisateur signe des polars ultraviolents racontés dans le désordre, primés au plus grand festival.",
     explanation: "Le film qui a lancé la carrière de Quentin Tarantino, un récit de gangsters raconté à travers des chapitres non chronologiques entrelacés, a remporté la Palme d'or au Festival de Cannes. Ses films sont connus pour leur violence stylisée, leurs dialogues truffés de références à la culture populaire et leurs hommages au cinéma.",
   },
   fitzgerald_birth: {
@@ -1997,7 +1997,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   rimsky_korsakov_birth: {
     name: "Nikolaï Rimski-Korsakov",
-    clue: "Né dans une ville de province, ce compositeur écrivit un morceau imitant le vol frénétique d'un insecte bourdonnant, un des airs les plus connus du classique.",
+    clue: "Né dans une ville de province à l'est de la capitale impériale sur la Neva, cet officier de marine devenu compositeur imita le vol frénétique d'un bourdon.",
     explanation: "Nikolaï Rimski-Korsakov a composé Le Vol du bourdon comme interlude orchestral pour un opéra. Le morceau est depuis devenu l'une des mélodies les plus citées de la culture populaire, arrangé pour d'innombrables instruments et utilisé dans des dessins animés, des films et des jeux vidéo.",
   },
   pearl_buck_birth: {
@@ -2032,7 +2032,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   siege_of_belgrade_1456: {
     name: "Siège de Belgrade",
-    clue: "Le long du Danube, une garnison inférieure en nombre résista des semaines à une armée massive, victoire fêtée par des cloches sonnant à midi dans bien des pays.",
+    clue: "Trois ans après la prise de Constantinople, l'armée d'un sultan est repoussée sur le Danube par une petite garnison, victoire saluée par les cloches de midi.",
     explanation: "Les forces hongroises et croisées, très inférieures en nombre, menées par Janos Hunyadi, ont brisé un siège ottoman massif de Belgrade. En célébration, le pape a ordonné que les cloches des églises de la chrétienté sonnent à midi, une tradition qui perdure aujourd'hui dans de nombreux pays.",
   },
   michelson_birth: {
@@ -2052,7 +2052,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   berzelius_birth: {
     name: "Jöns Jacob Berzelius",
-    clue: "Né dans un domaine rural, ce chimiste conçut le système de symboles d'une ou deux lettres encore utilisé pour désigner chaque élément du tableau périodique.",
+    clue: "Né près d'un grand lac, au pays qui créera plus tard les prix Nobel, ce chimiste conçut les symboles d'une ou deux lettres désignant encore chaque élément.",
     explanation: "Jöns Jacob Berzelius a introduit le système moderne de symboles chimiques, comme O pour l'oxygène et Fe pour le fer, remplaçant d'anciennes notations picturales. Il a aussi déterminé les masses atomiques de nombreux éléments et est considéré comme un fondateur de la chimie moderne.",
   },
   metchnikoff_birth: {

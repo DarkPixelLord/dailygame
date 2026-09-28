@@ -7,9 +7,9 @@
     "totalPacks": 80,
     "packsWithAllThreeCategories": 80,
     "leftoverUnused": {
-      "easy": 16,
+      "easy": 15,
       "medium": 0,
-      "hard": 4
+      "hard": 5
     },
     "packsWithSubcategoryCollision": 0,
     "forcedSubcategoryCollisions": 0,
@@ -214,7 +214,7 @@
       "type": "A",
       "ids": [
         "february_revolution_1917",
-        "ronald_ross_birth",
+        "rimsky_korsakov_birth",
         "laozi_birth",
         "lisbon_earthquake",
         "bru_na_boinne"
@@ -227,14 +227,14 @@
       "categoriesCovered": 3,
       "categoryCounts": {
         "conflict_politics_society": 1,
-        "science_infrastructure": 3,
-        "arts_culture": 1
+        "arts_culture": 2,
+        "science_infrastructure": 2
       },
       "subcategoryCounts": {
         "natural_hazard": 1,
         "archaeological_site": 1
       },
-      "closeDatePairs": 0
+      "closeDatePairs": 1
     },
     {
       "packIndex": 8,
