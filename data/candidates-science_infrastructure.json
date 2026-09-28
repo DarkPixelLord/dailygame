@@ -416,6 +416,22 @@
     "needsReview": null
   },
   {
+    "wikidataId": "Q9312",
+    "label": "Immanuel Kant",
+    "description": "German philosopher (1724-1804)",
+    "summary": "Immanuel Kant was a German philosopher. Born in Königsberg in the Kingdom of Prussia, he is considered one of the central thinkers of the Enlightenment. His comprehensive and systematic works in epistemology, metaphysics, logic, ethics, aesthetics, political theory, and philosophy of religion have made him one of the most influential and highly discussed figures in modern Western philosophy.",
+    "subcategory": "pioneer",
+    "category": "Sciences, Inventions & Infrastructures",
+    "wikipediaTitle": "Immanuel_Kant",
+    "lat": 54.711472,
+    "lng": 20.509306,
+    "year": 1724,
+    "sitelinks": 253,
+    "avgMonthlyPageviews": 79851,
+    "difficulty": "medium",
+    "needsReview": null
+  },
+  {
     "wikidataId": "Q483382",
     "label": "Steve Wozniak",
     "description": "American computer pioneer, inventor, computer engineer and programmer; co-founder of Apple Inc.",
@@ -892,6 +908,22 @@
     "year": 455,
     "sitelinks": 110,
     "avgMonthlyPageviews": 49815,
+    "difficulty": "medium",
+    "needsReview": null
+  },
+  {
+    "wikidataId": "Q9391",
+    "label": "Ludwig Wittgenstein",
+    "description": "Austrian philosopher and logician (1889–1951)",
+    "summary": "Ludwig Josef Johann Wittgenstein was an Austro-British philosopher who worked in logic, philosophy of mathematics, philosophy of mind, and philosophy of language.",
+    "subcategory": "pioneer",
+    "category": "Sciences, Inventions & Infrastructures",
+    "wikipediaTitle": "Ludwig_Wittgenstein",
+    "lat": 48.2378,
+    "lng": 16.2861,
+    "year": 1889,
+    "sitelinks": 173,
+    "avgMonthlyPageviews": 49284,
     "difficulty": "medium",
     "needsReview": null
   },

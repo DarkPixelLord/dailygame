@@ -132,8 +132,24 @@ const CAPITALIZED_WORD_EXCEPTIONS = new Set([
   // Added for the 2026-09-24 100-clue batch: religious/cultural adjectives
   // and celestial bodies, neither of which narrow the map answer's location.
   "christian", "chrétien", "chrétienne", "moon", "lune",
+  // Added for the 2026-09-25 easy batch: "World Wide Web" is a technology
+  // name (not tied to any one country), and "Academy" refers to Plato's
+  // school as an institution, not a place name — neither narrows the map
+  // answer's location.
+  "world", "wide", "web", "monde", "toile", "academy", "académie",
+  // Added for the second 2026-09-25 easy batch: "Martians"/"Martiens" refers
+  // to the fictional aliens from The War of the Worlds, not a real place —
+  // doesn't narrow the map answer's location at any tier.
+  "martians", "martian", "martiens", "martien",
+  // Added for the second 2026-09-28 hard batch: "Literature"/"Littérature"
+  // only ever appears here as part of "Nobel Prize in Literature" — an award
+  // category name, not a place — so it doesn't narrow the map answer.
+  "literature", "littérature",
 ]);
 const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
+  // Added for the 2026-09-28 easy-clue disambiguation pass:
+  "appalachian", "appalaches", "nineveh", "ninive", "punjab", "pendjab",
+  "est", "grande", "guerre", "eastern", "bloc", "great", "war",
   "euphrates", "euphrate", "urubamba", "tōhoku", "catskill", "catskills",
   "baltic", "baltique", "tonlé", "tonle", "sap", "yucatán", "zagros",
   "dnieper", "dniepr", "irrawaddy", "cantabrian", "cantabriques",
@@ -141,6 +157,16 @@ const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   "nile", "nil", "rhine", "rhin", "mediterranean", "méditerranée", "volga",
   // Added for the 2026-09-24 batch (see docs/pool-stats.md history):
   "meuse", "atlantic", "atlantique", "caribbean", "caraïbes", "pacific", "pacifique",
+  // Added for the 2026-09-25 easy batch (18 new person entries): Siberia
+  // spans millions of km2 across multiple time zones, leaving real
+  // uncertainty about the exact pin, same as Sahara/Andes/Himalaya above.
+  "siberia", "siberian",
+  // Added for the 2026-09-28 easy batch (10th batch, 20 new entries): the
+  // Danube runs ~2,850 km through ten countries (easy-tier lever for the
+  // Belgrade siege entry); the Urals run ~2,500 km and form the traditional
+  // Europe/Asia boundary (easy-tier lever for the Romanov execution entry) —
+  // both leave real uncertainty about the exact pin, same as Volga/Nile above.
+  "danube", "ural", "urals", "oural",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {

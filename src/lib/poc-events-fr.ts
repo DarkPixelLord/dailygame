@@ -652,7 +652,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   antwerp_1920_olympics: {
     name: "Jeux olympiques d'Anvers",
-    clue: "Dans une ville portuaire en reconstruction après une guerre mondiale, des colombes sont lâchées et un drapeau à cinq anneaux flotte pour la première fois.",
+    clue: "Dans une ville portuaire en reconstruction après la Grande Guerre, des colombes sont lâchées et un drapeau à cinq anneaux flotte pour la première fois.",
     explanation: "Les Jeux olympiques d'Anvers furent les premiers organisés après une guerre mondiale et les premiers à hisser le drapeau olympique à cinq anneaux et à lâcher des colombes en symbole de paix. Les organisateurs ont aussi introduit le serment des athlètes, promettant une compétition loyale, une tradition toujours suivie lors de la cérémonie d'ouverture de chaque édition depuis.",
   },
   maiden_tower_baku: {
@@ -1194,5 +1194,1070 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     name: "Bartolomé Esteban Murillo",
     clue: "Né dans une ville fluviale du sud, un peintre baroque connu pour ses œuvres religieuses capture aussi des enfants des rues avec un réalisme saisissant.",
     explanation: "Bartolomé Esteban Murillo est né à Séville. Bien que surtout connu pour ses peintures religieuses, il produisit aussi des portraits vivants et réalistes des bouquetières, gamins des rues et mendiants de sa ville.",
+  },
+  plato_birth: {
+    name: "Platon",
+    clue: "Né dans une famille noble d'une cité dont les penseurs façonnent encore le monde, ce philosophe forma dans son Académie le prochain grand penseur de l'histoire.",
+    explanation: "Platon étudia auprès de Socrate, puis fonda l'Académie à Athènes, où il enseigna à Aristote. Ses écrits, surtout des dialogues mettant en scène Socrate, posèrent les fondations de la philosophie occidentale.",
+  },
+  augustine_of_hippo_birth: {
+    name: "Augustin d'Hippone",
+    clue: "Né d'une mère chrétienne et d'un père païen dans une petite ville de l'intérieur, ce théologien écrivit des mémoires célèbres avouant sa jeunesse tumultueuse.",
+    explanation: "Augustin écrivit les Confessions, l'une des premières autobiographies occidentales, racontant sa jeunesse agitée puis sa conversion. Il devint évêque et l'un des penseurs les plus influents de la théologie chrétienne.",
+  },
+  kurosawa_birth: {
+    name: "Akira Kurosawa",
+    clue: "Né dans une immense capitale sur la côte Pacifique, ce cinéaste réalisa une épopée de samouraïs plus tard adaptée en western sur sept pistoleros.",
+    explanation: "Akira Kurosawa réalisa Les Sept Samouraïs, un classique du cinéma mondial dont l'histoire de guerriers engagés pour défendre un village fut ensuite adaptée sous le titre Les Sept Mercenaires. Il est considéré comme l'un des réalisateurs les plus influents de l'histoire du cinéma.",
+  },
+  fallingwater: {
+    name: "Frank Lloyd Wright",
+    clue: "Un architecte construisit une maison privée directement au-dessus d'une cascade, ses terrasses de pierre en porte-à-faux surplombant le cours d'eau.",
+    explanation: "Frank Lloyd Wright conçut Fallingwater comme résidence de week-end pour la famille Kaufmann, bâtie au-dessus d'une cascade existant déjà sur leur propriété. Elle est largement considérée comme l'une des plus grandes œuvres architecturales jamais réalisées.",
+  },
+  bruce_lee_birth: {
+    name: "Bruce Lee",
+    clue: "Né par hasard dans une ville de la côte Pacifique lors d'une tournée de la troupe d'opéra de ses parents, cet artiste martial devint une star de cinéma.",
+    explanation: "Bruce Lee naquit pendant que la compagnie d'opéra de son père était en tournée aux États-Unis. Il popularisa ensuite les films d'arts martiaux dans le monde entier et fonda sa propre philosophie de combat, le Jeet Kune Do.",
+  },
+  rumi_birth: {
+    name: "Rûmî",
+    clue: "Né dans une ville marchande sur une ancienne route de caravanes, ce poète mystique inspira un ordre dont les membres tournent lentement sur eux-mêmes en prière.",
+    explanation: "Rûmî était un poète mystique dont les disciples fondèrent l'ordre mevlevi, connu pour la danse tournoyante et méditative de ses derviches. Sa poésie a depuis été traduite dans des dizaines de langues et reste largement lue aujourd'hui.",
+  },
+  battle_of_okinawa: {
+    name: "Bataille d'Okinawa",
+    clue: "Sur un archipel du Pacifique, la plus grande invasion terre-mer de toute la guerre du Pacifique s'éternisa près de trois mois, île après île.",
+    explanation: "La bataille d'Okinawa fut le plus grand assaut amphibie du théâtre Pacifique durant la Seconde Guerre mondiale. Les pertes immenses des deux côtés pesèrent sur la décision d'utiliser l'arme atomique plutôt que de lancer une invasion similaire des îles principales.",
+  },
+  siege_of_baghdad_1258: {
+    name: "Siège de Bagdad",
+    clue: "Une armée venue de la steppe assiégea la capitale d'un califat, grand centre du savoir, brûlant ses bibliothèques et noircissant d'encre, dit-on, son fleuve.",
+    explanation: "Le siège fut mené par une armée de l'empire mongol sous Hulagu Khan, qui détruisit la Maison de la Sagesse et une grande partie des bibliothèques de la ville. Cet événement est traditionnellement vu comme la fin de l'âge d'or islamique, même si les historiens débattent de la netteté de cette rupture.",
+  },
+  alaska_purchase_sitka: {
+    name: "Achat de l'Alaska",
+    clue: "Dans un fort côtier, un drapeau fut abaissé et un autre hissé, achevant la vente d'un immense territoire glacé pour à peine deux centimes l'acre.",
+    explanation: "La cérémonie officielle de transfert eut lieu à Sitka, où la souveraineté sur l'Alaska passa de la Russie aux États-Unis pour 7,2 millions de dollars. À l'époque, des critiques moquaient cet achat comme un gaspillage d'argent pour des terres gelées et vides.",
+  },
+  treaty_of_tordesillas: {
+    name: "Traité de Tordesillas",
+    clue: "Réunis dans une petite ville de l'intérieur, des négociateurs de deux royaumes rivaux signèrent une ligne partageant toute future découverte d'outre-mer.",
+    explanation: "Le traité de Tordesillas partagea les terres nouvellement revendiquées hors d'Europe entre les couronnes de Castille et du Portugal, le long d'un méridien. C'est la raison pour laquelle le Brésil parle portugais alors que ses voisins parlent espagnol, la ligne ayant croisé sa côte orientale.",
+  },
+  february_revolution_1917: {
+    name: "Révolution de Février",
+    clue: "Des pénuries de pain et des soldats mutinés dans une capitale glacée du nord forcèrent un monarque au pouvoir depuis trois siècles à quitter le trône.",
+    explanation: "La révolution de Février entraîna l'abdication de l'empereur Nicolas II, mettant fin à trois cents ans de règne de la dynastie des Romanov. Un gouvernement provisoire prit le pouvoir, avant d'être lui-même renversé plus tard la même année.",
+  },
+  assassination_shinzo_abe: {
+    name: "Assassinat de Shinzo Abe",
+    clue: "Un ancien chef de gouvernement fut abattu avec une arme artisanale pendant un discours de rue, une attaque filmée et diffusée dans le monde entier.",
+    explanation: "Shinzo Abe, ancien premier ministre, fut assassiné alors qu'il faisait campagne devant une gare. Son agresseur utilisa une arme à feu rudimentaire et fabriquée maison, et l'attaque choqua un pays parmi ceux où la violence par arme à feu est la plus rare au monde.",
+  },
+  tower_of_london: {
+    name: "Tour de Londres",
+    clue: "Une forteresse au bord d'un large fleuve à marées a servi de palais royal, de prison, d'arsenal et d'écrin pour les joyaux de la couronne d'un royaume.",
+    explanation: "La Tour de Londres fut fondée par Guillaume le Conquérant dans le cadre de la conquête normande et a rempli de nombreux rôles depuis, dont ceux de résidence royale et de prison d'État. La légende veut que le royaume tombe si les corbeaux venaient à quitter la Tour.",
+  },
+  karnak_temple_complex: {
+    name: "Complexe de Karnak",
+    clue: "Le long du Nil, face à la vallée où reposent les pharaons, des dynasties successives agrandirent le plus vaste complexe religieux, avec son allée de béliers.",
+    explanation: "Karnak s'est développé sur près de deux mille ans, chaque souverain y ajoutant des constructions, ce qui en fait le plus vaste complexe religieux jamais bâti. Sa grande salle hypostyle contient à elle seule plus d'une centaine de colonnes de pierre massives.",
+  },
+  chile_earthquake_2010: {
+    name: "Séisme du Chili",
+    clue: "Au pied d'une chaîne de montagnes qui longe tout un continent, un séisme côtier parmi les plus puissants jamais enregistrés fit trembler le sol trois minutes.",
+    explanation: "Le séisme de magnitude 8,8 frappa au large de la région du Maule et fut l'un des plus puissants jamais enregistrés par les instruments modernes. Les scientifiques ont calculé qu'il avait raccourci la durée d'une journée terrestre d'une fraction de microseconde.",
+  },
+  motherland_calls_statue: {
+    name: "La Mère Patrie appelle",
+    clue: "Sur une colline dominant la Volga, une femme colossale brandissant une épée rappelle une bataille de rue dans une ville rebaptisée.",
+    explanation: "La Mère Patrie appelle commémore les défenseurs de la bataille de Stalingrad, l'une des batailles les plus meurtrières de l'histoire. Haute de 85 mètres, elle fut la statue la plus haute du monde lors de son achèvement, et la ville elle-même fut plus tard renommée Volgograd.",
+  },
+  berners_lee_www: {
+    name: "Tim Berners-Lee",
+    clue: "Dans un laboratoire de physique conçu pour faire s'entrechoquer des atomes, un scientifique écrivit le logiciel devenu le World Wide Web.",
+    explanation: "Tim Berners-Lee inventa le World Wide Web alors qu'il travaillait au CERN, le laboratoire de physique des particules à cheval sur la frontière entre la France et la Suisse. Il offrit cette technologie gratuitement, sans la breveter, afin qu'elle puisse se répandre aussi largement que possible.",
+  },
+  gutenberg_printing_press: {
+    name: "Johannes Gutenberg",
+    clue: "Né dans une ville fluviale au sein d'une famille de marchands, cet artisan construisit une machine capable de produire en série des pages identiques.",
+    explanation: "Johannes Gutenberg inventa la presse à caractères mobiles, qui accéléra considérablement la production de livres. Son œuvre la plus célèbre, la Bible de Gutenberg, est considérée comme l'un des livres imprimés les plus précieux qui existent.",
+  },
+  monet_birth: {
+    name: "Claude Monet",
+    clue: "Né dans une ville capitale, ce peintre a étudié un bassin de jardin et ses nymphéas, pour un mouvement peignant la lumière fugace plutôt que le détail exact.",
+    explanation: "Les tableaux de Claude Monet représentant le bassin et les nymphéas de son jardin sont devenus l'une des séries les plus reconnaissables de l'art. Il fut une figure fondatrice d'un mouvement qui privilégiait les impressions visuelles de lumière et de couleur plutôt que le détail précis et réaliste.",
+  },
+  jules_verne_birth: {
+    name: "Jules Verne",
+    clue: "Né dans une ville portuaire, ce romancier a envoyé ses personnages au fond des océans, sous terre et autour du monde entier avant que cela soit possible.",
+    explanation: "Les romans d'aventure de Jules Verne imaginaient des sous-marins explorant les fonds marins, des explorateurs descendant à travers la croûte terrestre et des voyageurs faisant le tour du globe à toute vitesse, des décennies avant que la technologie réelle ne rattrape ses idées.",
+  },
+  socrates_birth: {
+    name: "Socrate",
+    clue: "Né dans une cité qui prisait le débat public, ce philosophe fut condamné à mort par sa propre cité et choisit le poison plutôt que l'exil.",
+    explanation: "Socrate passa sa vie à interroger ses concitoyens sur la place publique, développant une méthode de questionnement permanent. Condamné par un jury pour corruption de la jeunesse et irrespect de la tradition, il accepta la sentence de mort et but une coupe de poison plutôt que de fuir en exil.",
+  },
+  mary_shelley_frankenstein: {
+    name: "Mary Shelley",
+    clue: "Au bord d'un grand lac entre deux pays, une réunion orageuse défia des écrivains d'inventer des histoires de fantômes ; celle d'un savant devint un classique.",
+    explanation: "Pendant une période de temps froid et orageux, Mary Shelley rejoignit un petit cercle d'écrivains séjournant au bord du lac et, mise au défi d'écrire une histoire de fantôme, commença le roman qui deviendrait son œuvre la plus célèbre, celle d'un savant qui crée puis abandonne une créature vivante assemblée à partir de tissus morts.",
+  },
+  helen_keller_birth: {
+    name: "Helen Keller",
+    clue: "Née dans une petite ville, aveugle et sourde depuis l'enfance, cette autrice apprit à communiquer quand son institutrice lui épela un mot dans la main.",
+    explanation: "Helen Keller devint sourde et aveugle après une maladie infantile. Son institutrice réussit à la toucher en lui épelant le mot pour l'eau dans la main tout en pompant de l'eau dessus, une percée qui lui ouvrit l'accès au langage. Keller devint ensuite autrice, conférencière et militante politique, la première personne sourde-aveugle à obtenir un diplôme universitaire.",
+  },
+  tolkien_birth: {
+    name: "J.R.R. Tolkien",
+    clue: "Né loin de l'île où il vécut et enseigna plus tard, cet écrivain a bâti un monde de magiciens et d'elfes, autour d'une quête pour détruire un anneau puissant.",
+    explanation: "J.R.R. Tolkien naquit sur un autre continent que celui où sa famille retourna peu après. Il devint professeur de langues et passa des décennies à construire tout un monde fantastique avec ses propres langues et histoires inventées, publiant des romans sur un périlleux voyage pour détruire un anneau puissant et corrupteur.",
+  },
+  spielberg_birth: {
+    name: "Steven Spielberg",
+    clue: "Né dans une ville fluviale, ce cinéaste a réalisé un film de requin qui a vidé les plages, puis un extraterrestre échoué et le garçon qui le cache.",
+    explanation: "Steven Spielberg réalisa un film à suspense sur un grand requin blanc terrorisant une ville balnéaire, devenu l'un des tout premiers grands succès estivaux et qui donna aux spectateurs peur d'entrer dans l'eau. Il réalisa plus tard un film familial sur un garçon qui se lie d'amitié avec un extraterrestre égaré et l'aide à rentrer chez lui.",
+  },
+  munich_agreement_1938: {
+    name: "Accords de Munich",
+    clue: "Réunis dans une ville, des dirigeants de puissances plus fortes ont laissé démembrer un territoire voisin, espérant éviter une guerre venue un an plus tard.",
+    explanation: "Lors d'un sommet, les dirigeants de plusieurs puissances plus fortes acceptèrent de laisser démembrer un pays voisin plus petit, sans consulter le gouvernement de ce pays, espérant que cette concession empêcherait une guerre plus large. Elle survint tout de même, moins d'un an plus tard.",
+  },
+  glorious_revolution_landing: {
+    name: "Glorieuse Révolution",
+    clue: "Un prince étranger a débarqué sur un littoral avec une flotte d'invasion et, en quelques semaines, a pris le trône du royaume insulaire presque sans combattre.",
+    explanation: "Un prince étranger appareilla depuis le continent avec une immense flotte d'invasion et débarqua sur la côte sud. Face aux défections parmi ses propres officiers, le roi en exercice s'enfuit en exil, et l'envahisseur fut couronné souverain conjoint avec son épouse, dans un changement de pouvoir resté célèbre pour avoir fait si peu de victimes.",
+  },
+  korean_armistice_agreement: {
+    name: "Armistice de Corée",
+    clue: "Le long d'une vallée fluviale sur une péninsule divisée, un accord a mis fin à trois ans de combats sans jamais déclarer la guerre officiellement terminée.",
+    explanation: "Après trois années de combats, des commandants militaires signèrent un armistice qui arrêta les combats le long d'une ligne fortifiée à peu près là où le conflit avait commencé. Aucun traité de paix ne suivit jamais, si bien que les deux camps restent techniquement encore en guerre aujourd'hui.",
+  },
+  magellan_birth: {
+    name: "Ferdinand Magellan",
+    clue: "Né le long d'un littoral atlantique escarpé, ce navigateur a organisé la première flotte à faire le tour du monde, mort avant d'achever lui-même le voyage.",
+    explanation: "Ferdinand Magellan mena une flotte de cinq navires vers l'ouest à travers un océan à la recherche d'une nouvelle route vers de précieuses îles à épices. Il fut tué lors d'une bataille en cours de route, mais l'un de ses navires et une petite partie de l'équipage achevèrent le tour complet du globe, prouvant enfin que la Terre pouvait être contournée par la mer.",
+  },
+  leif_erikson_birth: {
+    name: "Leif Erikson",
+    clue: "Né sur une île volcanique du grand nord atlantique, cet explorateur a atteint un nouveau continent des siècles avant le voyage plus célèbre qui en a le mérite.",
+    explanation: "Leif Erikson mena une expédition vers l'ouest depuis une colonie et devint le premier Européen connu à avoir posé le pied sur le continent nord-américain, y débarquant des siècles avant la traversée transatlantique aujourd'hui bien plus célèbre.",
+  },
+  vespucci_birth: {
+    name: "Amerigo Vespucci",
+    clue: "Né dans une ville fluviale réputée pour l'art, la banque et le commerce, ce navigateur a vu son propre prénom donner leur nom à une paire entière de continents.",
+    explanation: "Amerigo Vespucci explora le littoral d'un continent nouvellement atteint et soutint qu'il ne faisait pas partie de l'Asie, mais qu'il s'agissait d'une terre entièrement distincte inconnue des géographes précédents. Un cartographe utilisa plus tard une forme latinisée de son prénom pour désigner ce nouveau continent, et le nom finit par s'étendre aux deux continents de l'hémisphère occidental.",
+  },
+  fleming_birth: {
+    name: "Alexander Fleming",
+    clue: "Né dans une ferme, ce scientifique revint de vacances et trouva une moisissure ayant tué des bactéries dans une boîte oubliée, menant au premier antibiotique.",
+    explanation: "Alexander Fleming remarqua qu'une moisissure ayant contaminé par hasard l'une de ses cultures bactériennes avait tué les bactéries environnantes. Il identifia la substance active produite par la moisissure, qui devint le premier antibiotique largement utilisé et sauva d'innombrables vies menacées par des infections auparavant mortelles.",
+  },
+  lindbergh_birth: {
+    name: "Charles Lindbergh",
+    clue: "Né dans une ville fluviale, cet aviateur devint le premier à traverser un océan en solitaire sans escale, à bord d'un avion monomoteur pendant plus d'un jour.",
+    explanation: "Charles Lindbergh traversa l'océan Atlantique en solitaire et sans escale à bord d'un petit avion monomoteur, un vol qui dura plus de trente-trois heures et le rendit instantanément célèbre dans le monde entier. Ce fut la première traversée en solitaire et sans escale de cet océan en avion, bien que des vols antérieurs l'aient déjà traversé avec un équipage.",
+  },
+  bobby_fischer_1972_match: {
+    name: "Bobby Fischer",
+    clue: "Dans un pays reculé du grand nord, ce prodige des échecs a battu un champion en titre d'une puissance rivale, dans un match suivi dans le monde entier.",
+    explanation: "Bobby Fischer battit le champion du monde d'échecs en titre lors d'un match très médiatisé organisé dans un petit pays du nord choisi comme terrain neutre. Le match fut suivi de près à travers le monde comme un affrontement symbolique entre deux puissances rivales, et la victoire de Fischer fit de lui le premier joueur de son pays à détenir le titre mondial.",
+  },
+  cortes_birth: {
+    name: "Hernán Cortés",
+    clue: "Né dans une petite ville, ce soldat mena une petite expédition qui renversa un vaste empire riche grâce à des alliances locales et une épidémie dévastatrice.",
+    explanation: "Hernán Cortés mena quelques centaines de soldats au cœur d'un puissant empire, nouant des alliances avec des peuples qui en voulaient à leurs dirigeants et profitant d'une vague de maladies importées qui décima la population de l'empire. En deux ans, la capitale était tombée et le souverain de l'empire était mort, ce qui donna à Cortés le contrôle d'un immense nouveau territoire.",
+  },
+  alaska_earthquake_1964: {
+    name: "Grand séisme de l'Alaska",
+    clue: "Le long d'un littoral adossé à une longue chaîne de montagnes, le deuxième séisme le plus puissant jamais enregistré a secoué le sol près de cinq minutes.",
+    explanation: "Un puissant séisme sous-marin déclencha de violentes secousses qui durèrent plusieurs minutes et provoqua des tsunamis qui frappèrent les communautés côtières. Il reste le séisme le plus puissant jamais enregistré dans sa région et l'un des plus puissants jamais mesurés sur Terre.",
+  },
+  asimov_birth: {
+    name: "Isaac Asimov",
+    clue: "Né dans un petit village, cet écrivain de science-fiction publia plus de 500 livres et inventa les trois lois du comportement des robots dans ses récits.",
+    explanation: "Isaac Asimov était un écrivain et biochimiste américain d'origine russe, l'un des auteurs les plus prolifiques de l'histoire. Il est surtout connu pour son cycle de Fondation et pour ses trois lois de la robotique, qui ont durablement influencé la façon dont la fiction représente les robots.",
+  },
+  kubrick_birth: {
+    name: "Stanley Kubrick",
+    clue: "Né dans une grande ville, ce réalisateur tourna une épopée de science-fiction dans l'espace et un film d'horreur dans un hôtel hanté et enneigé.",
+    explanation: "Stanley Kubrick était un cinéaste américain dont les films méticuleux, traversant de nombreux genres, incluent une épopée de science-fiction devenue un classique et un film d'horreur culte se déroulant dans un hôtel hanté. Il est considéré comme l'un des réalisateurs les plus influents de l'histoire du cinéma.",
+  },
+  brando_birth: {
+    name: "Marlon Brando",
+    clue: "Né dans une ville des plaines, cet acteur contribua à un style de jeu naturaliste et interpréta plus tard un vieux parrain du crime dans un film culte.",
+    explanation: "Marlon Brando était un acteur américain largement considéré comme l'un des plus grands et des plus influents interprètes du cinéma, crédité d'avoir popularisé une méthode de jeu naturaliste. Il remporta deux Oscars, dont un pour son rôle de chef d'une famille du crime organisé.",
+  },
+  elizabeth_taylor_birth: {
+    name: "Elizabeth Taylor",
+    clue: "Née dans une grande ville, cette actrice devint une star du cinéma classique, remporta deux fois la plus haute récompense du métier et se maria huit fois.",
+    explanation: "Elizabeth Taylor était une actrice britannico-américaine devenue l'une des plus grandes stars de l'âge d'or hollywoodien, célèbre autant pour son jeu que pour sa vie privée, marquée par huit mariages. Elle remporta deux Oscars de la meilleure actrice.",
+  },
+  stephen_king_birth: {
+    name: "Stephen King",
+    clue: "Né dans une ville côtière, cet auteur écrivit des romans d'horreur mettant en scène un clown tueur, une adolescente télékinésiste et une voiture possédée.",
+    explanation: "Stephen King est un auteur américain connu pour ses romans d'horreur, de suspense et de fantasy, dont plusieurs ont été adaptés en films et séries à succès.",
+  },
+  carl_jung_birth: {
+    name: "Carl Jung",
+    clue: "Né au bord d'un lac partagé par trois pays, ce psychiatre imagina un inconscient commun aux symboles universels et inventa les mots introverti et extraverti.",
+    explanation: "Carl Jung était un psychiatre suisse qui fonda la psychologie analytique après avoir rompu avec son collaborateur Sigmund Freud. Ses idées sur les archétypes et un inconscient collectif restent très influentes en psychologie comme dans la culture populaire.",
+  },
+  malala_yousafzai_birth: {
+    name: "Malala Yousafzai",
+    clue: "Née dans une vallée, cette militante fut blessée par des hommes armés pour son combat pour l'éducation des filles, plus jeune lauréate d'un prix de la paix.",
+    explanation: "Malala Yousafzai est une militante pakistanaise pour l'éducation des filles qui survécut à une tentative d'assassinat par des talibans pakistanais en réaction à son engagement. Elle devint ensuite la plus jeune personne à recevoir le prix Nobel de la paix.",
+  },
+  rembrandt_birth: {
+    name: "Rembrandt",
+    clue: "Né dans une ville universitaire, ce peintre devint l'un des plus célèbres artistes de l'histoire, connu pour son jeu de lumière et quatre-vingts autoportraits.",
+    explanation: "Rembrandt van Rijn était un peintre et graveur néerlandais largement considéré comme l'un des plus grands artistes visuels de l'histoire de l'art occidental. Entre peintures, gravures et dessins, il laissa un nombre inhabituellement élevé d'autoportraits, réalisés tout au long de sa carrière.",
+  },
+  alexandre_dumas_birth: {
+    name: "Alexandre Dumas",
+    clue: "Né dans une petite ville, ce romancier écrivit des aventures autour d'un homme emprisonné à tort cherchant vengeance et de duellistes fidèles à leur roi.",
+    explanation: "Alexandre Dumas était un écrivain français dont les romans d'aventures, dont Le Comte de Monte-Cristo et Les Trois Mousquetaires, comptent parmi les plus lus au monde.",
+  },
+  vivaldi_birth: {
+    name: "Antonio Vivaldi",
+    clue: "Né dans une ville de lagune réputée pour ses canaux, ce prêtre compositeur, surnommé pour ses cheveux roux, écrivit quatre concertos représentant les saisons.",
+    explanation: "Antonio Vivaldi était un compositeur, violoniste et prêtre catholique italien surnommé le Prêtre roux en raison de sa chevelure rousse. Son ensemble de quatre concertos pour violon, connu sous le nom des Quatre Saisons, demeure l'une des œuvres les plus jouées du répertoire classique.",
+  },
+  mendeleev_birth: {
+    name: "Dmitri Mendeleïev",
+    clue: "Né cadet d'une famille nombreuse dans une ville lointaine, ce chimiste classa les éléments connus par poids dans un tableau, prédisant des éléments inconnus.",
+    explanation: "Dmitri Mendeleïev était un chimiste russe qui créa une des premières versions du tableau périodique des éléments. Il laissa des cases vides pour des éléments dont il pensait l'existence probable mais qui n'avaient pas encore été découverts, et ses prédictions sur leurs propriétés se révélèrent exactes.",
+  },
+  hitchcock_birth: {
+    name: "Alfred Hitchcock",
+    clue: "Né à la lisière d'une grande capitale, ce cinéaste réalisa des thrillers devenus des classiques et apparaissait brièvement dans presque tous ses films.",
+    explanation: "Alfred Hitchcock était un cinéaste anglais surnommé le maître du suspense, célèbre pour des thrillers explorant l'angoisse, le voyeurisme et la culpabilité. Il apparaissait brièvement dans la plupart des plus de cinquante longs métrages qu'il réalisa.",
+  },
+  hawking_birth: {
+    name: "Stephen Hawking",
+    clue: "Né dans une ville universitaire, ce physicien écrivit un livre à succès sur l'univers, perdant peu à peu, sur des décennies, ses mouvements puis la parole.",
+    explanation: "Stephen Hawking était un physicien théoricien et cosmologiste anglais qui étudia les trous noirs et les origines de l'univers. Diagnostiqué jeune avec une maladie du motoneurone, il poursuivit ses recherches pendant des décennies, finissant par communiquer uniquement grâce à un synthétiseur vocal.",
+  },
+  sun_tzu_birth: {
+    name: "Sun Tzu",
+    clue: "Né à une époque de royaumes en guerre, ce stratège écrivit un traité sur la ruse militaire encore étudié par des officiers et des chefs d'entreprise.",
+    explanation: "Sun Tzu était un général et stratège traditionnellement crédité de la paternité de L'Art de la guerre, un traité ancien sur la stratégie et la ruse militaires. Il reste l'un des textes militaires les plus influents jamais écrits et il est aussi largement lu en dehors des cercles militaires.",
+  },
+  stravinsky_birth: {
+    name: "Igor Stravinsky",
+    clue: "Né dans une ville en bord de mer, ce compositeur écrivit une partition de ballet si rythmiquement choquante que sa première provoqua une émeute dans le public.",
+    explanation: "Igor Stravinsky était un compositeur d'origine russe, l'une des figures les plus influentes de la musique classique moderne. Son ballet Le Sacre du printemps, avec ses harmonies dissonantes et ses rythmes irréguliers, provoqua une quasi-émeute dans le public lors de sa première à Paris.",
+  },
+  schrodinger_birth: {
+    name: "Erwin Schrödinger",
+    clue: "Né dans une vieille capitale, ce physicien imagina une expérience avec une boîte scellée, un poison et un chat vivant et mort tant qu'il n'est pas observé.",
+    explanation: "Erwin Schrödinger était un physicien autrichien qui apporta des contributions majeures à la mécanique quantique, dont l'équation d'onde qui porte son nom. Son expérience de pensée sur un chat dans un état incertain visait à illustrer l'étrangeté de la superposition quantique, non à décrire une expérience réelle.",
+  },
+  hanshin_earthquake_1995: {
+    name: "Séisme de Kobe",
+    clue: "Ce séisme renversa un tronçon d'autoroute surélevée et rompit une voie ferrée à grande vitesse, dans une ville portuaire bâtie en partie sur la mer.",
+    explanation: "Le grand séisme de Hanshin frappa la ville portuaire japonaise de Kobe, tuant plus de six mille personnes et causant d'importants dégâts aux autoroutes, aux voies ferrées et aux îles artificielles du port. Il entraîna d'importantes réformes dans la préparation aux séismes et les normes de construction du pays.",
+  },
+  christchurch_earthquake_2011: {
+    name: "Séisme de Christchurch",
+    clue: "Ce séisme frappa une ville de l'hémisphère sud à midi, faisant tomber la flèche de sa cathédrale, plus meurtrier qu'un séisme plus fort quelques mois avant.",
+    explanation: "Ce séisme frappa Christchurch, en Nouvelle-Zélande, pendant l'heure du déjeuner, se révélant bien plus meurtrier qu'un séisme plus puissant ayant frappé la même région quelques mois auparavant. Il causa d'importantes destructions dans le centre-ville, dont l'effondrement partiel de la cathédrale qui symbolisait de longue date la ville.",
+  },
+  descartes_birth: {
+    name: "René Descartes",
+    clue: "Né au bord d'une rivière, ce philosophe jugea que la seule chose dont il ne pouvait douter était qu'il doutait, et bâtit une philosophie sur ce fait.",
+    explanation: "René Descartes est surtout connu pour la formule « je pense, donc je suis », point de départ de sa philosophie. Il a aussi inventé le système de coordonnées utilisé pour repérer des points sur un graphique, d'où le nom de coordonnées cartésiennes.",
+  },
+  kepler_birth: {
+    name: "Johannes Kepler",
+    clue: "Né dans une petite ville, cet astronome utilisa les observations minutieuses d'un confrère pour prouver que les orbites sont des ellipses, non des cercles.",
+    explanation: "Johannes Kepler utilisa les observations détaillées de l'astronome Tycho Brahe pour établir ses trois lois du mouvement des planètes, montrant pour la première fois que les planètes se déplacent en ellipses autour du soleil plutôt qu'en cercles parfaits.",
+  },
+  faraday_birth: {
+    name: "Michael Faraday",
+    clue: "Né dans la famille d'un forgeron, ce savant autodidacte montra qu'un aimant en mouvement produit un courant dans un fil, base de tout générateur actuel.",
+    explanation: "Michael Faraday découvrit l'induction électromagnétique, le principe selon lequel un champ magnétique changeant crée un courant électrique. Sa découverte est à la base de tous les générateurs et transformateurs utilisés aujourd'hui, malgré une scolarité quasi inexistante.",
+  },
+  avicenna_birth: {
+    name: "Avicenne",
+    clue: "Né près d'une ville-oasis sur une ancienne route commerciale, ce médecin écrivit un manuel si complet qu'il forma encore des médecins cinq siècles plus tard.",
+    explanation: "Avicenne, né Ibn Sina, écrivit le Canon de la médecine, une vaste encyclopédie qui organisa les connaissances médicales existantes et devint un manuel de référence dans le monde musulman puis dans les universités européennes pendant des siècles.",
+  },
+  omar_khayyam_birth: {
+    name: "Omar Khayyam",
+    clue: "Né dans une ville marchande, ce mathématicien conçut un calendrier précis à un jour près sur des milliers d'années, et écrivit une poésie encore lue partout.",
+    explanation: "Omar Khayyam contribua à concevoir le calendrier djalali, dont la durée moyenne de l'année était plus précise que celle du calendrier utilisé par la majeure partie du monde aujourd'hui. Il est aussi célèbre pour les Rubaiyat, un recueil de quatrains traduit dans des dizaines de langues.",
+  },
+  zheng_he_birth: {
+    name: "Zheng He",
+    clue: "Né loin des côtes, cet amiral commanda une flotte de plus de 300 navires, la plus grande jamais vue, pour rencontrer des souverains lointains.",
+    explanation: "Zheng He mena sept grandes expéditions navales avec des dizaines de milliers de marins, atteignant la péninsule arabique et la côte est de l'Afrique, des décennies avant les fameux grands voyages d'exploration européens.",
+  },
+  humboldt_birth: {
+    name: "Alexander von Humboldt",
+    clue: "Né dans une famille noble, ce naturaliste grimpa plus haut sur un volcan qu'aucun humain avant lui, un record d'altitude qui tint plusieurs décennies.",
+    explanation: "La tentative d'Alexander von Humboldt d'atteindre le sommet du Chimborazo, dans les Andes, établit un record d'altitude en alpinisme. Ses observations lors de cette ascension contribuèrent à fonder la biogéographie, l'étude de la répartition des espèces dans le monde.",
+  },
+  ptolemy_birth: {
+    name: "Ptolémée",
+    clue: "Né le long du Nil, cet astronome et cartographe traça le premier une grille numérotée sur une carte du monde connu, méthode encore utilisée aujourd'hui.",
+    explanation: "La Géographie de Ptolémée introduisit une grille de coordonnées de latitude et de longitude dans la cartographie, et son modèle astronomique, bien que plus tard réfuté, domina la pensée scientifique pendant plus de mille ans.",
+  },
+  mendel_birth: {
+    name: "Gregor Mendel",
+    clue: "Né dans une famille de paysans, ce moine suivit sept générations de petits pois dans un jardin monastique et révéla les règles cachées de l'hérédité.",
+    explanation: "Les expériences minutieuses de Gregor Mendel sur les petits pois révélèrent comment les caractères se transmettent des parents à leur descendance, posant les bases mathématiques de la génétique moderne, bien que son travail soit resté largement ignoré jusqu'à des décennies après sa mort.",
+  },
+  lavoisier_birth: {
+    name: "Antoine Lavoisier",
+    clue: "Né dans l'aisance, ce chimiste à qui l'on prête « rien ne se perd, rien ne se crée » prouva que la combustion consomme un gaz de l'air.",
+    explanation: "Antoine Lavoisier identifia le rôle de l'oxygène dans la combustion et la rouille, réfutant la théorie du phlogistique et contribuant à établir la loi de conservation de la masse, des idées fondatrices de la chimie moderne.",
+  },
+  giordano_bruno_birth: {
+    name: "Giordano Bruno",
+    clue: "Né près d'un volcan fumant, ce moine affirmait que le soleil n'était qu'une étoile parmi tant d'autres, chacune entourée de mondes, ce qui lui valut un procès.",
+    explanation: "Giordano Bruno proposa que l'univers était infini et peuplé d'innombrables étoiles semblables au soleil, chacune potentiellement entourée de planètes. Son refus de renier ces idées, entre autres, mena à son exécution.",
+  },
+  fibonacci_birth: {
+    name: "Fibonacci",
+    clue: "Né dans une cité marchande maritime, ce fils de négociant popularisa le système décimal encore utilisé partout, ainsi qu'une suite de nombres portant son nom.",
+    explanation: "Le livre de Fibonacci, le Liber Abaci, introduisit le système de numération indo-arabe auprès des marchands et des savants, remplaçant des méthodes de calcul plus anciennes et lourdes. La suite de nombres qui porte son nom apparaît partout dans la nature, des pétales de fleurs aux coquillages en spirale.",
+  },
+  naguib_mahfouz_birth: {
+    name: "Naguib Mahfouz",
+    clue: "Né dans un vieux quartier d'une ville fortifiée, ce romancier devint le premier écrivain de sa langue maternelle à recevoir le prix Nobel de littérature.",
+    explanation: "Naguib Mahfouz écrivit des dizaines de romans retraçant la vie de plusieurs générations dans sa ville natale. Il devint le premier écrivain de langue arabe à recevoir le prix Nobel de littérature.",
+  },
+  li_bai_birth: {
+    name: "Li Bai",
+    clue: "Né loin du cœur de l'empire, ce poète erra toute sa vie en écrivant sur le vin et la lune, encore classé parmi les plus grands poètes de sa langue.",
+    explanation: "Li Bai est traditionnellement classé aux côtés de Du Fu parmi les plus grands poètes de la tradition classique de sa langue. Des milliers de ses poèmes ont survécu, célébrant souvent la nature, l'amitié et le vin, et il reste aujourd'hui largement mémorisé et cité.",
+  },
+  laozi_birth: {
+    name: "Laozi",
+    clue: "Selon la tradition, ce sage né dans un village de paysans écrivit un court livre sur l'harmonie avec la nature, qui façonne encore philosophie et religion.",
+    explanation: "Laozi est traditionnellement considéré comme l'auteur du Tao-tö-king, un texte bref mais d'une influence immense sur l'harmonie avec l'ordre naturel. On sait très peu de choses vérifiables sur sa vie, et certains historiens doutent même de son existence.",
+  },
+  paul_the_apostle_birth: {
+    name: "Paul de Tarse",
+    clue: "Fils d'un fabricant de tentes né dans une ville marchande, cet homme persécuta une foi nouvelle avant qu'une conversion le rende célèbre par ses écrits.",
+    explanation: "Paul de Tarse persécuta d'abord les partisans du mouvement chrétien naissant avant de vivre une expérience de conversion soudaine. Il écrivit ensuite une grande partie des lettres qui composent le Nouveau Testament et voyagea beaucoup pour répandre la nouvelle foi.",
+  },
+  orwell_birth: {
+    name: "George Orwell",
+    clue: "Né sous administration coloniale, cet écrivain inventa « police de la pensée » et « grand frère », expressions désignant aujourd'hui la surveillance d'État.",
+    explanation: "George Orwell, né Eric Arthur Blair, écrivit des romans satiriques et dystopiques mettant en garde contre le contrôle totalitaire et la propagande. Les termes qu'il inventa pour désigner la surveillance et le langage manipulé sont entrés dans l'usage courant de nombreuses langues.",
+  },
+  goethe_birth: {
+    name: "Johann Wolfgang von Goethe",
+    clue: "Né dans une famille aisée, cet écrivain doit son œuvre la plus célèbre à un érudit inquiet qui passe un pacte avec le diable pour obtenir un savoir sans limite.",
+    explanation: "Le drame en deux parties de Johann Wolfgang von Goethe suit un érudit qui conclut un pacte avec le diable dans sa quête effrénée de savoir et d'expérience. L'histoire est devenue une expression courante pour désigner le fait de vendre son âme contre le pouvoir ou la réussite.",
+  },
+  arthur_conan_doyle_birth: {
+    name: "Arthur Conan Doyle",
+    clue: "Né dans une ville perchée au nord, cet écrivain a créé un détective fumeur de pipe qui résout des crimes par pure déduction, aidé d'un fidèle ami médecin.",
+    explanation: "Arthur Conan Doyle était médecin avant de se consacrer entièrement à l'écriture après le succès de ses récits policiers. Sherlock Holmes résout ses enquêtes par l'observation minutieuse et la pure logique, aidé de son ami et biographe le docteur Watson, et reste l'un des personnages de fiction les plus adaptés au monde.",
+  },
+  lewis_carroll_birth: {
+    name: "Lewis Carroll",
+    clue: "Né dans un petit village, cet auteur et mathématicien a écrit une fillette tombée dans un terrier, au pays des animaux parlants et des thés extravagants.",
+    explanation: "Lewis Carroll, de son vrai nom Charles Dodgson, était enseignant en mathématiques et a écrit Les Aventures d'Alice au pays des merveilles pour une jeune amie, puis une suite, De l'autre côté du miroir. Son goût du jeu de mots et du non-sens, notamment dans le poème Jabberwocky, reste célébré pour son mélange de logique et de fantaisie.",
+  },
+  hg_wells_birth: {
+    name: "H. G. Wells",
+    clue: "Né dans une ville de marché, ce romancier a imaginé des Martiens envahissant la Terre en tripodes géants, et une machine capable de voyager dans le temps.",
+    explanation: "H. G. Wells a écrit certains des premiers récits de science-fiction les plus influents, imaginant une invasion extraterrestre dans La Guerre des mondes et un engin capable de voyager dans le temps dans La Machine à explorer le temps. Son œuvre a contribué à fonder le genre et a été adaptée d'innombrables fois au cinéma, à la radio et dans les livres.",
+  },
+  rosalind_franklin_birth: {
+    name: "Rosalind Franklin",
+    clue: "Née dans une grande capitale, le cliché aux rayons X de cette scientifique a révélé la double hélice d'une molécule, plan transmis par chaque cellule vivante.",
+    explanation: "Rosalind Franklin était une chimiste dont les images de diffraction aux rayons X de fibres d'ADN, en particulier l'une d'elles connue comme le cliché 51, ont fourni des preuves essentielles pour établir la structure en double hélice de la molécule. Elle est morte avant que l'importance de sa découverte soit pleinement reconnue, et n'a reçu une reconnaissance plus large que plus tard.",
+  },
+  edmond_halley_birth: {
+    name: "Edmond Halley",
+    clue: "Né dans une capitale portuaire animée, cet astronome a calculé qu'une comète vue depuis des siècles reviendrait après sa mort, ce qui s'est produit comme prévu.",
+    explanation: "Edmond Halley a étudié des relevés d'observations passées de comètes et a compris qu'une même comète revenait régulièrement selon un cycle fixe. Il a prédit sa prochaine apparition, survenue comme annoncé après sa mort, et la comète, désormais appelée comète de Halley, porte son nom depuis.",
+  },
+  nostradamus_birth: {
+    name: "Nostradamus",
+    clue: "Né dans une ville ensoleillée du sud, cet astrologue a écrit des centaines de quatrains cryptiques, encore lus aujourd'hui comme des prédictions de l'avenir.",
+    explanation: "Nostradamus était apothicaire et médecin, et a aussi écrit Les Propheties, un recueil de courts quatrains ambigus que des lecteurs interprètent depuis longtemps comme des prédictions de guerres, de catastrophes et d'autres événements à venir. Les chercheurs estiment généralement que ces textes sont assez vagues pour être réinterprétés après coup afin de correspondre à presque n'importe quel événement.",
+  },
+  jacques_cousteau_birth: {
+    name: "Jacques Cousteau",
+    clue: "Né près d'un large estuaire côtier, cet officier de marine a conçu l'un des premiers appareils pour plonger en profondeur, puis a filmé ce qu'il a découvert.",
+    explanation: "Jacques Cousteau a coinventé le scaphandre autonome, l'un des premiers systèmes de plongée autonome, qui lui a permis d'explorer et de filmer l'océan plus librement que les plongeurs équipés de lourdes combinaisons à casque avant lui. Ses documentaires et émissions de télévision ont fait découvrir la vie marine à des millions de spectateurs.",
+  },
+  steve_irwin_birth: {
+    name: "Steve Irwin",
+    clue: "Né près d'une grande ville du sud, cet animateur attrapait des crocodiles à mains nues, mort quand une raie lui a transpercé la poitrine en tournage.",
+    explanation: "Steve Irwin dirigeait un parc animalier fondé par ses parents et est devenu mondialement connu pour manipuler des animaux dangereux, en particulier des crocodiles, devant la caméra avec un commentaire plein d'enthousiasme. Il est mort après qu'une raie lui a transpercé la poitrine avec son dard alors qu'il tournait un documentaire sur un récif corallien.",
+  },
+  paulo_coelho_birth: {
+    name: "Paulo Coelho",
+    clue: "Né dans une ville côtière au pied de montagnes vertes, ce romancier a écrit un best-seller sur un berger traversant un désert en quête d'un rêve de trésor.",
+    explanation: "Paulo Coelho a d'abord été parolier avant de se tourner vers la fiction. Son roman L'Alchimiste, qui suit un berger quittant sa maison pour chercher un trésor après un rêve récurrent, est devenu l'un des livres les plus vendus de l'histoire et a été traduit dans des dizaines de langues.",
+  },
+  margaret_atwood_birth: {
+    name: "Margaret Atwood",
+    clue: "Née dans une capitale au confluent de deux rivières, cette romancière a imaginé une théocratie forçant les femmes fertiles à enfanter pour la classe dirigeante.",
+    explanation: "Margaret Atwood est une romancière et poétesse dont le roman dystopique La Servante écarlate imagine un État totalitaire qui prive les femmes de leurs droits et force certaines d'entre elles à la procréation forcée pour la classe dirigeante. Le roman a depuis été adapté en une série télévisée très suivie.",
+  },
+  srinivasa_ramanujan_birth: {
+    name: "Srinivasa Ramanujan",
+    clue: "Né pauvre dans une ville de temples, ce mathématicien autodidacte a envoyé ses théorèmes à un mathématicien réputé à l'étranger, qui y a vu un génie pur.",
+    explanation: "Srinivasa Ramanujan n'avait presque aucune formation mathématique formelle, mais a développé seul des milliers de résultats originaux en théorie des nombres et en séries infinies. Il a envoyé certaines de ses découvertes au mathématicien G. H. Hardy, à Cambridge, qui a reconnu leur brillance et l'a fait venir pour collaborer avec lui.",
+  },
+  david_livingstone_victoria_falls: {
+    name: "David Livingstone",
+    clue: "Le long d'un grand fleuve traversant un continent, un explorateur documente une chute d'eau large d'un kilomètre, la nommant pour une reine restée au pays.",
+    explanation: "David Livingstone était un missionnaire et explorateur qui a parcouru l'intérieur de l'Afrique, cartographiant des fleuves et militant contre la traite des esclaves. Il a nommé la chute d'eau Victoria Falls en l'honneur de la reine de Grande-Bretagne, et elle reste l'une des plus grandes chutes d'eau du monde par sa largeur et sa hauteur combinées.",
+  },
+  thomas_aquinas_birth: {
+    name: "Thomas Aquinas",
+    clue: "Né dans un château perché sur une péninsule montagneuse, ce frère a écrit une œuvre massive expliquant la foi chrétienne par la logique et le raisonnement.",
+    explanation: "Thomas d'Aquin était un frère dominicain dont l'œuvre massive, la Somme théologique, tentait d'expliquer systématiquement la foi chrétienne par la logique et l'argumentation raisonnée plutôt que par la seule foi. Sa synthèse entre la foi et la philosophie aristotélicienne reste fondatrice pour la théologie catholique et une grande partie de la philosophie occidentale.",
+  },
+  toni_morrison_birth: {
+    name: "Toni Morrison",
+    clue: "Née près de vastes lacs d'eau douce à cheval sur une frontière, cette romancière a raconté une mère hantée par la fille tuée pour lui épargner l'esclavage.",
+    explanation: "Le roman de Toni Morrison, Beloved, suit une ancienne esclave hantée par le fantôme de la fille qu'elle a tuée plutôt que de la voir renvoyée en esclavage. Le roman a remporté d'importantes récompenses littéraires, et Morrison a ensuite reçu le prix Nobel de littérature pour l'ensemble de son œuvre.",
+  },
+  noam_chomsky_birth: {
+    name: "Noam Chomsky",
+    clue: "Né dans une grande ville de l'est, ce linguiste a proposé une grammaire universelle innée, transformant la linguistique, l'un des savants les plus cités.",
+    explanation: "Noam Chomsky a proposé que les humains naissent avec une capacité innée pour le langage, une idée connue comme la grammaire universelle, qui a transformé le champ de la linguistique. Il a aussi beaucoup écrit sur la politique et les médias, et compte parmi les universitaires les plus cités, toutes disciplines confondues.",
+  },
+  tchaikovsky_birth: {
+    name: "Piotr Ilitch Tchaïkovski",
+    clue: "Né dans une petite ville industrielle, ce compositeur a écrit un ballet où un casse-noisette prend vie et affronte un roi des souris, joué chaque hiver.",
+    explanation: "Piotr Ilitch Tchaïkovski a composé Casse-Noisette, un ballet où le casse-noisette en bois d'une fillette prend vie et affronte un roi des souris, ainsi que d'autres ballets et œuvres orchestrales largement joués. Sa musique fut parmi les premières compositions de son pays à connaître un succès durable à l'étranger.",
+  },
+  hypatia_birth: {
+    name: "Hypatie",
+    clue: "Née dans une grande ville portuaire méditerranéenne, cette philosophe et astronome fut l'une des premières mathématiciennes bien documentées de l'histoire.",
+    explanation: "Hypatie a enseigné les mathématiques, l'astronomie et la philosophie à Alexandrie, attirant des élèves venus de loin et conseillant des responsables de la ville. Elle a été tuée par une foule lors d'une période de conflits politiques et religieux dans la ville, et sa vie est devenue le symbole à la fois du savoir et des dangers de la violence politique.",
+  },
+  sergey_brin_birth: {
+    name: "Sergey Brin",
+    clue: "Né dans une grande capitale du bloc de l'Est aux hivers rigoureux, cet entrepreneur émigré enfant a cofondé un moteur de recherche devenu un verbe.",
+    explanation: "Sergey Brin a émigré enfant puis a rencontré Larry Page alors qu'il était étudiant en doctorat, et ensemble ils ont construit un moteur de recherche qui classait les résultats selon le nombre d'autres pages qui y renvoyaient. Cette entreprise est devenue l'une des plus valorisées au monde, et son nom est devenu un verbe courant pour désigner une recherche en ligne.",
+  },
+  vermeer_birth: {
+    name: "Johannes Vermeer",
+    clue: "Né dans une ville aux canaux, ce peintre a peint une jeune fille au turban bleu et boucle de perle, l'un des visages les plus reconnus de l'art.",
+    explanation: "Johannes Vermeer est né à Delft, une ville néerlandaise sillonnée de canaux, où il a passé presque toute sa vie. Son tableau d'une jeune fille au turban bleu et à la boucle de perle est aujourd'hui l'une des images les plus reproduites de l'histoire de l'art, parfois surnommée la Joconde du Nord.",
+  },
+  raphael_birth: {
+    name: "Raphaël",
+    clue: "Né dans une ville de collines, la fresque de ce peintre représentant des philosophes antiques orne le palais d'un chef religieux, sommet de la peinture.",
+    explanation: "Raphaël est né à Urbino, une ville de collines du centre de l'Italie. Sa fresque L'École d'Athènes, qui réunit les philosophes de l'Antiquité grecque, orne une salle du palais apostolique du Vatican et compte parmi les sommets de la Haute Renaissance.",
+  },
+  goya_birth: {
+    name: "Francisco Goya",
+    clue: "Né près d'une ville fluviale du nord, ce peintre a peint une exécution nocturne au fusil, éclairée par une lanterne, tableau bouleversant contre la guerre.",
+    explanation: "Francisco Goya est né près de Saragosse, une ville sur l'Èbre, dans le nord de l'Espagne. Son tableau montrant des civils exécutés au fusil, la nuit, éclairés par une seule lanterne, reste l'une des dénonciations les plus puissantes de la guerre dans l'histoire de l'art.",
+  },
+  cezanne_birth: {
+    name: "Paul Cézanne",
+    clue: "Né dans une ville de collines du sud, ce peintre a peint sans cesse la même montagne, décomposant ses formes en volumes géométriques annonçant l'art moderne.",
+    explanation: "Paul Cézanne est né à Aix-en-Provence, dans le sud de la France. Il a peint des dizaines de fois la montagne Sainte-Victoire toute proche, simplifiant ses formes en plans géométriques, une approche qui a aidé à relier l'impressionnisme aux mouvements d'art abstrait qui ont suivi.",
+  },
+  pollock_birth: {
+    name: "Jackson Pollock",
+    clue: "Né dans une petite ville d'éleveurs, ce peintre projetait et laissait couler la peinture sur des toiles posées au sol, fondant un style abstrait très influent.",
+    explanation: "Jackson Pollock est né à Cody, une petite ville d'éleveurs du Wyoming. Il est devenu une figure majeure de l'expressionnisme abstrait en projetant et en laissant couler la peinture sur des toiles posées au sol, une technique qui a changé la façon de peindre.",
+  },
+  matisse_birth: {
+    name: "Henri Matisse",
+    clue: "Né dans une ville textile, cet artiste s'est mis à découper des formes dans du papier peint sur le tard, quand la maladie l'empêchait de tenir un chevalet.",
+    explanation: "Henri Matisse est né au Cateau-Cambrésis, une ville connue pour son industrie textile. Sur la fin de sa vie, la maladie le confinait largement à un fauteuil roulant, et il s'est alors mis à découper des formes audacieuses dans du papier peint plutôt que d'utiliser un pinceau, une technique qu'il appelait dessiner aux ciseaux.",
+  },
+  handel_birth: {
+    name: "Georg Friedrich Haendel",
+    clue: "Né dans une ville marchande de sel, ce compositeur a écrit un oratorio dont le chœur triomphal se chante encore debout, dans le monde entier chaque hiver.",
+    explanation: "Georg Friedrich Haendel est né à Halle, une ville enrichie par le commerce du sel. Son oratorio Le Messie comprend le chœur du Hallelujah, un morceau si saisissant que le public se lève traditionnellement pour l'écouter, surtout lors des concerts d'hiver.",
+  },
+  verdi_birth: {
+    name: "Giuseppe Verdi",
+    clue: "Né dans un petit village agricole, ce compositeur a écrit un air d'opéra sur une femme inconstante devenu l'un des airs les plus reconnus et sifflés au monde.",
+    explanation: "Giuseppe Verdi est né près de Busseto, un petit village agricole. Son opéra Rigoletto comprend l'air La donna è mobile, sur une femme inconstante, devenu l'un des airs les plus reconnus et sifflés de tout l'opéra.",
+  },
+  bergman_birth: {
+    name: "Ingmar Bergman",
+    clue: "Né dans une ville universitaire, ce réalisateur a filmé un chevalier jouant aux échecs contre la mort sur une plage venteuse, scène depuis souvent parodiée.",
+    explanation: "Ingmar Bergman est né à Uppsala, une ville universitaire suédoise. Son film Le Septième Sceau montre un chevalier jouant aux échecs contre une figure de la mort sur une plage venteuse, une image depuis reprise et parodiée dans d'innombrables films et séries.",
+  },
+  fellini_birth: {
+    name: "Federico Fellini",
+    clue: "Né dans une ville balnéaire, ce réalisateur a filmé une actrice entrant tout habillée dans une fontaine la nuit, scène devenue symbole d'un luxe extravagant.",
+    explanation: "Federico Fellini est né à Rimini, une ville balnéaire sur l'Adriatique. Son film La Dolce Vita comprend une scène où une actrice entre dans une fontaine la nuit, en robe de soirée, une image devenue le symbole d'un luxe décadent.",
+  },
+  satyajit_ray_birth: {
+    name: "Satyajit Ray",
+    clue: "Né dans une grande ville portuaire, ce réalisateur a financé une trilogie en noir et blanc sur l'enfance d'un garçon pauvre, chef d'œuvre du cinéma mondial.",
+    explanation: "Satyajit Ray est né à Calcutta. Il a financé une grande partie de son premier film sur ses propres économies, achevant une trilogie en noir et blanc qui suit l'enfance et la jeunesse d'un garçon pauvre, aujourd'hui considérée comme un jalon du cinéma mondial.",
+  },
+  eratosthenes_birth: {
+    name: "Ératosthène",
+    clue: "Né dans une ville côtière, ce savant a dirigé une bibliothèque légendaire, calculant la taille de la planète via des ombres de midi dans deux villes éloignées.",
+    explanation: "Ératosthène est né à Cyrène, une ville côtière d'Afrique du Nord. Il devint plus tard le grand bibliothécaire d'Alexandrie, où il calcula la circonférence de la Terre en comparant l'angle de l'ombre du soleil de midi dans deux villes très éloignées l'une de l'autre, obtenant un résultat étonnamment précis.",
+  },
+  rontgen_birth: {
+    name: "Wilhelm Röntgen",
+    clue: "Né dans une ville d'une région vallonnée, ce physicien a découvert un rayon mystérieux capable de photographier les os d'une main vivante, révolution médicale.",
+    explanation: "Wilhelm Röntgen est né à Lennep, une petite ville d'une région vallonnée d'Allemagne. En expérimentant avec un tube à rayons cathodiques dans son laboratoire, il découvrit une forme de rayonnement capable de traverser la chair et de photographier les os d'une main vivante, qu'il baptisa rayons X.",
+  },
+  watt_birth: {
+    name: "James Watt",
+    clue: "Né dans une ville portuaire de construction navale, cet ingénieur a amélioré une machine transformant la vapeur en mouvement rotatif pour les usines.",
+    explanation: "James Watt est né à Greenock, une ville portuaire de construction navale sur la côte ouest de l'Écosse. Ses améliorations de la machine à vapeur lui ont permis de transformer la poussée de la vapeur en un mouvement rotatif régulier, rendant possible l'entraînement des machines dans les moulins et les usines.",
+  },
+  euler_birth: {
+    name: "Leonhard Euler",
+    clue: "Né dans une ville entourée de montagnes, ce mathématicien resta si prolifique qu'après avoir perdu la vue, il continuait à dicter de nouveaux travaux.",
+    explanation: "Leonhard Euler est né à Bâle, une ville entourée de collines proches des montagnes. Il resta extraordinairement productif même après avoir perdu presque toute sa vue, dictant de nouveaux travaux et calculs à des assistants et continuant à publier pendant des années.",
+  },
+  ibn_al_haytham_birth: {
+    name: "Ibn al-Haytham",
+    clue: "Né dans une ville fluviale, ce savant a prouvé que l'on voit parce que la lumière entre dans l'œil, avec une pièce sombre percée d'un trou projetant une image.",
+    explanation: "Ibn al-Haytham est né à Bassora, une ville sur un delta fluvial au Moyen-Orient. Il renversa l'idée ancienne selon laquelle l'œil émettrait des rayons pour voir, montrant au contraire que la vision fonctionne parce que la lumière entre dans l'œil, et il démontra la propagation de la lumière grâce à une pièce sombre percée d'un petit trou projetant une image sur le mur opposé.",
+  },
+  pauling_birth: {
+    name: "Linus Pauling",
+    clue: "Né dans une ville de la côte pacifique, ce chimiste a reçu un prix Nobel pour avoir expliqué la liaison des atomes, puis un second contre l'arme nucléaire.",
+    explanation: "Linus Pauling est né à Portland, une ville de la côte pacifique des États-Unis. Il a reçu le prix Nobel de chimie pour avoir expliqué comment les atomes se lient entre eux, puis, des années plus tard, le prix Nobel de la paix pour sa campagne contre les essais d'armes nucléaires.",
+  },
+  raman_birth: {
+    name: "C. V. Raman",
+    clue: "Né dans une ville aux temples sur une rivière, ce physicien a découvert un léger changement de couleur de la lumière traversant une matière transparente.",
+    explanation: "C. V. Raman est né à Tiruchirapalli, une ville aux temples sur la rivière Kaveri, dans le sud de l'Inde. Il découvrit que la lumière traversant une matière transparente change légèrement de longueur d'onde, un effet aujourd'hui appelé diffusion Raman et utilisé comme technique d'identification des matériaux.",
+  },
+  pavlov_birth: {
+    name: "Ivan Pavlov",
+    clue: "Né dans une famille de prêtre, il entraîne des chiens à saliver au son d'une cloche, prouvant que le corps apprend à réagir à un signal neutre.",
+    explanation: "Les expériences d'Ivan Pavlov sur le conditionnement classique, où des chiens apprenaient à saliver à un signal associé à la nourriture, ont fait de lui un fondateur des sciences du comportement et lui ont valu un prix Nobel pour ses travaux sur la digestion.",
+  },
+  hubble_birth: {
+    name: "Edwin Hubble",
+    clue: "Né dans une petite ville agricole, cet astronome montre que des taches floues dites nébuleuses sont en fait des galaxies, et que l'univers est en expansion.",
+    explanation: "Les observations d'Edwin Hubble ont prouvé que de nombreux objets pris pour des nuages de gaz dans notre propre galaxie étaient en fait des galaxies distinctes, et que celles-ci s'éloignent les unes des autres à mesure que l'univers s'étend.",
+  },
+  pascal_birth: {
+    name: "Blaise Pascal",
+    clue: "Né dans la famille d'un fonctionnaire des impôts, ce mathématicien construit adolescent une des premières machines à calculer pour aider son père.",
+    explanation: "Blaise Pascal a construit sa machine à calculer pour accélérer le travail fiscal de son père, avant de poser les bases de la théorie des probabilités et d'étudier la pression dans les fluides, dont une unité porte aujourd'hui son nom.",
+  },
+  gauss_birth: {
+    name: "Carl Friedrich Gauss",
+    clue: "Né dans une famille pauvre, ce mathématicien stupéfie son instituteur enfant en trouvant instantanément la somme de tous les nombres de un à cent.",
+    explanation: "Carl Friedrich Gauss a ensuite apporté des contributions majeures à la théorie des nombres, aux statistiques et à l'astronomie, et reste considéré comme l'un des plus grands mathématiciens de l'histoire.",
+  },
+  anne_boleyn_birth: {
+    name: "Anne Boleyn",
+    clue: "Née dans une famille noble, elle devient la seconde épouse d'un roi, avant d'être décapitée sur son ordre un peu plus de trois ans après leur mariage.",
+    explanation: "Le mariage d'Anne Boleyn avec Henri VIII, et son désir désespéré d'y mettre fin, a contribué à la rupture de l'Angleterre avec Rome. Elle fut exécutée pour trahison, et sa fille devint plus tard une reine célèbre à part entière.",
+  },
+  tasman_birth: {
+    name: "Abel Tasman",
+    clue: "Né dans un village agricole, ce marin dirige la flotte d'une compagnie commerciale et devient le premier capitaine à atteindre une île qui portera son nom.",
+    explanation: "Les voyages d'Abel Tasman pour la Compagnie néerlandaise des Indes orientales ont fait de lui le premier Européen connu à atteindre l'île appelée plus tard Tasmanie, et il a aussi longé les côtes de ce qui deviendra la Nouvelle-Zélande, sans jamais poser le pied sur le continent de l'un ou l'autre pays.",
+  },
+  chagall_birth: {
+    name: "Marc Chagall",
+    clue: "Né dans une famille juive pauvre d'une petite ville, ce peintre peuple ses toiles d'amoureux, de violonistes et de vaches flottant au-dessus des toits.",
+    explanation: "Marc Chagall s'est inspiré des souvenirs de sa ville natale pour ses images oniriques, avant de devenir célèbre pour ses grands vitraux et ses plafonds peints dans des bâtiments publics du monde entier.",
+  },
+  munch_birth: {
+    name: "Edvard Munch",
+    clue: "Né dans une famille marquée par la maladie et des deuils précoces, ce peintre peint une silhouette hurlante sous un ciel tourbillonnant, rouge sang.",
+    explanation: "Le tableau d'Edvard Munch représentant une silhouette hurlant sur un pont est devenu l'une des images les plus reproduites de l'histoire de l'art, expression de l'angoisse qui a marqué une grande partie de sa vie.",
+  },
+  joseph_conrad_birth: {
+    name: "Joseph Conrad",
+    clue: "Né dans une famille exilée pour s'être opposée à une domination étrangère, il devient marin puis romancier célèbre dans une langue apprise à l'âge adulte.",
+    explanation: "Joseph Conrad a passé près de vingt ans en mer avant de s'installer en Angleterre et d'écrire des romans dans sa troisième langue, s'inspirant largement de ses propres voyages vers des fleuves et des côtes lointaines.",
+  },
+  robert_boyle_birth: {
+    name: "Robert Boyle",
+    clue: "Né dernier fils d'un noble fortuné, ce scientifique utilise une pompe à air artisanale pour montrer que comprimer un gaz de moitié double sa pression.",
+    explanation: "Les expériences de Robert Boyle avec des pompes à air ont établi la relation entre la pression et le volume d'un gaz, et son insistance sur l'expérience rigoureuse a contribué à fonder la chimie moderne.",
+  },
+  dalton_birth: {
+    name: "John Dalton",
+    clue: "Né dans une famille de tisserands, ce scientifique voyait mal les couleurs, fut le premier à l'étudier, et pensa la matière faite d'atomes de poids fixe.",
+    explanation: "Le daltonisme de John Dalton l'a conduit à publier la première étude scientifique de cette particularité visuelle, encore appelée ainsi dans plusieurs langues, et sa théorie atomique est devenue un fondement de la chimie moderne.",
+  },
+  diego_rivera_birth: {
+    name: "Diego Rivera",
+    clue: "Né jumeau d'un frère mort en bas âge, ce peintre couvre des murs publics de fresques géantes montrant travailleurs, révolutionnaires et l'histoire de son pays.",
+    explanation: "Les fresques monumentales de Diego Rivera, peintes sur les murs de bâtiments gouvernementaux puis dans des villes à l'étranger, ont contribué à faire de la peinture murale un art majeur et un moyen de raconter l'histoire d'une nation au grand public.",
+  },
+  pissarro_birth: {
+    name: "Camille Pissarro",
+    clue: "Né sur une petite île des Caraïbes, ce peintre aide à fonder un grand mouvement artistique fondé sur la capture en extérieur des effets fugaces de la lumière.",
+    explanation: "Camille Pissarro fut une figure fondatrice de l'impressionnisme, exposant à chacune des expositions du groupe, et devint plus tard le mentor de plusieurs peintres plus jeunes qui développèrent le style à leur tour.",
+  },
+  oprah_winfrey_birth: {
+    name: "Oprah Winfrey",
+    clue: "Née dans la pauvreté d'une petite ville du Sud, cette animatrice bâtit un empire médiatique et devient la première femme noire milliardaire au monde.",
+    explanation: "L'émission de télévision d'Oprah Winfrey a été diffusée en syndication nationale pendant vingt-cinq ans, et son entreprise médiatique, son club de lecture et ses actions philanthropiques ont fait d'elle l'une des femmes les plus influentes au monde.",
+  },
+  sappho_birth: {
+    name: "Sappho",
+    clue: "Née sur une petite île dans l'Antiquité, cette poétesse doit à ses vers sur l'amour et le désir d'être la plus célèbre poétesse du monde antique.",
+    explanation: "La poésie lyrique de Sappho, écrite pour être chantée avec un instrument à cordes, ne nous est parvenue aujourd'hui que sous forme de fragments, mais les auteurs anciens la comptaient parmi les plus grands poètes de tous les temps.",
+  },
+  solzhenitsyn_birth: {
+    name: "Alexandre Soljenitsyne",
+    clue: "Né peu après la mort de son père, cet écrivain est emprisonné des années dans des camps de travail forcé, avant de dénoncer ce système dans un livre majeur.",
+    explanation: "Alexandre Soljenitsyne a passé des années dans des camps de travail forcé après avoir critiqué les dirigeants de son pays, avant d'écrire un récit monumental de ce système concentrationnaire qui a contribué à le faire connaître au monde entier, ce qui lui valut le prix Nobel de littérature.",
+  },
+  ohm_birth: {
+    name: "Georg Ohm",
+    clue: "Né dans la famille d'un serrurier autodidacte en mathématiques, ce physicien, enseignant de métier, établit le lien exact entre tension, courant et résistance.",
+    explanation: "La loi de Georg Ohm décrivant la relation entre tension, courant et résistance fut d'abord accueillie avec scepticisme, mais elle est aujourd'hui l'une des règles de base enseignées en électronique, et une unité de résistance porte son nom.",
+  },
+  sima_qian_birth: {
+    name: "Sima Qian",
+    clue: "Né dans une famille d'historiens de cour, il subit une mutilation pour avoir défendu un général déchu, mais achève une vaste histoire couvrant deux mille ans.",
+    explanation: "Sima Qian choisit d'endurer la castration plutôt que d'accepter l'exécution, afin de pouvoir achever son histoire monumentale, une œuvre qui devint le modèle des histoires officielles pendant les deux mille années suivantes.",
+  },
+  capek_birth: {
+    name: "Karel Čapek",
+    clue: "Né dans une petite ville, ce dramaturge a écrit une pièce sur des humains artificiels produits en série, qui a donné au monde le mot robot.",
+    explanation: "Karel Čapek était un écrivain tchèque dont la pièce la plus célèbre imagine une usine fabriquant des ouvriers artificiels, qui finissent par se retourner contre leurs créateurs humains. Son frère a suggéré ce nom, emprunté à un ancien mot désignant le travail forcé, qui s'est vite répandu dans toutes les langues.",
+  },
+  lorca_birth: {
+    name: "Federico García Lorca",
+    clue: "Né dans une petite ville agricole, ce poète et dramaturge a été fusillé dans les premiers jours d'une guerre civile qui a déchiré son pays.",
+    explanation: "Federico García Lorca était un poète et dramaturge espagnol célèbre pour une œuvre mêlant tradition populaire et images vivement musicales. Quelques jours après le début de la guerre civile espagnole, il fut arrêté par les forces nationalistes et exécuté près de sa région natale ; son corps n'a jamais été retrouvé.",
+  },
+  diderot_birth: {
+    name: "Denis Diderot",
+    clue: "Né dans une petite ville, ce philosophe a dirigé pendant des décennies une équipe qui a produit une encyclopédie immense rassemblant tout le savoir humain.",
+    explanation: "Denis Diderot était un philosophe et écrivain français des Lumières, rédacteur en chef de l'Encyclopédie, une vaste œuvre de référence couvrant les sciences, l'industrie et les arts. Le projet a affronté des années de censure avant que ses nombreux volumes ne soient enfin achevés.",
+  },
+  tom_cruise_birth: {
+    name: "Tom Cruise",
+    clue: "Né dans une petite ville, cet acteur a bâti sa carrière sur une saga d'espionnage et un film sur des pilotes de chasse, réalisant lui-même ses cascades.",
+    explanation: "Tom Cruise est un acteur américain connu pour une longue saga d'espionnage et pour avoir incarné un pilote de chasse casse-cou en début de carrière. Il a réalisé nombre de ses propres cascades, dont s'accrocher au flanc d'un avion en vol et escalader le plus haut gratte-ciel du monde.",
+  },
+  jim_carrey_birth: {
+    name: "Jim Carrey",
+    clue: "Né dans une petite ville, ce comédien mondialement célèbre a joué un détective animalier loufoque, un homme incapable de mentir, et un vilain au teint vert.",
+    explanation: "Jim Carrey est un acteur et comédien canado-américain connu pour ses expressions faciales élastiques et son énergie débordante à l'écran. Il s'est ensuite tourné vers des rôles dramatiques plus sérieux, salués pour révéler un côté plus sombre et réfléchi de son talent.",
+  },
+  anthony_quinn_birth: {
+    name: "Anthony Quinn",
+    clue: "Né dans une petite ville, cet acteur a remporté deux récompenses de jeu, puis a incarné un insulaire fantasque apprenant à un visiteur à danser sans retenue.",
+    explanation: "Anthony Quinn était un acteur mexicano-américain connu pour ses personnages excentriques et hauts en couleur dans plus d'une centaine de films. Son rôle le plus aimé le voit apprendre à un timide visiteur étranger à se libérer et à savourer la vie, dansant avec lui sur une plage dans la scène finale du film.",
+  },
+  el_greco_birth: {
+    name: "Le Greco",
+    clue: "Né sur une grande île méditerranéenne, ce peintre a développé un style distinctif fait de figures allongées et flamboyantes, en avance sur son temps.",
+    explanation: "Le Greco s'est formé comme peintre d'icônes avant de s'installer d'abord en Italie puis en Espagne, où il produisit les figures dramatiques et allongées pour lesquelles on le connaît. Longtemps jugée excentrique, son œuvre fut redécouverte des générations plus tard et exerça une influence majeure sur l'art moderne.",
+  },
+  grieg_birth: {
+    name: "Edvard Grieg",
+    clue: "Né dans une ville côtière, ce compositeur a écrit une musique de trolls dansant dans une salle de montagne, toujours reconnaissable dans les dessins animés.",
+    explanation: "Edvard Grieg était un compositeur norvégien dont la musique de scène pour une pièce de théâtre comprend ce morceau galopant et de plus en plus rapide connu sous le nom du Hall du roi de la montagne. Il puisait largement dans les mélodies populaires norvégiennes, donnant à la musique de son pays une identité reconnue dans le monde entier.",
+  },
+  hillenburg_birth: {
+    name: "Stephen Hillenburg",
+    clue: "Né dans une petite ville, cet ancien professeur de biologie marine a créé un dessin animé sur une éponge de mer joyeuse, l'un des plus regardés au monde.",
+    explanation: "Stephen Hillenburg était un animateur américain et éducateur en sciences marines, créateur de Bob l'éponge, qui s'est appuyé sur ses années d'enseignement de la biologie marine pour concevoir une distribution de personnages sous-marins. La série est devenue l'une des plus longues et des plus traduites de l'histoire de la télévision.",
+  },
+  dawkins_birth: {
+    name: "Richard Dawkins",
+    clue: "Né dans une grande ville, ce biologiste a écrit un livre influent affirmant que la sélection naturelle agit vraiment sur les gènes, non les organismes.",
+    explanation: "Richard Dawkins est un biologiste évolutionniste britannique dont le livre a popularisé une vision de l'évolution centrée sur les gènes, présentant les êtres vivants comme des véhicules construits par des gènes en compétition pour se répliquer. L'ouvrage a aussi introduit un terme aujourd'hui très répandu pour désigner une unité d'information culturelle qui se propage entre les personnes.",
+  },
+  lawrence_bragg_birth: {
+    name: "Lawrence Bragg",
+    clue: "Né dans une ville de l'hémisphère sud, ce physicien devint le plus jeune lauréat scientifique d'un prix Nobel, partageant l'honneur avec son propre père.",
+    explanation: "Lawrence Bragg était un physicien né en Australie qui mit au point, avec son père, une méthode pour déterminer la structure atomique des cristaux à l'aide des rayons X. Il avait vingt-cinq ans lorsqu'ils reçurent ensemble le prix, un record pour un Nobel scientifique qui tient toujours.",
+  },
+  heyerdahl_birth: {
+    name: "Thor Heyerdahl",
+    clue: "Né dans une ville côtière, cet aventurier a construit un radeau de balsa et navigué des milliers de km pour tester une théorie sur des migrations anciennes.",
+    explanation: "Thor Heyerdahl était un ethnographe norvégien convaincu que d'anciens peuples d'Amérique du Sud avaient pu peupler des îles du Pacifique à bord de radeaux rudimentaires. Pour le prouver, lui et un petit équipage traversèrent l'océan à bord d'un radeau de balsa construit à la main, se nourrissant de poissons et d'eau de pluie tout au long du voyage.",
+  },
+  leonov_birth: {
+    name: "Alexeï Leonov",
+    clue: "Né dans un petit village sibérien, ce cosmonaute est devenu le premier être humain de l'histoire à quitter son vaisseau et à flotter librement dans l'espace.",
+    explanation: "Alexeï Leonov était un cosmonaute russe qui sortit de sa capsule, relié par un câble, pendant une douzaine de minutes, devenant le premier homme à marcher dans l'espace. Sa combinaison gonfla tellement dans le vide qu'il eut du mal à rentrer par le sas, un détail dangereux resté longtemps discret. L'exploit survint en pleine rivalité spatiale entre deux grandes puissances mondiales.",
+  },
+  tu_youyou_birth: {
+    name: "Tu Youyou",
+    clue: "Née dans une ville côtière, cette chimiste a cherché dans d'anciens textes un remède contre le paludisme, isolant un composé qui a sauvé des millions de vies.",
+    explanation: "Tu Youyou est une chimiste pharmaceutique chinoise qui a dirigé un programme de recherche chargé de trouver de nouveaux traitements contre le paludisme. En relisant un texte séculaire sur les remèdes à base de plantes, elle a identifié un composé de l'armoise annuelle, aujourd'hui à la base du traitement antipaludique le plus efficace au monde.",
+  },
+  ronald_ross_birth: {
+    name: "Ronald Ross",
+    clue: "Né dans une ville de collines, ce médecin a prouvé qu'un insecte piqueur transmettait le paludisme entre humains, une découverte récompensée par un prix Nobel.",
+    explanation: "Ronald Ross était un médecin britannique travaillant comme médecin militaire en Inde lorsqu'il disséqua des moustiques et trouva des parasites du paludisme se développant dans leur estomac, prouvant comment la maladie se transmet. Sa découverte a ouvert la voie à des programmes de lutte antimoustique qui ont sauvé d'innombrables vies.",
+  },
+  bardeen_birth: {
+    name: "John Bardeen",
+    clue: "Né dans une ville moyenne, ce physicien a co-inventé le transistor, ce minuscule interrupteur présent dans tout ordinateur, et a reçu deux fois un prix Nobel.",
+    explanation: "John Bardeen était un physicien américain qui, avec deux collègues dans un laboratoire de recherche, construisit le premier transistor fonctionnel, remplaçant les tubes à vide encombrants et fragiles dans les appareils électroniques. Il reçut un second prix de physique pour avoir expliqué comment certains matériaux perdent toute résistance électrique à très basse température.",
+  },
+  townes_birth: {
+    name: "Charles Townes",
+    clue: "Né dans une petite ville, ce physicien a construit le premier appareil à produire un faisceau pur de micro-ondes, posant les bases du laser et un prix Nobel.",
+    explanation: "Charles Townes était un physicien américain qui construisit d'abord un appareil amplifiant les micro-ondes par émission stimulée, puis élabora la théorie permettant de faire de même avec la lumière visible. Ce travail théorique a permis à d'autres chercheurs de construire le premier laser fonctionnel, une technologie aujourd'hui utilisée en chirurgie, dans les communications et dans de nombreux appareils du quotidien.",
+  },
+  cabral_birth: {
+    name: "Pedro Álvares Cabral",
+    clue: "Né dans une petite ville, la flotte de ce navigateur en route vers un comptoir lointain dériva et toucha une terre qui redessina la carte d'un continent.",
+    explanation: "Pedro Álvares Cabral était un noble portugais envoyé ouvrir une route maritime commerciale vers l'Inde. En s'éloignant loin dans l'Atlantique pour profiter de vents favorables, sa flotte dériva vers l'ouest et aperçut une terre qui se révéla être la côte du Brésil, qu'il revendiqua pour le Portugal avant de poursuivre sa route vers l'Inde.",
+  },
+  dennis_hopper_birth: {
+    name: "Dennis Hopper",
+    clue: "Né au milieu des plaines d'une région agricole, un acteur et réalisateur tourne un road trip à moto à très petit budget qui transforme le cinéma d'un pays.",
+    explanation: "Dennis Hopper a été à la fois acteur et réalisateur d'Easy Rider, un road movie contestataire tourné avec un tout petit budget, devenu un succès énorme qui a contribué à lancer tout un courant de films plus provocateurs et à petit budget.",
+  },
+  paul_allen_birth: {
+    name: "Paul Allen",
+    clue: "Né dans un port pluvieux sur le Pacifique, un programmeur et son ami d'enfance codent pour un kit d'ordinateur et fondent un géant de l'informatique.",
+    explanation: "Paul Allen a cofondé Microsoft avec Bill Gates après avoir lu un article de magazine sur un kit d'ordinateur pionnier et décidé qu'il fallait agir immédiatement. Il a ensuite financé des projets scientifiques et philanthropiques, dont une recherche de signaux radio extraterrestres.",
+  },
+  julian_assange_birth: {
+    name: "Julian Assange",
+    clue: "Né dans une ville côtière sous les tropiques, un rédacteur fonde un site qui publie des documents militaires et diplomatiques, provoquant un tollé mondial.",
+    explanation: "Julian Assange a fondé WikiLeaks, qui a publié des rapports militaires américains classifiés et des câbles diplomatiques transmis par une analyste du renseignement militaire, provoquant des réactions furieuses de gouvernements du monde entier.",
+  },
+  maryam_mirzakhani_birth: {
+    name: "Maryam Mirzakhani",
+    clue: "Née dans une capitale entourée de montagnes, une mathématicienne devient la première femme à remporter la plus prestigieuse récompense de sa discipline.",
+    explanation: "Maryam Mirzakhani a reçu la médaille Fields pour ses travaux sur la géométrie des surfaces courbes, devenant à la fois la première femme et la première Iranienne à la recevoir. Elle est morte d'un cancer à 40 ans, et sa victoire reste un moment marquant pour les femmes en mathématiques.",
+  },
+  selma_lagerlof_birth: {
+    name: "Selma Lagerlöf",
+    clue: "Née sur un domaine familial dans une campagne boisée du nord, une romancière devient la première femme à recevoir le prix Nobel de littérature.",
+    explanation: "Selma Lagerlöf s'est inspirée du folklore et des légendes suédoises dans ses romans et recueils de récits, et sa victoire a ouvert le prix Nobel de littérature aux femmes pour la première fois de son histoire.",
+  },
+  brahmagupta_birth: {
+    name: "Brahmagupta",
+    clue: "Né dans une ville marchande du désert sur une ancienne route caravanière, un mathématicien est le premier à traiter le zéro comme un vrai nombre.",
+    explanation: "Le traité de Brahmagupta a donné au zéro un traitement mathématique formel pour la première fois, avec des règles de calcul incluant le zéro et les nombres négatifs, des idées qui se sont ensuite répandues vers l'ouest et ont transformé les mathématiques.",
+  },
+  humphry_davy_birth: {
+    name: "Humphry Davy",
+    clue: "Né dans un petit port sur une côte rocheuse, un chimiste invente une lampe qui protège les mineurs des gaz inflammables, évitant des explosions mortelles.",
+    explanation: "La lampe de sécurité de Humphry Davy utilisait un fin grillage métallique pour empêcher la flamme d'atteindre le gaz dans les mines de charbon, sauvant d'innombrables vies sous terre. Il a aussi utilisé le courant électrique pour isoler plusieurs éléments chimiques pour la première fois, dont le potassium et le sodium.",
+  },
+  robert_wilson_birth: {
+    name: "Robert Wilson",
+    clue: "Né dans une grande ville connue pour son industrie énergétique, un astronome relie un grésillement capté par une antenne en cor à la naissance de l'univers.",
+    explanation: "Robert Wilson et un collègue ont d'abord soupçonné une interférence, allant jusqu'à blâmer des fientes de pigeon dans leur antenne, avant de comprendre qu'ils avaient détecté un rayonnement résiduel des tout premiers instants de l'univers, l'une des preuves les plus solides de la façon dont il a commencé.",
+  },
+  emanuel_lasker_birth: {
+    name: "Emanuel Lasker",
+    clue: "Né dans une petite ville entourée de lacs et de forêts, un joueur d'échecs devient champion du monde et bat le record de longévité au sommet du jeu.",
+    explanation: "Emanuel Lasker a détenu le titre de champion du monde d'échecs pendant 27 ans, le règne le plus long de tout champion officiellement reconnu, tout en travaillant aussi comme mathématicien et philosophe en parallèle de sa carrière aux échecs.",
+  },
+  chandrasekhar_birth: {
+    name: "Subrahmanyan Chandrasekhar",
+    clue: "Né dans une grande ville sur une plaine fluviale, un astrophysicien calcule la masse limite au-delà de laquelle une étoile mourante s'effondre en objet dense.",
+    explanation: "Subrahmanyan Chandrasekhar a effectué ce calcul alors qu'il était jeune, durant une longue traversée en bateau, montrant que toute étoile mourante plus lourde que cette limite doit s'effondrer davantage, en une étoile à neutrons ou un trou noir. La découverte a d'abord été rejetée par un astronome plus âgé, mais elle est aujourd'hui considérée comme fondamentale pour l'étude de la mort des étoiles.",
+  },
+  john_wayne_birth: {
+    name: "John Wayne",
+    clue: "Né dans une étendue de prairie balayée par le vent, cet acteur est devenu le visage du cow-boy robuste dans des dizaines de films western sur cinq décennies.",
+    explanation: "John Wayne, né Marion Morrison, a joué dans des dizaines de films western et de guerre pendant l'âge d'or de Hollywood, devenant un symbole durable de la frontière américaine. Il a reçu à titre posthume la plus haute distinction civile du pays.",
+  },
+  quentin_tarantino_birth: {
+    name: "Quentin Tarantino",
+    clue: "Né dans une ville de collines, ce réalisateur signe des films de gangsters violents racontés dans le désordre, primés au plus grand festival de cinéma au monde.",
+    explanation: "Le film qui a lancé la carrière de Quentin Tarantino, un récit de gangsters raconté à travers des chapitres non chronologiques entrelacés, a remporté la Palme d'or au Festival de Cannes. Ses films sont connus pour leur violence stylisée, leurs dialogues truffés de références à la culture populaire et leurs hommages au cinéma.",
+  },
+  fitzgerald_birth: {
+    name: "F. Scott Fitzgerald",
+    clue: "Né dans une ville résidentielle tranquille, ce romancier écrivit un roman sur les fêtes d'un millionnaire mystérieux, données pour reconquérir un amour perdu.",
+    explanation: "Le roman de F. Scott Fitzgerald Gatsby le Magnifique, narré par un jeune agent de change, dépeint le faste et le vide moral de la richesse des années folles. Malgré un succès commercial limité de son vivant, il est devenu un classique des lectures scolaires américaines.",
+  },
+  vonnegut_birth: {
+    name: "Kurt Vonnegut",
+    clue: "Né dans une ville du centre du pays, prisonnier de guerre, il survécut à un bombardement et écrivit un roman antiguerre à la phrase répétée à chaque mort.",
+    explanation: "Kurt Vonnegut était prisonnier de guerre à Dresde, en Allemagne, lors du bombardement allié qui a détruit la ville. Il en a tiré Abattoir 5, un roman antiguerre teinté de science-fiction dont le narrateur répète 'c'est la vie' après chaque mort.",
+  },
+  sienkiewicz_birth: {
+    name: "Henryk Sienkiewicz",
+    clue: "Né dans un manoir rural, ce romancier écrivit sur des fidèles persécutés d'une foi nouvelle dans un empire antique, adapté en film nommé à de nombreux prix.",
+    explanation: "Henryk Sienkiewicz a reçu le prix Nobel de littérature pour ses romans historiques. Son livre le plus connu, Quo Vadis, suit des chrétiens persécutés dans la Rome antique sous l'empereur Néron, et a été adapté en une somptueuse superproduction hollywoodienne.",
+  },
+  mussorgsky_birth: {
+    name: "Modeste Moussorgski",
+    clue: "Né dans un domaine rural, ce compositeur a dépeint un rassemblement de sorcières au sommet d'une montagne, repris pour animer à l'écran un démon cornu.",
+    explanation: "Le poème symphonique de Modeste Moussorgski, Une nuit sur le mont Chauve, dépeint un sabbat démoniaque et a ensuite été réorchestré pour la séquence du démon 'Tchernobog' dans le film d'animation Fantasia de Walt Disney, l'une des apparitions les plus célèbres de la musique classique à l'écran.",
+  },
+  rimsky_korsakov_birth: {
+    name: "Nikolaï Rimski-Korsakov",
+    clue: "Né dans une ville de province, ce compositeur écrivit un morceau imitant le vol frénétique d'un insecte bourdonnant, un des airs les plus connus du classique.",
+    explanation: "Nikolaï Rimski-Korsakov a composé Le Vol du bourdon comme interlude orchestral pour un opéra. Le morceau est depuis devenu l'une des mélodies les plus citées de la culture populaire, arrangé pour d'innombrables instruments et utilisé dans des dessins animés, des films et des jeux vidéo.",
+  },
+  pearl_buck_birth: {
+    name: "Pearl S. Buck",
+    clue: "Née au pied des Appalaches mais élevée à l'étranger par des missionnaires, cette écrivaine reçut un Nobel pour une saga paysanne située là où elle a grandi.",
+    explanation: "Pearl S. Buck a grandi en Chine, où ses parents étaient missionnaires. Son roman La Terre chinoise, sur les difficultés d'une famille de paysans chinois, a remporté le prix Pulitzer et a contribué à faire d'elle la première Américaine à recevoir le prix Nobel de littérature.",
+  },
+  romanov_execution: {
+    name: "Exécution de la famille Romanov",
+    clue: "Dans les monts Oural, un monarque déchu et sa famille furent abattus par des gardes révolutionnaires au sous-sol d'une maison, fin d'une dynastie tricentenaire.",
+    explanation: "Le tsar Nicolas II de Russie, son épouse et leurs cinq enfants ont été exécutés par des révolutionnaires bolcheviques dans une maison d'Ekaterinbourg, mettant fin au règne de trois siècles de la dynastie des Romanov. Le sort de la plus jeune fille, Anastasia, a inspiré des décennies de légendes et de fausses prétendantes.",
+  },
+  siege_of_yorktown: {
+    name: "Siège de Yorktown",
+    clue: "Acculée contre une rivière par un blocus combiné terrestre et naval, une force impériale s'est rendue, scellant l'issue d'une guerre d'indépendance coloniale.",
+    explanation: "Le général britannique Cornwallis a rendu son armée à Yorktown après que les forces américaines et françaises l'ont acculé contre la rivière York, tandis qu'une flotte française bloquait toute fuite par la mer, mettant fin de fait aux combats de la guerre d'indépendance américaine.",
+  },
+  battle_of_gaugamela: {
+    name: "Bataille de Gaugamèles",
+    clue: "Dans une plaine proche des ruines de Ninive, un jeune roi dont l'armée avait conquis l'est de la Méditerranée brisa le plus grand empire de l'histoire.",
+    explanation: "Alexandre le Grand a vaincu de façon décisive Darius III de l'empire perse achéménide à Gaugamèles, près de l'actuelle Mossoul en Irak. Cette victoire a livré à Alexandre l'intégralité de l'empire perse, alors le plus grand que le monde ait connu.",
+  },
+  battle_of_carrhae: {
+    name: "Bataille de Carrhes",
+    clue: "Une armée d'infanterie fut attirée en plein désert et encerclée par des archers montés tirant vers l'arrière en feignant de fuir, anéantissant la troupe piégée.",
+    explanation: "À Carrhes, une armée romaine commandée par Crassus fut anéantie par les archers à cheval parthes, qui feignaient de fuir pour mieux tirer vers l'arrière sur leurs poursuivants, une manœuvre appelée le tir du Parthe. L'expression anglaise 'parting shot' en serait, selon certains, dérivée.",
+  },
+  karlov_assassination: {
+    name: "Assassinat d'Andreï Karlov",
+    clue: "Un diplomate fut abattu par-derrière par un homme en uniforme de police pendant un discours dans une galerie d'art, capté en photo, primée dans le monde entier.",
+    explanation: "L'ambassadeur russe Andreï Karlov a été assassiné à Ankara, en Turquie, par un policier hors service protestant contre l'implication russe dans la guerre civile syrienne. Une photographie de l'assassin debout au-dessus du corps de Karlov a remporté le prix World Press Photo de l'année.",
+  },
+  siege_of_belgrade_1456: {
+    name: "Siège de Belgrade",
+    clue: "Le long du Danube, une garnison inférieure en nombre résista des semaines à une armée massive, victoire fêtée par des cloches sonnant à midi dans bien des pays.",
+    explanation: "Les forces hongroises et croisées, très inférieures en nombre, menées par Janos Hunyadi, ont brisé un siège ottoman massif de Belgrade. En célébration, le pape a ordonné que les cloches des églises de la chrétienté sonnent à midi, une tradition qui perdure aujourd'hui dans de nombreux pays.",
+  },
+  michelson_birth: {
+    name: "Albert A. Michelson",
+    clue: "Né en terres agricoles plates, ce physicien mesura la vitesse de la lumière, devenant le premier de son pays d'adoption à gagner un Nobel scientifique.",
+    explanation: "Les mesures précises de la vitesse de la lumière réalisées par Albert Michelson, notamment la célèbre expérience de Michelson-Morley, ont contribué à réfuter la théorie d'un éther porteur de lumière. Il devint le premier Américain à remporter un prix Nobel dans une discipline scientifique.",
+  },
+  abdus_salam_birth: {
+    name: "Abdus Salam",
+    clue: "Né dans une ville agricole du Pendjab, ce physicien montra que deux forces de la nature n'en sont qu'une, premier de sa foi à gagner un Nobel scientifique.",
+    explanation: "Abdus Salam a partagé le prix Nobel de physique pour avoir unifié les forces électromagnétique et nucléaire faible en une seule théorie. Né dans ce qui est aujourd'hui le Pakistan, il fut le premier lauréat musulman dans les sciences.",
+  },
+  isidor_rabi_birth: {
+    name: "Isidor Isaac Rabi",
+    clue: "Né au creux de collines, la réaction perplexe de ce physicien face à une étrange particule est devenue une réplique culte : 'qui a commandé ça ?'",
+    explanation: "Isidor Isaac Rabi a mis au point une méthode de résonance pour étudier les noyaux atomiques, à l'origine de l'IRM. En apprenant la découverte inattendue du muon, une particule sans rôle clair dans la théorie de l'époque, il aurait lancé : 'Qui a commandé ça ?'",
+  },
+  berzelius_birth: {
+    name: "Jöns Jacob Berzelius",
+    clue: "Né dans un domaine rural, ce chimiste conçut le système de symboles d'une ou deux lettres encore utilisé pour désigner chaque élément du tableau périodique.",
+    explanation: "Jöns Jacob Berzelius a introduit le système moderne de symboles chimiques, comme O pour l'oxygène et Fe pour le fer, remplaçant d'anciennes notations picturales. Il a aussi déterminé les masses atomiques de nombreux éléments et est considéré comme un fondateur de la chimie moderne.",
+  },
+  metchnikoff_birth: {
+    name: "Élie Metchnikoff",
+    clue: "Né au bord d'une rivière, sur un domaine rural, ce biologiste découvrit des cellules sanguines qui engloutissent les germes, enseigné en cours de biologie.",
+    explanation: "Élie Metchnikoff a découvert la phagocytose, le processus par lequel des globules blancs spécialisés engloutissent et détruisent des bactéries et d'autres envahisseurs, une découverte fondatrice de l'immunologie qui lui valut un prix Nobel partagé.",
+  },
+  ernest_lawrence_birth: {
+    name: "Ernest Lawrence",
+    clue: "Né dans les grandes plaines du nord, ce physicien inventa une machine à aimants pour accélérer des particules, à la base de certains appareils contre le cancer.",
+    explanation: "Ernest Lawrence a inventé le cyclotron, un accélérateur de particules circulaire qui utilisait des champs magnétiques pour faire tourner des particules chargées à grande vitesse. Cette conception reste la base de nombreux accélérateurs de particules modernes, y compris certains utilisés en protonthérapie contre le cancer.",
+  },
+  battle_of_adwa: {
+    name: "Bataille d'Adoua",
+    clue: "L'armée d'un royaume montagneux, avec fusils, lances et canons pris, écrase une force coloniale envahissante et force son retrait, préservant son indépendance.",
+    explanation: "La bataille d'Adoua vit les forces éthiopiennes sous l'empereur Ménélik II vaincre une armée italienne envahissante, garantissant la souveraineté de l'Éthiopie et en faisant l'un des rares États de son continent que les puissances coloniales ne conquirent jamais.",
+  },
+  battle_of_talas: {
+    name: "Bataille de Talas",
+    clue: "Une armée dirigée par un chef religieux et politique bat un rival près d'un fleuve ; des artisans papetiers captifs répandent leur savoir-faire vers l'ouest.",
+    explanation: "La bataille de Talas s'acheva par une victoire abbasside sur une expédition de la dynastie Tang près de la rivière Talas. Des fabricants de papier chinois capturés lors de la bataille sont traditionnellement crédités d'avoir propagé la fabrication du papier vers le monde musulman puis vers l'Europe.",
+  },
+  battle_of_the_hydaspes: {
+    name: "Bataille de l'Hydaspe",
+    clue: "L'armée d'un conquérant affronte des éléphants de guerre pour la première fois sur une rive ; admirative du courage du roi vaincu, elle le rétablit au pouvoir.",
+    explanation: "À la bataille de l'Hydaspe, Alexandre le Grand vainquit le roi Poros, dont les forces comprenaient des éléphants de guerre inconnus de l'armée envahissante. Impressionné par son courage, Alexandre rétablit Poros à la tête d'un territoire agrandi.",
+  },
+  zanzibar_revolution: {
+    name: "Révolution de Zanzibar",
+    clue: "Le monarque d'une île est renversé peu après l'indépendance de son royaume, quand la population majoritaire se soulève contre une minorité au pouvoir.",
+    explanation: "La révolution de Zanzibar renversa le sultan de Zanzibar et son gouvernement à majorité arabe, quelques semaines après l'indépendance de Zanzibar vis-à-vis de la Grande-Bretagne. Le nouveau gouvernement fusionna bientôt avec le continent voisin pour former la Tanzanie.",
+  },
+  treaty_of_fes: {
+    name: "Traité de Fès",
+    clue: "Le monarque d'un royaume, assiégé dans son palais par une rébellion, cède l'administration de son pays à une puissance étrangère pour plus de quatre décennies.",
+    explanation: "Le traité de Fès établit un protectorat français sur le Maroc. Le sultan Abd al-Hafid le signa alors qu'un soulèvement contre l'influence étrangère l'assiégeait dans son propre palais. L'administration française du pays dura plus de quatre décennies avant l'indépendance.",
+  },
+  gujarat_earthquake_2001: {
+    name: "Séisme du Gujarat",
+    clue: "Un puissant séisme pendant un défilé national frappe une région de marais salants asséchés, atteignant le degré maximal de l'échelle de dégâts à douze niveaux.",
+    explanation: "Le séisme du Gujarat frappa l'ouest de l'Inde le jour de la fête de la République, tuant des dizaines de milliers de personnes. La ville la plus proche de l'épicentre fut presque entièrement détruite.",
+  },
+  rudolf_clausius_birth: {
+    name: "Rudolf Clausius",
+    clue: "Né dans une petite ville côtière, ce physicien nomme le concept d'entropie et pose l'une des lois fondamentales de la thermodynamique.",
+    explanation: "Rudolf Clausius naquit à Koszalin, sur la côte de la Baltique. Il introduisit le concept d'entropie et formula l'un des premiers énoncés clairs du second principe de la thermodynamique.",
+  },
+  gottlob_frege_birth: {
+    name: "Gottlob Frege",
+    clue: "Né dans une petite ville portuaire, ce savant invente une logique symbolique qui fonde les mathématiques modernes, bien qu'ignoré de son vivant.",
+    explanation: "Gottlob Frege naquit dans la ville portuaire de Wismar. Il développa la logique des prédicats moderne et est considéré comme un fondateur de la philosophie analytique, bien que la reconnaissance de son travail vint surtout après sa mort.",
+  },
+  robert_millikan_birth: {
+    name: "Robert Millikan",
+    clue: "Né dans une petite ville agricole, ce physicien conçoit une expérience à gouttelettes d'huile chargées pour mesurer la charge exacte d'un électron.",
+    explanation: "Robert Millikan naquit à Morrison, dans l'Illinois. Son expérience de la goutte d'huile fournit la première mesure précise de la charge de l'électron, un travail pour lequel il reçut plus tard un prix de physique.",
+  },
+  preah_vihear_temple: {
+    name: "Temple de Preah Vihear",
+    clue: "Un temple bâti au sommet d'une falaise sur une crête devient le centre d'un différend frontalier vieux de décennies entre deux pays voisins.",
+    explanation: "Le temple de Preah Vihear se dresse au sommet d'une falaise dans les monts Dangrek. La possession du site est disputée entre le Cambodge et la Thaïlande depuis des décennies, la question ayant été portée deux fois devant la Cour internationale de justice.",
+  },
+  amarna_akhetaten: {
+    name: "Amarna",
+    clue: "Un chef religieux et politique bâtit une capitale neuve vouée à un dieu solaire unique, délaissant l'ancien panthéon ; elle est désertée après sa mort.",
+    explanation: "Amarna fut bâtie sous le nom d'Akhetaton, nouvelle capitale du pharaon Akhenaton, qui promut le culte du disque solaire Aton au détriment des dieux traditionnels de l'Égypte. La ville fut abandonnée quelques années après sa mort.",
+  },
+  tiwanaku: {
+    name: "Tiwanaku",
+    clue: "Près d'un vaste lac d'altitude, une civilisation bâtit une cité de blocs de pierre énormes tirés de carrières lointaines, sans roues ni bêtes de trait.",
+    explanation: "Tiwanaku, près du lac Titicaca dans les Andes, fut le centre cérémoniel d'une civilisation qui influença les cultures andines ultérieures, y compris celle des Incas. Ses bâtisseurs déplacèrent d'énormes blocs de pierre sans véhicules à roues.",
+  },
+  arch_of_reunification: {
+    name: "Arche de la Réunification",
+    clue: "Une arche de béton figurant deux silhouettes drapées tendues l'une vers l'autre enjambe une route vers une frontière fortifiée, symbole d'une réunification.",
+    explanation: "L'Arche de la Réunification se dressait au sud de Pyongyang, enjambant l'autoroute menant à la zone démilitarisée séparant la Corée du Nord et la Corée du Sud. Elle fut démolie après que la Corée du Nord eut abandonné l'objectif d'une réunification pacifique.",
+  },
+  tristan_tzara_birth: {
+    name: "Tristan Tzara",
+    clue: "Né dans une petite ville de marché, ce poète, partisan de poèmes composés en tirant des mots de journaux au hasard, cofonde un mouvement fondé sur le non-sens.",
+    explanation: "Tristan Tzara naquit à Moinesti. Il devint une figure majeure d'un courant artistique anticonformiste qui rejetait l'esthétique conventionnelle par la performance absurde et la poésie, influençant plus tard le surréalisme et au-delà.",
+  },
+  sinclair_lewis_birth: {
+    name: "Sinclair Lewis",
+    clue: "Né dans une petite ville de la prairie qui inspira son roman le plus connu, cet écrivain devient le premier de son pays à remporter un prix littéraire majeur.",
+    explanation: "Sinclair Lewis naquit à Sauk Centre, dans le Minnesota, ville qui inspira la ville fictive de son roman Main Street. Il devint le premier écrivain des États-Unis à remporter le prix Nobel de littérature.",
+  },
+  gabriela_mistral_birth: {
+    name: "Gabriela Mistral",
+    clue: "Née dans une petite ville de vallée montagneuse, cette poétesse devient la première personne de tout son continent à remporter le prix Nobel de littérature.",
+    explanation: "Il s'agit de Gabriela Mistral, née à Vicuña, au Chili, qui a remporté le prix Nobel de littérature, devenant la première autrice d'Amérique latine à l'obtenir. Son portrait figure aujourd'hui sur les billets chiliens.",
+  },
+  zhu_xi_birth: {
+    name: "Zhu Xi",
+    clue: "Né dans une ville de vallée fluviale, ce lettré rédige des commentaires qui deviennent la référence des examens d'État pendant six siècles.",
+    explanation: "Il s'agit de Zhu Xi, né à Youxi, dont la synthèse de la pensée confucéenne est devenue la base officielle des examens de la fonction publique impériale pendant environ six siècles, influençant l'éducation dans toute l'Asie de l'Est bien après sa mort.",
+  },
+  rudolf_steiner_birth: {
+    name: "Rudolf Steiner",
+    clue: "Né dans un petit village frontalier, ce penseur fonde un mouvement scolaire présent dans plus de mille écoles, bien avant la mode de l'agriculture biologique.",
+    explanation: "Il s'agit de Rudolf Steiner, né dans l'actuelle Donji Kraljevec, fondateur du mouvement pédagogique Waldorf, qui compte aujourd'hui plus de mille écoles dans le monde, et de l'agriculture biodynamique, précurseur de l'agriculture biologique.",
+  },
+  nadine_gordimer_birth: {
+    name: "Nadine Gordimer",
+    clue: "Née dans une ville minière, cette romancière voit ses livres interdits par son gouvernement des décennies avant de remporter le prix Nobel de littérature.",
+    explanation: "Il s'agit de Nadine Gordimer, née près de Springs, en Afrique du Sud, dont les romans dénonçant l'apartheid ont été interdits à plusieurs reprises par le gouvernement avant qu'elle ne reçoive le prix Nobel de littérature.",
+  },
+  temple_of_literature_hanoi: {
+    name: "Temple de la Littérature",
+    clue: "Un temple honorant un maître vénéré sert des siècles d'académie nationale, sa cour bordée de 82 stèles posées sur des tortues, nommant chacune un diplômé.",
+    explanation: "Il s'agit du temple de la Littérature à Hanoï, qui a abrité l'Académie impériale, la toute première université nationale du pays, pendant plus de sept siècles. Ses stèles de pierre encore visibles, posées sur des tortues sculptées, portent les noms de plus d'un millier de lauréats des examens.",
+  },
+  mazar_e_quaid: {
+    name: "Mazar-e-Quaid",
+    clue: "Un mausolée de marbre blanc aux parois ajourées de cuivre est bâti pour le fondateur d'une nation, gardé par des soldats relevés chaque heure, jour et nuit.",
+    explanation: "Il s'agit du Mazar-e-Quaid à Karachi, le mausolée de Muhammad Ali Jinnah, fondateur du Pakistan. Une garde d'honneur y change de poste toutes les heures, jour et nuit.",
+  },
+  freedom_monument_riga: {
+    name: "Monument de la Liberté",
+    clue: "Une colonne de pierre surmontée d'une statue de femme en cuivre tenant trois étoiles est financée par des dons publics, plus tard symbole indépendantiste.",
+    explanation: "Il s'agit du monument de la Liberté à Riga, entièrement financé par des dons privés. Sa statue de cuivre, surnommée Milda, tient trois étoiles représentant les régions historiques du pays, et le site est devenu un point de ralliement pour le mouvement indépendantiste qui a suivi.",
+  },
+  chen_ning_yang_birth: {
+    name: "Chen-Ning Yang",
+    clue: "Né dans une ville fluviale, ce scientifique démontre qu'une loi de symétrie jugée fiable peut être brisée, partageant le prix Nobel l'année de sa confirmation.",
+    explanation: "Il s'agit de Chen-Ning Yang, né à Hefei, qui démontre avec Tsung-Dao Lee que la symétrie de parité ne se vérifie pas toujours dans la nature. La prédiction est confirmée en quelques mois, et les deux scientifiques partagent le prix Nobel de physique la même année.",
+  },
+  scott_south_pole: {
+    name: "Dernier camp de Scott",
+    clue: "Un explorateur et ses compagnons meurent sous leur tente près d'un dépôt de ravitaillement, chargés de fossiles rocheux ramenés depuis l'extrémité du monde.",
+    explanation: "Il s'agit du dernier campement de Robert Falcon Scott, sur le chemin du retour depuis le pôle Sud, à seulement une vingtaine de kilomètres du dépôt de ravitaillement le plus proche. Leur traîneau transportait encore des fossiles, les tout premiers jamais recueillis en Antarctique.",
+  },
+  korolev_baikonur: {
+    name: "Base de lancement de Baïkonour",
+    clue: "L'ingénieur en chef de cette base de lancement isolée reste secret des années, même après l'envoi du premier satellite et du premier humain dans l'espace.",
+    explanation: "Il s'agit du cosmodrome de Baïkonour, dans la steppe kazakhe, dirigé par l'ingénieur en chef Sergueï Korolev, dont le nom et le rôle sont restés secrets pendant toute sa vie. Le premier satellite et le premier vol spatial habité ont tous deux été lancés depuis ce site.",
+  },
+  union_of_krewo: {
+    name: "Union de Krewo",
+    clue: "Dans un château, les promesses de mariage d'un jeune souverain unissent deux royaumes, formant plus tard l'une des plus grandes puissances de la région.",
+    explanation: "Il s'agit de l'union de Krewo, signée au château de Krewo, par laquelle le grand-duc de Lituanie s'engage à épouser la reine de Pologne et à se convertir au christianisme, unissant les deux royaumes sous une même famille régnante et donnant naissance, à terme, à la République des Deux Nations.",
+  },
+  prespa_agreement: {
+    name: "Accord de Prespa",
+    clue: "Deux pays voisins mettent fin à un différend de plusieurs décennies sur le nom de l'un d'eux, en signant un accord au bord d'un lac qui touche trois pays.",
+    explanation: "Il s'agit de l'accord de Prespa, signé au bord du lac Prespa, par lequel la Grèce et son voisin du nord règlent un différend vieux de vingt-sept ans sur l'usage du nom Macédoine.",
+  },
+  romanian_revolution_1989: {
+    name: "Révolution roumaine",
+    clue: "Le discours télévisé d'un dirigeant au pouvoir de longue date est interrompu par les huées de la foule ; il fuit en hélicoptère puis est vite exécuté.",
+    explanation: "Il s'agit de la révolution roumaine, qui met fin au régime de Nicolae Ceaușescu après que son dernier discours public dans la capitale est perturbé par des huées, diffusées en direct avant la coupure du signal. Lui et son épouse s'enfuient en hélicoptère, sont capturés, puis exécutés après un procès militaire expéditif.",
+  },
+  lobachevsky_birth: {
+    name: "Nikolaï Lobatchevski",
+    clue: "Né dans une ville portuaire fluviale, ce mathématicien montre qu'un point admet plusieurs parallèles à une droite, une idée raillée puis dite révolutionnaire.",
+    explanation: "Il s'agit de Nikolaï Lobatchevski, né près de Nijni Novgorod, dont la géométrie non euclidienne a été rejetée par le monde scientifique de son vivant avant de lui valoir, plus tard, le surnom de Copernic de la géométrie.",
+  },
+  abbasid_revolution: {
+    name: "Révolution abbasside",
+    clue: "Un soulèvement parti d'une ville oasis renverse une dynastie, déplaçant le pouvoir d'un empire vers une nouvelle capitale et ouvrant un âge d'or du savoir.",
+    explanation: "Il s'agit de la révolution abbasside, partie de l'oasis de Merv, qui renverse le califat omeyyade et déplace le siège du pouvoir vers la ville nouvellement fondée de Bagdad, ouvrant une longue période d'essor scientifique et culturel.",
+  },
+  ashgabat_earthquake_1948: {
+    name: "Séisme d'Achgabat",
+    clue: "Un puissant séisme a rasé une capitale désertique, mais le secret imposé par le pouvoir en place a caché le vrai bilan humain au monde pendant des décennies.",
+    explanation: "Ce séisme a détruit une capitale d'Asie centrale, tuant environ 100 000 personnes, mais le pouvoir en place a étouffé la nouvelle du désastre pendant des années, cachant son ampleur réelle au monde.",
+  },
+  sulawesi_earthquake_tsunami_2018: {
+    name: "Séisme et tsunami de Sulawesi",
+    clue: "Une ville côtière frappée par un séisme et un tsunami a vu le sol se liquéfier en quelques minutes, engloutissant des quartiers entiers sans prévenir.",
+    explanation: "Un séisme près de Sulawesi, en Indonésie, a déclenché un tsunami et une liquéfaction du sol, un phénomène rare où un sol saturé d'eau se comporte soudain comme un liquide, engloutissant des quartiers entiers en quelques instants.",
+  },
+  western_xia_mausoleums: {
+    name: "Mausolées des Xia occidentaux",
+    clue: "Au pied de montagnes, neuf tombeaux royaux et des centaines d'autres marquent un empire si détruit que son écriture resta illisible pendant des siècles.",
+    explanation: "Ce sont les tombeaux de l'empire Xia occidental, dont les souverains tangoutes utilisaient une écriture propre, mais qui fut anéanti si complètement par les conquérants mongols que sa langue resta indéchiffrée pendant des siècles.",
+  },
+  millennium_of_russia: {
+    name: "Millénaire de la Russie",
+    clue: "Un monument de bronze en forme de cloche, couvert de statues de souverains et de penseurs, marque mille ans depuis qu'un prince étranger fut invité à régner.",
+    explanation: "Ce monument de Novgorod marque la fondation traditionnelle de l'État russe, lorsqu'un prince varègue nommé Riourik aurait été invité à gouverner des tribus locales rivales, fondant une dynastie qui dura des siècles.",
+  },
+  chan_chan: {
+    name: "Chan Chan",
+    clue: "Un empire sans écriture ni véhicules à roues a construit la plus grande ville de son époque presque entièrement en briques de boue séchées au soleil.",
+    explanation: "Voici Chan Chan, capitale de l'empire chimú sur la côte du Pérou et la plus grande ville des Amériques précolombiennes. Construite presque entièrement en briques d'adobe, elle était dirigée par une noblesse héréditaire, sans écriture ni transport à roues, avant d'être conquise par les Incas.",
+  },
+  por_bazhyn: {
+    name: "Por-Bazhyn",
+    clue: "Sur une île au milieu d'un lac, des nomades ont bâti un palais copiant le style d'une civilisation lointaine, puis l'ont abandonné presque aussitôt achevé.",
+    explanation: "Cette forteresse insulaire isolée du sud de la Sibérie fut construite par des khagans ouïghours dans un style emprunté à la Chine des Tang, puis transformée en monastère et abandonnée en quelques années, avant d'être détruite par un séisme et un incendie.",
+  },
+  lothal: {
+    name: "Lothal",
+    clue: "Dans un delta, une civilisation sans souverain connu construisit l'un des premiers chantiers navals au monde, puis s'éteignit quand la voie d'eau s'ensabla.",
+    explanation: "Voici Lothal, une ville de la civilisation de la vallée de l'Indus, qui abritait l'un des plus anciens chantiers navals connus au monde. Comme le reste de cette civilisation, elle n'a laissé aucune écriture déchiffrée nommant un souverain, et déclina après que son chenal fluvial se fut déplacé.",
+  },
+  minamata_convention: {
+    name: "Convention de Minamata",
+    clue: "Des diplomates de plus de cent pays ont signé un traité mondial contre le mercure dans la ville même dont la catastrophe d'empoisonnement l'a inspiré.",
+    explanation: "La Convention de Minamata sur le mercure, un traité mondial visant à réduire la pollution au mercure, a été signée à Minamata, au Japon, la ville où une catastrophe industrielle d'empoisonnement au mercure a donné son nom à la maladie.",
+  },
+  sijilmasa: {
+    name: "Sijilmasa",
+    clue: "Dans une oasis alimentée par une rivière descendant de montagnes proches, une ville du désert s'est enrichie en taxant des caravanes chargées d'or et de sel.",
+    explanation: "Voici Sijilmasa, ville marocaine médiévale à la lisière nord du Sahara, qui s'est enrichie en contrôlant et en taxant le commerce transsaharien de l'or et du sel, avant de décliner quand les routes commerciales se sont déplacées ailleurs.",
   },
 };

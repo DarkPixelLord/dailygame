@@ -114,6 +114,70 @@ function categoryInterleaved(items, rng) {
   return out;
 }
 
+// Final round = ordering the pack chronologically, so two items too close in
+// time (e.g. 1945/1946/1948 in one pack) make it a coin toss. Neighbours in
+// the sorted pack need BOTH an age ratio >= DATE_RATIO (age = years before
+// CURRENT_YEAR, so the required gap grows for older events, matching how
+// players perceive distant history) AND an absolute gap >= DATE_MIN_GAP (the
+// ratio alone lets 2016/2022 through). 1.5 / 30 was the strictest setting
+// that still reached 0 close pairs in simulation (2026-09-28).
+const CURRENT_YEAR = 2026;
+const DATE_RATIO = 1.5;
+const DATE_MIN_GAP = 30;
+
+function tooClose(y1, y2) {
+  const a1 = Math.max(CURRENT_YEAR - y1, 1);
+  const a2 = Math.max(CURRENT_YEAR - y2, 1);
+  return Math.abs(y1 - y2) < DATE_MIN_GAP || Math.max(a1, a2) / Math.min(a1, a2) < DATE_RATIO;
+}
+
+function closePairs(items) {
+  const years = items.map((it) => it.year).sort((a, b) => a - b);
+  let n = 0;
+  for (let i = 1; i < years.length; i++) if (tooClose(years[i - 1], years[i])) n++;
+  return n;
+}
+
+// Category coverage and subcategory uniqueness stay hard rules; date spread is
+// soft. Weighting hard violations far above close pairs means a swap can only
+// improve dates without ever breaking (or worsening) a hard rule.
+function packCost(items) {
+  const missingCats = CATS.length - new Set(items.map((it) => it.category)).size;
+  const subs = items.filter((it) => it.subcategory).map((it) => it.subcategory);
+  const subCollisions = subs.length - new Set(subs).size;
+  return (missingCats + subCollisions) * 1000 + closePairs(items);
+}
+
+// Hill-climbs by swapping same-difficulty items between two packs, or between
+// a pack and the leftover queues, keeping any swap that doesn't raise cost.
+// Never adds or drops a pack: the difficulty mix of every pack is unchanged.
+function optimizeDateSpread(packItems, leftovers, rng, iterations = 300000) {
+  const slots = { easy: [], medium: [], hard: [] };
+  packItems.forEach((items, p) => items.forEach((it, i) => slots[it.difficulty].push({ p, i })));
+  for (const d of Object.keys(slots)) leftovers[d].forEach((_, i) => slots[d].push({ p: -1, i }));
+  const get = (d, s) => (s.p < 0 ? leftovers[d][s.i] : packItems[s.p][s.i]);
+  const set = (d, s, v) => {
+    if (s.p < 0) leftovers[d][s.i] = v;
+    else packItems[s.p][s.i] = v;
+  };
+  const cost = (p) => (p < 0 ? 0 : packCost(packItems[p]));
+  const diffs = Object.keys(slots).filter((d) => slots[d].length > 1);
+  for (let k = 0; k < iterations; k++) {
+    const d = diffs[Math.floor(rng() * diffs.length)];
+    const s1 = slots[d][Math.floor(rng() * slots[d].length)];
+    const s2 = slots[d][Math.floor(rng() * slots[d].length)];
+    if (s1.p === s2.p) continue;
+    const before = cost(s1.p) + cost(s2.p);
+    const v1 = get(d, s1);
+    set(d, s1, get(d, s2));
+    set(d, s2, v1);
+    if (cost(s1.p) + cost(s2.p) > before) {
+      set(d, s2, get(d, s1));
+      set(d, s1, v1);
+    }
+  }
+}
+
 function buildPacks(clues, rng) {
   const byDifficulty = { easy: [], medium: [], hard: [] };
   for (const c of clues) byDifficulty[c.difficulty]?.push(c);
@@ -197,15 +261,23 @@ function buildPacks(clues, rng) {
   }
 
   const collisionStats = { forced: 0 };
-  const packs = [];
-  for (let i = 0; i < types.length; i++) {
-    const [eCount, mCount, hCount] = types[i] === "A" ? [3, 1, 1] : [2, 2, 1];
+  const packItems = types.map((type) => {
+    const [eCount, mCount, hCount] = type === "A" ? [3, 1, 1] : [2, 2, 1];
     const usedSubcats = new Set();
-    const items = [
+    return [
       ...takeAvoidingSubcategory(easyQ, eCount, usedSubcats, collisionStats),
       ...takeAvoidingSubcategory(mediumQ, mCount, usedSubcats, collisionStats),
       ...takeAvoidingSubcategory(hardQ, hCount, usedSubcats, collisionStats),
     ];
+  });
+  optimizeDateSpread(packItems, { easy: easyQ, medium: mediumQ, hard: hardQ }, rng);
+
+  const packs = [];
+  for (let i = 0; i < types.length; i++) {
+    const items = packItems[i];
+    const eCount = items.filter((it) => it.difficulty === "easy").length;
+    const mCount = items.filter((it) => it.difficulty === "medium").length;
+    const hCount = items.filter((it) => it.difficulty === "hard").length;
     const categoryCounts = {};
     for (const it of items) categoryCounts[it.category] = (categoryCounts[it.category] || 0) + 1;
     const subcategoryCounts = {};
@@ -218,6 +290,7 @@ function buildPacks(clues, rng) {
       categoriesCovered: Object.keys(categoryCounts).length,
       categoryCounts,
       subcategoryCounts,
+      closeDatePairs: closePairs(items),
     });
   }
 
@@ -233,7 +306,24 @@ function buildPacks(clues, rng) {
 const args = parseArgs(process.argv.slice(2));
 const rng = mulberry32(args.seed);
 const subtopics = loadSubtopics();
-const clues = loadClues(subtopics);
+// Packs already served are pinned in Supabase under their date (archive and
+// today replay from there, never from this plan), so their clues must be left
+// out: api/session skips any pack containing a served id, which would waste
+// the other four clues of that pack.
+async function loadServedIds() {
+  process.loadEnvFile(".env.local");
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SECRET_KEY;
+  const res = await fetch(`${url}/rest/v1/daily_packs?select=event_ids`, {
+    headers: { apikey: key, Authorization: `Bearer ${key}` },
+  });
+  if (!res.ok) throw new Error(`Supabase daily_packs read failed: ${res.status} ${await res.text()}`);
+  const rows = await res.json();
+  return new Set(rows.flatMap((r) => r.event_ids));
+}
+
+const servedIds = await loadServedIds();
+const clues = loadClues(subtopics).filter((c) => !servedIds.has(c.id));
 const { packs, leftover, collisionStats } = buildPacks(clues, rng);
 
 const packsWithSubcategoryCollision = packs.filter((p) =>
@@ -247,12 +337,14 @@ const summary = {
   leftoverUnused: leftover,
   packsWithSubcategoryCollision,
   forcedSubcategoryCollisions: collisionStats.forced,
+  excludedServedClues: servedIds.size,
+  packsWithCloseDates: packs.filter((p) => p.closeDatePairs > 0).length,
 };
 
 const output = {
   generatedAt: new Date().toISOString(),
   seed: args.seed,
-  note: "Consumed directly by pickDailyEvents() in src/lib/poc-events.ts. One pack = one calendar day, packs cycle in a seeded-shuffled order per full pass so no pack repeats until every pack has been played.",
+  note: "Served by api/session in plan order: each new day gets the first pack with no already-served clue. pickDailyEvents() in src/lib/poc-events.ts only uses it as an offline fallback.",
   summary,
   packs,
 };
@@ -262,6 +354,8 @@ writeFileSync(args.out, JSON.stringify(output, null, 2));
 console.log(`Clues in pool: ${clues.length}`);
 console.log(`Packs built: ${packs.length} (types: ${packs.filter(p=>p.type==="A").length}xA[3E/1M/1H], ${packs.filter(p=>p.type==="B").length}xB[2E/2M/1H])`);
 console.log(`Leftover unused: ${JSON.stringify(leftover)}`);
+console.log(`Served clues excluded: ${servedIds.size}`);
+console.log(`Packs with close dates: ${summary.packsWithCloseDates}/${packs.length}`);
 console.log(`Packs with all 3 categories: ${summary.packsWithAllThreeCategories}/${packs.length}`);
 console.log(`Subtopics loaded for: ${Object.keys(subtopics).length} ids`);
 console.log(`Packs with a same-subcategory collision: ${packsWithSubcategoryCollision}/${packs.length}`);

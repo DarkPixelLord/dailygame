@@ -1,4 +1,4 @@
-import { pickDailyEvents, dailySeed, seededRandom, type GameMode, type HistoricalEvent } from "@/lib/poc-events";
+import { pickDailyEvents, type GameMode, type HistoricalEvent } from "@/lib/poc-events";
 import { ACTIVE_EVENTS as POC_EVENTS } from "@/lib/event-pool";
 import { localizeEvent } from "@/lib/localize";
 import { ROUNDS_PER_GAME } from "@/lib/scoring";
@@ -65,7 +65,7 @@ function parseTestEvents(url: URL): HistoricalEvent[] | null {
 // the same stable event ids. Once no pack is left with every id fresh, the
 // whole pool has had a turn — that's exhaustion, so every pack becomes a
 // candidate again for a new cycle.
-async function assignFreshPack(date: Date, dateKey: string, byId: Map<string, HistoricalEvent>): Promise<HistoricalEvent[] | null> {
+async function assignFreshPack(dateKey: string, byId: Map<string, HistoricalEvent>): Promise<HistoricalEvent[] | null> {
   const packs = DAILY_PACKS_PLAN.packs;
   if (packs.length === 0) return null;
 
@@ -73,11 +73,11 @@ async function assignFreshPack(date: Date, dateKey: string, byId: Map<string, Hi
   const usedIds = new Set<string>();
   for (const row of rows ?? []) for (const id of row.event_ids as string[]) usedIds.add(id);
 
-  let candidates = packs.filter((p) => p.ids.every((id) => !usedIds.has(id)));
-  if (candidates.length === 0) candidates = packs; // every pack's had a turn — new cycle
-
-  const random = seededRandom(dailySeed(date));
-  const chosen = candidates[Math.floor(random() * candidates.length)];
+  // First fresh pack in plan order, so the plan file doubles as the serving
+  // schedule: clue reviews can target just the next few packs. Once every
+  // pack has had a turn, cycle through the plan in order by days served.
+  const fresh = packs.find((p) => p.ids.every((id) => !usedIds.has(id)));
+  const chosen = fresh ?? packs[(rows?.length ?? 0) % packs.length];
 
   // Upsert-then-read instead of trusting our own pick: if two requests raced
   // to assign this same never-seen date, this makes sure everyone ends up
@@ -111,7 +111,7 @@ async function getPackEvents(date: Date, dateKey: string): Promise<HistoricalEve
       if (picked.length === ROUNDS_PER_GAME) return picked;
     }
 
-    const assigned = await assignFreshPack(date, dateKey, byId);
+    const assigned = await assignFreshPack(dateKey, byId);
     if (assigned) return assigned;
   } catch {
     // Supabase unreachable, or daily_packs doesn't exist yet — degrade to a
