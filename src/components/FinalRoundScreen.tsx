@@ -241,7 +241,7 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: TEXT_REVEAL_DELAY + 0.6, duration: 0.3 }}
+                transition={{ delay: TEXT_REVEAL_DELAY, duration: 0.45 }}
                 className="absolute right-2 top-2 z-10"
               >
                 <TodaysStatsPanel tierPercentages={tierPercentages} leaderboard={leaderboard} />
