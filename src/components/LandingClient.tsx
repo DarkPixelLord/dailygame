@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLanguage } from "./LanguageProvider";
 import LaurelIcon from "./LaurelIcon";
-import StreakBadge from "./StreakBadge";
+import JourneyBadge from "./journey/JourneyBadge";
 import { FlagGB, FlagFR } from "./FlagIcon";
 import { PRIMARY_BUTTON, SECONDARY_BUTTON, SHARE_BUTTON, GAME_TITLE } from "@/lib/theme";
 import { UI_STRINGS, type Lang } from "@/lib/i18n";
@@ -84,7 +84,7 @@ export default function LandingClient({ onStart }: Props) {
   return (
     <div className="final-spotlight flex w-full flex-1 flex-col items-center">
       <div className="relative flex w-full max-w-md flex-1 flex-col items-center justify-center gap-6 px-4 py-10 text-center">
-        <StreakBadge streak={streak} className="absolute right-4 top-3 text-[10px] sm:top-4 sm:text-xs" />
+        <JourneyBadge streak={streak} className="absolute right-4 top-3 text-[10px] sm:top-4 sm:text-xs" />
         <h1 className="flex flex-col items-center gap-4">
           <LaurelIcon className="h-28 w-28 shrink-0 text-amber-400" />
           <span className={`${GAME_TITLE} text-4xl`}>{t.gameTitle}</span>

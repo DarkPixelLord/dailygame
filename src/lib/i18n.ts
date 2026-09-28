@@ -51,6 +51,14 @@ export type UiStrings = {
   alreadyPlayedToday: string;
   back: string;
   dayStreak: string;
+  journeyTitle: string;
+  journeySeeAll: string;
+  journeyGamePlayed: string;
+  journeyScore: string;
+  journeyStreak: string;
+  journeyTomorrow: string;
+  journeyMax: string;
+  journeyNewMilestone: string;
 };
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
@@ -105,6 +113,14 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     alreadyPlayedToday: "You've already played today's challenge. Come back tomorrow for a new one!",
     back: "Back",
     dayStreak: "day streak",
+    journeyTitle: "Your journey",
+    journeySeeAll: "See the whole journey",
+    journeyGamePlayed: "Game played:",
+    journeyScore: "Score:",
+    journeyStreak: "Streak +{pct}%:",
+    journeyTomorrow: "Tomorrow: streak bonus",
+    journeyMax: "max",
+    journeyNewMilestone: "New milestone reached",
   },
   fr: {
     gameTitle: "Laurus",
@@ -157,5 +173,13 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     alreadyPlayedToday: "Tu as déjà joué au défi du jour. Reviens demain pour un nouveau !",
     back: "Retour",
     dayStreak: "jours de suite",
+    journeyTitle: "Ton parcours",
+    journeySeeAll: "Voir tout le parcours",
+    journeyGamePlayed: "Partie jouée :",
+    journeyScore: "Score :",
+    journeyStreak: "Série +{pct}% :",
+    journeyTomorrow: "Demain : bonus série",
+    journeyMax: "max",
+    journeyNewMilestone: "Nouveau palier atteint",
   },
 };

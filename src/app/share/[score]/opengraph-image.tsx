@@ -61,7 +61,7 @@ export default async function Image({ params }: { params: Promise<{ score: strin
         </div>
         {streak > 0 && (
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 14 }}>
-            <svg width={28} height={28} viewBox="0 0 24 24" fill="#fbbf24">
+            <svg width={28} height={28} viewBox="0 0 24 24" fill="#f97316">
               <path fillRule="evenodd" clipRule="evenodd" d={FLAME_ICON_PATH} />
             </svg>
             <div style={{ display: "flex", fontSize: 28, fontWeight: 800, color: "#fbbf24" }}>{streak} day streak</div>

@@ -19,6 +19,10 @@ import type { DailyLeaderboard } from "@/lib/daily-leaderboard";
 import TodaysStatsPanel from "./TodaysStatsPanel";
 import ScoreGauge from "./ScoreGauge";
 import StreakBadge from "./StreakBadge";
+import JourneyPopup from "./journey/JourneyPopup";
+import JourneyTimeline from "./journey/JourneyTimeline";
+import { computeXpGain, type XpGain } from "@/lib/journey";
+import { awardTodaysXp, getJourney, markJourneySeen } from "@/lib/journey-progress";
 
 // The final-score rank, shown once at the end of the game — a coarser,
 // higher-stakes tier list than the per-round scoreFeedback in HistoryGuessPoc.
@@ -86,6 +90,11 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
   const [tierPercentages, setTierPercentages] = useState<Record<RankTier, number> | null>(null);
   const [leaderboard, setLeaderboard] = useState<DailyLeaderboard | null>(null);
   const [streak, setStreak] = useState(0);
+  const [journeyAward, setJourneyAward] = useState<{ prevXp: number; newXp: number; gain: XpGain } | null>(null);
+  const [journeyPopupOpen, setJourneyPopupOpen] = useState(true);
+  // Waits for the score/rank reveal the first time; instant when reopened.
+  const [journeyPopupDelay, setJourneyPopupDelay] = useState(TEXT_REVEAL_DELAY + 1);
+  const [journeyTimelineOpen, setJourneyTimelineOpen] = useState(false);
 
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
   const rank = phase === "done" ? finalRank(totalScore, maxTotalScore, t) : null;
@@ -107,10 +116,21 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
         saveTodaysDailyResult(totalScore);
         clearTodaysProgress();
         recordTodaysDailyPlayed();
+        const currentStreak = getCurrentStreak();
+        const award = awardTodaysXp(computeXpGain(totalScore / maxTotalScore, currentStreak));
         // Deferred a tick so setState isn't called synchronously in the
         // effect body (react-hooks/set-state-in-effect) — still runs
         // immediately, just outside this render's commit.
-        Promise.resolve().then(() => setStreak(getCurrentStreak()));
+        Promise.resolve().then(() => {
+          setStreak(currentStreak);
+          setJourneyAward(award);
+        });
+      } else {
+        // Dev preview: show the journey popup as if today counted (streak
+        // including today), without writing anything.
+        const gain = computeXpGain(totalScore / maxTotalScore, getCurrentStreak() + 1);
+        const { xp } = getJourney();
+        Promise.resolve().then(() => setJourneyAward({ prevXp: xp, newXp: xp + gain.total, gain }));
       }
 
       const finished = previewOnly
@@ -185,7 +205,10 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                 transition={{ delay: TEXT_REVEAL_DELAY + 0.6, duration: 0.3 }}
                 className="pointer-events-auto flex items-center gap-2"
               >
-                <StreakBadge streak={streak} className="text-[10px] sm:text-xs" />
+                {/* Reopens the journey popup once closed. */}
+                <button type="button" onClick={() => setJourneyPopupOpen(true)}>
+                  <StreakBadge streak={streak} className="text-[10px] sm:text-xs" />
+                </button>
               </motion.div>
             )}
           </AnimatePresence>
@@ -221,14 +244,43 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
           </AnimatePresence>
         </header>
 
-        <ChronologicalOrder
-          events={events}
-          onSubmit={() => setOrderSubmitted(true)}
-          onComplete={(orderScore) => {
-            setTotalScore((s) => s + orderScore);
-            setPhase("done");
-          }}
-        />
+        {/* `relative` so the journey popup covers only the ordered items,
+            never the score panel below. */}
+        <div className="relative flex min-h-0 w-full flex-1 flex-col">
+          <ChronologicalOrder
+            events={events}
+            onSubmit={() => setOrderSubmitted(true)}
+            onComplete={(orderScore) => {
+              setTotalScore((s) => s + orderScore);
+              setPhase("done");
+            }}
+          />
+          <AnimatePresence>
+            {journeyAward && journeyPopupOpen && (
+              <JourneyPopup
+                prevXp={journeyAward.prevXp}
+                newXp={journeyAward.newXp}
+                gain={journeyAward.gain}
+                delay={journeyPopupDelay}
+                onOpenTimeline={() => setJourneyTimelineOpen(true)}
+                onClose={() => {
+                  setJourneyPopupOpen(false);
+                  setJourneyPopupDelay(0.5);
+                }}
+                onSeen={() => {
+                  if (!previewOnly) markJourneySeen(journeyAward.newXp);
+                }}
+              />
+            )}
+          </AnimatePresence>
+          {journeyAward && journeyTimelineOpen && (
+            <JourneyTimeline
+              prevXp={journeyAward.prevXp}
+              newXp={journeyAward.newXp}
+              onClose={() => setJourneyTimelineOpen(false)}
+            />
+          )}
+        </div>
 
         {phase === "done" && (
           <motion.div
