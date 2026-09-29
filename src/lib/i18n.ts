@@ -27,7 +27,9 @@ export type UiStrings = {
   submitOrder: string;
   inTheRightSpot: string;
   finalScore: string;
-  playAgain: string;
+  continue: string;
+  home: string;
+  backToHome: string;
   share: string;
   linkCopied: string;
   mapAttribution: string;
@@ -52,13 +54,13 @@ export type UiStrings = {
   back: string;
   dayStreak: string;
   journeyTitle: string;
-  journeySeeAll: string;
   journeyGamePlayed: string;
   journeyScore: string;
   journeyStreak: string;
   journeyTomorrow: string;
   journeyMax: string;
   journeyNewMilestone: string;
+  journeyXpToGo: string;
 };
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
@@ -89,7 +91,9 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     submitOrder: "Submit order",
     inTheRightSpot: "in the right spot",
     finalScore: "Final score",
-    playAgain: "Play again",
+    continue: "Continue",
+    home: "Home",
+    backToHome: "Back to home",
     share: "Share",
     linkCopied: "Link copied!",
     mapAttribution: "© OpenStreetMap contributors, © OpenMapTiles, © OpenFreeMap",
@@ -114,13 +118,13 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     back: "Back",
     dayStreak: "day streak",
     journeyTitle: "Your journey",
-    journeySeeAll: "See the whole journey",
     journeyGamePlayed: "Game played:",
     journeyScore: "Score:",
     journeyStreak: "Streak +{pct}%:",
     journeyTomorrow: "Tomorrow: streak bonus",
     journeyMax: "max",
     journeyNewMilestone: "New milestone reached",
+    journeyXpToGo: "{xp} XP to go",
   },
   fr: {
     gameTitle: "Laurus",
@@ -149,7 +153,9 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     submitOrder: "Valider l'ordre",
     inTheRightSpot: "bien placés",
     finalScore: "Score final",
-    playAgain: "Rejouer",
+    continue: "Continuer",
+    home: "Accueil",
+    backToHome: "Retour à l'accueil",
     share: "Partager",
     linkCopied: "Lien copié !",
     mapAttribution: "© contributeurs OpenStreetMap, © OpenMapTiles, © OpenFreeMap",
@@ -174,12 +180,12 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     back: "Retour",
     dayStreak: "jours de suite",
     journeyTitle: "Ton parcours",
-    journeySeeAll: "Voir tout le parcours",
     journeyGamePlayed: "Partie jouée :",
     journeyScore: "Score :",
     journeyStreak: "Série +{pct}% :",
     journeyTomorrow: "Demain : bonus série",
     journeyMax: "max",
     journeyNewMilestone: "Nouveau palier atteint",
+    journeyXpToGo: "Encore {xp} XP",
   },
 };

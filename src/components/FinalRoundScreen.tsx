@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ChronologicalOrder from "./ChronologicalOrder";
 import LaurelIcon from "./LaurelIcon";
@@ -19,7 +19,7 @@ import type { DailyLeaderboard } from "@/lib/daily-leaderboard";
 import TodaysStatsPanel from "./TodaysStatsPanel";
 import ScoreGauge from "./ScoreGauge";
 import StreakBadge from "./StreakBadge";
-import JourneyPopup from "./journey/JourneyPopup";
+import BadgeBurst from "./BadgeBurst";
 import JourneyTimeline from "./journey/JourneyTimeline";
 import { computeXpGain, type XpGain } from "@/lib/journey";
 import { awardTodaysXp, getJourney, markJourneySeen } from "@/lib/journey-progress";
@@ -40,31 +40,6 @@ const GAUGE_FILL_DURATION = 1.2;
 const BADGE_BURST_DELAY = GAUGE_FILL_DELAY + GAUGE_FILL_DURATION + 0.05;
 const BADGE_POP_DELAY = BADGE_BURST_DELAY + 0.25;
 const TEXT_REVEAL_DELAY = BADGE_POP_DELAY + 0.3;
-const BADGE_BURST_COUNT = 36;
-
-type BurstParticle = {
-  angle: number;
-  distance: number;
-  size: number;
-  duration: number;
-  delayJitter: number;
-  upwardDrift: number;
-};
-
-// Randomized per-particle flight paths for the badge-reveal burst — varied
-// angle/distance/speed/size so the burst reads as chaotic sparks rather than
-// a uniform, synchronized ring, with an added upward drift so the sparks
-// trend skyward like a firework instead of spreading evenly in all directions.
-function buildBurstParticles(count: number): BurstParticle[] {
-  return Array.from({ length: count }, () => ({
-    angle: Math.random() * 2 * Math.PI,
-    distance: 55 + Math.random() * 85,
-    size: 2.5 + Math.random() * 4,
-    duration: 0.35 + Math.random() * 0.3,
-    delayJitter: Math.random() * 0.2,
-    upwardDrift: 20 + Math.random() * 35,
-  }));
-}
 
 type Props = {
   mode: GameMode;
@@ -79,9 +54,21 @@ type Props = {
   // api/track-play row, no localStorage "already played today" flag — so it
   // never counts as a real play or gets capped by the daily limit.
   previewOnly?: boolean;
+  // Preview-only overrides for the journey screen (screenshots from
+  // /dev-results): XP before today's game, streak including today.
+  previewXp?: number;
+  previewStreak?: number;
 };
 
-export default function FinalRoundScreen({ mode, initialScore, events, onPlayAgain, previewOnly = false }: Props) {
+export default function FinalRoundScreen({
+  mode,
+  initialScore,
+  events,
+  onPlayAgain,
+  previewOnly = false,
+  previewXp,
+  previewStreak,
+}: Props) {
   const { t } = useLanguage();
   const [phase, setPhase] = useState<"ordering" | "done">("ordering");
   const [totalScore, setTotalScore] = useState(initialScore);
@@ -91,10 +78,7 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
   const [leaderboard, setLeaderboard] = useState<DailyLeaderboard | null>(null);
   const [streak, setStreak] = useState(0);
   const [journeyAward, setJourneyAward] = useState<{ prevXp: number; newXp: number; gain: XpGain } | null>(null);
-  const [journeyPopupOpen, setJourneyPopupOpen] = useState(true);
-  // Waits for the score/rank reveal the first time; instant when reopened.
-  const [journeyPopupDelay, setJourneyPopupDelay] = useState(TEXT_REVEAL_DELAY + 1);
-  const [journeyTimelineOpen, setJourneyTimelineOpen] = useState(false);
+  const [journeyOpen, setJourneyOpen] = useState(false);
 
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
   const rank = phase === "done" ? finalRank(totalScore, maxTotalScore, t) : null;
@@ -126,11 +110,15 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
           setJourneyAward(award);
         });
       } else {
-        // Dev preview: show the journey popup as if today counted (streak
+        // Dev preview: show the journey screen as if today counted (streak
         // including today), without writing anything.
-        const gain = computeXpGain(totalScore / maxTotalScore, getCurrentStreak() + 1);
-        const { xp } = getJourney();
-        Promise.resolve().then(() => setJourneyAward({ prevXp: xp, newXp: xp + gain.total, gain }));
+        const previewedStreak = previewStreak ?? getCurrentStreak() + 1;
+        const gain = computeXpGain(totalScore / maxTotalScore, previewedStreak);
+        const xp = previewXp ?? getJourney().xp;
+        Promise.resolve().then(() => {
+          if (previewStreak !== undefined) setStreak(previewStreak);
+          setJourneyAward({ prevXp: xp, newXp: xp + gain.total, gain });
+        });
       }
 
       const finished = previewOnly
@@ -168,9 +156,6 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
     // Runs once, right when the final score locks in.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase]);
-  // Re-rolled only when the reveal actually happens, so the burst doesn't
-  // reshuffle mid-animation on unrelated re-renders (e.g. the share button).
-  const burstParticles = useMemo(() => buildBurstParticles(BADGE_BURST_COUNT), [phase]);
 
   async function share() {
     const scoreSegment = streak > 0 ? `${totalScore}-${streak}` : totalScore;
@@ -205,10 +190,7 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
                 transition={{ delay: TEXT_REVEAL_DELAY + 0.6, duration: 0.3 }}
                 className="pointer-events-auto flex items-center gap-2"
               >
-                {/* Reopens the journey popup once closed. */}
-                <button type="button" onClick={() => setJourneyPopupOpen(true)}>
-                  <StreakBadge streak={streak} className="text-[10px] sm:text-xs" />
-                </button>
+                <StreakBadge streak={streak} className="text-[10px] sm:text-xs" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -244,9 +226,7 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
           </AnimatePresence>
         </header>
 
-        {/* `relative` so the journey popup covers only the ordered items,
-            never the score panel below. */}
-        <div className="relative flex min-h-0 w-full flex-1 flex-col">
+        <div className="flex min-h-0 w-full flex-1 flex-col">
           <ChronologicalOrder
             events={events}
             onSubmit={() => setOrderSubmitted(true)}
@@ -255,32 +235,21 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
               setPhase("done");
             }}
           />
-          <AnimatePresence>
-            {journeyAward && journeyPopupOpen && (
-              <JourneyPopup
-                prevXp={journeyAward.prevXp}
-                newXp={journeyAward.newXp}
-                gain={journeyAward.gain}
-                delay={journeyPopupDelay}
-                onOpenTimeline={() => setJourneyTimelineOpen(true)}
-                onClose={() => {
-                  setJourneyPopupOpen(false);
-                  setJourneyPopupDelay(0.5);
-                }}
-                onSeen={() => {
-                  if (!previewOnly) markJourneySeen(journeyAward.newXp);
-                }}
-              />
-            )}
-          </AnimatePresence>
-          {journeyAward && journeyTimelineOpen && (
-            <JourneyTimeline
-              prevXp={journeyAward.prevXp}
-              newXp={journeyAward.newXp}
-              onClose={() => setJourneyTimelineOpen(false)}
-            />
-          )}
         </div>
+        {/* The daily result's exit: "Continue" opens the journey, whose own
+            button then goes home. */}
+        {journeyAward && journeyOpen && (
+          <JourneyTimeline
+            prevXp={journeyAward.prevXp}
+            newXp={journeyAward.newXp}
+            gain={journeyAward.gain}
+            exitLabel={t.backToHome}
+            onClose={onPlayAgain}
+            onSeen={() => {
+              if (!previewOnly) markJourneySeen(journeyAward.newXp);
+            }}
+          />
+        )}
 
         {phase === "done" && (
           <motion.div
@@ -302,35 +271,7 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
             <div className="flex items-center gap-3 sm:gap-4">
               {rank?.icon && (
                 <div className="relative h-16 w-16 shrink-0 sm:h-20 sm:w-20">
-                  <motion.div
-                    className="pointer-events-none absolute inset-0 rounded-full"
-                    style={{
-                      background: "radial-gradient(circle, rgba(251,191,36,0.9) 0%, rgba(251,191,36,0) 70%)",
-                    }}
-                    initial={{ scale: 0.2, opacity: 0 }}
-                    animate={{ scale: 2.4, opacity: [0, 1, 0] }}
-                    transition={{ delay: BADGE_BURST_DELAY, duration: 1, ease: "easeOut", times: [0, 0.15, 1] }}
-                  />
-                  {burstParticles.map((p, i) => (
-                    <motion.span
-                      key={i}
-                      className="pointer-events-none absolute left-1/2 top-1/2 rounded-full bg-amber-300"
-                      style={{ width: p.size, height: p.size }}
-                      initial={{ x: "-50%", y: "-50%", opacity: 0, scale: 1 }}
-                      animate={{
-                        x: `calc(-50% + ${Math.cos(p.angle) * p.distance}px)`,
-                        y: `calc(-50% + ${Math.sin(p.angle) * p.distance - p.upwardDrift}px)`,
-                        opacity: [0, 1, 0],
-                        scale: 0,
-                      }}
-                      transition={{
-                        delay: BADGE_BURST_DELAY + p.delayJitter,
-                        duration: p.duration,
-                        ease: "easeOut",
-                        times: [0, 0.2, 1],
-                      }}
-                    />
-                  ))}
+                  <BadgeBurst delay={BADGE_BURST_DELAY} />
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center rounded-lg border-2 border-amber-400/40 bg-black/30"
                     initial={{ scale: 0, opacity: 0 }}
@@ -367,9 +308,19 @@ export default function FinalRoundScreen({ mode, initialScore, events, onPlayAga
               </div>
             </div>
             <div className="flex w-full gap-2">
-              <button type="button" onClick={onPlayAgain} className={PRIMARY_BUTTON + " flex-1"}>
-                {t.playAgain}
-              </button>
+              {mode === "daily" ? (
+                <button
+                  type="button"
+                  onClick={() => (journeyAward ? setJourneyOpen(true) : onPlayAgain())}
+                  className={PRIMARY_BUTTON + " flex-1"}
+                >
+                  {t.continue}
+                </button>
+              ) : (
+                <button type="button" onClick={onPlayAgain} className={PRIMARY_BUTTON + " flex-1"}>
+                  {t.home}
+                </button>
+              )}
               {mode === "daily" && (
                 <button
                   type="button"

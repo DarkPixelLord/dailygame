@@ -19,8 +19,21 @@ const PRESETS = [
   { label: "Master", initialScore: 4200 },
 ];
 
-export default function DevResultsClient() {
-  const [presetIndex, setPresetIndex] = useState(0);
+type Props = {
+  hideOverlay: boolean;
+  previewXp?: number;
+  previewStreak?: number;
+};
+
+export default function DevResultsClient({
+  hideOverlay,
+  previewXp,
+  previewStreak,
+}: Props) {
+  // Screenshot mode has no overlay to pick a tier, so start on a good score.
+  const [presetIndex, setPresetIndex] = useState(
+    hideOverlay ? PRESETS.length - 1 : 0,
+  );
   const [events, setEvents] = useState(() => pickRandomEvents(POC_EVENTS, 5));
   const [key, setKey] = useState(0);
 
@@ -36,6 +49,8 @@ export default function DevResultsClient() {
         key={key}
         mode="daily"
         previewOnly
+        previewXp={previewXp}
+        previewStreak={previewStreak}
         initialScore={PRESETS[presetIndex].initialScore}
         events={events}
         onPlayAgain={() => reroll(presetIndex)}
@@ -43,20 +58,22 @@ export default function DevResultsClient() {
 
       {/* Dev-only overlay, floats over the real screen without affecting its
           layout — this is meant to look exactly like the shipped final round. */}
-      <div className="pointer-events-none fixed inset-x-0 bottom-2 z-50 flex justify-center">
-        <div className="pointer-events-auto flex max-w-[calc(100vw-1rem)] flex-wrap justify-center gap-1 rounded-md border border-white/10 bg-black/70 p-1 backdrop-blur-sm">
-          {PRESETS.map((p, i) => (
-            <button
-              key={p.label}
-              type="button"
-              onClick={() => reroll(i)}
-              className={`${GHOST_BUTTON} !px-2 !py-0.5 !text-[10px] ${i === presetIndex ? "bg-amber-400/15" : ""}`}
-            >
-              {p.label}
-            </button>
-          ))}
+      {!hideOverlay && (
+        <div className="pointer-events-none fixed inset-x-0 bottom-2 z-50 flex justify-center">
+          <div className="pointer-events-auto flex max-w-[calc(100vw-1rem)] flex-wrap justify-center gap-1 rounded-md border border-white/10 bg-black/70 p-1 backdrop-blur-sm">
+            {PRESETS.map((p, i) => (
+              <button
+                key={p.label}
+                type="button"
+                onClick={() => reroll(i)}
+                className={`${GHOST_BUTTON} !px-2 !py-0.5 !text-[10px] ${i === presetIndex ? "bg-amber-400/15" : ""}`}
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
