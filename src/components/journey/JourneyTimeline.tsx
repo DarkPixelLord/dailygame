@@ -48,20 +48,21 @@ function yForXp(xp: number): number {
   return LAYOUT.nodeYs[seg] - (LAYOUT.nodeYs[seg] - above) * (pctInSegment(xp, seg) / 100);
 }
 
-function useCountUp(target: number, delay: number) {
-  const [value, setValue] = useState(0);
+function useCountUp(target: number, delay: number, enabled: boolean) {
+  const [value, setValue] = useState(enabled ? 0 : target);
   useEffect(() => {
+    if (!enabled) return;
     const controls = animate(0, target, { delay, duration: PAWN_DURATION, onUpdate: (v) => setValue(Math.round(v)) });
     return () => controls.stop();
-  }, [target, delay]);
+  }, [target, delay, enabled]);
   return value;
 }
 
-// Today's XP, counted up in step with the pawn's climb, with its breakdown
-// and the streak bonus waiting tomorrow.
-function XpSummary({ gain }: { gain: XpGain }) {
+// Today's XP, counted up in step with the pawn's climb (shown as-is when
+// there's no climb to play), with its breakdown and tomorrow's streak bonus.
+function XpSummary({ gain, animated }: { gain: XpGain; animated: boolean }) {
   const { t } = useLanguage();
-  const shown = useCountUp(gain.total, CLIMB_DELAY);
+  const shown = useCountUp(gain.total, CLIMB_DELAY, animated);
   return (
     <div className="mx-auto flex w-full max-w-md items-center gap-4 px-4 pb-3">
       <span className="text-3xl font-black text-amber-300">+{shown} XP</span>
@@ -130,9 +131,11 @@ type Props = {
   prevXp: number;
   newXp: number;
   // End-of-game mode: today's XP breakdown on top and a full-width exit
-  // button at the bottom (the only way out of the daily result).
+  // button at the bottom (the daily result's way home), while the header's
+  // close button just goes back to the result.
   gain?: XpGain;
   exitLabel?: string;
+  onExit?: () => void;
   onClose: () => void;
   // Called once the climb (and any milestone reveal) has played out.
   onSeen?: () => void;
@@ -141,7 +144,7 @@ type Props = {
 // Full-screen timeline: future at the top, past at the bottom, scrolled to
 // the pawn on open. Upcoming milestones stay hidden ("???", no icon) until
 // the pawn reaches them, which is the reveal's payoff.
-export default function JourneyTimeline({ prevXp, newXp, gain, exitLabel, onClose, onSeen }: Props) {
+export default function JourneyTimeline({ prevXp, newXp, gain, exitLabel, onExit, onClose, onSeen }: Props) {
   const { lang, t } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevSeg = segmentIndex(prevXp);
@@ -195,7 +198,7 @@ export default function JourneyTimeline({ prevXp, newXp, gain, exitLabel, onClos
           {t.close} ✕
         </button>
       </div>
-      {gain && <XpSummary gain={gain} />}
+      {gain && <XpSummary gain={gain} animated={prevXp !== newXp} />}
       <div ref={scrollRef} className="themed-scroll flex-1 overflow-y-auto">
         <div className="relative mx-auto w-full max-w-md" style={{ height: LAYOUT.height }}>
           <div className="absolute w-0.5 bg-white/10" style={{ left: LINE_X - 1, top: TOP_PAD, height: baseY - TOP_PAD }} />
@@ -271,9 +274,9 @@ export default function JourneyTimeline({ prevXp, newXp, gain, exitLabel, onClos
           </motion.div>
         </div>
       </div>
-      {gain && (
+      {onExit && (
         <div className="mx-auto w-full max-w-md px-4 py-3">
-          <button type="button" onClick={onClose} className={PRIMARY_BUTTON + " w-full"}>
+          <button type="button" onClick={onExit} className={PRIMARY_BUTTON + " w-full"}>
             {exitLabel ?? t.close}
           </button>
         </div>

@@ -79,6 +79,8 @@ export default function FinalRoundScreen({
   const [streak, setStreak] = useState(0);
   const [journeyAward, setJourneyAward] = useState<{ prevXp: number; newXp: number; gain: XpGain } | null>(null);
   const [journeyOpen, setJourneyOpen] = useState(false);
+  // After the first viewing, reopening the journey skips the climb.
+  const [journeyWatched, setJourneyWatched] = useState(false);
 
   const maxTotalScore = events.length * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
   const rank = phase === "done" ? finalRank(totalScore, maxTotalScore, t) : null;
@@ -237,14 +239,18 @@ export default function FinalRoundScreen({
           />
         </div>
         {/* The daily result's exit: "Continue" opens the journey, whose own
-            button then goes home. */}
+            button then goes home (its close button comes back here). */}
         {journeyAward && journeyOpen && (
           <JourneyTimeline
-            prevXp={journeyAward.prevXp}
+            prevXp={journeyWatched ? journeyAward.newXp : journeyAward.prevXp}
             newXp={journeyAward.newXp}
             gain={journeyAward.gain}
             exitLabel={t.backToHome}
-            onClose={onPlayAgain}
+            onExit={onPlayAgain}
+            onClose={() => {
+              setJourneyOpen(false);
+              setJourneyWatched(true);
+            }}
             onSeen={() => {
               if (!previewOnly) markJourneySeen(journeyAward.newXp);
             }}
