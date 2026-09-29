@@ -70,7 +70,7 @@ export function MilestoneDisc({
         ? "border-amber-200/40 text-amber-200"
         : "border-white/10 text-white/40";
   return (
-    <span className={`flex shrink-0 items-center justify-center rounded-full border-2 bg-stone-900 ${size} ${tone}`}>
+    <span className={`flex shrink-0 items-center justify-center rounded-full border-2 bg-slate-900 ${size} ${tone}`}>
       {state !== "future" && (
         <span className={`flex ${state === "current" ? "icon-glow" : ""}`}>
           <MilestoneIcon name={milestone.icon} className={iconSize} />
@@ -110,7 +110,7 @@ export function MilestoneReveal({
           onClick={onDone}
         >
           <motion.div
-            className="flex flex-col items-center gap-2 rounded-xl border-2 border-amber-400/50 bg-stone-900 px-8 py-6 text-center"
+            className="flex flex-col items-center gap-2 rounded-xl border-2 border-amber-400/50 bg-slate-900 px-8 py-6 text-center"
             initial={{ scale: 0.5, y: 20 }}
             animate={{ scale: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 160, damping: 14 }}

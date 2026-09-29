@@ -191,7 +191,7 @@ export default function JourneyTimeline({ prevXp, newXp, gain, exitLabel, onExit
   }, [stage]);
 
   return (
-    <motion.div className="fixed inset-0 z-[60] flex flex-col bg-stone-950" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <motion.div className="fixed inset-0 z-[60] flex flex-col final-spotlight" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <div className="mx-auto flex w-full max-w-md items-center justify-between px-4 py-3">
         <span className="text-sm font-black uppercase tracking-widest text-amber-300">{t.journeyTitle}</span>
         <button type="button" onClick={onClose} className="text-sm font-bold text-white/60">
