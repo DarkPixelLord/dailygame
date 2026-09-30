@@ -15,8 +15,16 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 function readStoredLang(): Lang {
   if (typeof window === "undefined") return "en";
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  return stored === "fr" || stored === "en" ? stored : "en";
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === "fr" || stored === "en") return stored;
+  } catch {
+    // localStorage unavailable — fall through to browser language
+  }
+  // First visit (no explicit choice yet): follow the browser's preferred
+  // languages, so French speakers land on the French UI directly.
+  const prefs = navigator.languages?.length ? navigator.languages : [navigator.language];
+  return prefs.some((l) => l?.toLowerCase().startsWith("fr")) ? "fr" : "en";
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
