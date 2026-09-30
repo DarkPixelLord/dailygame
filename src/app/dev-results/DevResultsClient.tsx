@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import FinalRoundScreen from "@/components/FinalRoundScreen";
 import { pickRandomEvents } from "@/lib/poc-events";
 import { ACTIVE_EVENTS as POC_EVENTS } from "@/lib/event-pool";
@@ -25,11 +25,21 @@ type Props = {
   previewStreak?: number;
 };
 
-export default function DevResultsClient({
-  hideOverlay,
-  previewXp,
-  previewStreak,
-}: Props) {
+const noopSubscribe = () => () => {};
+
+// The event pick and ChronologicalOrder's shuffle are both random, so this
+// screen can't be server-rendered without a hydration mismatch. The real game
+// never SSRs the final round either.
+export default function DevResultsClient(props: Props) {
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+  return mounted ? <DevResultsScreen {...props} /> : null;
+}
+
+function DevResultsScreen({ hideOverlay, previewXp, previewStreak }: Props) {
   // Screenshot mode has no overlay to pick a tier, so start on a good score.
   const [presetIndex, setPresetIndex] = useState(
     hideOverlay ? PRESETS.length - 1 : 0,

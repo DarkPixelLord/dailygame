@@ -65,8 +65,17 @@ function XpSummary({ gain, animated }: { gain: XpGain; animated: boolean }) {
   const shown = useCountUp(gain.total, CLIMB_DELAY, animated);
   return (
     <div className="mx-auto flex w-full max-w-md items-center gap-4 px-4 pb-3">
-      <span className="text-3xl font-black text-amber-300">+{shown} XP</span>
-      <div className="flex flex-col">
+      {/* An invisible copy of the final total reserves the width up front, so
+          the count-up never shifts or re-wraps the breakdown beside it. */}
+      <span className="grid shrink-0 whitespace-nowrap font-black tabular-nums text-amber-300">
+        <span className="invisible col-start-1 row-start-1" aria-hidden>
+          <span className="text-3xl">+{gain.total}</span> <span className="text-lg">XP</span>
+        </span>
+        <span className="col-start-1 row-start-1">
+          <span className="text-3xl">+{shown}</span> <span className="text-lg">XP</span>
+        </span>
+      </span>
+      <div className="flex min-w-0 flex-col">
         <ul className="text-[11px] leading-snug text-white/60">
           <li>
             {t.journeyGamePlayed} +{gain.base}
