@@ -132,7 +132,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   persepolis: {
     name: "Persépolis",
-    clue: "Encerclée par les monts Zagros, une capitale cérémonielle fut bâtie avec des escaliers sculptés de soldats et de porteurs de tributs, avant d'être incendiée.",
+    clue: "Dans le sud des monts Zagros, une capitale cérémonielle fut bâtie avec des escaliers sculptés de soldats et de porteurs de tributs, avant d'être incendiée.",
     explanation: "Persépolis servait de capitale cérémonielle à l'empire perse achéménide. Elle fut incendiée lors de la conquête d'Alexandre le Grand, bien que les historiens débattent encore du caractère volontaire ou accidentel de l'incendie.",
   },
   terracotta_army: {
@@ -487,7 +487,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   franz_ferdinand: {
     name: "Assassinat de François-Ferdinand",
-    clue: "Un héritier royal fut assassiné par un nationaliste, peu après l'échec d'un premier attentat, un acte souvent cité comme l'étincelle d'une guerre mondiale.",
+    clue: "Dans une ville des Balkans, un héritier royal fut assassiné par un nationaliste, peu après l'échec d'un premier attentat, étincelle d'une guerre mondiale.",
     explanation: "L'archiduc François-Ferdinand survécut à un premier attentat à la grenade ce matin-là, avant d'être abattu avec son épouse plus tard dans la journée, après que son chauffeur eut pris un mauvais virage, passant droit devant le tireur. Ce meurtre déclencha une chaîne d'alliances qui entraîna une grande partie du monde dans la guerre en quelques semaines.",
   },
   gettysburg: {
@@ -547,7 +547,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   gateway_arch: {
     name: "Gateway Arch",
-    clue: "Au bord d'un large fleuve qui portait les colons vers la frontière, une arche étincelante en acier s'élève comme la plus haute arche du monde.",
+    clue: "Au confluent du Missouri et du Mississippi, d'où partaient les colons vers l'Ouest, une arche étincelante en acier s'élève, la plus haute du monde.",
     explanation: "Le Gateway Arch adopte une courbe en chaînette conçue pour que sa hauteur soit égale à la distance entre ses deux pieds au sol, et un système de tramway intérieur transporte les visiteurs jusqu'à une plateforme d'observation à son sommet.",
   },
   abu_simbel: {
@@ -912,7 +912,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   paris_agreement: {
     name: "Accord de Paris",
-    clue: "Des délégués de près de deux cents pays concluent un accord historique, dans une grande capitale, pour lutter contre le réchauffement de la planète.",
+    clue: "Dans une grande capitale sur la Seine, des délégués de près de deux cents pays concluent un accord historique pour lutter contre le réchauffement de la planète.",
     explanation: "L'Accord de Paris fut adopté lors d'une conférence des Nations unies sur le climat, à Paris, engageant près de 200 pays à agir ensemble pour limiter le réchauffement climatique.",
   },
   roman_forum: {
@@ -1267,7 +1267,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   chile_earthquake_2010: {
     name: "Séisme du Chili",
-    clue: "Au pied d'une chaîne de montagnes qui longe tout un continent, un séisme côtier parmi les plus puissants jamais enregistrés fit trembler le sol trois minutes.",
+    clue: "Dans un pays long et étroit entre les Andes et le Pacifique, un séisme côtier parmi les plus puissants jamais enregistrés fit trembler le sol trois minutes.",
     explanation: "Le séisme de magnitude 8,8 frappa au large de la région du Maule et fut l'un des plus puissants jamais enregistrés par les instruments modernes. Les scientifiques ont calculé qu'il avait raccourci la durée d'une journée terrestre d'une fraction de microseconde.",
   },
   motherland_calls_statue: {
@@ -1647,7 +1647,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   vermeer_birth: {
     name: "Johannes Vermeer",
-    clue: "Né dans une ville aux canaux, ce peintre a peint une jeune fille au turban bleu et boucle de perle, l'un des visages les plus reconnus de l'art.",
+    clue: "Né dans une petite ville de canaux du pays des moulins, près de la mer du Nord, ce peintre a peint une jeune fille au turban bleu et à la boucle de perle.",
     explanation: "Johannes Vermeer est né à Delft, une ville néerlandaise sillonnée de canaux, où il a passé presque toute sa vie. Son tableau d'une jeune fille au turban bleu et à la boucle de perle est aujourd'hui l'une des images les plus reproduites de l'histoire de l'art, parfois surnommée la Joconde du Nord.",
   },
   raphael_birth: {
@@ -1737,7 +1737,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   pavlov_birth: {
     name: "Ivan Pavlov",
-    clue: "Né dans une famille de prêtre, il entraîne des chiens à saliver au son d'une cloche, prouvant que le corps apprend à réagir à un signal neutre.",
+    clue: "Né dans une famille de prêtre, dans une ville sur l'Oka, au pays des tsars, il entraîne des chiens à saliver au son d'une cloche, preuve d'un réflexe appris.",
     explanation: "Les expériences d'Ivan Pavlov sur le conditionnement classique, où des chiens apprenaient à saliver à un signal associé à la nourriture, ont fait de lui un fondateur des sciences du comportement et lui ont valu un prix Nobel pour ses travaux sur la digestion.",
   },
   hubble_birth: {
@@ -1792,7 +1792,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   diego_rivera_birth: {
     name: "Diego Rivera",
-    clue: "Né jumeau d'un frère mort en bas âge, ce peintre couvre des murs publics de fresques géantes montrant travailleurs, révolutionnaires et l'histoire de son pays.",
+    clue: "Né dans une ville minière des hauts plateaux au nord de l'ancienne capitale aztèque, ce peintre couvre les murs publics de fresques d'ouvriers et de rebelles.",
     explanation: "Les fresques monumentales de Diego Rivera, peintes sur les murs de bâtiments gouvernementaux puis dans des villes à l'étranger, ont contribué à faire de la peinture murale un art majeur et un moyen de raconter l'histoire d'une nation au grand public.",
   },
   pissarro_birth: {
@@ -1802,7 +1802,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   oprah_winfrey_birth: {
     name: "Oprah Winfrey",
-    clue: "Née dans la pauvreté d'une petite ville du Sud, cette animatrice bâtit un empire médiatique et devient la première femme noire milliardaire au monde.",
+    clue: "Née dans la pauvreté d'une petite ville du Mississippi rural, cette animatrice bâtit un empire médiatique et devient la première femme noire milliardaire.",
     explanation: "L'émission de télévision d'Oprah Winfrey a été diffusée en syndication nationale pendant vingt-cinq ans, et son entreprise médiatique, son club de lecture et ses actions philanthropiques ont fait d'elle l'une des femmes les plus influentes au monde.",
   },
   sappho_birth: {
@@ -1902,7 +1902,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   bardeen_birth: {
     name: "John Bardeen",
-    clue: "Né dans une ville moyenne, ce physicien a co-inventé le transistor, ce minuscule interrupteur présent dans tout ordinateur, et a reçu deux fois un prix Nobel.",
+    clue: "Né dans une ville de lacs à l'ouest du lac Michigan, ce physicien co-inventa le transistor, interrupteur minuscule des ordinateurs, et reçut deux fois le Nobel.",
     explanation: "John Bardeen était un physicien américain qui, avec deux collègues dans un laboratoire de recherche, construisit le premier transistor fonctionnel, remplaçant les tubes à vide encombrants et fragiles dans les appareils électroniques. Il reçut un second prix de physique pour avoir expliqué comment certains matériaux perdent toute résistance électrique à très basse température.",
   },
   townes_birth: {

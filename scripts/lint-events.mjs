@@ -228,6 +228,9 @@ const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   // 70,000 km2 / 87,000 km2 regions of Bavaria and Andalusia.
   "tiber", "tibre", "orange", "amu", "amou", "ganges", "gange", "st",
   "bavaria", "andalusia", "andalousie", "vaal", "darya", "daria",
+  // Packs 32-36 rewrites (same gate): the ~550,000 km2 Balkan peninsula, the
+  // ~780 km Seine, the ~1,500 km Oka, and an empire-wide adjective.
+  "balkans", "seine", "oka", "aztec",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {
