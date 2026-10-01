@@ -12,7 +12,7 @@ export type EventTranslation = {
 export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   great_pyramid_giza: {
     name: "Grande pyramide de Gizeh",
-    clue: "Le long du Nil, une pyramide géante construite comme tombeau royal est restée la structure la plus haute au monde pendant plus de 3 800 ans.",
+    clue: "Aux portes du delta du Nil, une pyramide géante construite comme tombeau royal est restée la structure la plus haute au monde pendant plus de 3 800 ans.",
     explanation: "La grande pyramide de Gizeh a été construite comme tombeau du pharaon Khéops, avec plus de deux millions de blocs de calcaire. C'est la seule des sept merveilles du monde antique encore debout aujourd'hui.",
   },
   machu_picchu: {
@@ -42,7 +42,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   oktoberfest_munich: {
     name: "Oktoberfest",
-    clue: "La plus grande fête de la bière au monde a débuté comme un mariage princier, et remplit chaque année d'immenses tentes de visiteurs.",
+    clue: "En Bavière, la plus grande fête de la bière au monde a débuté comme un mariage princier, et remplit chaque année d'immenses tentes de visiteurs.",
     explanation: "L'Oktoberfest a commencé comme une célébration publique d'un mariage princier et est devenu une fête populaire annuelle combinant tentes à bière et attractions foraines.",
   },
   first_modern_olympics: {
@@ -447,7 +447,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   stonehenge: {
     name: "Stonehenge",
-    clue: "Un cercle d'immenses pierres dressées, certaines transportées sur des centaines de kilomètres, fut aligné sur le soleil au jour le plus long de l'année.",
+    clue: "Sur une plaine crayeuse au sud du cours supérieur de la Tamise, un cercle d'immenses pierres dressées fut aligné sur le soleil au jour le plus long de l'année.",
     explanation: "Stonehenge se dresse sur la plaine de Salisbury. Certaines de ses plus petites pierres bleues furent transportées depuis des carrières situées à environ 200 kilomètres, un exploit extraordinaire pour la technologie de l'époque, et le monument reste aligné avec le lever et le coucher du soleil aux solstices.",
   },
   pompeii: {
@@ -812,7 +812,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   assassination_of_julius_caesar: {
     name: "Assassinat de Jules César",
-    clue: "Lors d'une séance du sénat, un dirigeant tout juste proclamé maître à vie est poignardé par ses sénateurs, plongeant sa république dans la guerre civile.",
+    clue: "Au bord du Tibre, un dirigeant tout juste proclamé maître à vie est poignardé par ses propres sénateurs, plongeant sa république dans la guerre civile.",
     explanation: "Jules César fut poignardé à mort par un groupe de sénateurs, dont Brutus et Cassius, lors d'une séance tenue au théâtre de Pompée, à Rome. Ce meurtre déclencha des guerres civiles qui mirent fin à la République romaine.",
   },
   western_wall: {
@@ -1312,7 +1312,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   tolkien_birth: {
     name: "J.R.R. Tolkien",
-    clue: "Né loin de l'île où il vécut et enseigna plus tard, cet écrivain a bâti un monde de magiciens et d'elfes, autour d'une quête pour détruire un anneau puissant.",
+    clue: "Né sur le haut plateau entre l'Orange et le Vaal, loin de l'île où il enseigna plus tard, cet écrivain bâtit un monde d'elfes autour d'un anneau maudit.",
     explanation: "J.R.R. Tolkien naquit sur un autre continent que celui où sa famille retourna peu après. Il devint professeur de langues et passa des décennies à construire tout un monde fantastique avec ses propres langues et histoires inventées, publiant des romans sur un périlleux voyage pour détruire un anneau puissant et corrupteur.",
   },
   spielberg_birth: {
@@ -1482,7 +1482,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   avicenna_birth: {
     name: "Avicenne",
-    clue: "Né près d'une ville-oasis sur une ancienne route commerciale, ce médecin écrivit un manuel si complet qu'il forma encore des médecins cinq siècles plus tard.",
+    clue: "Né près d'une ville-oasis de la route de la soie, non loin de l'Amou-Daria, ce médecin écrivit un manuel qui forma encore des médecins cinq siècles plus tard.",
     explanation: "Avicenne, né Ibn Sina, écrivit le Canon de la médecine, une vaste encyclopédie qui organisa les connaissances médicales existantes et devint un manuel de référence dans le monde musulman puis dans les universités européennes pendant des siècles.",
   },
   omar_khayyam_birth: {
@@ -1547,7 +1547,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   orwell_birth: {
     name: "George Orwell",
-    clue: "Né sous administration coloniale, cet écrivain inventa « police de la pensée » et « grand frère », expressions désignant aujourd'hui la surveillance d'État.",
+    clue: "Né dans la plaine du Gange, au pied de l'Himalaya, sous administration coloniale, cet écrivain inventa « police de la pensée » et « grand frère ».",
     explanation: "George Orwell, né Eric Arthur Blair, écrivit des romans satiriques et dystopiques mettant en garde contre le contrôle totalitaire et la propagande. Les termes qu'il inventa pour désigner la surveillance et le langage manipulé sont entrés dans l'usage courant de nombreuses langues.",
   },
   goethe_birth: {
@@ -1602,7 +1602,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   margaret_atwood_birth: {
     name: "Margaret Atwood",
-    clue: "Née dans une capitale au confluent de deux rivières, cette romancière a imaginé une théocratie forçant les femmes fertiles à enfanter pour la classe dirigeante.",
+    clue: "Née dans une capitale du nord proche du Saint-Laurent, cette romancière a imaginé une théocratie forçant les femmes fertiles à enfanter pour les puissants.",
     explanation: "Margaret Atwood est une romancière et poétesse dont le roman dystopique La Servante écarlate imagine un État totalitaire qui prive les femmes de leurs droits et force certaines d'entre elles à la procréation forcée pour la classe dirigeante. Le roman a depuis été adapté en une série télévisée très suivie.",
   },
   srinivasa_ramanujan_birth: {
@@ -1822,7 +1822,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   sima_qian_birth: {
     name: "Sima Qian",
-    clue: "Né dans une famille d'historiens de cour, il subit une mutilation pour avoir défendu un général déchu, mais achève une vaste histoire couvrant deux mille ans.",
+    clue: "Né au bord du fleuve Jaune, sur le plateau de lœss, cet historien de cour fut mutilé pour avoir défendu un général, mais acheva une histoire de deux mille ans.",
     explanation: "Sima Qian choisit d'endurer la castration plutôt que d'accepter l'exécution, afin de pouvoir achever son histoire monumentale, une œuvre qui devint le modèle des histoires officielles pendant les deux mille années suivantes.",
   },
   capek_birth: {
@@ -1832,7 +1832,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   lorca_birth: {
     name: "Federico García Lorca",
-    clue: "Né dans une petite ville agricole, ce poète et dramaturge a été fusillé dans les premiers jours d'une guerre civile qui a déchiré son pays.",
+    clue: "Né dans un village agricole d'Andalousie, ce poète et dramaturge a été fusillé dans les premiers jours d'une guerre civile qui a déchiré son pays.",
     explanation: "Federico García Lorca était un poète et dramaturge espagnol célèbre pour une œuvre mêlant tradition populaire et images vivement musicales. Quelques jours après le début de la guerre civile espagnole, il fut arrêté par les forces nationalistes et exécuté près de sa région natale ; son corps n'a jamais été retrouvé.",
   },
   diderot_birth: {

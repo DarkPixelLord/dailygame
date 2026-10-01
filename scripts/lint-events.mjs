@@ -223,6 +223,11 @@ const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   // lake, the ~370 km Chao Phraya, a 2.7 km strait, the Anatolian plateau,
   // and a 696,000 km2 state.
   "delaware", "vänern", "chao", "phraya", "golden", "gate", "anatolia", "anatolie", "texan",
+  // Packs 27-31 rewrites (same gate): the 400 km Tiber, the ~2,100 km Orange and ~1,200 km Vaal,
+  // the ~2,500 km Amu Darya and Ganges, the 3,000 km St. Lawrence, and the
+  // 70,000 km2 / 87,000 km2 regions of Bavaria and Andalusia.
+  "tiber", "tibre", "orange", "amu", "amou", "ganges", "gange", "st",
+  "bavaria", "andalusia", "andalousie", "vaal", "darya", "daria",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {
