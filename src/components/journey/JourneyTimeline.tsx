@@ -211,11 +211,14 @@ export default function JourneyTimeline({ prevXp, newXp, gain, exitLabel, onExit
       <div ref={scrollRef} className="themed-scroll flex-1 overflow-y-auto">
         <div className="relative mx-auto w-full max-w-md" style={{ height: LAYOUT.height }}>
           <div className="absolute w-0.5 bg-white/10" style={{ left: LINE_X - 1, top: TOP_PAD, height: baseY - TOP_PAD }} />
+          {/* Pawn and filled line move with transforms only (no top/height),
+              so the climb stays on the compositor: animating layout made
+              Samsung Internet flicker. */}
           <motion.div
-            className="absolute w-0.5 bg-amber-400/60"
-            style={{ left: LINE_X - 1 }}
-            initial={{ top: yForXp(prevXp), height: baseY - yForXp(prevXp) }}
-            animate={{ top: pawnY, height: baseY - pawnY }}
+            className="absolute w-0.5 origin-bottom bg-amber-400/60 will-change-transform"
+            style={{ left: LINE_X - 1, top: 0, height: baseY }}
+            initial={{ scaleY: (baseY - yForXp(prevXp)) / baseY }}
+            animate={{ scaleY: (baseY - pawnY) / baseY }}
             transition={climb}
           />
           {LAYOUT.eraTitles.map((title) => (
@@ -273,13 +276,15 @@ export default function JourneyTimeline({ prevXp, newXp, gain, exitLabel, onExit
             );
           })}
           <motion.div
-            className="absolute z-[5]"
-            style={{ left: PAWN_LEFT, y: "-50%" }}
-            initial={{ top: yForXp(prevXp) }}
-            animate={{ top: pawnY }}
+            className="absolute z-[5] will-change-transform"
+            style={{ left: PAWN_LEFT, top: 0 }}
+            initial={{ y: yForXp(prevXp) }}
+            animate={{ y: pawnY }}
             transition={climb}
           >
-            <Pawn size="h-8 w-8" connector={LINE_X - PAWN_LEFT - PAWN_SIZE} />
+            <div className="-translate-y-1/2">
+              <Pawn size="h-8 w-8" connector={LINE_X - PAWN_LEFT - PAWN_SIZE} />
+            </div>
           </motion.div>
         </div>
       </div>

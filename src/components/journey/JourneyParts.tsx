@@ -40,7 +40,11 @@ export function MilestoneIcon({ name, className = "" }: { name: string; classNam
 export function Pawn({ size, connector }: { size: string; connector: number }) {
   return (
     <div className="flex items-center">
-      <MilestoneIcon name="walk" className={`icon-glow block text-amber-300 ${size}`} />
+      {/* Glow on a wrapper, not the masked icon: filter + mask on one moving
+          element repaints badly on some Android browsers. */}
+      <span className="icon-glow flex text-amber-300">
+        <MilestoneIcon name="walk" className={`block ${size}`} />
+      </span>
       <span className="border-t-2 border-dotted border-amber-300/80" style={{ width: connector }} />
     </div>
   );
