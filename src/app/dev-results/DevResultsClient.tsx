@@ -69,7 +69,8 @@ function DevResultsScreen({ hideOverlay, previewXp, previewStreak }: Props) {
       {/* Dev-only overlay, floats over the real screen without affecting its
           layout — this is meant to look exactly like the shipped final round. */}
       {!hideOverlay && (
-        <div className="pointer-events-none fixed inset-x-0 bottom-2 z-50 flex justify-center">
+        // Top, not bottom: at the bottom it covered the submit button on phones.
+        <div className="pointer-events-none fixed inset-x-0 top-2 z-50 flex justify-center">
           <div className="pointer-events-auto flex max-w-[calc(100vw-1rem)] flex-wrap justify-center gap-1 rounded-md border border-white/10 bg-black/70 p-1 backdrop-blur-sm">
             {PRESETS.map((p, i) => (
               <button

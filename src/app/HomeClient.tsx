@@ -6,6 +6,7 @@ import type { GameMode } from "@/lib/poc-events";
 import { getTodaysDailyResult } from "@/lib/daily-result";
 import { getTodaysProgress, type StoredDailyProgress } from "@/lib/daily-progress";
 import { ROUNDS_PER_GAME } from "@/lib/scoring";
+import { useReloadOnNewVersion } from "@/lib/use-reload-on-new-version";
 
 // Both read localStorage (language, and inside the game, MapLibre touches
 // `window`), so neither can be server-rendered.
@@ -51,6 +52,10 @@ export default function HomeClient() {
   const [dailyProgress, setDailyProgress] = useState<StoredDailyProgress | null>(null);
   // Which past day's pack to replay, for mode "archive".
   const [archiveDate, setArchiveDate] = useState<string | undefined>(undefined);
+  // Only on the landing screen: a reload there loses nothing, unlike mid-game
+  // or during the result animations. A stale tab gets refreshed as soon as
+  // the player comes back home.
+  useReloadOnNewVersion(!mode && dailyResultScore === null);
 
   function start(nextMode: GameMode, nextArchiveDate?: string) {
     if (nextMode === "daily" && !IS_DEV) {
