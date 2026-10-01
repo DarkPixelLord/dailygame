@@ -62,7 +62,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   fall_of_constantinople: {
     name: "Chute de Constantinople",
-    clue: "Une armée immense assiège une capitale fortifiée durant 53 jours, perçant ses murailles à coups de canons et mettant fin à un empire millénaire.",
+    clue: "Une armée immense assiège 53 jours une capitale fortifiée sur le Bosphore, perçant ses murailles à coups de canons et mettant fin à un empire millénaire.",
     explanation: "Le siège de 53 jours a mis fin à l'empire byzantin et a transformé sa capitale en nouveau centre de l'empire ottoman. D'énormes canons de bronze ont percé des murailles vieilles de plus de mille ans.",
   },
   battle_of_hastings: {
@@ -92,7 +92,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   olympic_flame_debut: {
     name: "Débuts de la flamme olympique",
-    clue: "Dans une ville célèbre pour ses canaux, les Jeux olympiques ont pour la première fois allumé une flamme brûlant en continu, une tradition perpétuée depuis.",
+    clue: "Dans une ville de canaux au pays des tulipes et des moulins, les Jeux olympiques ont pour la première fois allumé une flamme brûlant en continu.",
     explanation: "Les Jeux olympiques d'Amsterdam ont aussi permis pour la première fois aux athlètes féminines de concourir en athlétisme.",
   },
   nikola_tesla_birth: {
@@ -212,7 +212,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   helsinki_1952_olympics: {
     name: "Jeux olympiques d'Helsinki",
-    clue: "Sur la côte baltique, les Jeux olympiques voient un rival de la guerre froide concourir pour la première fois en décennies, symbole de rivalité.",
+    clue: "Sur la rive nord de la Baltique, les Jeux olympiques voient un rival de la guerre froide concourir pour la première fois en décennies, symbole de rivalité.",
     explanation: "Les Jeux d'Helsinki ont aussi vu le coureur de fond Emil Zátopek remporter trois médailles d'or, dont un marathon qu'il n'avait jamais couru auparavant.",
   },
   montreal_1976_olympics: {
@@ -457,7 +457,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   darwin_birth: {
     name: "Charles Darwin",
-    clue: "Sur un archipel volcanique au large d'une côte occidentale, un naturaliste étudie pinsons et tortues géantes qui inspireront une théorie de l'évolution.",
+    clue: "Sur un archipel volcanique du Pacifique, à cheval sur l'équateur, un naturaliste étudie pinsons et tortues géantes qui inspireront une théorie de l'évolution.",
     explanation: "Charles Darwin passa cinq semaines à étudier la faune des îles Galápagos lors de son tour du monde à bord du Beagle. Les pinsons et les tortues de l'archipel, subtilement différents d'une île à l'autre, devinrent des décennies plus tard des preuves clés lorsqu'il publia sa théorie de l'évolution par sélection naturelle.",
   },
   edison_birth: {
@@ -722,7 +722,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   worlds_columbian_exposition: {
     name: "Exposition universelle de Chicago",
-    clue: "Une exposition bâtie presque du jour au lendemain dévoile la première grande roue et éclaire ses bâtiments blancs d'un dispositif électrique inédit.",
+    clue: "Au bord du lac Michigan, une exposition bâtie presque du jour au lendemain dévoile la première grande roue et un éclairage électrique d'une ampleur inédite.",
     explanation: "L'Exposition universelle de Chicago célébrait l'arrivée de Christophe Colomb sur le continent américain. Sa grande roue fut la toute première jamais construite, et sa « ville blanche » néoclassique fut l'une des premières à être éclairée à grande échelle à l'électricité.",
   },
   assassination_of_mlk: {
@@ -817,7 +817,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   western_wall: {
     name: "Mur des Lamentations",
-    clue: "Des fidèles viennent du monde entier glisser des prières écrites dans les fissures d'un mur antique, dernier vestige d'une vaste plateforme sacrée.",
+    clue: "Dans une ville sainte pour trois religions, des fidèles glissent des prières écrites dans les fissures d'un mur antique, dernier vestige d'un vaste temple.",
     explanation: "Le mur des Lamentations est le dernier vestige du mur de soutènement qui portait autrefois l'esplanade du Temple à Jérusalem. C'est l'un des lieux les plus saints du judaïsme, où les visiteurs glissent traditionnellement des prières écrites entre les pierres.",
   },
   grand_palace: {
@@ -1207,7 +1207,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   kurosawa_birth: {
     name: "Akira Kurosawa",
-    clue: "Né dans une immense capitale sur la côte Pacifique, ce cinéaste réalisa une épopée de samouraïs plus tard adaptée en western sur sept pistoleros.",
+    clue: "Né dans une immense capitale en vue du mont Fuji, ce cinéaste réalisa une épopée de samouraïs plus tard adaptée en western sur sept pistoleros.",
     explanation: "Akira Kurosawa réalisa Les Sept Samouraïs, un classique du cinéma mondial dont l'histoire de guerriers engagés pour défendre un village fut ensuite adaptée sous le titre Les Sept Mercenaires. Il est considéré comme l'un des réalisateurs les plus influents de l'histoire du cinéma.",
   },
   fallingwater: {
@@ -1227,12 +1227,12 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   battle_of_okinawa: {
     name: "Bataille d'Okinawa",
-    clue: "Sur un archipel du Pacifique, la plus grande invasion terre-mer de toute la guerre du Pacifique s'éternisa près de trois mois, île après île.",
+    clue: "Sur un archipel au sud de Kyushu, la plus grande invasion terre-mer de toute la guerre du Pacifique s'éternisa près de trois mois, île après île.",
     explanation: "La bataille d'Okinawa fut le plus grand assaut amphibie du théâtre Pacifique durant la Seconde Guerre mondiale. Les pertes immenses des deux côtés pesèrent sur la décision d'utiliser l'arme atomique plutôt que de lancer une invasion similaire des îles principales.",
   },
   siege_of_baghdad_1258: {
     name: "Siège de Bagdad",
-    clue: "Une armée venue de la steppe assiégea la capitale d'un califat, grand centre du savoir, brûlant ses bibliothèques et noircissant d'encre, dit-on, son fleuve.",
+    clue: "Une armée venue de la steppe assiégea la capitale d'un califat sur le Tigre, brûlant ses bibliothèques et noircissant d'encre, dit-on, le fleuve.",
     explanation: "Le siège fut mené par une armée de l'empire mongol sous Hulagu Khan, qui détruisit la Maison de la Sagesse et une grande partie des bibliothèques de la ville. Cet événement est traditionnellement vu comme la fin de l'âge d'or islamique, même si les historiens débattent de la netteté de cette rupture.",
   },
   alaska_purchase_sitka: {
@@ -1242,7 +1242,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   treaty_of_tordesillas: {
     name: "Traité de Tordesillas",
-    clue: "Réunis dans une petite ville de l'intérieur, des négociateurs de deux royaumes rivaux signèrent une ligne partageant toute future découverte d'outre-mer.",
+    clue: "Réunis dans une petite ville au bord du Douro, des négociateurs de deux royaumes rivaux tracèrent une ligne partageant toute future découverte d'outre-mer.",
     explanation: "Le traité de Tordesillas partagea les terres nouvellement revendiquées hors d'Europe entre les couronnes de Castille et du Portugal, le long d'un méridien. C'est la raison pour laquelle le Brésil parle portugais alors que ses voisins parlent espagnol, la ligne ayant croisé sa côte orientale.",
   },
   february_revolution_1917: {
@@ -1322,7 +1322,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   munich_agreement_1938: {
     name: "Accords de Munich",
-    clue: "Réunis dans une ville, des dirigeants de puissances plus fortes ont laissé démembrer un territoire voisin, espérant éviter une guerre venue un an plus tard.",
+    clue: "Réunis dans une ville de Bavière, des dirigeants de puissances plus fortes laissèrent démembrer un territoire voisin pour éviter une guerre venue un an après.",
     explanation: "Lors d'un sommet, les dirigeants de plusieurs puissances plus fortes acceptèrent de laisser démembrer un pays voisin plus petit, sans consulter le gouvernement de ce pays, espérant que cette concession empêcherait une guerre plus large. Elle survint tout de même, moins d'un an plus tard.",
   },
   glorious_revolution_landing: {
@@ -1417,7 +1417,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   alexandre_dumas_birth: {
     name: "Alexandre Dumas",
-    clue: "Né dans une petite ville, ce romancier écrivit des aventures autour d'un homme emprisonné à tort cherchant vengeance et de duellistes fidèles à leur roi.",
+    clue: "Né dans une petite ville de Picardie, ce romancier écrivit les aventures d'un homme emprisonné à tort cherchant vengeance et de duellistes fidèles à leur roi.",
     explanation: "Alexandre Dumas était un écrivain français dont les romans d'aventures, dont Le Comte de Monte-Cristo et Les Trois Mousquetaires, comptent parmi les plus lus au monde.",
   },
   vivaldi_birth: {
@@ -1457,7 +1457,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   hanshin_earthquake_1995: {
     name: "Séisme de Kobe",
-    clue: "Ce séisme renversa un tronçon d'autoroute surélevée et rompit une voie ferrée à grande vitesse, dans une ville portuaire bâtie en partie sur la mer.",
+    clue: "Ce séisme renversa une autoroute surélevée et rompit une ligne à grande vitesse, dans un grand port de la mer intérieure de Seto, bâti sur des remblais.",
     explanation: "Le grand séisme de Hanshin frappa la ville portuaire japonaise de Kobe, tuant plus de six mille personnes et causant d'importants dégâts aux autoroutes, aux voies ferrées et aux îles artificielles du port. Il entraîna d'importantes réformes dans la préparation aux séismes et les normes de construction du pays.",
   },
   christchurch_earthquake_2011: {
@@ -1657,7 +1657,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   goya_birth: {
     name: "Francisco Goya",
-    clue: "Né près d'une ville fluviale du nord, ce peintre a peint une exécution nocturne au fusil, éclairée par une lanterne, tableau bouleversant contre la guerre.",
+    clue: "Né dans un village de la vallée de l'Èbre, ce peintre a peint une exécution nocturne au fusil, éclairée par une lanterne, tableau bouleversant contre la guerre.",
     explanation: "Francisco Goya est né près de Saragosse, une ville sur l'Èbre, dans le nord de l'Espagne. Son tableau montrant des civils exécutés au fusil, la nuit, éclairés par une seule lanterne, reste l'une des dénonciations les plus puissantes de la guerre dans l'histoire de l'art.",
   },
   cezanne_birth: {
@@ -1722,12 +1722,12 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   ibn_al_haytham_birth: {
     name: "Ibn al-Haytham",
-    clue: "Né dans une ville fluviale, ce savant a prouvé que l'on voit parce que la lumière entre dans l'œil, avec une pièce sombre percée d'un trou projetant une image.",
+    clue: "Né dans un port proche du confluent du Tigre et de l'Euphrate, ce savant prouva que l'on voit car la lumière entre dans l'œil, avec une chambre noire.",
     explanation: "Ibn al-Haytham est né à Bassora, une ville sur un delta fluvial au Moyen-Orient. Il renversa l'idée ancienne selon laquelle l'œil émettrait des rayons pour voir, montrant au contraire que la vision fonctionne parce que la lumière entre dans l'œil, et il démontra la propagation de la lumière grâce à une pièce sombre percée d'un petit trou projetant une image sur le mur opposé.",
   },
   pauling_birth: {
     name: "Linus Pauling",
-    clue: "Né dans une ville de la côte pacifique, ce chimiste a reçu un prix Nobel pour avoir expliqué la liaison des atomes, puis un second contre l'arme nucléaire.",
+    clue: "Né dans une ville du Nord-Ouest pacifique pluvieux, ce chimiste reçut un Nobel pour avoir expliqué la liaison des atomes, puis un autre contre l'arme nucléaire.",
     explanation: "Linus Pauling est né à Portland, une ville de la côte pacifique des États-Unis. Il a reçu le prix Nobel de chimie pour avoir expliqué comment les atomes se lient entre eux, puis, des années plus tard, le prix Nobel de la paix pour sa campagne contre les essais d'armes nucléaires.",
   },
   raman_birth: {
@@ -1847,7 +1847,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   jim_carrey_birth: {
     name: "Jim Carrey",
-    clue: "Né dans une petite ville, ce comédien mondialement célèbre a joué un détective animalier loufoque, un homme incapable de mentir, et un vilain au teint vert.",
+    clue: "Né dans une petite ville au nord du lac Ontario, ce comédien a joué un détective animalier loufoque, un homme incapable de mentir et un vilain au teint vert.",
     explanation: "Jim Carrey est un acteur et comédien canado-américain connu pour ses expressions faciales élastiques et son énergie débordante à l'écran. Il s'est ensuite tourné vers des rôles dramatiques plus sérieux, salués pour révéler un côté plus sombre et réfléchi de son talent.",
   },
   anthony_quinn_birth: {
@@ -1942,7 +1942,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   brahmagupta_birth: {
     name: "Brahmagupta",
-    clue: "Né dans une ville marchande du désert sur une ancienne route caravanière, un mathématicien est le premier à traiter le zéro comme un vrai nombre.",
+    clue: "Né dans une ville marchande du désert du Rajasthan, sur une route caravanière, un mathématicien est le premier à traiter le zéro comme un vrai nombre.",
     explanation: "Le traité de Brahmagupta a donné au zéro un traitement mathématique formel pour la première fois, avec des règles de calcul incluant le zéro et les nombres négatifs, des idées qui se sont ensuite répandues vers l'ouest et ont transformé les mathématiques.",
   },
   humphry_davy_birth: {
@@ -2037,7 +2037,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   michelson_birth: {
     name: "Albert A. Michelson",
-    clue: "Né en terres agricoles plates, ce physicien mesura la vitesse de la lumière, devenant le premier de son pays d'adoption à gagner un Nobel scientifique.",
+    clue: "Né dans les plaines du bassin de la Vistule, ce physicien mesura la vitesse de la lumière, premier de son pays d'adoption à gagner un Nobel scientifique.",
     explanation: "Les mesures précises de la vitesse de la lumière réalisées par Albert Michelson, notamment la célèbre expérience de Michelson-Morley, ont contribué à réfuter la théorie d'un éther porteur de lumière. Il devint le premier Américain à remporter un prix Nobel dans une discipline scientifique.",
   },
   abdus_salam_birth: {

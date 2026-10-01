@@ -212,6 +212,13 @@ const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   "anatolian", "appalachians", "bering", "douro", "emerald", "émeraude",
   "missouri", "ontario", "sibérie", "silicon", "virgin", "vierges",
   "yangtze", "yangzi", "mississippi", "isle", "strait", "béring", "islands", "valley",
+  // Packs 15-21 rewrites (all passed the stripped-text pin test): a strait,
+  // a 58,000 km2 lake, a 23,000 km2 inland sea, a 36,000 km2 island, the
+  // ~930 km Ebro, regions of 70,000 / 342,000 / 19,000 km2, a multi-state
+  // region, and a volcano seen across a whole plain.
+  "bosphorus", "bosphore", "michigan", "seto", "kyushu", "ebro", "èbre",
+  "bavarian", "bavière", "rajasthan", "picardy", "picardie", "northwest", "ouest",
+  "mount", "fuji", "inland",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {
