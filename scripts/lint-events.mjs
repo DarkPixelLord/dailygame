@@ -219,6 +219,10 @@ const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   "bosphorus", "bosphore", "michigan", "seto", "kyushu", "ebro", "èbre",
   "bavarian", "bavière", "rajasthan", "picardy", "picardie", "northwest", "ouest",
   "mount", "fuji", "inland",
+  // Packs 22-26 rewrites (same gate): the ~500 km Delaware, a 5,650 km2
+  // lake, the ~370 km Chao Phraya, a 2.7 km strait, the Anatolian plateau,
+  // and a 696,000 km2 state.
+  "delaware", "vänern", "chao", "phraya", "golden", "gate", "anatolia", "anatolie", "texan",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {

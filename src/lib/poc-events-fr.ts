@@ -57,7 +57,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   october_revolution_petrograd: {
     name: "Révolution d'Octobre",
-    clue: "Dans la capitale d'un immense empire, des révolutionnaires prennent un palais royal de nuit, renversent le gouvernement et fondent le premier État communiste.",
+    clue: "Dans une capitale impériale sur la Neva, des révolutionnaires prennent un palais de nuit, renversent le gouvernement et fondent le premier État communiste.",
     explanation: "Le soulèvement de Petrograd a été mené par les bolcheviks de Lénine et a déclenché une longue guerre civile dans le pays avant que le nouveau gouvernement n'obtienne le plein contrôle.",
   },
   fall_of_constantinople: {
@@ -147,7 +147,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   stockholm_1912_olympics: {
     name: "Jeux olympiques de Stockholm",
-    clue: "Dans une ville construite sur une dispersion d'îles, les Jeux olympiques ont utilisé chronomètres électriques et télégraphe pour transmettre les résultats.",
+    clue: "Dans une ville bâtie sur des îles de la Baltique, les Jeux olympiques ont utilisé chronomètres électriques et télégraphe pour transmettre les résultats.",
     explanation: "Les Jeux de Stockholm ont aussi été les premiers à réunir des athlètes des cinq continents habités en compétition.",
   },
   melbourne_1956_olympics: {
@@ -712,12 +712,12 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   independence_hall: {
     name: "Independence Hall",
-    clue: "Dans une salle en briques, des délégués de treize colonies débattent et signent le texte proclamant l'indépendance de leur nation face à son roi.",
+    clue: "Dans une salle en briques près du fleuve Delaware, des délégués de treize colonies signent le texte proclamant l'indépendance de leur nation face à son roi.",
     explanation: "Independence Hall, à Philadelphie, est le lieu où la déclaration d'indépendance et la Constitution des États-Unis furent débattues puis adoptées. Le site est classé au patrimoine mondial de l'UNESCO.",
   },
   tangshan_earthquake: {
     name: "Séisme de Tangshan",
-    clue: "Un séisme matinal rase une ville industrielle en quelques secondes, devenant le séisme le plus meurtrier jamais enregistré, son bilan réel restant contesté.",
+    clue: "Près de la mer Jaune, un séisme matinal rase une ville industrielle en quelques secondes, le plus meurtrier jamais enregistré, son bilan réel restant contesté.",
     explanation: "Le séisme de Tangshan frappa la ville industrielle chinoise de Tangshan alors que la plupart des habitants dormaient. Le bilan officiel dépasse 242 000 morts, bien que de nombreux historiens estiment le bilan réel supérieur à 300 000.",
   },
   worlds_columbian_exposition: {
@@ -807,7 +807,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   battle_of_the_alamo: {
     name: "Bataille de l'Alamo",
-    clue: "Après treize jours de siège, une garnison minoritaire retranchée dans une vieille mission est submergée à l'aube, devenant un cri de ralliement pour la guerre.",
+    clue: "Après treize jours de siège, une garnison minoritaire retranchée dans une vieille mission texane est submergée à l'aube, devenant un cri de ralliement.",
     explanation: "La bataille de l'Alamo vit les forces mexicaines de Santa Anna submerger les défenseurs texans retranchés dans la mission de l'Alamo, près de San Antonio. Malgré la défaite, elle devint le cri de ralliement « Remember the Alamo » pour le reste de la révolution texane.",
   },
   assassination_of_julius_caesar: {
@@ -822,7 +822,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   grand_palace: {
     name: "Grand Palais",
-    clue: "Un vaste palais royal aux toits scintillants et flèches dorées sert de résidence officielle à une monarchie depuis plus de deux siècles.",
+    clue: "Au bord du fleuve Chao Phraya, un vaste palais royal aux toits scintillants et flèches dorées sert de résidence à une monarchie depuis plus de deux siècles.",
     explanation: "Le Grand Palais de Bangkok est la résidence officielle des rois de Thaïlande depuis plus de deux siècles. Ses salles du trône et ses temples richement ornés restent parmi les sites les plus visités du pays.",
   },
   eyjafjallajokull_2010: {
@@ -1102,7 +1102,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   first_council_of_nicaea: {
     name: "Premier concile de Nicée",
-    clue: "Un empereur convoque des chefs religieux pour trancher un différend doctrinal, et leur credo est encore récité mot pour mot dans des églises du monde entier.",
+    clue: "Près du Bosphore, un empereur convoque des chefs religieux pour trancher un différend doctrinal ; leur credo est encore récité mot pour mot dans les églises.",
     explanation: "Le premier concile de Nicée fut convoqué par l'empereur Constantin pour trancher des différends sur la doctrine chrétienne. Il produisit le Credo de Nicée, encore récité dans des églises du monde entier.",
   },
   fall_of_kabul: {
@@ -1217,7 +1217,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   bruce_lee_birth: {
     name: "Bruce Lee",
-    clue: "Né par hasard dans une ville de la côte Pacifique lors d'une tournée de la troupe d'opéra de ses parents, cet artiste martial devint une star de cinéma.",
+    clue: "Né par hasard près du Golden Gate lors d'une tournée de la troupe d'opéra de ses parents, cet artiste martial devint une star mondiale du cinéma.",
     explanation: "Bruce Lee naquit pendant que la compagnie d'opéra de son père était en tournée aux États-Unis. Il popularisa ensuite les films d'arts martiaux dans le monde entier et fonda sa propre philosophie de combat, le Jeet Kune Do.",
   },
   rumi_birth: {
@@ -1542,7 +1542,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   paul_the_apostle_birth: {
     name: "Paul de Tarse",
-    clue: "Fils d'un fabricant de tentes né dans une ville marchande, cet homme persécuta une foi nouvelle avant qu'une conversion le rende célèbre par ses écrits.",
+    clue: "Fils d'un fabricant de tentes né près de la côte sud de l'Anatolie, il persécuta une foi nouvelle avant qu'une conversion le rende célèbre par ses écrits.",
     explanation: "Paul de Tarse persécuta d'abord les partisans du mouvement chrétien naissant avant de vivre une expérience de conversion soudaine. Il écrivit ensuite une grande partie des lettres qui composent le Nouveau Testament et voyagea beaucoup pour répandre la nouvelle foi.",
   },
   orwell_birth: {
@@ -1877,7 +1877,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   lawrence_bragg_birth: {
     name: "Lawrence Bragg",
-    clue: "Né dans une ville côtière du continent-île, ce physicien devint le plus jeune lauréat d'un Nobel scientifique, partagé avec son propre père.",
+    clue: "Né dans une ville de la côte sud du continent-île, ce physicien devint le plus jeune lauréat d'un Nobel scientifique, partagé avec son propre père.",
     explanation: "Lawrence Bragg était un physicien né en Australie qui mit au point, avec son père, une méthode pour déterminer la structure atomique des cristaux à l'aide des rayons X. Il avait vingt-cinq ans lorsqu'ils reçurent ensemble le prix, un record pour un Nobel scientifique qui tient toujours.",
   },
   heyerdahl_birth: {
@@ -1937,7 +1937,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   selma_lagerlof_birth: {
     name: "Selma Lagerlöf",
-    clue: "Née sur un domaine familial dans une campagne boisée du nord, une romancière devient la première femme à recevoir le prix Nobel de littérature.",
+    clue: "Née sur un domaine familial dans les forêts au nord du lac Vänern, une romancière devient la première femme à recevoir le prix Nobel de littérature.",
     explanation: "Selma Lagerlöf s'est inspirée du folklore et des légendes suédoises dans ses romans et recueils de récits, et sa victoire a ouvert le prix Nobel de littérature aux femmes pour la première fois de son histoire.",
   },
   brahmagupta_birth: {
