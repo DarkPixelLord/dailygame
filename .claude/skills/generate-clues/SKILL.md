@@ -74,6 +74,11 @@ second arg can force a tier (`/generate-clues 6 easy`).
    (see `docs/difficulty-calibration-protocol.md` for why self-review
    doesn't catch this).
 
+   Step 6 only checks **uniqueness**. It says nothing about difficulty: an
+   encyclopedic model "solves" almost everything, including clues a real
+   player scores ~0 on. Difficulty is checked separately, by the easy
+   localization gate below (step 8).
+
 7. **Fix targeted failures, not the whole batch.** Anything the subagent
    couldn't solve or misread goes back to step 4 for a rewrite of that one
    entry, noting the specific ambiguity. Re-run step 6 only on the fixed
@@ -81,7 +86,10 @@ second arg can force a tier (`/generate-clues 6 easy`).
 
 8. **Draft the French versions**, same batch, matching `id`s, following the
    same mechanical rules (the FR banned-word list differs from EN — see
-   `scripts/lint-events.mjs`). Then merge both languages into
+   `scripts/lint-events.mjs`). Then run the **easy localization gate**
+   (section below) on every `easy` entry's FR clue; a failing easy is
+   rewritten with a stronger geographic lever and re-gated, or downgraded
+   to medium only if the tier mix allows it. Then merge both languages into
    `src/lib/poc-events.ts` and `poc-events-fr.ts`, and run the real
    `npm run lint:events` — it must report 0 violations before you're done.
 
@@ -91,6 +99,76 @@ second arg can force a tier (`/generate-clues 6 easy`).
    `data/daily-packs-plan.json`** — regenerating the live pack plan is a
    separate, explicit step the user confirms themselves, same as every
    other session that has touched it.
+
+## Easy localization gate
+
+The game scores *localization*, not recognition. A human anchor test
+(2026-10-01, 10 clues) scored 3% on clues every model verifier "solved":
+knowing it's RFK doesn't tell you it's Los Angeles. An easy clue must put a
+player who does **not** know the event in the right region, through
+geography written in the text (a large river, range, sea, island, region, or
+a world-famous landmark allusion), never through memory of the event.
+
+A model can't pretend not to know an event, so the gate removes the event
+first. Three separate Haiku agents (`model: "haiku"`, no tools), FR clues:
+
+1. **Stripper** (one agent, whole list). Prompt: keep EVERYTHING that
+   describes a place, even indirectly (rivers, seas, lakes, ranges, islands,
+   relief, climate, geographic proper nouns, "capital", "port", "coast",
+   geographic superlatives like "the world's highest peaks", indirect
+   references like "the country that will create the Nobel prizes", cardinal
+   points); delete everything that identifies the event or person (actions,
+   jobs, works, discoveries, kinship, names, dates, numbers, prizes,
+   non-geographic superlatives); add no place name; write "(rien)" if
+   nothing is left. Output `numéro | texte épuré`.
+2. **Two pin passes** (two agents, list order reversed in the second). They
+   see ONLY the stripped texts, never the originals. Prompt: always place
+   your best pin at the most likely spot, even if vague; answer "aucune"
+   only if there is strictly no place hint. Output
+   `numéro | latitude | longitude`.
+3. Put the pins in a JSON `{id: [[latA,lngA] | null, [latB,lngB] | null]}`
+   and run `node scripts/score-pins.mjs pins.json`. An easy clue passes
+   only if **both** passes score ≥ 450/700 (≈ within 800 km); a split
+   between passes means the lever is fragile.
+
+This matched the human on 9 of 10 anchor clues (the miss was a clue that
+needed a reasoning step the human skipped). Keep feeding new human anchors
+(5 random clues, 3/1/1, played blind, scored with `scripts/score-guess.mjs`)
+into `docs/difficulty-calibration-protocol.md` to keep the threshold honest.
+
+**Pitfalls seen while building it:** a stripper told to drop "superlatives"
+and "indirect country references" deletes real levers ("les plus hauts
+sommets du monde", "au pays des Nobel"); pin agents told to answer "aucune"
+when vaguer than a country refuse region-level levers (Rhine, Caribbean)
+that a human would still score on. Both prompts above already avoid this.
+
+## Rewriting existing easy clues ahead of serving
+
+Most easy clues written before the gate existed fail it (on 2026-10-01, 33
+of the next 42 served easy clues failed, mostly person entries opening
+"Born in a river city / a rural manor"). Fix them in serving order:
+
+1. `node --env-file=.env.local scripts/upcoming-easy.mjs 14 upcoming.json`
+   lists the easy clues of the next 14 packs that will actually be served
+   (day 1 = next unserved day; already-served days are frozen in Supabase
+   and never change). Skip days already rewritten.
+2. Run the gate on them. For each failure, rewrite EN + FR adding a real
+   geographic lever (river, range, sea, island, region, landmark allusion)
+   without naming the country or city; the identity facts stay, so the
+   player still has to recognize the subject for full points. Keep ≤160
+   chars in both languages. If the stored pin is a vague centroid (e.g. a
+   country's middle), fix `lat`/`lng` to the real point.
+3. Re-gate the rewrites; when all pass, write
+   `{id: {en, fr, lat?, lng?}}` to a JSON and run
+   `node scripts/apply-clue-rewrites.mjs rewrites.json`, then
+   `npm run lint:events` (new proper nouns go into
+   `EASY_PROPER_NOUN_EXCEPTIONS` with a comment on why each leaves real
+   uncertainty).
+4. Deploy (`vercel --prod`) before the first rewritten day is served; a
+   clue's text is read at play time, so no pack-plan regeneration is needed.
+   Ask the user before deploying.
+
+Only one session at a time should edit `poc-events.ts` / `poc-events-fr.ts`.
 
 ## Why staged, not live
 

@@ -70,6 +70,37 @@ replaced by a blind test scored against the game's real formula.
      failed attempt vs. the eventual success) — this is a factual-accuracy
      bug, independent of difficulty tier, that a blind test can surface.
 
+## Model verifiers can't stand in for a player (2026-10-01)
+
+Two human anchor rounds (5 random pool clues each, 3/1/1, played blind in
+French) scored 97/3500 and 2617/3500. Haiku told to "play like an average
+player" scored 2916/3500 on the first round: it recognizes the event, then
+recites its coordinates, and no prompt makes it forget. A rule-based prompt
+("use memory only for world-famous places") leaked the same way under an
+honest-looking label.
+
+What did track the human: strip the clue of everything that identifies the
+event (keep only place descriptions), then have two fresh agents pin the
+stripped text. Pass = both passes ≥ 450/700. It agreed with the human on 9
+of 10 anchor clues. That gate now lives in the `generate-clues` skill
+("Easy localization gate") with `scripts/score-pins.mjs`.
+
+| Clue (tier) | Human | Stripped-text gate |
+| --- | --- | --- |
+| Treaty of Brussels (hard) | 0 | fail |
+| Second Council of Nicaea (medium) | 43 | fail |
+| Solzhenitsyn birth (easy) | 1 | fail |
+| Valdivia earthquake (easy) | 4 | pass (disagreement) |
+| RFK assassination (easy) | 49 | fail |
+| Livingstone / Victoria Falls (easy) | 32 | fail |
+| Ronald Ross birth (hard) | 552 | pass |
+| Monument of the Discoveries (easy) | 700 | pass |
+| Leonardo da Vinci birth (medium) | 700 | pass |
+| Berzelius birth (easy) | 633 | pass |
+
+The same round also led to `FAR_DECAY_KM` 400 → 1200 in `src/lib/scoring.ts`:
+right-region, wrong-country guesses (1,500–2,000 km) were scoring ~0.
+
 ## Reusable scoring script
 
 `node scripts/score-guess.mjs <realLat> <realLng> <guessLat> <guessLng>`
