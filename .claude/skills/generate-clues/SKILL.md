@@ -24,7 +24,7 @@ second arg can force a tier (`/generate-clues 6 easy`).
 
 1. **Decide the tier split.** Run `npm run stats:pool` (writes
    `docs/pool-stats.md`) and read the gap table. Split the requested count
-   across easy/medium/hard mirroring the pool-wide 50/30/20 target, unless
+   across easy/medium/hard mirroring the pool-wide 60/20/20 target (= the 3/1/1 pack mix), unless
    the user forced a tier — see "Process: batch" step 0 in the writing
    guide. Don't put more than ~20% hard in one batch regardless of gap.
 
@@ -52,8 +52,11 @@ second arg can force a tier (`/generate-clues 6 easy`).
    entries: decide the pin before you write toward it" — check whether the
    achievement has a better, more precise location than the birthplace
    before defaulting `pinIsBirthplace: true`. Set every required field:
-   `id`, `name`, `pinIsBirthplace`, `difficulty`, `category`, `clue`,
-   `explanation`, `year`, `lat`, `lng`, `wikipediaTitle`.
+   `id`, `name`, `pinIsBirthplace`, `difficulty`, `category`,
+   `subcategory`, `clue`, `explanation`, `year`, `lat`, `lng`,
+   `wikipediaTitle`. Copy `subcategory` verbatim from the source candidate
+   in `data/candidates-*.json`: it's what keeps two same-kind events out of
+   one daily pack, and lint fails without it.
 
 5. **Mechanically self-check before merging anything.** `npm run
    lint:events` only passes once EN and FR ids match 1:1, so it can't run

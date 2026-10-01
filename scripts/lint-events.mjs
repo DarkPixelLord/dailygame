@@ -145,6 +145,11 @@ const CAPITALIZED_WORD_EXCEPTIONS = new Set([
   // only ever appears here as part of "Nobel Prize in Literature" — an award
   // category name, not a place — so it doesn't narrow the map answer.
   "literature", "littérature",
+  // Added for the 2026-10-01 non-person batches: a religious figure's name,
+  // no more location-revealing than "christian" above.
+  "jesus", "jésus",
+  // Only appears in Attila's nickname, the scourge of God.
+  "god", "dieu",
 ]);
 const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   // Added for the 2026-09-28 easy-clue disambiguation pass:
@@ -170,6 +175,43 @@ const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
   // Europe/Asia boundary (easy-tier lever for the Romanov execution entry) —
   // both leave real uncertainty about the exact pin, same as Volga/Nile above.
   "danube", "ural", "urals", "oural",
+  // Added for the 2026-10-01 non-person batches: the Red River runs ~1,150 km
+  // from Yunnan through northern Vietnam (and shares its name with a US
+  // river), so it leaves real uncertainty about the exact pin.
+  "red", "rouge",
+  // The Atlas range runs ~2,500 km across three countries, the Apennines
+  // ~1,200 km down a whole peninsula, the Dead Sea borders three territories,
+  // and Lake Peipus straddles a national border: all leave real uncertainty
+  // about the exact pin.
+  "atlas", "apennines", "apennins", "dead", "morte", "lake", "peipus", "peïpous",
+  // The Tagus runs ~1,000 km through two countries; the Sea of Marmara is
+  // ~280 km long with dozens of coastal towns.
+  "tagus", "tage", "marmara",
+  // The Sahara spans ~9 million km2 across a dozen countries; the Alps span
+  // eight countries; Hokkaido is an 83,000 km2 island; the Río de la Plata
+  // estuary is shared by two countries.
+  "sahara", "alps", "alpes", "hokkaido", "río", "rio", "plata",
+  // The Dolomites cover ~140,000 ha of peaks; Crete is a 260 km-long island.
+  "dolomites", "crete", "crète",
+  // The Adirondacks cover ~25,000 km2; the Orontes runs ~570 km through
+  // three countries.
+  "adirondacks", "orontes", "oronte",
+  // The Po runs ~650 km across a whole plain, the Tigris ~1,850 km through
+  // two countries, and the Isonzo ~140 km across a national border.
+  "po", "pô", "tigris", "tigre", "isonzo",
+  // The Gila runs ~1,000 km, the Don ~1,870 km, and the Aegean borders two
+  // countries and hundreds of islands.
+  "gila", "don", "aegean", "égée",
+  // The Dardanelles strait is ~60 km long between two continents.
+  "dardanelles",
+  // Added for the 2026-10-01 easy-lever rewrites (each passed the stripped-
+  // text pin test): large rivers, bays, seas, ranges and a 117 km wall.
+  "north", "nord", "scheldt", "escaut", "ohio", "main", "thames", "tamise",
+  "hadrian", "hadrien", "alborz", "vistula", "vistule", "chesapeake",
+  "wall", "bay",
+  "anatolian", "appalachians", "bering", "douro", "emerald", "émeraude",
+  "missouri", "ontario", "sibérie", "silicon", "virgin", "vierges",
+  "yangtze", "yangzi", "mississippi", "isle", "strait", "béring", "islands", "valley",
 ]);
 
 function findCapitalizedLeak(clue, isEasy) {
@@ -265,6 +307,7 @@ function loadEn() {
       pinIsBirthplace: extractBoolField(block, "pinIsBirthplace"),
       difficulty: extractField(block, "difficulty"),
       category: extractField(block, "category"),
+      subcategory: extractField(block, "subcategory"),
     });
   }
   return entries;
@@ -304,6 +347,10 @@ function main() {
   // docs/event-writing-guide-v2.md.
   const VALID_DIFFICULTIES = new Set(["easy", "medium", "hard"]);
   const VALID_CATEGORIES = new Set(["conflict_politics_society", "arts_culture", "science_infrastructure"]);
+  // Same keys as SUBCATEGORIES in scripts/fetch-candidates.mjs (plus the two
+  // person-based ones). build-final-daily-packs.mjs keeps at most one event
+  // per subcategory in a pack, so an untagged entry would slip past that rule.
+  const VALID_SUBCATEGORIES = new Set(["war", "rupture", "treaty", "beliefs", "economy", "major_artist", "pioneer", "civil_engineering", "natural_hazard", "archaeological_site", "world_gathering"]);
   for (const [id, entry] of en) {
     if (entry.pinIsBirthplace == null) {
       violations.push({ id, field: "EN.pinIsBirthplace", issue: "missing or not a literal true/false — every active-pool entry must set this explicitly" });
@@ -313,6 +360,9 @@ function main() {
     }
     if (!VALID_CATEGORIES.has(entry.category)) {
       violations.push({ id, field: "EN.category", issue: `missing or invalid (got ${JSON.stringify(entry.category)}) — must be "conflict_politics_society", "arts_culture", or "science_infrastructure"` });
+    }
+    if (!VALID_SUBCATEGORIES.has(entry.subcategory)) {
+      violations.push({ id, field: "EN.subcategory", issue: `missing or invalid (got ${JSON.stringify(entry.subcategory)}) — copy it from the source candidate in data/candidates-*.json` });
     }
   }
   const birthplaceIds = new Set([...en].filter(([, e]) => e.pinIsBirthplace === true).map(([id]) => id));

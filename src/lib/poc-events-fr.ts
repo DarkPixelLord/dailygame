@@ -137,7 +137,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   terracotta_army: {
     name: "Armée en terre cuite",
-    clue: "Des milliers de soldats en argile grandeur nature ont été enterrés pour protéger la tombe d'un empereur, chacun avec un visage différent.",
+    clue: "Près du point de départ de la route de la soie, des milliers de soldats d'argile gardent la tombe d'un empereur, chacun avec un visage différent.",
     explanation: "Les statues ont été construites pour la tombe de Qin Shi Huang, premier empereur de Chine, et ont été redécouvertes par des paysans creusant un puits, par pur hasard.",
   },
   borobudur_temple: {
@@ -442,7 +442,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   andersen_birth: {
     name: "Hans Christian Andersen",
-    clue: "Né pauvre, cet écrivain transforma des contes populaires en fées mettant en scène sirènes, vilains canards et empereurs nus, traduits en d'innombrables langues.",
+    clue: "Né pauvre sur une île entre la mer du Nord et la Baltique, cet écrivain fit des contes de sirènes, de vilains petits canards et d'empereurs nus.",
     explanation: "Hans Christian Andersen est né à Odense, dans une famille pauvre. Ses contes de fées, dont beaucoup adaptés d'anciens récits populaires, ont été traduits dans plus de langues que presque toute autre œuvre littéraire.",
   },
   stonehenge: {
@@ -542,7 +542,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   bin_laden_killing: {
     name: "Mort d'Oussama ben Laden",
-    clue: "Dans une paisible ville de collines près d'une académie militaire, des soldats d'élite prennent d'assaut de nuit un complexe, visant l'homme le plus recherché.",
+    clue: "Dans une ville paisible des contreforts de l'Himalaya, près d'une académie militaire, des soldats d'élite donnent l'assaut de nuit à l'homme le plus recherché.",
     explanation: "L'opération met fin à une décennie de traque de l'homme responsable d'un attentat terroriste majeur, et son corps est ensuite immergé en mer pour empêcher que sa tombe ne devienne un lieu de pèlerinage.",
   },
   gateway_arch: {
@@ -612,7 +612,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   carnation_revolution: {
     name: "Révolution des Œillets",
-    clue: "Sur la côte atlantique, des soldats renversent en un jour une dictature de plusieurs décennies, et des civils glissent des fleurs rouges dans leurs fusils.",
+    clue: "Là où le Tage rejoint l'Atlantique, des soldats renversent en un jour une vieille dictature, et des civils glissent des fleurs rouges dans leurs fusils.",
     explanation: "La Révolution des Œillets a mis fin en moins d'une journée à des décennies de régime autoritaire au Portugal, presque sans effusion de sang. Son nom vient des fleurs offertes aux soldats par des civils, dont certaines finirent glissées dans le canon des fusils, et elle a ouvert la voie à des élections démocratiques et à l'indépendance des colonies africaines du Portugal.",
   },
   haitian_revolution: {
@@ -642,7 +642,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   krakatoa_eruption: {
     name: "Éruption du Krakatoa",
-    clue: "Une île volcanique dans un détroit entre deux îles bien plus grandes explose dans un fracas toujours reconnu comme le son le plus fort jamais enregistré.",
+    clue: "Dans le plus grand archipel du monde, une île volcanique coincée entre deux grandes îles explose dans le son le plus fort jamais enregistré.",
     explanation: "L'éruption du Krakatoa a détruit la majeure partie de l'île en une série d'explosions, dont la plus forte fut entendue à environ 4 800 kilomètres de distance et reste le son le plus fort jamais enregistré scientifiquement. L'éruption a provoqué des vagues de tsunami qui ont tué des dizaines de milliers de personnes et teinté les couchers de soleil d'un rouge étrange partout dans le monde pendant des mois.",
   },
   mexico_1968_olympics: {
@@ -652,7 +652,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   antwerp_1920_olympics: {
     name: "Jeux olympiques d'Anvers",
-    clue: "Dans une ville portuaire en reconstruction après la Grande Guerre, des colombes sont lâchées et un drapeau à cinq anneaux flotte pour la première fois.",
+    clue: "Dans un port sur l'Escaut en reconstruction après la Grande Guerre, des colombes sont lâchées et un drapeau à cinq anneaux flotte pour la première fois.",
     explanation: "Les Jeux olympiques d'Anvers furent les premiers organisés après une guerre mondiale et les premiers à hisser le drapeau olympique à cinq anneaux et à lâcher des colombes en symbole de paix. Les organisateurs ont aussi introduit le serment des athlètes, promettant une compétition loyale, une tradition toujours suivie lors de la cérémonie d'ouverture de chaque édition depuis.",
   },
   maiden_tower_baku: {
@@ -857,7 +857,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   steve_jobs: {
     name: "Steve Jobs",
-    clue: "Dans un garage de banlieue, deux amis construisent les premiers ordinateurs d'une entreprise qui deviendra l'une des plus valorisées au monde.",
+    clue: "Dans un garage de la Silicon Valley, deux amis construisent les premiers ordinateurs d'une entreprise qui deviendra l'une des plus valorisées au monde.",
     explanation: "Steve Jobs et Steve Wozniak fondèrent Apple dans le garage familial des Jobs, à Los Altos, en Californie. Jobs, qui avait abandonné ses études, fut plus tard évincé de l'entreprise qu'il avait cofondée, avant d'y revenir des années plus tard pour mener son redressement et en faire l'une des entreprises les plus valorisées au monde.",
   },
   alexander_graham_bell: {
@@ -1027,7 +1027,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   louisiana_purchase_exposition: {
     name: "Exposition universelle de Saint-Louis",
-    clue: "Une immense exposition universelle attire près de vingt millions de visiteurs et est traditionnellement créditée d'avoir popularisé le cornet de glace.",
+    clue: "Là où le Missouri rejoint le Mississippi, une immense exposition universelle attire près de vingt millions de visiteurs et aurait popularisé le cornet de glace.",
     explanation: "L'Exposition universelle de Saint-Louis, aussi appelée Foire mondiale de Saint-Louis, attira près de 20 millions de visiteurs. Elle est traditionnellement créditée, non sans débat, d'avoir popularisé le cornet de glace aux États-Unis.",
   },
   battle_of_stamford_bridge: {
@@ -1212,7 +1212,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   fallingwater: {
     name: "Frank Lloyd Wright",
-    clue: "Un architecte construisit une maison privée directement au-dessus d'une cascade, ses terrasses de pierre en porte-à-faux surplombant le cours d'eau.",
+    clue: "Dans les forêts des Appalaches, un architecte bâtit une maison juste au-dessus d'une cascade, ses terrasses de pierre en porte-à-faux sur le cours d'eau.",
     explanation: "Frank Lloyd Wright conçut Fallingwater comme résidence de week-end pour la famille Kaufmann, bâtie au-dessus d'une cascade existant déjà sur leur propriété. Elle est largement considérée comme l'une des plus grandes œuvres architecturales jamais réalisées.",
   },
   bruce_lee_birth: {
@@ -1237,7 +1237,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   alaska_purchase_sitka: {
     name: "Achat de l'Alaska",
-    clue: "Dans un fort côtier, un drapeau fut abaissé et un autre hissé, achevant la vente d'un immense territoire glacé pour à peine deux centimes l'acre.",
+    clue: "Sur la côte sud pluvieuse d'une terre glacée face à la Sibérie, par-delà le détroit de Béring, un drapeau est abaissé et un autre hissé, scellant la vente.",
     explanation: "La cérémonie officielle de transfert eut lieu à Sitka, où la souveraineté sur l'Alaska passa de la Russie aux États-Unis pour 7,2 millions de dollars. À l'époque, des critiques moquaient cet achat comme un gaspillage d'argent pour des terres gelées et vides.",
   },
   treaty_of_tordesillas: {
@@ -1252,7 +1252,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   assassination_shinzo_abe: {
     name: "Assassinat de Shinzo Abe",
-    clue: "Un ancien chef de gouvernement fut abattu avec une arme artisanale pendant un discours de rue, une attaque filmée et diffusée dans le monde entier.",
+    clue: "Dans une ancienne capitale célèbre pour ses cerfs en liberté, un ancien chef de gouvernement est abattu avec une arme artisanale pendant un discours de rue.",
     explanation: "Shinzo Abe, ancien premier ministre, fut assassiné alors qu'il faisait campagne devant une gare. Son agresseur utilisa une arme à feu rudimentaire et fabriquée maison, et l'attaque choqua un pays parmi ceux où la violence par arme à feu est la plus rare au monde.",
   },
   tower_of_london: {
@@ -1317,7 +1317,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   spielberg_birth: {
     name: "Steven Spielberg",
-    clue: "Né dans une ville fluviale, ce cinéaste a réalisé un film de requin qui a vidé les plages, puis un extraterrestre échoué et le garçon qui le cache.",
+    clue: "Né au bord de l'Ohio, ce cinéaste a réalisé un film de requin qui a vidé les plages, puis un extraterrestre échoué et le garçon qui le cache.",
     explanation: "Steven Spielberg réalisa un film à suspense sur un grand requin blanc terrorisant une ville balnéaire, devenu l'un des tout premiers grands succès estivaux et qui donna aux spectateurs peur d'entrer dans l'eau. Il réalisa plus tard un film familial sur un garçon qui se lie d'amitié avec un extraterrestre égaré et l'aide à rentrer chez lui.",
   },
   munich_agreement_1938: {
@@ -1337,7 +1337,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   magellan_birth: {
     name: "Ferdinand Magellan",
-    clue: "Né le long d'un littoral atlantique escarpé, ce navigateur a organisé la première flotte à faire le tour du monde, mort avant d'achever lui-même le voyage.",
+    clue: "Né dans les collines verdoyantes au nord du Douro, ce navigateur organisa la première flotte à faire le tour du monde, mort avant d'achever lui-même le voyage.",
     explanation: "Ferdinand Magellan mena une flotte de cinq navires vers l'ouest à travers un océan à la recherche d'une nouvelle route vers de précieuses îles à épices. Il fut tué lors d'une bataille en cours de route, mais l'un de ses navires et une petite partie de l'équipage achevèrent le tour complet du globe, prouvant enfin que la Terre pouvait être contournée par la mer.",
   },
   leif_erikson_birth: {
@@ -1517,7 +1517,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   giordano_bruno_birth: {
     name: "Giordano Bruno",
-    clue: "Né près d'un volcan fumant, ce moine affirmait que le soleil n'était qu'une étoile parmi tant d'autres, chacune entourée de mondes, ce qui lui valut un procès.",
+    clue: "Né près du volcan qui ensevelit jadis une célèbre ville antique, ce moine disait le soleil une étoile parmi d'autres, ce qui lui valut un procès.",
     explanation: "Giordano Bruno proposa que l'univers était infini et peuplé d'innombrables étoiles semblables au soleil, chacune potentiellement entourée de planètes. Son refus de renier ces idées, entre autres, mena à son exécution.",
   },
   fibonacci_birth: {
@@ -1552,7 +1552,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   goethe_birth: {
     name: "Johann Wolfgang von Goethe",
-    clue: "Né dans une famille aisée, cet écrivain doit son œuvre la plus célèbre à un érudit inquiet qui passe un pacte avec le diable pour obtenir un savoir sans limite.",
+    clue: "Né dans une famille aisée au bord du Main, cet écrivain doit son œuvre la plus célèbre à un érudit qui passe un pacte avec le diable pour un savoir sans limite.",
     explanation: "Le drame en deux parties de Johann Wolfgang von Goethe suit un érudit qui conclut un pacte avec le diable dans sa quête effrénée de savoir et d'expérience. L'histoire est devenue une expression courante pour désigner le fait de vendre son âme contre le pouvoir ou la réussite.",
   },
   arthur_conan_doyle_birth: {
@@ -1572,7 +1572,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   rosalind_franklin_birth: {
     name: "Rosalind Franklin",
-    clue: "Née dans une grande capitale, le cliché aux rayons X de cette scientifique a révélé la double hélice d'une molécule, plan transmis par chaque cellule vivante.",
+    clue: "Née dans une grande capitale sur la Tamise, cette scientifique révéla par un cliché aux rayons X la double hélice d'une molécule transmise par chaque cellule.",
     explanation: "Rosalind Franklin était une chimiste dont les images de diffraction aux rayons X de fibres d'ADN, en particulier l'une d'elles connue comme le cliché 51, ont fourni des preuves essentielles pour établir la structure en double hélice de la molécule. Elle est morte avant que l'importance de sa découverte soit pleinement reconnue, et n'a reçu une reconnaissance plus large que plus tard.",
   },
   edmond_halley_birth: {
@@ -1682,7 +1682,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   verdi_birth: {
     name: "Giuseppe Verdi",
-    clue: "Né dans un petit village agricole, ce compositeur a écrit un air d'opéra sur une femme inconstante devenu l'un des airs les plus reconnus et sifflés au monde.",
+    clue: "Né dans un village agricole de la plaine du Pô, ce compositeur écrivit un air d'opéra sur une femme inconstante devenu l'un des airs les plus sifflés au monde.",
     explanation: "Giuseppe Verdi est né près de Busseto, un petit village agricole. Son opéra Rigoletto comprend l'air La donna è mobile, sur une femme inconstante, devenu l'un des airs les plus reconnus et sifflés de tout l'opéra.",
   },
   bergman_birth: {
@@ -1782,12 +1782,12 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   robert_boyle_birth: {
     name: "Robert Boyle",
-    clue: "Né dernier fils d'un noble fortuné, ce scientifique utilise une pompe à air artisanale pour montrer que comprimer un gaz de moitié double sa pression.",
+    clue: "Né dans un château au bord d'une rivière, au sud de l'île d'Émeraude, ce fils de noble montra qu'un gaz comprimé de moitié voit sa pression doubler.",
     explanation: "Les expériences de Robert Boyle avec des pompes à air ont établi la relation entre la pression et le volume d'un gaz, et son insistance sur l'expérience rigoureuse a contribué à fonder la chimie moderne.",
   },
   dalton_birth: {
     name: "John Dalton",
-    clue: "Né dans une famille de tisserands, ce scientifique voyait mal les couleurs, fut le premier à l'étudier, et pensa la matière faite d'atomes de poids fixe.",
+    clue: "Né chez des tisserands près du mur d'Hadrien, ce savant qui voyait mal les couleurs étudia ce trouble et pensa la matière faite d'atomes de poids fixe.",
     explanation: "Le daltonisme de John Dalton l'a conduit à publier la première étude scientifique de cette particularité visuelle, encore appelée ainsi dans plusieurs langues, et sa théorie atomique est devenue un fondement de la chimie moderne.",
   },
   diego_rivera_birth: {
@@ -1797,7 +1797,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   pissarro_birth: {
     name: "Camille Pissarro",
-    clue: "Né sur une petite île des Caraïbes, ce peintre aide à fonder un grand mouvement artistique fondé sur la capture en extérieur des effets fugaces de la lumière.",
+    clue: "Né sur une petite île des îles Vierges, aux Caraïbes, ce peintre aida à fonder un grand mouvement captant en extérieur les effets fugaces de la lumière.",
     explanation: "Camille Pissarro fut une figure fondatrice de l'impressionnisme, exposant à chacune des expositions du groupe, et devint plus tard le mentor de plusieurs peintres plus jeunes qui développèrent le style à leur tour.",
   },
   oprah_winfrey_birth: {
@@ -1842,7 +1842,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   tom_cruise_birth: {
     name: "Tom Cruise",
-    clue: "Né dans une petite ville, cet acteur a bâti sa carrière sur une saga d'espionnage et un film sur des pilotes de chasse, réalisant lui-même ses cascades.",
+    clue: "Né dans une ville proche des rives du lac Ontario, cet acteur a bâti sa carrière sur une saga d'espionnage et un film de pilotes de chasse, sans doublure.",
     explanation: "Tom Cruise est un acteur américain connu pour une longue saga d'espionnage et pour avoir incarné un pilote de chasse casse-cou en début de carrière. Il a réalisé nombre de ses propres cascades, dont s'accrocher au flanc d'un avion en vol et escalader le plus haut gratte-ciel du monde.",
   },
   jim_carrey_birth: {
@@ -1892,7 +1892,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   tu_youyou_birth: {
     name: "Tu Youyou",
-    clue: "Née dans une ville côtière, cette chimiste a cherché dans d'anciens textes un remède contre le paludisme, isolant un composé qui a sauvé des millions de vies.",
+    clue: "Née dans un port près de l'embouchure du Yangzi, cette chimiste chercha dans de vieux textes un remède au paludisme et isola un composé qui sauva des millions.",
     explanation: "Tu Youyou est une chimiste pharmaceutique chinoise qui a dirigé un programme de recherche chargé de trouver de nouveaux traitements contre le paludisme. En relisant un texte séculaire sur les remèdes à base de plantes, elle a identifié un composé de l'armoise annuelle, aujourd'hui à la base du traitement antipaludique le plus efficace au monde.",
   },
   ronald_ross_birth: {
@@ -1932,7 +1932,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   maryam_mirzakhani_birth: {
     name: "Maryam Mirzakhani",
-    clue: "Née dans une capitale entourée de montagnes, une mathématicienne devient la première femme à remporter la plus prestigieuse récompense de sa discipline.",
+    clue: "Née dans une capitale au pied des monts Alborz, une mathématicienne devient la première femme à remporter la plus prestigieuse récompense de sa discipline.",
     explanation: "Maryam Mirzakhani a reçu la médaille Fields pour ses travaux sur la géométrie des surfaces courbes, devenant à la fois la première femme et la première Iranienne à la recevoir. Elle est morte d'un cancer à 40 ans, et sa victoire reste un moment marquant pour les femmes en mathématiques.",
   },
   selma_lagerlof_birth: {
@@ -1952,7 +1952,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   robert_wilson_birth: {
     name: "Robert Wilson",
-    clue: "Né dans une grande ville connue pour son industrie énergétique, un astronome relie un grésillement capté par une antenne en cor à la naissance de l'univers.",
+    clue: "Né dans une grande ville pétrolière du Texas, un astronome relie un grésillement capté par une antenne en cornet à la chaleur restée du début de l'univers.",
     explanation: "Robert Wilson et un collègue ont d'abord soupçonné une interférence, allant jusqu'à blâmer des fientes de pigeon dans leur antenne, avant de comprendre qu'ils avaient détecté un rayonnement résiduel des tout premiers instants de l'univers, l'une des preuves les plus solides de la façon dont il a commencé.",
   },
   emanuel_lasker_birth: {
@@ -1962,7 +1962,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   chandrasekhar_birth: {
     name: "Subrahmanyan Chandrasekhar",
-    clue: "Né dans une grande ville sur une plaine fluviale, un astrophysicien calcule la masse limite au-delà de laquelle une étoile mourante s'effondre en objet dense.",
+    clue: "Né dans une grande ville du Pendjab, un astrophysicien calcule la masse limite au-delà de laquelle une étoile mourante s'effondre en objet plus dense.",
     explanation: "Subrahmanyan Chandrasekhar a effectué ce calcul alors qu'il était jeune, durant une longue traversée en bateau, montrant que toute étoile mourante plus lourde que cette limite doit s'effondrer davantage, en une étoile à neutrons ou un trou noir. La découverte a d'abord été rejetée par un astronome plus âgé, mais elle est aujourd'hui considérée comme fondamentale pour l'étude de la mort des étoiles.",
   },
   john_wayne_birth: {
@@ -1987,12 +1987,12 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   sienkiewicz_birth: {
     name: "Henryk Sienkiewicz",
-    clue: "Né dans un manoir rural, ce romancier écrivit sur des fidèles persécutés d'une foi nouvelle dans un empire antique, adapté en film nommé à de nombreux prix.",
+    clue: "Né dans un manoir des plaines à l'est de la Vistule, ce romancier écrivit sur des fidèles persécutés d'une foi nouvelle dans un empire antique.",
     explanation: "Henryk Sienkiewicz a reçu le prix Nobel de littérature pour ses romans historiques. Son livre le plus connu, Quo Vadis, suit des chrétiens persécutés dans la Rome antique sous l'empereur Néron, et a été adapté en une somptueuse superproduction hollywoodienne.",
   },
   mussorgsky_birth: {
     name: "Modeste Moussorgski",
-    clue: "Né dans un domaine rural, ce compositeur a dépeint un rassemblement de sorcières au sommet d'une montagne, repris pour animer à l'écran un démon cornu.",
+    clue: "Né dans un domaine rural près des sources de la Volga, ce compositeur dépeignit un sabbat de sorcières sur une montagne, animé plus tard avec un démon cornu.",
     explanation: "Le poème symphonique de Modeste Moussorgski, Une nuit sur le mont Chauve, dépeint un sabbat démoniaque et a ensuite été réorchestré pour la séquence du démon 'Tchernobog' dans le film d'animation Fantasia de Walt Disney, l'une des apparitions les plus célèbres de la musique classique à l'écran.",
   },
   rimsky_korsakov_birth: {
@@ -2012,7 +2012,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   siege_of_yorktown: {
     name: "Siège de Yorktown",
-    clue: "Acculée contre une rivière par un blocus combiné terrestre et naval, une force impériale s'est rendue, scellant l'issue d'une guerre d'indépendance coloniale.",
+    clue: "Au bord de la baie de Chesapeake, une armée impériale prise en étau par des troupes et une flotte alliées se rend, scellant une guerre d'indépendance coloniale.",
     explanation: "Le général britannique Cornwallis a rendu son armée à Yorktown après que les forces américaines et françaises l'ont acculé contre la rivière York, tandis qu'une flotte française bloquait toute fuite par la mer, mettant fin de fait aux combats de la guerre d'indépendance américaine.",
   },
   battle_of_gaugamela: {
@@ -2022,12 +2022,12 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   battle_of_carrhae: {
     name: "Bataille de Carrhes",
-    clue: "Une armée d'infanterie fut attirée en plein désert et encerclée par des archers montés tirant vers l'arrière en feignant de fuir, anéantissant la troupe piégée.",
+    clue: "Dans les plaines sèches entre le haut Euphrate et le Tigre, une infanterie est encerclée par des archers montés tirant vers l'arrière en feignant de fuir.",
     explanation: "À Carrhes, une armée romaine commandée par Crassus fut anéantie par les archers à cheval parthes, qui feignaient de fuir pour mieux tirer vers l'arrière sur leurs poursuivants, une manœuvre appelée le tir du Parthe. L'expression anglaise 'parting shot' en serait, selon certains, dérivée.",
   },
   karlov_assassination: {
     name: "Assassinat d'Andreï Karlov",
-    clue: "Un diplomate fut abattu par-derrière par un homme en uniforme de police pendant un discours dans une galerie d'art, capté en photo, primée dans le monde entier.",
+    clue: "Dans une capitale du plateau anatolien, un policier abat un diplomate dans le dos en plein discours dans une galerie d'art, une image primée partout.",
     explanation: "L'ambassadeur russe Andreï Karlov a été assassiné à Ankara, en Turquie, par un policier hors service protestant contre l'implication russe dans la guerre civile syrienne. Une photographie de l'assassin debout au-dessus du corps de Karlov a remporté le prix World Press Photo de l'année.",
   },
   siege_of_belgrade_1456: {
@@ -2259,5 +2259,930 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     name: "Sijilmasa",
     clue: "Dans une oasis alimentée par une rivière descendant de montagnes proches, une ville du désert s'est enrichie en taxant des caravanes chargées d'or et de sel.",
     explanation: "Voici Sijilmasa, ville marocaine médiévale à la lisière nord du Sahara, qui s'est enrichie en contrôlant et en taxant le commerce transsaharien de l'or et du sel, avant de décliner quand les routes commerciales se sont déplacées ailleurs.",
+  },
+  berlin_olympics_1936: {
+    name: "Jeux olympiques de Berlin",
+    clue: "Un sprinteur noir remporte quatre médailles d'or aux Jeux olympiques que le régime nazi avait organisés pour vanter ses idées de supériorité raciale.",
+    explanation: "Les Jeux de Berlin devaient servir de vitrine à la propagande du régime d'Hitler. Jesse Owens remporta le 100 m, le 200 m, le saut en longueur et le relais, et ces Jeux inaugurèrent aussi le relais de la flamme partie d'Olympie.",
+  },
+  munich_olympics_1972: {
+    name: "Jeux olympiques de Munich",
+    clue: "Pendant les Jeux olympiques, des hommes armés prennent une équipe en otage au village des athlètes; un sauvetage raté sur un aérodrome fait onze morts.",
+    explanation: "Des membres du groupe Septembre noir prirent en otage des athlètes et entraîneurs israéliens dans le village olympique de Munich. Le sauvetage raté sur la base aérienne de Fürstenfeldbruck se solda par la mort des onze otages, mais les Jeux reprirent après une seule journée de deuil.",
+  },
+  compiegne_armistice_1940: {
+    name: "Armistice de Rethondes",
+    clue: "Dans une clairière, un dictateur fait signer sa reddition à un pays vaincu dans le wagon même où sa propre nation avait capitulé des années plus tôt.",
+    explanation: "Hitler exigea que l'armistice soit signé dans la clairière de Rethondes, près de Compiègne, dans le wagon même où l'Allemagne avait signé l'armistice mettant fin à la guerre précédente. Le wagon fut ensuite emporté à Berlin comme trophée.",
+  },
+  treaty_of_fontainebleau_1814: {
+    name: "Traité de Fontainebleau",
+    clue: "Dans un palais au cœur d'une forêt royale, un empereur vaincu abdique, accepte l'exil sur une petite île et fait ses adieux émus à sa garde.",
+    explanation: "Napoléon signa son abdication au château de Fontainebleau et reçut l'île d'Elbe à gouverner. Ses adieux à la Vieille Garde, dans la cour aujourd'hui appelée cour des Adieux, sont restés l'une des scènes les plus célèbres de sa vie. Il s'échappa de l'île moins d'un an plus tard.",
+  },
+  rfk_assassination: {
+    name: "Assassinat de Robert F. Kennedy",
+    clue: "Juste après avoir fêté une victoire aux primaires, un candidat à la présidence est abattu dans les cuisines d'un hôtel, cinq ans après le meurtre de son frère.",
+    explanation: "Robert F. Kennedy fut abattu à l'hôtel Ambassador de Los Angeles juste après avoir remporté la primaire de Californie, et mourut le lendemain. Son frère, le président John F. Kennedy, avait été tué à Dallas.",
+  },
+  march_on_rome: {
+    name: "Marche sur Rome",
+    clue: "Des milliers de miliciens en chemise noire convergent vers la capitale, et le roi, plutôt que de résister, invite leur chef à former un gouvernement.",
+    explanation: "Les squadristes fascistes de Benito Mussolini marchèrent sur Rome, et le roi Victor-Emmanuel III refusa de décréter l'état de siège, nommant Mussolini président du Conseil. Mussolini lui-même arriva confortablement en train de nuit plutôt qu'à pied.",
+  },
+  siege_of_sarajevo: {
+    name: "Siège de Sarajevo",
+    clue: "Une ancienne ville hôte des Jeux d'hiver subit près de quatre ans d'obus et de snipers depuis les collines, le plus long siège d'une capitale moderne.",
+    explanation: "Les forces serbes de Bosnie assiégèrent Sarajevo depuis les collines environnantes pendant la guerre de Bosnie. Les habitants traversaient en courant des rues exposées, surnommées Sniper Alley, et faisaient entrer vivres et armes par un tunnel creusé sous la piste de l'aéroport.",
+  },
+  great_sphinx_giza: {
+    name: "Grand Sphinx de Gizeh",
+    clue: "Le long du Nil, un lion colossal à tête humaine a été taillé directement dans la roche à côté des pyramides, et il a perdu son nez depuis des siècles.",
+    explanation: "Le grand Sphinx de Gizeh est la plus ancienne sculpture monumentale connue d'Égypte, taillée dans un seul affleurement de calcaire. La légende accuse les soldats de Napoléon de lui avoir cassé le nez, mais des dessins bien antérieurs à leur arrivée le montrent déjà sans.",
+  },
+  reina_sofia_museum: {
+    name: "Musée Reina Sofía",
+    clue: "Le musée d'art d'une capitale expose une immense toile en noir et blanc d'une ville bombardée, que son auteur refusa de voir entrer au pays sans démocratie.",
+    explanation: "Le musée Reina Sofía, à Madrid, abrite le Guernica de Picasso, peint après le bombardement de la ville basque. Picasso refusa que la toile entre en Espagne tant que Franco gouvernait, si bien qu'elle resta des décennies à New York avant de rentrer.",
+  },
+  ho_chi_minh_mausoleum: {
+    name: "Mausolée de Hô Chi Minh",
+    clue: "Près du fleuve Rouge, un mausolée de granit expose le corps embaumé d'un président révolutionnaire qui avait pourtant demandé à être incinéré.",
+    explanation: "Hô Chi Minh voulait que ses cendres soient dispersées au nord, au centre et au sud du Vietnam, mais le parti le fit embaumer et bâtit ce mausolée sur la place Ba Dinh, à Hanoï, où il avait lu la déclaration d'indépendance du pays.",
+  },
+  battle_of_alesia: {
+    name: "Siège d'Alésia",
+    clue: "Un général encercle une forteresse perchée de deux lignes de murs et affame le chef d'une coalition de tribus, jusqu'à ce qu'il dépose les armes à ses pieds.",
+    explanation: "Jules César assiégea Vercingétorix à Alésia, avec une ligne de fortifications pour enfermer les défenseurs et une seconde tournée vers l'extérieur contre l'armée de secours. La reddition de Vercingétorix scella la conquête de la Gaule par Rome.",
+  },
+  loma_prieta_earthquake: {
+    name: "Séisme de Loma Prieta",
+    clue: "Juste avant un match de finale de baseball, dans une baie souvent noyée de brouillard, un séisme effondre une autoroute à deux étages et un pan de pont.",
+    explanation: "Le séisme de Loma Prieta frappa la baie de San Francisco juste avant le troisième match des World Series entre les deux équipes de la région, si bien que les secousses furent diffusées en direct. Il écrasa le viaduc de Cypress Street à Oakland et fit tomber une partie du tablier supérieur du Bay Bridge.",
+  },
+  council_of_chalcedon: {
+    name: "Concile de Chalcédoine",
+    clue: "Dans une ville face à une capitale impériale, par-delà un détroit, un concile déclare son sauveur divin et humain à la fois; des églises font sécession.",
+    explanation: "Le concile de Chalcédoine se réunit sur la rive asiatique du Bosphore, face à Constantinople, dans ce qui est aujourd'hui un quartier d'Istanbul. Sa définition des deux natures du Christ fut rejetée par les Églises copte, arménienne et les autres Églises orthodoxes orientales, une séparation qui dure encore.",
+  },
+  kumsusan_palace_of_the_sun: {
+    name: "Palais du Soleil Kumsusan",
+    clue: "Dans la capitale d'un État fermé sur une péninsule montagneuse, une ex-résidence présidentielle expose les corps embaumés de ses deux premiers dirigeants.",
+    explanation: "Le palais du Soleil Kumsusan, à Pyongyang, était la résidence officielle de Kim Il-sung avant de devenir son mausolée, puis aussi celui de son fils Kim Jong-il. Les visiteurs passent sous des souffleries pour retirer la poussière et doivent s'incliner devant chaque corps.",
+  },
+  iranian_coup_1953: {
+    name: "Coup d'État en Iran",
+    clue: "Dans une capitale au pied de sommets enneigés, des services secrets étrangers aident à renverser un chef de gouvernement élu qui avait nationalisé le pétrole.",
+    explanation: "Le Premier ministre Mohammad Mossadegh avait nationalisé l'Anglo-Iranian Oil Company. Un coup d'État organisé avec la CIA et le MI6 le renversa à Téhéran et renforça le pouvoir du chah, une ingérence étrangère qui laissa un ressentiment durable en Iran.",
+  },
+  noto_earthquake_2024: {
+    name: "Séisme de Noto",
+    clue: "Le premier jour de l'année, un puissant séisme soulève la côte d'une péninsule de jusqu'à quatre mètres, laissant des ports de pêche à sec.",
+    explanation: "Le séisme de Noto frappa la péninsule de Noto, sur la côte de la mer du Japon. Le soulèvement repoussa le rivage de jusqu'à 200 mètres par endroits, et un incendie détruisit le célèbre quartier du marché du matin de Wajima.",
+  },
+  treaty_of_verdun: {
+    name: "Traité de Verdun",
+    clue: "Trois petits-fils d'un grand empereur se partagent son empire en trois royaumes, esquissant deux futures nations séparées par une bande de terre disputée.",
+    explanation: "Le traité de Verdun partagea l'empire de Charlemagne entre Lothaire, Louis le Germanique et Charles le Chauve. Les royaumes de l'ouest et de l'est préfiguraient la France et l'Allemagne, tandis que le royaume du milieu fut disputé pendant des siècles.",
+  },
+  honnoji_incident: {
+    name: "Incident du Honnō-ji",
+    clue: "Un seigneur de guerre sur le point d'unifier son pays est trahi par l'un de ses propres généraux et meurt dans l'incendie du temple où il séjournait.",
+    explanation: "Oda Nobunaga séjournait au temple Honnō-ji, à Kyoto, quand son vassal Akechi Mitsuhide retourna son armée contre lui. Nobunaga mourut, très probablement par suicide rituel, pendant que le temple brûlait, et Mitsuhide fut lui-même vaincu moins de deux semaines plus tard.",
+  },
+  tsar_bell: {
+    name: "Tsar Kolokol",
+    clue: "La plus grande cloche du monde n'a jamais sonné: un incendie l'a fissurée encore dans sa fosse de coulée, et un morceau de onze tonnes s'en est détaché.",
+    explanation: "La cloche du Tsar fut coulée à l'intérieur du Kremlin de Moscou. Lors d'un incendie, l'eau jetée sur le métal brûlant la fissura avant qu'elle ait pu être hissée, et elle repose depuis sur un socle dans l'enceinte du Kremlin, à côté de son fragment.",
+  },
+  tokyo_olympics_1964: {
+    name: "Jeux olympiques de Tokyo",
+    clue: "Premiers Jeux olympiques de leur continent, ouverts juste après un train à grande vitesse; la flamme est allumée par un coureur né le jour d'une bombe atomique.",
+    explanation: "Les Jeux de Tokyo furent les premiers organisés en Asie et la vitrine du redressement du Japon. Le Shinkansen fut inauguré juste avant, et le dernier porteur de la flamme, Yoshinori Sakai, était né dans la préfecture d'Hiroshima le jour du bombardement.",
+  },
+  rome_olympics_1960: {
+    name: "Jeux olympiques de Rome",
+    clue: "Un coureur remporte le marathon olympique pieds nus, franchissant la ligne d'arrivée à la lueur des torches sous un arc de triomphe antique.",
+    explanation: "L'Éthiopien Abebe Bikila remporta le marathon des Jeux de Rome sans chaussures, devenant le premier champion olympique noir africain. La course s'acheva de nuit au pied de l'arc de Constantin, éclairé par des torches tenues le long du parcours.",
+  },
+  july_revolution_1830: {
+    name: "Révolution de Juillet",
+    clue: "Trois jours de barricades dans les rues renversent un roi et inspirent un tableau célèbre: une femme à la poitrine nue brandit un drapeau au-dessus des morts.",
+    explanation: "Pendant les Trois Glorieuses, les Parisiens se soulevèrent contre Charles X, qui abdiqua et fut remplacé par son cousin Louis-Philippe. La Liberté guidant le peuple d'Eugène Delacroix, aujourd'hui au Louvre, fut peinte en son honneur.",
+  },
+  russian_constitutional_crisis_1993: {
+    name: "Crise constitutionnelle russe",
+    clue: "Dans la capitale du plus vaste pays du monde, des chars bombardent le parlement après que les députés ont défié un président qui les avait dissous.",
+    explanation: "Boris Eltsine prononça la dissolution du Parlement, dont les députés se retranchèrent dans la Maison-Blanche de Moscou. Après des combats de rue, des chars de l'armée bombardèrent le bâtiment, et une nouvelle constitution donnant de larges pouvoirs au président fut adoptée quelques semaines plus tard.",
+  },
+  wallace_monument: {
+    name: "Monument à Wallace",
+    clue: "Sur un piton dominant le pont de sa célèbre victoire, une tour honore un chevalier rebelle qu'un film à succès montra le visage peint en bleu.",
+    explanation: "Le monument national à Wallace se dresse sur l'Abbey Craig, près de Stirling, face au lieu de la victoire de William Wallace au pont de Stirling. Le film Braveheart a ravivé l'intérêt pour lui, et une statue à l'effigie de Mel Gibson est restée des années au pied de la colline.",
+  },
+  monument_peoples_heroes: {
+    name: "Monument aux héros du peuple",
+    clue: "Au cœur d'une des plus grandes places du monde, un obélisque de granit honore les martyrs révolutionnaires, face à une porte ornée du portrait géant d'un chef.",
+    explanation: "Le monument aux héros du peuple se dresse sur la place Tian'anmen, à Pékin, face à la porte de la Paix céleste et à son portrait de Mao Zedong. Son socle est sculpté de bas-reliefs d'épisodes révolutionnaires remontant aux guerres de l'opium.",
+  },
+  al_haouz_earthquake: {
+    name: "Séisme d'Al Haouz",
+    clue: "Dans l'Atlas, un séisme en pleine nuit rase des villages en terre crue et ravage une mosquée historique, faisant près de trois mille morts.",
+    explanation: "Le séisme d'Al Haouz frappa le Haut Atlas au sud de Marrakech, le plus meurtrier du Maroc depuis des décennies. Des villages berbères isolés, bâtis en terre et en pierre, s'effondrèrent, et la mosquée médiévale de Tinmel fut en grande partie détruite.",
+  },
+  laquila_earthquake: {
+    name: "Séisme de L'Aquila",
+    clue: "Dans les Apennins, un séisme dévaste une ville médiévale, et des experts qui avaient rassuré les habitants quelques jours plus tôt sont ensuite condamnés.",
+    explanation: "Le séisme de L'Aquila fit plus de 300 morts dans le centre de l'Italie. Sept membres d'une commission des risques furent condamnés pour homicide involontaire pour avoir minimisé le danger après une série de secousses; la plupart furent acquittés en appel.",
+  },
+  qumran_dead_sea_scrolls: {
+    name: "Grottes de Qumrân",
+    clue: "Près de la mer Morte, un jeune berger cherchant une chèvre trouve dans une grotte des jarres de rouleaux, parmi les plus vieilles copies de textes bibliques.",
+    explanation: "Les manuscrits de la mer Morte furent découverts dans des grottes proches des ruines de Qumrân, en Cisjordanie. Écrits surtout sur parchemin, ils contiennent des fragments de presque tous les livres de la Bible hébraïque, environ mille ans plus anciens que les plus vieilles copies connues jusque-là.",
+  },
+  battle_of_bosworth: {
+    name: "Bataille de Bosworth",
+    clue: "Sur ce champ de bataille tombe un roi à qui l'on prêtera « mon royaume pour un cheval », le dernier roi de son pays tué au combat.",
+    explanation: "Richard III fut tué à Bosworth, dernier roi d'Angleterre mort au combat, et Henri Tudor prit la couronne, mettant fin à la guerre des Deux-Roses. Son squelette fut retrouvé sous un parking municipal de Leicester puis réinhumé dans la cathédrale.",
+  },
+  battle_on_the_ice: {
+    name: "Bataille du lac Peïpous",
+    clue: "Sur le lac Peïpous gelé, l'armée d'un prince repousse des chevaliers croisés, un affrontement devenu plus tard un film célèbre à la musique grandiose.",
+    explanation: "Le prince Alexandre Nevski de Novgorod vainquit la branche livonienne de l'ordre Teutonique sur le lac gelé situé entre l'Estonie et la Russie actuelles. Le film Alexandre Nevski de Sergueï Eisenstein, sur une musique de Prokofiev, rendit la bataille légendaire.",
+  },
+  council_of_ephesus: {
+    name: "Concile d'Éphèse",
+    clue: "Dans un port célèbre pour le temple géant d'une déesse de la chasse, un concile condamne un archevêque à propos du titre donné à la mère de Jésus.",
+    explanation: "Le concile d'Éphèse, sur la côte égéenne de l'Anatolie, condamna Nestorius, archevêque de Constantinople, et proclama Marie Theotokos, mère de Dieu. Éphèse abritait le grand temple d'Artémis.",
+  },
+  doha_agreement_2020: {
+    name: "Accord de Doha",
+    clue: "Dans la capitale d'une petite péninsule désertique riche en gaz, une superpuissance promet son retrait aux insurgés qu'elle combattait depuis vingt ans.",
+    explanation: "Les États-Unis et les talibans signèrent l'accord de Doha au Qatar, s'engageant au retrait de toutes les troupes étrangères d'Afghanistan. Le départ fut achevé l'année suivante, alors que les talibans reprenaient Kaboul.",
+  },
+  maidens_tower_istanbul: {
+    name: "Tour de Léandre",
+    clue: "Sur un îlot rocheux à l'entrée d'un détroit entre deux mers, une tour est liée à la légende d'une princesse tuée par un serpent caché dans un panier de fruits.",
+    explanation: "La tour de Léandre, ou tour de la Jeune Fille, se dresse sur un îlot à l'entrée sud du Bosphore, face à Üsküdar, à Istanbul. Selon la légende, un sultan y enferma sa fille pour déjouer une prophétie de mort par morsure de serpent, mais un serpent l'atteignit dans une corbeille de fruits.",
+  },
+  uffington_white_horse: {
+    name: "Cheval blanc d'Uffington",
+    clue: "Sur une colline de craie d'une terre verte et pluvieuse, un cheval stylisé de plus de 100 m est creusé dans le gazon et entretenu depuis trois mille ans.",
+    explanation: "Le cheval blanc d'Uffington, dans l'Oxfordshire, est formé de tranchées remplies de craie blanche concassée. Sans le nettoyage régulier des habitants, l'herbe l'aurait recouvert depuis longtemps, et on le voit mieux depuis le ciel ou les collines d'en face.",
+  },
+  union_of_lublin: {
+    name: "Union de Lublin",
+    clue: "Lors d'une diète réunie dans une ville au bord d'une rivière, un royaume et un grand-duché fusionnent en un seul État, avec un roi élu et une assemblée commune.",
+    explanation: "L'union de Lublin transforma l'union personnelle entre la Pologne et la Lituanie en République des Deux Nations, l'un des plus grands États d'Europe, gouverné par un roi élu en commun et une diète unique.",
+  },
+  convention_of_peking: {
+    name: "Convention de Pékin",
+    clue: "Après le pillage et l'incendie du vaste palais d'été d'un empereur par des troupes étrangères, son frère signe des traités cédant une péninsule portuaire.",
+    explanation: "Le prince Gong signa la convention de Pékin avec la Grande-Bretagne, la France et la Russie après la destruction de l'ancien palais d'Été par les troupes franco-britanniques, mettant fin à une guerre liée au commerce de l'opium. La Chine céda Kowloon aux Britanniques et de vastes terres du nord à la Russie.",
+  },
+  saur_revolution: {
+    name: "Révolution de Saur",
+    clue: "Des officiers prennent un palais présidentiel et tuent le président et sa famille, portant des communistes au pouvoir un an avant une invasion étrangère.",
+    explanation: "Lors de la révolution de Saur, des officiers fidèles au Parti démocratique populaire, communiste, prirent Kaboul et tuèrent le président Mohammed Daoud Khan. Les révoltes contre le nouveau régime poussèrent une superpuissance voisine à envahir l'Afghanistan l'année suivante.",
+  },
+  skopje_earthquake: {
+    name: "Séisme de Skopje",
+    clue: "Un séisme rase presque toute une ville; sa gare en ruine, horloge figée à l'heure du choc, devient un musée, et un grand architecte étranger la redessine.",
+    explanation: "Le séisme de Skopje fit plus d'un millier de morts dans la capitale de l'actuelle Macédoine du Nord. L'ancienne gare en ruine, son horloge arrêtée à 5 h 17, abrite aujourd'hui le musée de la ville, et l'architecte japonais Kenzo Tange dessina le plan de reconstruction du centre.",
+  },
+  exposition_universelle_1900: {
+    name: "Exposition universelle du Grand Palais",
+    clue: "Dans une ville déjà coiffée d'une tour de fer d'une exposition passée, une nouvelle exposition dévoile un trottoir roulant, un palais vitré et un pont doré.",
+    explanation: "L'Exposition universelle attira environ 50 millions de visiteurs à Paris. Elle a laissé le Grand Palais, le Petit Palais et le pont Alexandre-III, et la première ligne de métro de la ville ouvrit pendant qu'elle se tenait.",
+  },
+  los_angeles_olympics_1932: {
+    name: "Jeux olympiques de Los Angeles",
+    clue: "Dans la ville d'Hollywood, les Jeux olympiques logent les athlètes masculins dans le premier village olympique, un ensemble de cottages sur une colline.",
+    explanation: "Les Jeux de Los Angeles se tinrent au Memorial Coliseum en pleine crise économique, si bien que peu d'athlètes firent le voyage. Ils inaugurèrent le village olympique, le podium aux Jeux d'été et la photo-finish.",
+  },
+  liberation_of_paris: {
+    name: "Libération de Paris",
+    clue: "En pleine insurrection, alors que des chars approchent, le commandant d'une capitale occupée refuse de faire sauter ponts et monuments, épargnant la ville.",
+    explanation: "Le général Dietrich von Choltitz désobéit à l'ordre d'Hitler de laisser Paris en ruines. Après l'insurrection de la Résistance, la division blindée de Leclerc entra dans la ville, et de Gaulle descendit les Champs-Élysées devant une foule en liesse.",
+  },
+  great_siege_of_malta: {
+    name: "Grand Siège de Malte",
+    clue: "Sur une petite île au milieu de la Méditerranée, un ordre de chevaliers croisés résiste près de quatre mois à une immense flotte d'invasion.",
+    explanation: "Les chevaliers Hospitaliers, menés par Jean de Valette, défendirent les forts du port de Malte contre une armada ottomane. La nouvelle capitale bâtie après la victoire, La Valette, porte son nom.",
+  },
+  pyramid_of_djoser: {
+    name: "Pyramide de Djéser",
+    clue: "Le long du Nil, la plus ancienne pyramide de ce type s'élève en six marches géantes, conçue par un architecte vénéré plus tard comme un dieu.",
+    explanation: "La pyramide à degrés de Djéser, à Saqqarah, est le plus ancien grand édifice en pierre d'Égypte, fait de plateformes de plus en plus petites empilées. Son architecte, Imhotep, fut vénéré pendant des siècles comme un dieu de la médecine et de la sagesse.",
+  },
+  circus_maximus: {
+    name: "Circus Maximus",
+    clue: "Le plus grand champ de courses de chars d'un empire antique, avec peut-être 150 000 places, n'est plus qu'un creux herbeux entre deux collines de sa capitale.",
+    explanation: "Le Circus Maximus s'étendait entre le Palatin et l'Aventin, à Rome. Ses courses de chars attiraient les plus grandes foules de tous les spectacles romains, et les empereurs les suivaient depuis leur palais dominant la piste.",
+  },
+  kashmir_earthquake_2005: {
+    name: "Séisme du Cachemire",
+    clue: "Dans une région de montagne disputée par deux puissances nucléaires voisines, un séisme matinal fait plus de 80 000 morts, dont beaucoup d'écoliers.",
+    explanation: "Le séisme du Cachemire frappa près de Muzaffarabad, au Cachemire sous administration pakistanaise, un jour de classe. Des milliers d'écoles mal construites s'effondrèrent, et l'Inde et le Pakistan ouvrirent brièvement des points de passage sur leur ligne de cessez-le-feu pour laisser passer l'aide.",
+  },
+  izmit_earthquake: {
+    name: "Séisme d'İzmit",
+    clue: "Sur la mer de Marmara, un séisme en pleine nuit fait quelque 17 000 morts et embrase une immense raffinerie pendant plusieurs jours.",
+    explanation: "Le séisme d'İzmit rompit la faille nord-anatolienne, au nord-ouest de la Turquie, l'une des régions les plus industrielles du pays. L'incendie de la raffinerie Tüpraş dura plusieurs jours, et la catastrophe entraîna de nouvelles normes de construction.",
+  },
+  helsinki_accords: {
+    name: "Accords d'Helsinki",
+    clue: "Sur la Baltique, des dirigeants des deux côtés d'un continent divisé signent un acte final reconnaissant les frontières d'après-guerre et les droits de l'homme.",
+    explanation: "Trente-cinq États, dont les États-Unis, le Canada et tous les États communistes d'Europe sauf l'Albanie, signèrent l'acte final d'Helsinki au palais Finlandia. Des dissidents s'appuyèrent ensuite sur ses clauses sur les droits de l'homme pour demander des comptes à leurs gouvernements.",
+  },
+  monument_of_the_discoveries: {
+    name: "Monument aux Découvertes",
+    clue: "Au bord du Tage, une proue de navire géante en pierre porte des statues d'explorateurs menés par un prince qui finança des voyages sans guère naviguer.",
+    explanation: "Le Padrão dos Descobrimentos, dans le quartier de Belém à Lisbonne, rend hommage aux Grandes Découvertes portugaises. Henri le Navigateur se tient à la proue, suivi notamment de Vasco de Gama et de Magellan.",
+  },
+  albert_memorial: {
+    name: "Albert Memorial",
+    clue: "Face à une grande salle de concert ronde baptisée du même nom, la statue dorée du mari d'une reine trône sous un dais orné de flèches.",
+    explanation: "La reine Victoria commanda l'Albert Memorial, dans les jardins de Kensington, après la mort du prince Albert. Il fait face au Royal Albert Hall, et sa statue tient le catalogue de la Grande Exposition qu'il avait soutenue.",
+  },
+  coup_of_18_brumaire: {
+    name: "Coup d'État du 18 Brumaire",
+    clue: "Des députés sont transférés dans un palais sur une colline dominant un fleuve, où les grenadiers d'un général vident leur salle et lui livrent le pouvoir.",
+    explanation: "Le coup d'État de Napoléon Bonaparte eut lieu au château de Saint-Cloud, à l'ouest de Paris, où les assemblées avaient été transférées. Après que les députés l'eurent hué, les soldats menés par Murat les chassèrent, et le Consulat fut créé.",
+  },
+  belgian_revolution: {
+    name: "Révolution belge",
+    clue: "Dans une capitale basse et pluvieuse, un duo patriotique à l'opéra jette le public dans la rue, lançant l'émeute qui mène les provinces à l'indépendance.",
+    explanation: "Une représentation de La Muette de Portici d'Auber au théâtre de la Monnaie, à Bruxelles, déclencha des émeutes contre la domination néerlandaise. Les provinces du sud quittèrent le royaume uni des Pays-Bas pour former la Belgique.",
+  },
+  council_of_florence: {
+    name: "Concile de Florence",
+    clue: "Dans une ville fluviale entourée de collines, célèbre pour sa coupole de brique, un concile réunit un temps les deux grandes branches de la chrétienté.",
+    explanation: "L'empereur byzantin Jean VIII vint à Florence en espérant une aide militaire contre les Ottomans, et le concile proclama l'union des Églises latine et grecque. L'union s'effondra peu après, et l'aide espérée ne vint jamais vraiment.",
+  },
+  angel_of_independence: {
+    name: "Ange de l'Indépendance",
+    clue: "Sur une grande avenue d'une capitale d'altitude qui s'enfonce peu à peu, une victoire ailée dorée coiffe une colonne à laquelle on a dû ajouter des marches.",
+    explanation: "L'Ange de l'Indépendance, sur le Paseo de la Reforma à Mexico, marque le centenaire de la guerre d'indépendance. La ville est bâtie sur un lac asséché, si bien que 14 marches ont été ajoutées à sa base à mesure que le sol s'affaissait.",
+  },
+  treaty_of_london_1839: {
+    name: "Traité de Londres",
+    clue: "Dans la capitale d'une grande puissance, la neutralité d un jeune royaume est garantie, promesse traitée plus tard de chiffon de papier lors d'une invasion.",
+    explanation: "Le traité de Londres reconnut l'indépendance de la Belgique et fit des grandes puissances les garantes de sa neutralité. Quand l'Allemagne envahit la Belgique des décennies plus tard, son chancelier qualifia le traité de chiffon de papier, et la Grande-Bretagne déclara la guerre.",
+  },
+  kumamoto_earthquakes: {
+    name: "Séismes de Kumamoto",
+    clue: "Deux forts séismes à un jour d'écart, le second plus fort; les murs d'un célèbre château s'écroulent et une tourelle tient sur une seule pile de pierres.",
+    explanation: "Les séismes de Kumamoto frappèrent Kyushu, au Japon, avec une première secousse suivie d'un choc principal plus fort. Les remparts du château de Kumamoto s'effondrèrent par endroits, et sa tourelle Iidamaru resta debout sur un seul angle de pierres empilées.",
+  },
+  mother_armenia: {
+    name: "Mère Arménie",
+    clue: "Dans un parc au-dessus d'une capitale, la statue géante d'une femme tenant une épée en travers du corps remplace celle, déboulonnée, d'un dictateur.",
+    explanation: "Mère Arménie domine Erevan depuis le parc de la Victoire. Elle a remplacé une immense statue de Staline démontée après sa disgrâce, et le socle abrite aujourd'hui un musée militaire.",
+  },
+  sanxingdui: {
+    name: "Sanxingdui",
+    clue: "Des fosses pleines de masques de bronze aux yeux saillants révèlent une culture absente des écrits, découverte par hasard par un paysan creusant un fossé.",
+    explanation: "Sanxingdui, au Sichuan, abritait une culture antique différente de tout ce que décrivent les textes chinois. Ses fosses sacrificielles contenaient des têtes de bronze géantes, un arbre en bronze de près de quatre mètres et quantité d'or, de jade et d'ivoire.",
+  },
+  london_olympics_1908: {
+    name: "Jeux olympiques de Londres à White City",
+    clue: "Le marathon olympique est allongé jusqu'aux 42,195 km actuels pour partir au pied d'un château royal et finir devant la loge royale.",
+    explanation: "Aux Jeux de Londres, le marathon relia le château de Windsor au stade de White City, et sa distance inhabituelle devint ensuite la norme. Le coureur en tête, Dorando Pietri, épuisé, fut aidé à franchir la ligne par des officiels puis disqualifié.",
+  },
+  paris_olympics_1924: {
+    name: "Jeux olympiques de Paris à Colombes",
+    clue: "Un sprinteur très pieux refuse de courir le jour du repos sacré et gagne une course plus longue, à des Jeux que la même ville accueillera un siècle plus tard.",
+    explanation: "Aux Jeux de Paris, l'Écossais Eric Liddell renonça aux séries du 100 m disputées un dimanche et remporta le 400 m, une histoire racontée par le film Les Chariots de feu. Le stade principal était à Colombes, et Paris a de nouveau accueilli les Jeux un siècle plus tard.",
+  },
+  sunda_strait_tsunami_2018: {
+    name: "Tsunami du détroit de la Sonde",
+    clue: "Quand le jeune volcan né d'une île à l'explosion légendaire s'effondre dans la mer, un tsunami surgit sans alerte et emporte un groupe en concert sur une plage.",
+    explanation: "Une partie de l'Anak Krakatau, le volcan né dans la caldeira du Krakatoa, glissa dans le détroit de la Sonde. Sans séisme pour déclencher l'alerte, les vagues surprirent les côtes de Java et de Sumatra, dont un concert sur la plage du groupe Seventeen.",
+  },
+  mexico_earthquake_2017: {
+    name: "Séisme de Puebla",
+    clue: "Dans une capitale d'altitude, un séisme meurtrier frappe le jour anniversaire exact du pire séisme de la ville, quelques heures après un exercice d'évacuation.",
+    explanation: "Le séisme de Puebla frappa le centre du Mexique le jour anniversaire de la catastrophe qui avait ravagé la capitale des décennies plus tôt. Des dizaines d'immeubles s'effondrèrent à Mexico, dont l'école Enrique Rébsamen, peu après l'exercice annuel d'évacuation.",
+  },
+  victoria_memorial_london: {
+    name: "Victoria Memorial",
+    clue: "Devant un palais royal, au bout d'une grande avenue de parade, un monument de marbre coiffé d'une victoire ailée dorée honore une reine qui régna 63 ans.",
+    explanation: "Le Victoria Memorial se dresse devant le palais de Buckingham, au bout du Mall, à Londres. La reine Victoria y est assise face à l'avenue, et le monument entier fut taillé dans plus de 2 000 tonnes de marbre blanc.",
+  },
+  black_sea_grain_initiative: {
+    name: "Accord céréalier de la mer Noire",
+    clue: "Dans une ville à cheval sur deux continents, deux pays en guerre signent des accords laissant les céréaliers quitter des ports bloqués de la mer Noire.",
+    explanation: "La Russie et l'Ukraine signèrent chacune l'accord céréalier avec la Turquie et les Nations unies au palais de Dolmabahçe, à Istanbul. Il permit à l'Ukraine d'exporter des dizaines de millions de tonnes de céréales avant le retrait russe un an plus tard.",
+  },
+  partition_of_babylon: {
+    name: "Partage de Babylone",
+    clue: "Le long de l'Euphrate, dans la grande cité où un jeune conquérant vient de mourir, ses généraux se partagent son immense empire.",
+    explanation: "Après la mort d'Alexandre le Grand à Babylone, à 32 ans, ses généraux s'y réunirent et se partagèrent les satrapies d'un empire allant de la Grèce à l'Inde. Leurs rivalités menèrent vite à des décennies de guerres entre ses successeurs.",
+  },
+  assassination_of_jovenel_moise: {
+    name: "Assassinat de Jovenel Moïse",
+    clue: "Sur une île des Caraïbes partagée entre deux nations, un président en exercice est abattu dans sa chambre par un commando de mercenaires étrangers.",
+    explanation: "Le président haïtien Jovenel Moïse fut tué chez lui, sur les hauteurs de Port-au-Prince, par un commando composé surtout d'anciens militaires colombiens. Son épouse fut blessée, et l'assassinat aggrava la crise politique du pays.",
+  },
+  second_battle_of_el_alamein: {
+    name: "Seconde bataille d'El Alamein",
+    clue: "Près d'une halte ferroviaire côtière du Sahara, une armée arrête pour de bon le « renard du désert », victoire qu'un dirigeant appela la fin du commencement.",
+    explanation: "À El Alamein, en Égypte, la 8e armée de Montgomery brisa l'Afrika Korps de Rommel et le repoussa à travers l'Afrique du Nord. Churchill déclara que ce n'était pas la fin, ni le début de la fin, mais peut-être la fin du commencement.",
+  },
+  battle_of_leipzig: {
+    name: "Bataille de Leipzig",
+    clue: "Surnommée la bataille des nations, le plus vaste choc du continent avant les guerres mondiales voit des alliés écraser un empereur près d'une cité de foires.",
+    explanation: "Plus de 500 000 soldats combattirent à Leipzig, où la Russie, la Prusse, l'Autriche et la Suède battirent Napoléon. La défaite mit fin à la puissance française à l'est du Rhin, et un immense monument fut élevé sur le champ de bataille un siècle plus tard.",
+  },
+  luxor_temple: {
+    name: "Temple de Louxor",
+    clue: "Le long du Nil, la porte d'un temple garde l'un de ses deux obélisques jumeaux; l'autre se dresse au milieu d'une célèbre place d'une capitale lointaine.",
+    explanation: "Le temple de Louxor, relié à Karnak par une allée de sphinx, fut bâti surtout sous Amenhotep III et Ramsès II. L'Égypte offrit à la France l'un de ses deux obélisques d'entrée, qui se dresse depuis sur la place de la Concorde, à Paris.",
+  },
+  georgia_guidestones: {
+    name: "Georgia Guidestones",
+    clue: "Dans les terres agricoles d'un État du sud chaud et humide, des dalles de granit gravées de dix préceptes en huit langues sont détruites par une bombe.",
+    explanation: "Les Georgia Guidestones furent commandées sous un pseudonyme et gravées de conseils comme maintenir la population humaine sous 500 millions. Longtemps cible des théories du complot, elles furent endommagées par une bombe puis démolies.",
+  },
+  czechoslovak_coup_1948: {
+    name: "Coup de Prague",
+    clue: "Dans une capitale fluviale aux cent clochers, les communistes prennent le pouvoir; peu après, le chef de la diplomatie est retrouvé mort sous sa fenêtre.",
+    explanation: "Les communistes prirent le contrôle total à Prague avec l'appui de milices ouvrières armées. Le ministre des Affaires étrangères Jan Masaryk, fils du fondateur du pays, fut retrouvé mort sous la fenêtre de sa salle de bains, écho aux célèbres défenestrations de la ville.",
+  },
+  squaw_valley_olympics_1960: {
+    name: "Jeux d'hiver de Squaw Valley",
+    clue: "Près d'un lac de montagne profond et limpide, un magnat du dessin animé orchestre l'ouverture de Jeux d'hiver, premiers à offrir des ralentis télévisés.",
+    explanation: "Les Jeux de Squaw Valley, en Californie, près du lac Tahoe, furent construits presque à partir de rien dans une vallée peu aménagée. Walt Disney organisa les cérémonies, et la chaîne CBS y eut l'idée du ralenti instantané.",
+  },
+  rome_statute: {
+    name: "Statut de Rome",
+    clue: "Dans une capitale antique, 120 nations votent la création de la première cour permanente pour le génocide et les crimes de guerre, qui siège dans un autre pays.",
+    explanation: "Le statut de Rome fut adopté lors d'une conférence des Nations unies tenue au siège de la FAO, à Rome. Il créa la Cour pénale internationale, installée à La Haye, qui peut juger des individus, y compris des chefs d'État.",
+  },
+  first_council_of_constantinople: {
+    name: "Premier concile de Constantinople",
+    clue: "Dans une capitale impériale, un concile complète un credo encore récité et place l'évêque de la ville juste derrière celui de l'ancienne capitale.",
+    explanation: "Convoqué par l'empereur Théodose Ier, le concile compléta le symbole de Nicée en affirmant la divinité du Saint-Esprit. Il donna aussi à l'évêque de Constantinople le premier rang après celui de Rome, source de rivalités ultérieures.",
+  },
+  operation_nemesis: {
+    name: "Opération Némésis",
+    clue: "Dans la rue d'une capitale étrangère, un rescapé d'un génocide abat l'ancien ministre en exil qui avait organisé les massacres, et un jury l'acquitte.",
+    explanation: "Dans le cadre de l'opération Némésis, Soghomon Tehlirian tua Talaat Pacha, l'un des principaux organisateurs du génocide arménien, à Berlin. Un jury allemand acquitta Tehlirian à l'issue d'un procès qui révéla les massacres au grand public.",
+  },
+  canterbury_earthquake_2010: {
+    name: "Séisme de Canterbury",
+    clue: "Un puissant séisme avant l'aube ouvre une faille dans une plaine agricole du sud sans faire de mort directe, des mois avant un choc plus faible mais meurtrier.",
+    explanation: "Le séisme de Canterbury frappa près de Darfield, en Nouvelle-Zélande, et ouvrit une rupture en surface de près de 30 km. Survenu la nuit, il épargna des vies, mais l'une de ses répliques, plus proche de Christchurch, fit 185 morts en février suivant.",
+  },
+  wikipedia_monument: {
+    name: "Monument à Wikipédia",
+    clue: "Dans une ville frontalière au bord d'une rivière, des figures soulèvent un globe en pièces de puzzle, en hommage aux bénévoles d'une encyclopédie en ligne.",
+    explanation: "Le monument à Wikipédia de Słubice, en Pologne, fait face à Francfort-sur-l'Oder de l'autre côté de la rivière. Ce fut le premier monument consacré à l'encyclopédie en ligne, financé par la ville et conçu par des étudiants d'une université locale.",
+  },
+  sapporo_olympics_1972: {
+    name: "Jeux d'hiver de Sapporo",
+    clue: "Sur l'île enneigée d'Hokkaido, au nord, les premiers Jeux d'hiver de leur continent voient les sauteurs à ski locaux rafler tout le podium.",
+    explanation: "Les Jeux de Sapporo furent les premiers Jeux d'hiver organisés en Asie. Les sauteurs japonais menés par Yukio Kasaya prirent l'or, l'argent et le bronze au petit tremplin, et la ville est aussi célèbre pour son festival annuel de sculptures sur neige.",
+  },
+  grenoble_olympics_1968: {
+    name: "Jeux d'hiver de Grenoble",
+    clue: "Dans une ville de vallée cernée par les Alpes, un skieur du pays hôte gagne les trois courses de ski alpin des premiers Jeux d'hiver avec contrôles antidopage.",
+    explanation: "Aux Jeux de Grenoble, Jean-Claude Killy remporta la descente, le slalom géant et le slalom devant le public français. Ce furent aussi les premiers Jeux d'hiver avec des contrôles antidopage et des tests de féminité.",
+  },
+  battle_of_moscow: {
+    name: "Bataille de Moscou",
+    clue: "En vue des clochers de la capitale, les chars d'une armée d'invasion gèlent dans un hiver glacial, repoussés par des troupes fraîches en camouflage blanc.",
+    explanation: "Les forces allemandes arrivèrent à une trentaine de kilomètres de Moscou avant d'être stoppées par le froid et une résistance acharnée. Des renforts frais venus d'Extrême-Orient lancèrent alors une contre-offensive qui fit reculer l'envahisseur pour la première fois de la guerre.",
+  },
+  siege_of_jerusalem_1099: {
+    name: "Siège de Jérusalem",
+    clue: "Des croisés poussent des tours de siège contre les murs d'une ville sainte pour trois religions, massacrent ses habitants et y fondent un royaume.",
+    explanation: "La première croisade s'acheva par la prise de Jérusalem aux Fatimides. Le massacre qui suivit marqua les mémoires pendant des siècles, et Godefroy de Bouillon devint le premier souverain du nouveau royaume de Jérusalem.",
+  },
+  trajans_column: {
+    name: "Colonne Trajane",
+    clue: "Sur le forum d'une capitale antique, une colonne à frise en spirale raconte les guerres d'un empereur au nord du Danube; un saint la couronne aujourd'hui.",
+    explanation: "La colonne Trajane, à Rome, montre plus de 2 500 personnages sculptés de la conquête de la Dacie, l'actuelle Roumanie, par l'empereur. Les cendres de Trajan furent placées dans sa base, et une statue de saint Pierre a remplacé la sienne au sommet.",
+  },
+  dover_castle: {
+    name: "Château de Douvres",
+    clue: "Sur des falaises blanches, face au point le plus étroit de la Manche, un château médiéval coiffe les tunnels où fut planifiée une célèbre évacuation.",
+    explanation: "Le château de Douvres, surnommé la clé de l'Angleterre, garde la traversée la plus courte vers la France. Depuis les tunnels creusés dans ses falaises, l'amiral Ramsay dirigea l'opération Dynamo, l'évacuation des troupes alliées de Dunkerque.",
+  },
+  elysee_treaty: {
+    name: "Traité de l'Élysée",
+    clue: "Dans un palais présidentiel, un vieux général et un vieux chancelier scellent l'amitié de deux nations qui s'étaient fait trois guerres en un siècle.",
+    explanation: "Charles de Gaulle et Konrad Adenauer signèrent le traité de l'Élysée à Paris, engageant la France et l'Allemagne à se consulter régulièrement. Il lança aussi des échanges de jeunes qui ont depuis réuni des millions de jeunes.",
+  },
+  egyptian_coup_2013: {
+    name: "Coup d'État en Égypte",
+    clue: "Au bord du Nil, après d'immenses manifestations, le chef de l'armée renverse le premier président librement élu, puis prend lui-même la présidence.",
+    explanation: "Le général Abdel Fattah al-Sissi renversa au Caire le président Mohamed Morsi, issu des Frères musulmans, un an après son élection. Quelques semaines plus tard, les forces de sécurité tuèrent des centaines de partisans de Morsi dans un sit-in, et Sissi devint président l'année suivante.",
+  },
+  may_revolution: {
+    name: "Révolution de Mai",
+    clue: "Sur le Río de la Plata, un conseil municipal destitue le vice-roi lors d'une semaine vue comme la naissance du pays; la grande place porte le nom du mois.",
+    explanation: "À Buenos Aires, le cabildo destitua le vice-roi Baltasar Hidalgo de Cisneros et forma la Primera Junta, premier gouvernement local de l'Argentine. La place de Mai et la fête nationale du 25 mai en gardent le souvenir.",
+  },
+  amatrice_earthquake_2016: {
+    name: "Séisme d'Amatrice",
+    clue: "Dans les Apennins, un séisme nocturne rase un village perché qui a donné son nom à une célèbre sauce pour pâtes, quelques jours avant sa fête gastronomique.",
+    explanation: "Le séisme du centre de l'Italie fit environ 300 morts, pour la plupart à Amatrice, berceau des spaghetti all'amatriciana. Des restaurants du monde entier vendirent ensuite ce plat pour financer la reconstruction du village.",
+  },
+  hualien_earthquake_2024: {
+    name: "Séisme de Hualien",
+    clue: "Sur une île montagneuse face à un rival géant de l'autre côté d'un détroit, le plus fort séisme depuis 25 ans laisse un immeuble penché en un angle saisissant.",
+    explanation: "Le séisme de Hualien fut le plus fort à Taïwan depuis vingt-cinq ans. L'immeuble Uranus penché, dans la ville de Hualien, en devint l'image marquante, tandis que des normes de construction strictes limitèrent le bilan pour un choc aussi puissant.",
+  },
+  capernaum: {
+    name: "Capharnaüm",
+    clue: "Au bord d'un lac d'eau douce sous le niveau de la mer, le village de pêcheurs dont Jésus fit sa base garde une synagogue blanche et la maison d'un disciple.",
+    explanation: "Capharnaüm, sur la rive nord du lac de Tibériade, est l'endroit où les Évangiles situent une grande partie du ministère de Jésus. Une église moderne est suspendue au-dessus des vestiges attribués à la maison de saint Pierre.",
+  },
+  hermannsdenkmal: {
+    name: "Hermannsdenkmal",
+    clue: "Dans une forêt vallonnée et fraîche, la statue géante d'un chef de tribu brandit l'épée vers l'ouest, en souvenir de son embuscade contre trois légions.",
+    explanation: "Le Hermannsdenkmal, près de Detmold, en Allemagne, honore Arminius, qui anéantit trois légions romaines dans la forêt de Teutobourg. Bâti comme symbole de l'unité nationale, il est tourné vers l'ouest, vers la France, rivale d'autrefois.",
+  },
+  geneva_conference_1954: {
+    name: "Conférence de Genève",
+    clue: "Dans une ville lacustre de diplomates, des pourparlers tenus après la chute d'une forteresse dans une vallée coupent une ex-colonie en deux selon un parallèle.",
+    explanation: "La conférence de Genève mit fin à la guerre de la France en Indochine après sa défaite à Diên Biên Phu. Le Vietnam fut coupé au 17e parallèle en attendant des élections qui n'eurent jamais lieu, ouvrant la voie à la guerre suivante.",
+  },
+  thai_coup_2014: {
+    name: "Coup d'État en Thaïlande",
+    clue: "Dans une capitale fluviale chaude et inondable, un chef d'armée décrète la loi martiale puis prend le pouvoir deux jours après, douzième putsch réussi du pays.",
+    explanation: "Le général Prayut Chan-o-cha prit le pouvoir à Bangkok après des mois de manifestations contre le gouvernement. Il dirigea ensuite la Thaïlande pendant près de dix ans, d'abord à la tête de la junte puis comme Premier ministre élu.",
+  },
+  fourth_lateran_council: {
+    name: "Quatrième concile du Latran",
+    clue: "Dans le palais-cathédrale d'un pape, un concile rend la confession annuelle obligatoire et impose aux minorités religieuses des vêtements distinctifs.",
+    explanation: "Le pape Innocent III réunit le quatrième concile du Latran, à Rome. Il définit la transsubstantiation, imposa la confession et la communion annuelles et obligea juifs et musulmans à porter des signes vestimentaires distinctifs.",
+  },
+  pereiaslav_agreement: {
+    name: "Accord de Pereïaslav",
+    clue: "Dans une petite ville au bord d'une rivière, une armée rebelle de cavaliers jure fidélité à un monarque lointain, serment vu plus tard comme une union.",
+    explanation: "À Pereïaslav, le chef cosaque Bohdan Khmelnytsky prêta serment au tsar russe pour obtenir son soutien contre la Pologne-Lituanie. Son sens, alliance ou annexion, divise encore historiens ukrainiens et russes.",
+  },
+  vrancea_earthquake_1977: {
+    name: "Séisme de Vrancea",
+    clue: "Un séisme profond sous le coude d'une chaîne de montagnes abat des dizaines d'immeubles dans une capitale à 150 km, où meurent la plupart de ses 1 500 victimes.",
+    explanation: "Le séisme de Vrancea frappa très en profondeur sous la courbure des Carpates, mais ses ondes touchèrent surtout Bucarest, où plus de 30 grands immeubles s'effondrèrent. Le dirigeant roumain se servit ensuite des dégâts comme prétexte pour raser de vieux quartiers.",
+  },
+  sigismunds_column: {
+    name: "Colonne de Sigismond",
+    clue: "Dans la vieille ville d'une capitale, une colonne portant un roi avec croix et épée honore celui qui y installa la capitale; abattue en guerre, on la refit.",
+    explanation: "La colonne de Sigismond, place du Château à Varsovie, honore le roi Sigismond III Vasa, qui transféra la capitale polonaise depuis Cracovie. Premier monument profane de la ville, elle fut abattue pendant l'insurrection de Varsovie puis reconstruite.",
+  },
+  london_olympics_1948: {
+    name: "Jeux olympiques de l'austérité",
+    clue: "Dans une capitale marquée par le Blitz, les Jeux de l'austérité logent les athlètes en casernes, et une sprinteuse mère de deux enfants gagne quatre ors.",
+    explanation: "Les Jeux de Londres ne construisirent aucun site et utilisèrent le stade de Wembley, en plein rationnement. La Néerlandaise Fanny Blankers-Koen, surnommée la ménagère volante, remporta quatre médailles d'or, et l'Allemagne et le Japon ne furent pas invités.",
+  },
+  garmisch_olympics_1936: {
+    name: "Jeux d'hiver de Garmisch",
+    clue: "Dans les Alpes, quelques mois avant des Jeux d'été dans sa capitale, le régime nazi organise les Jeux d'hiver, où le ski alpin fait ses débuts.",
+    explanation: "Les Jeux d'hiver se tinrent dans les villages bavarois jumeaux de Garmisch et Partenkirchen, fusionnés pour l'occasion. Les panneaux hostiles aux Juifs furent retirés le temps de rassurer les visiteurs étrangers.",
+  },
+  cortina_olympics_1956: {
+    name: "Jeux d'hiver de Cortina",
+    clue: "Dans les Dolomites, un skieur de 20 ans venu d'un pays voisin gagne les trois courses alpines des premiers Jeux d'hiver retransmis en direct à la télé.",
+    explanation: "À Cortina d'Ampezzo, l'Autrichien Toni Sailer remporta la descente, le slalom et le slalom géant, premier skieur à réussir ce triplé. Le patinage de vitesse eut lieu sur le lac gelé de Misurina, et les Jeux furent diffusés en direct dans toute l'Europe.",
+  },
+  pisco_earthquake_2007: {
+    name: "Séisme de Pisco",
+    clue: "Sur la côte pacifique au pied des Andes, un séisme abat une église coloniale pendant la messe, dans un port qui a donné son nom à une eau-de-vie de raisin.",
+    explanation: "Le séisme du Pérou dévasta Pisco et les villes voisines de la côte sud. L'église San Clemente s'effondra sur les fidèles venus à une messe du soir, et une grande partie des maisons en adobe de la ville fut détruite.",
+  },
+  crete_earthquake_365: {
+    name: "Séisme et tsunami de Crète",
+    clue: "Au large de la Crète, un séisme soulève une partie de la côte de près de neuf mètres, et son tsunami jette des navires sur des toits de l'autre côté de la mer.",
+    explanation: "L'antique séisme de Crète souleva tant l'ouest de l'île que d'anciens ports se trouvent aujourd'hui bien au-dessus de l'eau. L'historien Ammien Marcellin décrivit des navires échoués sur les toits des maisons d'Alexandrie après le tsunami.",
+  },
+  berne_convention: {
+    name: "Convention de Berne",
+    clue: "Dans une capitale montagnarde connue pour sa fosse aux ours, des pays s'engagent à protéger les œuvres des auteurs étrangers, à l'appel d'un grand romancier.",
+    explanation: "La convention de Berne, signée à Berne, en Suisse, est le traité fondateur du droit d'auteur international. L'association littéraire de Victor Hugo l'avait réclamée, et elle lie encore la plupart des pays du monde.",
+  },
+  operation_panzerfaust: {
+    name: "Opération Panzerfaust",
+    clue: "Sur le Danube, un commando enroule le fils d'un régent dans un tapis et s'empare de la colline du château, forçant le régent à renoncer à quitter la guerre.",
+    explanation: "Quand le régent hongrois Miklós Horthy annonça un armistice, le commando SS d'Otto Skorzeny enleva son fils à Budapest et prit le château de Buda. Horthy démissionna, et un gouvernement fasciste maintint la Hongrie dans la guerre.",
+  },
+  battle_of_the_pyramids: {
+    name: "Bataille des Pyramides",
+    clue: "En vue des pyramides, les carrés d'un général envahisseur écrasent une célèbre cavalerie; il avait dit à ses soldats que quarante siècles les contemplaient.",
+    explanation: "L'armée de Napoléon mit en déroute la cavalerie mamelouke de Mourad Bey près du Caire, pendant la campagne d'Égypte. Sa phrase sur les quarante siècles qui contemplent les soldats du haut des pyramides est restée célèbre.",
+  },
+  battle_of_mohacs: {
+    name: "Bataille de Mohács",
+    clue: "Sur le Danube, l'armée d'un sultan envahisseur écrase en deux heures environ les chevaliers d'un royaume, et son jeune roi se noie dans un ruisseau en fuyant.",
+    explanation: "À Mohács, l'armée ottomane de Soliman le Magnifique anéantit l'armée hongroise, et le roi Louis II se noya en battant en retraite. La Hongrie resta partagée pendant plus de 150 ans entre Ottomans et Habsbourg.",
+  },
+  arch_of_titus: {
+    name: "Arc de Titus",
+    clue: "Sur le forum d'une capitale antique, un arc de triomphe montre des soldats emportant le chandelier à sept branches du temple qu'ils venaient de détruire.",
+    explanation: "L'arc de Titus, à Rome, célèbre la prise de Jérusalem et la destruction du Second Temple. Son relief de la ménorah portée en triomphe a inspiré l'emblème de l'État d'Israël.",
+  },
+  baths_of_caracalla: {
+    name: "Thermes de Caracalla",
+    clue: "Dans une capitale antique, les ruines géantes des thermes d'un empereur accueillent l'opéra l'été; trois ténors célèbres y chantèrent ensemble la première fois.",
+    explanation: "Les thermes de Caracalla, à Rome, pouvaient accueillir environ 1 600 baigneurs à la fois et comptaient aussi bibliothèques et jardins. Dans leurs ruines, Carreras, Domingo et Pavarotti donnèrent le premier concert des Trois Ténors, la veille d'une finale de Coupe du monde.",
+  },
+  spire_of_dublin: {
+    name: "Flèche de Dublin",
+    clue: "Sur la grande rue d'une capitale insulaire pluvieuse, une aiguille d'acier de 120 mètres s'élève là où une colonne honorant un héros naval avait sauté.",
+    explanation: "La Flèche se dresse sur O'Connell Street, à Dublin, à l'emplacement de la colonne Nelson, détruite par une bombe posée par des républicains. Les habitants ont donné à ce monument élancé de nombreux surnoms moqueurs.",
+  },
+  worker_and_kolkhoz_woman: {
+    name: "L'Ouvrier et la Kolkhozienne",
+    clue: "Deux géants d'acier brandissant marteau et faucille couronnaient un pavillon d'exposition universelle à l'étranger; ils se dressent dans une capitale enneigée.",
+    explanation: "La statue de Vera Moukhina coiffait le pavillon de Moscou à l'Exposition universelle de Paris, face au pavillon allemand. Elle se dresse aujourd'hui au parc des expositions VDNKh, à Moscou, et figure dans le logo du studio Mosfilm.",
+  },
+  nigerien_coup_2023: {
+    name: "Coup d'État au Niger",
+    clue: "Dans une capitale brûlante au bord d'un grand fleuve, aux portes du désert, la garde présidentielle séquestre le président élu qu'elle devait protéger.",
+    explanation: "La garde du général Abdourahamane Tiani retint le président Mohamed Bazoum dans sa résidence de Niamey. La junte expulsa ensuite les troupes françaises et se rapprocha de la Russie, rejoignant les régimes militaires voisins du Sahel.",
+  },
+  treaty_creation_of_ussr: {
+    name: "Traité de création de l'URSS",
+    clue: "Réunies dans le grand théâtre d'une capitale enneigée, quatre républiques approuvent un traité créant une union qui deviendra le plus vaste pays du monde.",
+    explanation: "Le traité, approuvé au théâtre Bolchoï de Moscou, réunit la Russie, l'Ukraine, la Biélorussie et une république transcaucasienne en un seul État fédéral. Cette union dura près de sept décennies avant que ses propres dirigeants ne la dissolvent.",
+  },
+  second_council_of_lyon: {
+    name: "Deuxième concile de Lyon",
+    clue: "Au confluent de deux rivières, un concile réunit un temps les églises d'est et d'ouest et ordonne d'enfermer les cardinaux jusqu'à ce qu'ils élisent un pape.",
+    explanation: "Le pape Grégoire X réunit le deuxième concile de Lyon après une élection pontificale qui avait traîné près de trois ans. Son union avec l'Église grecque échoua vite, mais sa règle du conclave fermé régit encore l'élection des papes.",
+  },
+  zagreb_earthquake_2020: {
+    name: "Séisme de Zagreb",
+    clue: "En plein confinement dû à une pandémie, un séisme matinal brise le sommet d'une des deux flèches d'une cathédrale et chasse les habitants dans le froid.",
+    explanation: "Le séisme de Zagreb fut le plus fort à toucher la capitale croate en plus de cent ans. Il frappa alors que les habitants étaient confinés, et la flèche sud de la cathédrale dut ensuite être entièrement démontée.",
+  },
+  algiers_agreement_1975: {
+    name: "Accord d'Alger",
+    clue: "Deux puissances pétrolières rivales partagent leur fleuve frontalier au fond d'un golfe; cinq ans plus tard, l'une déchire l'accord en envahissant l'autre.",
+    explanation: "Négocié à Alger, l'accord fixa la frontière entre l'Iran et l'Irak sur le thalweg du Chatt al-Arab, et l'Iran cessa d'aider les rebelles kurdes d'Irak. Saddam Hussein le dénonça avant d'envahir l'Iran.",
+  },
+  einsiedeln_abbey: {
+    name: "Abbaye d'Einsiedeln",
+    clue: "Dans une vallée d'un pays de montagne enclavé, une abbaye baroque abrite une statue de la mère de Jésus noircie par les cierges, lieu de pèlerinage millénaire.",
+    explanation: "L'abbaye d'Einsiedeln, au centre de la Suisse, est l'un des plus grands lieux de pèlerinage marial d'Europe. Sa Vierge noire se trouve dans une chapelle à l'intérieur de l'église, sur une étape du chemin de Saint-Jacques.",
+  },
+  lake_placid_olympics_1932: {
+    name: "Jeux d'hiver de Lake Placid",
+    clue: "Dans les Adirondacks, un ancien champion de boxe gagne l'or en bobsleigh, seul champion olympique d'été et d'hiver dans deux sports différents.",
+    explanation: "Aux Jeux de Lake Placid, dans l'État de New York, Eddie Eagan ajouta l'or du bobsleigh au titre de boxe gagné aux Jeux d'été douze ans plus tôt. Peu d'équipes traversèrent l'océan, si bien que les hôtes dominèrent.",
+  },
+  oslo_olympics_1952: {
+    name: "Jeux d'hiver d'Oslo",
+    clue: "Au bord d'un fjord, les premiers Jeux d'hiver dans une capitale allument leur flamme dans l'âtre d'un pionnier du ski; un tremplin attire 100 000 personnes.",
+    explanation: "Pour les Jeux d'Oslo, la flamme fut allumée à Morgedal dans la cheminée de Sondre Norheim, père du ski moderne, lors du premier relais de la flamme d'hiver. Environ 150 000 spectateurs suivirent le saut à Holmenkollen.",
+  },
+  paris_exposition_1937: {
+    name: "Exposition internationale de Paris",
+    clue: "Au pied d'une tour de fer d'une exposition passée, les pavillons de deux dictatures rivales se font face, près d'un tableau montrant une ville bombardée.",
+    explanation: "À l'Exposition de Paris, les pavillons de Berlin et de Moscou se faisaient face près de la tour Eiffel, et le Guernica de Picasso était exposé dans le pavillon espagnol. Le palais de Chaillot fut construit pour l'occasion.",
+  },
+  agadir_earthquake_1960: {
+    name: "Séisme d'Agadir",
+    clue: "Sur la côte atlantique, au pied de l'Atlas, un séisme de 15 secondes tue un tiers des habitants d'une ville portuaire, rebâtie ensuite un peu plus loin.",
+    explanation: "Le séisme d'Agadir était de magnitude modeste mais frappa juste sous la ville en pleine nuit, détruisant sa vieille kasbah. Le Maroc reconstruisit Agadir quelques kilomètres plus au sud, avec des règles de construction plus strictes.",
+  },
+  battle_of_crete: {
+    name: "Bataille de Crète",
+    clue: "En Crète, la première invasion menée surtout par les airs prend l'île, mais les pertes des parachutistes sont telles qu'on ne la refera plus à cette échelle.",
+    explanation: "Les parachutistes et troupes de planeurs allemands prirent la Crète aux forces britanniques, du Commonwealth et grecques, aidés par la prise de l'aérodrome de Maleme. Leurs pertes poussèrent Hitler à renoncer aux grandes opérations aéroportées.",
+  },
+  battle_of_kadesh: {
+    name: "Bataille de Qadesh",
+    clue: "Sur l'Oronte, deux empires livrent peut-être la plus grande bataille de chars de l'histoire, qui mènera plus tard à l'un des plus vieux traités de paix connus.",
+    explanation: "Ramsès II d'Égypte affronta le roi hittite Muwatalli II près de Qadesh, dans l'actuelle Syrie, avec des milliers de chars. Les deux camps revendiquèrent la victoire, et leurs royaumes signèrent ensuite un traité de paix dont une copie est exposée aux Nations unies.",
+  },
+  battle_of_sedan_1870: {
+    name: "Bataille de Sedan",
+    clue: "Sur la Meuse, un empereur est fait prisonnier avec toute son armée, et son empire s'effondre en quelques jours.",
+    explanation: "À Sedan, les armées prussiennes et allemandes encerclèrent l'armée française, et Napoléon III se rendit avec plus de 100 000 hommes. La Troisième République fut proclamée à Paris deux jours plus tard.",
+  },
+  leptis_magna: {
+    name: "Leptis Magna",
+    clue: "Sur la rive méditerranéenne, au bord du désert, la ville natale d'un empereur devient une vitrine de forums de marbre, puis dort sous le sable des siècles.",
+    explanation: "Leptis Magna, à l'est de Tripoli, en Libye, fut somptueusement rebâtie par Septime Sévère, premier empereur né en Afrique. Le sable recouvrit une grande partie de la ville après son déclin, ce qui aida à préserver ses ruines.",
+  },
+  red_pyramid: {
+    name: "Pyramide rouge",
+    clue: "Le long du Nil, la première pyramide à faces lisses réussie doit son nom à la teinte rouille de sa pierre, bâtie pour le père du roi de la grande pyramide.",
+    explanation: "La pyramide rouge de Dahchour fut bâtie pour Snéfrou, père de Khéops, après que la pyramide rhomboïdale voisine, trop pentue, eut dû changer d'angle à mi-hauteur. Son calcaire rougeâtre lui donne son nom.",
+  },
+  pula_arena: {
+    name: "Arènes de Pula",
+    clue: "Sur l'Adriatique, dans un port à la pointe d'une péninsule, se dresse le seul amphithéâtre antique qui a gardé ses quatre tours latérales en pierre.",
+    explanation: "Les arènes de Pula, en Croatie, sur la péninsule d'Istrie, comptent parmi les six plus grands amphithéâtres romains conservés. Venise envisagea un temps de les déplacer pierre par pierre, et elles accueillent aujourd'hui concerts et festival de cinéma.",
+  },
+  mansudae_grand_monument: {
+    name: "Grand monument de Mansudae",
+    clue: "Dans la capitale du pays le plus fermé du monde, deux statues de bronze de 22 m du père et du fils au pouvoir dominent des visiteurs tenus de s'incliner.",
+    explanation: "Le grand monument de Mansudae, à Pyongyang, montre Kim Il-sung et Kim Jong-il côte à côte. Les touristes étrangers doivent s'incliner et déposer des fleurs, et les photos doivent montrer les statues en entier.",
+  },
+  burgos_cathedral: {
+    name: "Cathédrale de Burgos",
+    clue: "Sur un haut plateau froid, une cathédrale hérissée de flèches abrite le tombeau d'un chevalier légendaire qui servit des souverains des deux religions.",
+    explanation: "La cathédrale de Burgos, au nord de l'Espagne, étape du chemin de Saint-Jacques, abrite les restes de Rodrigo Díaz de Vivar, le Cid, et de son épouse Chimène. Ce fut la première cathédrale espagnole inscrite au patrimoine mondial.",
+  },
+  jiji_earthquake_1999: {
+    name: "Séisme de Jiji",
+    clue: "Sur une île montagneuse face à un vaste continent, un séisme avant l'aube fait plus de 2 000 morts et ondule la piste d'une école, devenue musée.",
+    explanation: "Le séisme de Jiji, appelé 921 à Taïwan, rompit la faille de Chelungpu au centre de l'île. Le collège Guangfu dévasté, avec sa piste ondulée, est devenu le musée du séisme 921.",
+  },
+  treaty_of_bretigny: {
+    name: "Traité de Brétigny",
+    clue: "Dans un village d'une plaine à blé, des envoyés signent une trêve dans une guerre qui durera un siècle et fixent la rançon d'un roi captif à trois millions.",
+    explanation: "Signé à Brétigny, près de Chartres, le traité libéra Jean II le Bon, capturé à Poitiers, contre une énorme rançon. Édouard III renonça au trône de France en échange d'une Aquitaine agrandie, mais les combats reprirent neuf ans plus tard.",
+  },
+  sudanese_coup_2021: {
+    name: "Coup d'État au Soudan",
+    clue: "Dans une capitale du désert au confluent de deux bras d'un grand fleuve, l'armée dissout la transition civile et fait arrêter le chef du gouvernement.",
+    explanation: "Le général Abdel Fattah al-Burhane prit le pouvoir à Khartoum, mettant fin au partage du pouvoir conclu après la chute d'Omar el-Béchir. D'immenses manifestations suivirent, et la rivalité au sein de l'armée tourna plus tard à la guerre civile.",
+  },
+  third_council_of_constantinople: {
+    name: "Troisième concile de Constantinople",
+    clue: "Dans une capitale impériale, un concile déclare que son sauveur avait deux volontés et non une, et condamne comme hérétique un pape mort depuis longtemps.",
+    explanation: "Le troisième concile de Constantinople, réuni au palais impérial, rejeta le monothélisme, l'idée que le Christ n'avait qu'une volonté divine. Il anathématisa aussi le pape Honorius Ier, un jugement cité plus tard dans les débats sur l'infaillibilité pontificale.",
+  },
+  pakistan_monument: {
+    name: "Monument du Pakistan",
+    clue: "Sur une colline dominant une capitale planifiée, un monument de granit en forme de fleur qui s'ouvre compte quatre grands pétales, un par province.",
+    explanation: "Le monument du Pakistan, à Islamabad, se dresse sur les collines de Shakarparian. Ses quatre grands pétales représentent les provinces et ses trois petits les territoires, et des fresques intérieures montrent des sites nationaux.",
+  },
+  treaty_of_meerssen: {
+    name: "Traité de Meerssen",
+    clue: "Deux frères rois se partagent le royaume du milieu de leur neveu défunt, déplaçant la frontière entre leurs royaumes de l'ouest et de l'est.",
+    explanation: "À Meerssen, près de Maastricht, Charles le Chauve et Louis le Germanique se partagèrent la Lotharingie après la mort de Lothaire II. Le traité redessina la frontière entre la Francie occidentale et la Francie orientale, ancêtres de la France et de l'Allemagne.",
+  },
+  innsbruck_olympics_1976: {
+    name: "Jeux d'hiver d'Innsbruck",
+    clue: "Dans les Alpes, une ville accueille les Jeux d'hiver une seconde fois après le refus des électeurs de la ville prévue, et allume deux flammes, une par édition.",
+    explanation: "Innsbruck prit le relais après le refus des électeurs de Denver d'en payer le coût. Deux vasques brûlèrent au stade du Bergisel, une pour chaque édition, et le héros local Franz Klammer remporta une descente restée légendaire.",
+  },
+  st_moritz_olympics_1948: {
+    name: "Jeux d'hiver de Saint-Moritz",
+    clue: "Dans les Alpes, une station ensoleillée déjà hôte vingt ans plus tôt organise les premiers Jeux d'hiver d'après-guerre, sans deux nations vaincues.",
+    explanation: "Saint-Moritz, en Suisse neutre, fut choisie car elle avait échappé aux destructions de la guerre. L'Allemagne et le Japon ne furent pas invités, et la station devint l'un des rares lieux à accueillir deux fois les Jeux d'hiver.",
+  },
+  battle_of_marengo: {
+    name: "Bataille de Marengo",
+    clue: "Dans la plaine du Pô, un premier consul change une quasi-défaite en victoire le soir venu; la légende dit que son cuisinier créa un poulet à son nom.",
+    explanation: "À Marengo, près d'Alexandrie, Napoléon perdait face aux Autrichiens jusqu'à l'arrivée du général Desaix et de ses renforts; Desaix fut tué en menant la contre-attaque. La victoire consolida le pouvoir de Napoléon en France.",
+  },
+  battle_of_the_milvian_bridge: {
+    name: "Bataille du pont Milvius",
+    clue: "Près d'un pont aux portes d'une capitale antique, un empereur ayant vu un signe dans le ciel bat son rival, noyé dans le fleuve, puis se tourne vers la croix.",
+    explanation: "Constantin battit Maxence au pont Milvius, sur le Tibre, au nord de Rome. Il attribua sa victoire à un symbole chrétien aperçu avant la bataille et accorda peu après aux chrétiens la liberté de culte.",
+  },
+  dieppe_raid: {
+    name: "Raid sur Dieppe",
+    clue: "Sur la côte de la Manche, un raid allié contre une ville portuaire tourne au carnage, mais ses leçons serviront aux grands débarquements deux ans plus tard.",
+    explanation: "Le raid sur Dieppe fut mené surtout par des troupes canadiennes, dont plus de la moitié furent tués, blessés ou capturés en quelques heures. Les stratèges en retinrent qu'il ne fallait pas attaquer de front un port défendu, avant le débarquement de Normandie.",
+  },
+  battle_of_caporetto: {
+    name: "Bataille de Caporetto",
+    clue: "Sur l'Isonzo, une attaque surprise au gaz et par infiltration met en déroute toute une armée, un effondrement raconté ensuite dans un roman célèbre.",
+    explanation: "Les troupes austro-hongroises et allemandes percèrent le front italien à Caporetto, aujourd'hui Kobarid en Slovénie, et le repoussèrent d'environ 100 km. Ernest Hemingway décrivit la retraite dans L'Adieu aux armes.",
+  },
+  great_mosque_of_samarra: {
+    name: "Grande Mosquée de Samarra",
+    clue: "Sur le Tigre, une mosquée jadis la plus grande du monde possède un minaret qui s'élève sur 52 mètres en rampe hélicoïdale, comme une coquille d'escargot géante.",
+    explanation: "La grande mosquée de Samarra, en Irak, fut bâtie par le calife abbasside al-Mutawakkil quand Samarra remplaça un temps Bagdad comme capitale. On gravit son minaret Malwiya par une rampe extérieure sans garde-corps.",
+  },
+  sumela_monastery: {
+    name: "Monastère de Sumela",
+    clue: "Dans les montagnes dominant la mer Noire, un monastère s'accroche à une falaise vertigineuse au-dessus d'une vallée boisée noyée de brume.",
+    explanation: "Le monastère de Sumela, près de Trabzon, en Turquie, fut fondé par des moines orthodoxes grecs et bâti dans une falaise à environ 1 200 mètres d'altitude. Longtemps abandonné, il accueille aujourd'hui un office annuel le jour de l'Assomption.",
+  },
+  domus_aurea: {
+    name: "Domus aurea",
+    clue: "Dans une capitale antique, un empereur tyran bâtit un palais doré après un grand incendie; ses salles peintes ensevelies donneront plus tard le mot grotesque.",
+    explanation: "Néron fit bâtir la Domus aurea à Rome après le grand incendie, avec une salle à manger tournante et une statue géante à son effigie. Ses successeurs l'enterrèrent, et des artistes de la Renaissance descendus dans ces salles semblables à des grottes copièrent les peintures qu'ils appelèrent grotesques.",
+  },
+  fort_ross: {
+    name: "Fort Ross",
+    clue: "Sur la côte pacifique, une palissade de bois avec une chapelle à bulbe fut l'avant-poste le plus lointain d'un empire de la fourrure venu d'outre-océan.",
+    explanation: "Fort Ross, au nord de San Francisco, fut fondé par la Compagnie russe d'Amérique pour chasser la loutre de mer et nourrir ses colonies d'Alaska. Il fut revendu quelques décennies plus tard, une fois les loutres presque exterminées.",
+  },
+  tomb_of_unknown_soldier_moscow: {
+    name: "Tombe du Soldat inconnu de Moscou",
+    clue: "Au pied des murailles de brique rouge d'une forteresse d'une capitale enneigée, une flamme éternelle brûle sur un soldat inconnu tombé en défendant la ville.",
+    explanation: "La tombe se trouve dans le jardin d'Alexandre, au pied du mur du Kremlin. Les restes du soldat furent ramenés d'une fosse commune à 41 km de Moscou, sur la route du nord-ouest, là où l'avancée ennemie vers la capitale fut stoppée.",
+  },
+  new_cathedral_of_salamanca: {
+    name: "Nouvelle cathédrale de Salamanque",
+    clue: "Dans une ville universitaire de pierre dorée sur un haut plateau sec, le portail d'une cathédrale cache un petit astronaute sculpté lors d'une restauration.",
+    explanation: "La nouvelle cathédrale de Salamanque fut bâtie à côté de l'ancienne, conservée plutôt que démolie. Lors d'une restauration, un tailleur de pierre ajouta à sa Puerta de Ramos un astronaute et un dragon mangeant une glace.",
+  },
+  yogyakarta_earthquake_2006: {
+    name: "Séisme de Yogyakarta",
+    clue: "Sur une île volcanique très peuplée, un séisme à l'aube fait près de 6 000 morts près d'une vieille ville de sultan et abîme de hauts temples de pierre.",
+    explanation: "Le séisme de Yogyakarta frappa le centre de Java, en Indonésie, détruisant plus de 100 000 maisons. Les temples hindous de Prambanan furent endommagés, tandis que Borobudur, tout proche, fut presque épargné.",
+  },
+  guinean_coup_2021: {
+    name: "Coup d'État en Guinée",
+    clue: "Dans une capitale sur une étroite péninsule océane, un chef des forces spéciales arrête un président de 83 ans qui avait changé la constitution pour rester.",
+    explanation: "Le colonel Mamady Doumbouya arrêta le président Alpha Condé à Conakry après sa réélection contestée pour un troisième mandat. Ancien de la Légion étrangère française, le colonel prit la tête du pays.",
+  },
+  entente_cordiale: {
+    name: "Entente cordiale",
+    clue: "Dans la capitale d'un empire insulaire, deux vieux rivaux scellent une entente amicale sur leurs colonies, mettant fin à des siècles d'hostilité.",
+    explanation: "Signée à Londres, l'Entente cordiale laissa à la France les mains libres au Maroc et à la Grande-Bretagne en Égypte, et régla d'autres querelles coloniales. Elle prépara l'alliance militaire ultérieure des deux pays.",
+  },
+  ecuador_earthquake_2016: {
+    name: "Séisme d'Équateur",
+    clue: "Un séisme côtier presque exactement sur l'équateur fait environ 670 morts et rase des villes balnéaires, le plus meurtrier du pays depuis des décennies.",
+    explanation: "Le séisme frappa près de Muisne et de Pedernales, sur la côte pacifique, et toucha durement les ports de Manta et Portoviejo. Ce fut la pire catastrophe du pays depuis plus d'un demi-siècle.",
+  },
+  malaga_cathedral: {
+    name: "Cathédrale de Malaga",
+    clue: "Dans un port ensoleillé du sud, une cathédrale surnommée la manchote n'a jamais eu sa seconde tour; l'argent aurait aidé une colonie lointaine à s'affranchir.",
+    explanation: "La cathédrale de Malaga est surnommée La Manquita car sa tour sud n'a jamais été achevée. Une histoire populaire veut que les fonds aient financé la guerre d'indépendance américaine, mais ils ont peut-être servi à construire des routes.",
+  },
+  second_vienna_award: {
+    name: "Second arbitrage de Vienne",
+    clue: "Dans un palais baroque, les chefs de la diplomatie de deux dictateurs forcent un royaume à céder à son voisin la moitié d'une région cernée de montagnes.",
+    explanation: "Au palais du Belvédère, à Vienne, Ribbentrop et Ciano obligèrent la Roumanie à céder la Transylvanie du Nord à la Hongrie. L'arbitrage fut annulé après la guerre et la région revint à la Roumanie.",
+  },
+  innsbruck_olympics_1964: {
+    name: "Jeux d'hiver d'Innsbruck des blocs de glace",
+    clue: "Dans les Alpes, un hiver sans neige oblige des soldats à monter des milliers de blocs de glace et des tonnes de neige sur les pistes des Jeux d'hiver.",
+    explanation: "Les Jeux d'Innsbruck connurent l'un des hivers les plus doux depuis des décennies, si bien que l'armée autrichienne transporta quelque 20 000 blocs de glace pour les pistes de luge et de bobsleigh et 40 000 mètres cubes de neige pour les pistes de ski.",
+  },
+  gadsden_purchase: {
+    name: "Achat Gadsden",
+    clue: "Au sud de la rivière Gila, une jeune république achète à son voisin du sud une bande de désert pour y poser un chemin de fer, son dernier grand achat de terres.",
+    explanation: "Négocié par James Gadsden, l'achat déplaça la frontière entre les États-Unis et le Mexique vers le sud, englobant le sud de l'actuel Arizona et une partie du Nouveau-Mexique, dont Tucson. Il offrait un tracé plat pour un chemin de fer transcontinental au sud.",
+  },
+  albania_earthquake_2019: {
+    name: "Séisme d'Albanie",
+    clue: "Sur l'Adriatique, un séisme avant l'aube abat hôtels et immeubles dans une ville portuaire balnéaire, le plus fort à frapper le pays depuis des décennies.",
+    explanation: "Le séisme d'Albanie fit 51 morts, surtout à Durrës et dans la ville voisine de Thumanë. Des immeubles récents mal construits s'effondrèrent, et les pays voisins envoyèrent des équipes de secours.",
+  },
+  aegean_sea_earthquake_2020: {
+    name: "Séisme de la mer Égée",
+    clue: "Sur la mer Égée, un séisme abat des tours d'habitation dans un grand port face à une île, et une fillette est sortie vivante des décombres après quatre jours.",
+    explanation: "Le séisme frappa entre l'île grecque de Samos et la côte turque. Presque toutes ses 119 victimes moururent à İzmir, où Ayda Gezgin, trois ans, fut sauvée après 91 heures sous un immeuble effondré.",
+  },
+  siege_of_vienna_1529: {
+    name: "Premier siège de Vienne",
+    clue: "Sur le Danube, le premier siège d'une grande capitale impériale par un sultan envahisseur échoue, son armée enlisée par de fortes pluies d'automne.",
+    explanation: "Soliman le Magnifique assiégea Vienne après sa victoire de Mohács, mais la pluie l'obligea à laisser son artillerie lourde et ses sapeurs ne parvinrent pas à percer les murs. Les Ottomans retentèrent leur chance plus de 150 ans plus tard.",
+  },
+  battle_of_kulikovo: {
+    name: "Bataille de Koulikovo",
+    clue: "Sur le haut Don, l'armée d'un grand-prince écrase en rase campagne les troupes d'une horde, et le prince reçoit un surnom tiré du fleuve.",
+    explanation: "Le grand-prince Dmitri de Moscou vainquit Mamaï, de la Horde d'or, au champ de Koulikovo et fut surnommé Dmitri Donskoï, c'est-à-dire du Don. L'emprise de la Horde sur les principautés russes fut affaiblie, mais pas encore brisée.",
+  },
+  battle_of_the_catalaunian_plains: {
+    name: "Bataille des champs Catalauniques",
+    clue: "Dans une vaste plaine, un empire déclinant et ses alliés barbares arrêtent un roi surnommé le fléau de Dieu, qui détourne ensuite son invasion ailleurs.",
+    explanation: "Le général Aetius et les Wisigoths arrêtèrent Attila, roi des Huns, dans l'actuelle Champagne. Attila se retira et envahit l'Italie l'année suivante.",
+  },
+  konigsberg: {
+    name: "Königsberg",
+    clue: "Sur la Baltique, une ville fondée par des chevaliers croisés inspire un célèbre casse-tête sur la traversée de ses sept ponts, puis change de nom et de pays.",
+    explanation: "Königsberg fut fondée par les chevaliers Teutoniques et devint la capitale de la Prusse. La preuve de Leonhard Euler qu'aucune promenade ne franchit ses sept ponts une seule fois chacun fonda la théorie des graphes, et la ville s'appelle aujourd'hui Kaliningrad, en Russie.",
+  },
+  cyrene: {
+    name: "Cyrène",
+    clue: "Sur un plateau verdoyant dominant la Méditerranée, une colonie fondée par des insulaires s'enrichit d'une plante médicinale cueillie jusqu'à l'extinction.",
+    explanation: "Cyrène, dans l'est de la Libye, fut fondée par des colons venus de l'île de Théra. Sa richesse venait du silphium, plante prisée comme épice et remède, si surexploitée qu'elle disparut, et qui figurait sur les monnaies de la ville.",
+  },
+  nimrud: {
+    name: "Nimroud",
+    clue: "Sur le Tigre, une capitale antique gardée par des taureaux ailés à tête humaine est dynamitée par des miliciens après près de trois mille ans d'existence.",
+    explanation: "Nimroud, au sud de Mossoul, en Irak, fut la capitale du roi assyrien Assurnasirpal II. Les reliefs de son palais et ses gardiens de porte ornent des musées du monde entier, et le groupe État islamique rasa et fit sauter une grande partie de ce qui restait.",
+  },
+  new_york_worlds_fair_1939: {
+    name: "Exposition universelle de New York",
+    clue: "Sur une ancienne décharge d'une immense ville portuaire, une expo promet le monde de demain avec une sphère blanche géante et montre la télévision au public.",
+    explanation: "L'Exposition universelle de New York fut bâtie à Flushing Meadows, dans le Queens, sur un site décrit comme une vallée de cendres dans Gatsby le Magnifique. Le Trylon et la Perisphere devinrent des icônes, et le discours d'ouverture de Franklin Roosevelt fut diffusé à la télévision naissante.",
+  },
+  new_start_treaty: {
+    name: "New START",
+    clue: "Dans un château dominant une capitale aux cent clochers, deux superpuissances nucléaires limitent leurs ogives déployées à 1 550 chacune.",
+    explanation: "Barack Obama et Dmitri Medvedev signèrent New START au château de Prague. Le traité limitait aussi missiles et bombardiers et prévoyait des inspections mutuelles, avant que la Russie ne suspende sa participation.",
+  },
+  tsar_cannon: {
+    name: "Tsar Pouchka",
+    clue: "Dans une forteresse aux murs rouges d'une capitale enneigée, un canon de bronze de 39 tonnes, jamais utilisé à la guerre, voisine une énorme cloche brisée.",
+    explanation: "Le canon du Tsar fut coulé par Andreï Tchokhov et compte parmi les plus gros calibres jamais fabriqués. Il se trouve au Kremlin de Moscou, et ses énormes boulets de fonte furent ajoutés plus tard comme décor; ils sont trop gros pour être tirés.",
+  },
+  malian_coup_2020: {
+    name: "Coup d'État au Mali",
+    clue: "Sur un grand fleuve de la savane, des soldats d'une ville de garnison déjà auteurs d'un putsch huit ans plus tôt arrêtent le président, qui démissionne la nuit.",
+    explanation: "Des mutins du camp militaire de Kati arrêtèrent le président Ibrahim Boubacar Keïta à Bamako après des mois de manifestations. Le colonel Assimi Goïta prit ensuite tout le pouvoir lors d'un second coup d'État.",
+  },
+  leon_cathedral: {
+    name: "Cathédrale de León",
+    clue: "Dans une ville qui doit son nom à une légion antique, une cathédrale surnommée la maison de la lumière compte près de 1 800 m² de vitraux médiévaux.",
+    explanation: "La cathédrale de León, au nord-ouest de l'Espagne, sur le chemin de Saint-Jacques, possède l'une des plus grandes collections de vitraux médiévaux d'Europe. Ses murs très fins faillirent s'effondrer et furent largement restaurés.",
+  },
+  kumanovo_agreement: {
+    name: "Accord de Kumanovo",
+    clue: "Dans une ville frontalière, des généraux signent le retrait d'une armée d'une province rebelle après 78 jours de frappes aériennes; une force de paix entre.",
+    explanation: "Signé à Kumanovo, en Macédoine du Nord, l'accord entre l'OTAN et Belgrade mit fin à la campagne de bombardements de la guerre du Kosovo. Les forces serbes quittèrent le Kosovo et la force de paix KFOR prit le relais.",
+  },
+  second_council_of_constantinople: {
+    name: "Deuxième concile de Constantinople",
+    clue: "Dans une capitale impériale, le concile d'un empereur condamne trois théologiens morts depuis longtemps; le pape, retenu dans la ville, refuse d'y siéger.",
+    explanation: "L'empereur Justinien Ier convoqua le concile pour condamner les Trois Chapitres, écrits jugés favorables à Nestorius. Le pape Vigile, retenu à Constantinople pendant des années, le boycotta avant de céder.",
+  },
+  exposition_universelle_1878: {
+    name: "Exposition de la tête de la Liberté",
+    clue: "À une exposition universelle, les visiteurs montent dans la tête géante en cuivre d'une statue expédiée ensuite outre-océan pour brandir une torche sur un port.",
+    explanation: "À l'Exposition universelle de Paris, la tête achevée de la statue de la Liberté de Bartholdi fut présentée dans les jardins du nouveau palais du Trocadéro. Le téléphone de Graham Bell et le phonographe d'Edison y étaient aussi exposés.",
+  },
+  battle_of_covadonga: {
+    name: "Bataille de Covadonga",
+    clue: "Dans les monts Cantabriques, une poignée de montagnards bat une armée d'invasion bien plus nombreuse près d'une grotte sainte, début mythique de la reconquête.",
+    explanation: "À Covadonga, le chef asturien Pélage vainquit une troupe omeyyade dans une étroite vallée au pied d'une grotte sainte. La victoire fonda le royaume des Asturies, vu comme la première étape de la Reconquista chrétienne de l'Espagne.",
+  },
+  battle_of_the_granicus: {
+    name: "Bataille du Granique",
+    clue: "Près des Dardanelles, un jeune roi tout juste passé sur l'autre continent remporte sa première grande bataille contre un vaste empire et manque d'y mourir.",
+    explanation: "Alexandre le Grand battit les satrapes perses sur le Granique peu après avoir débarqué en Asie Mineure. Son ami Cleitos lui sauva la vie en tranchant le bras d'un Perse sur le point de le frapper.",
+  },
+  battle_of_lake_trasimene: {
+    name: "Bataille du lac Trasimène",
+    clue: "Un général qui avait franchi les Alpes avec des éléphants cache son armée dans le brouillard du matin et piège toute une armée ennemie contre la rive d'un lac.",
+    explanation: "Hannibal piégea l'armée du consul Flaminius entre les collines et la rive nord du lac Trasimène, au centre de l'Italie. Environ 15 000 Romains périrent, dont Flaminius, l'une des plus grandes embuscades de l'histoire militaire.",
+  },
+  battle_of_poltava: {
+    name: "Bataille de Poltava",
+    clue: "Dans la steppe près du Dniepr, l'armée d'un empire montant écrase l'armée d'invasion d'un roi guerrier, dont le pays cesse d'être une grande puissance.",
+    explanation: "Pierre le Grand battit Charles XII de Suède à Poltava, dans l'actuelle Ukraine, pendant la grande guerre du Nord. Charles s'enfuit en territoire ottoman, et la Russie remplaça la Suède comme grande puissance de la Baltique.",
+  },
+  edessa: {
+    name: "Édesse",
+    clue: "Près du haut Euphrate, une ville antique garde un bassin de carpes sacrées où, selon la légende, le feu destiné à brûler un grand patriarche se changea en eau.",
+    explanation: "Édesse, aujourd'hui Şanlıurfa au sud-est de la Turquie, fut un foyer précoce du christianisme et la capitale du premier État croisé. La tradition y place le bûcher d'Abraham, changé en bassin aux poissons de Balıklıgöl.",
+  },
+  mausoleum_of_augustus: {
+    name: "Mausolée d'Auguste",
+    clue: "Dans une capitale antique, l'immense tombeau circulaire de son premier empereur servit plus tard de forteresse, d'arène taurine et de salle de concert.",
+    explanation: "Le mausolée d'Auguste, à Rome, accueillit les cendres du premier empereur et de sa famille. Au fil des siècles, il devint place forte d'une famille noble, jardin, arène pour corridas et feux d'artifice, puis salle de concert, avant de rouvrir comme monument.",
+  },
+  caernarfon_castle: {
+    name: "Château de Caernarfon",
+    clue: "Dans un port fortifié face à une île, un château aux tours de pierre à bandes, bâti par un roi conquérant, accueille l'investiture de l'héritier du trône.",
+    explanation: "Édouard Ier bâtit le château de Caernarfon au nord du pays de Galles après l'avoir conquis, avec des murs rayés comme ceux de Constantinople. Charles y fut investi prince de Galles, comme Édouard VIII avant lui.",
+  },
+  great_pyramid_of_cholula: {
+    name: "Grande pyramide de Cholula",
+    clue: "La plus grande pyramide du monde en volume se cache sous une colline herbeuse coiffée d'une église coloniale, face à des volcans enneigés.",
+    explanation: "La grande pyramide de Cholula, près de Puebla, au Mexique, fut bâtie par étapes pendant des siècles puis envahie par la végétation. Les Espagnols construisirent à son sommet l'église Nuestra Señora de los Remedios, et des tunnels permettent aujourd'hui de la visiter de l'intérieur.",
+  },
+  haiti_earthquake_2021: {
+    name: "Séisme de la péninsule sud d'Haïti",
+    clue: "Un mois après l'assassinat de son président, un pays insulaire des Caraïbes est frappé par un séisme qui dévaste sa longue péninsule du sud.",
+    explanation: "Le séisme frappa la péninsule de Tiburon, en Haïti, près des Cayes, faisant plus de 2 200 morts. Une tempête tropicale arriva quelques jours plus tard, compliquant les secours dans un pays déjà en crise politique.",
+  },
+  exposition_universelle_1867: {
+    name: "Exposition du palais ovale",
+    clue: "Dans une capitale impériale tout juste percée de grands boulevards, une exposition couvre un champ de manœuvres d'un immense palais ovale de fer et de verre.",
+    explanation: "L'Exposition universelle de Paris couvrit le Champ-de-Mars d'un palais elliptique de fer et de verre. Le Japon participa pour la première fois à une exposition universelle, lançant la vogue de l'art japonais appelée japonisme.",
+  },
+  columbus_circle: {
+    name: "Columbus Circle",
+    clue: "À l'angle d'un vaste parc rectangulaire d'une ville de gratte-ciel, la statue d'un explorateur sur une colonne marque le point zéro des distances de la ville.",
+    explanation: "Columbus Circle se trouve à l'angle sud-ouest de Central Park, à Manhattan. Sa statue de Christophe Colomb en marbre fut financée par des Italo-Américains, et les distances routières officielles depuis New York sont mesurées à partir d'elle.",
+  },
+  chiapas_earthquake_2017: {
+    name: "Séisme du Chiapas",
+    clue: "Au large d'une côte tropicale près d'un isthme étroit, le plus fort séisme du pays en un siècle survient douze jours avant celui de sa capitale d'altitude.",
+    explanation: "Le séisme du Chiapas frappa de nuit au large de la côte pacifique du sud du Mexique et dévasta Juchitán, sur l'isthme de Tehuantepec. Douze jours plus tard, le séisme de Puebla fit s'effondrer des immeubles à Mexico.",
+  },
+  partial_nuclear_test_ban_treaty: {
+    name: "Traité d'interdiction partielle des essais",
+    clue: "Dans une capitale enneigée, trois puissances nucléaires renoncent aux essais de bombes dans l'air, dans l'espace et sous l'eau, mais pas sous terre.",
+    explanation: "Le traité d'interdiction partielle des essais nucléaires fut signé à Moscou par les ministres des Affaires étrangères des États-Unis, du Royaume-Uni et du pays hôte. Les essais souterrains continuèrent, mais les retombées radioactives dans l'atmosphère chutèrent ensuite fortement.",
+  },
+  stockholm_convention: {
+    name: "Convention de Stockholm",
+    clue: "Dans une capitale répartie sur quatorze îles, des nations interdisent une douzaine de produits toxiques persistants, sauf un insecticide contre le paludisme.",
+    explanation: "La convention de Stockholm sur les polluants organiques persistants visait des produits comme les PCB et les dioxines, qui s'accumulent dans la chaîne alimentaire. Le DDT ne resta autorisé que contre les moustiques porteurs du paludisme.",
+  },
+  coup_of_18_fructidor: {
+    name: "Coup d'État du 18 Fructidor",
+    clue: "Des soldats cernent l'assemblée et arrêtent des députés proches des royalistes, dont beaucoup sont déportés vers un bagne tropical surnommé la guillotine sèche.",
+    explanation: "À Paris, trois membres du Directoire utilisèrent les troupes du général Augereau pour annuler des élections gagnées par les royalistes. Des dizaines de députés et de journalistes furent déportés en Guyane.",
+  },
+  sumatra_earthquake_2012: {
+    name: "Séismes au large de Sumatra",
+    clue: "Le plus grand séisme de coulissage horizontal jamais enregistré secoue le fond de l'océan loin d'une grande île, mais ne lève qu'un petit tsunami.",
+    explanation: "Le séisme de magnitude 8,6 frappa le fond de l'océan Indien au large de Sumatra, suivi d'une réplique de 8,2. Comme les plaques glissèrent latéralement et non verticalement, les vagues restèrent faibles et il y eut peu de victimes.",
+  },
+  anti_comintern_pact: {
+    name: "Pacte anti-Komintern",
+    clue: "Dans une capitale, deux puissances expansionnistes aux deux bouts d'un immense continent signent un pacte contre une ligue communiste mondiale; une autre suit.",
+    explanation: "L'Allemagne nazie et le Japon signèrent le pacte anti-Komintern à Berlin, contre l'Internationale communiste dirigée depuis Moscou. L'Italie le rejoignit l'année suivante, rapprochant les trois puissances.",
   },
 };

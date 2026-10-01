@@ -44,11 +44,11 @@ function loadEntries() {
 // docs/event-writing-guide-v2.md and docs/difficulty-calibration-protocol.md.
 // Not an even three-way split: testing (blind-guess scoring against the real
 // scoring.ts formula) showed the pool runs too hard overall, so easy is the
-// deliberate majority target. These feed directly into the 5-card pack
-// composition target (2-3 easy / 1-2 medium / max 1 hard per pack) — at
-// exactly 50/30/20 a pack averages 2.5/1.5/1.0, the midpoint of that range.
-// Adjust both together if playtesting says otherwise.
-const TARGET_SHARE = { easy: 0.5, medium: 0.3, hard: 0.2 };
+// deliberate majority target. Mirrors the 5-card pack composition exactly
+// (3 easy / 1 medium / 1 hard, enforced by build-final-daily-packs.mjs), so
+// writing at this ratio means no tier piles up unused or runs out first.
+// Change both together if the pack mix ever changes.
+const TARGET_SHARE = { easy: 0.6, medium: 0.2, hard: 0.2 };
 
 function main() {
   const entries = loadEntries();
@@ -84,10 +84,10 @@ function main() {
   if (furthestBelow.gap > 0.02) {
     lines.push(`⚠️ **${furthestBelow.d}** is furthest below its target — next batch should run the ${furthestBelow.d} recipe (see "Writing to a target difficulty" in docs/event-writing-guide-v2.md).`);
   } else {
-    lines.push(`Mix is within target range (50% easy / 30% medium / 20% hard).`);
+    lines.push(`Mix is within target range (60% easy / 20% medium / 20% hard).`);
   }
   lines.push("");
-  lines.push(`Pack composition target (5 cards): 2-3 easy / 1-2 medium / max 1 hard — see docs/difficulty-calibration-protocol.md.`);
+  lines.push(`Pack composition (5 cards): 3 easy / 1 medium / 1 hard — enforced by scripts/build-final-daily-packs.mjs.`);
   lines.push("");
 
   const report = lines.join("\n");

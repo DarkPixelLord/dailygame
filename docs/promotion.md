@@ -92,8 +92,17 @@ réels. Migration facile plus tard (redirection 301, peu de liens à ce stade).
 | The Dles (`dles.aukspot.com`) | ✅ Soumis le 2026-09-24 | Via le formulaire Tally https://tally.so/r/mOKOea. 759+ jeux, changelog actif, Discord, projet géré à la main — le plus sérieux des annuaires soumis. |
 | Alldle (`alldle.net`) | ⏳ Soumis, vérif domaine bloquée | Soumission faite via `/submit`, mais la vérification auto de domaine échoue en boucle malgré le meta tag `alldle-verify` bien présent en prod (confirmé via curl, GET/HEAD, plusieurs fois). Cause probable : leur checker suit `http://laurus.vercel.app` → 308 vers `https://` sans suivre la redirection. Mail à contact@alldle.net a bounced (boîte probablement inexistante, DNS/MX pourtant valides côté OVH) — à recontacter via leur Discord plutôt que par mail. |
 | Daily Games Hub (`dailygameshub.com`) | ✅ Soumis le 2026-09-24 | Via "Suggest a Game". 274 jeux, 8 catégories, open-source sur GitHub — annuaire sérieux. |
-| 1 Jour, 1 Jeu (`1jour1jeu.com`) | ☐ À faire | FR. Formulaire dédié "Proposer un jeu" à `/proposer`, mais compte gratuit requis pour y accéder (anti-spam). Forum + blog actifs. |
-| Jeux-du-Jour.fr | ☐ En secours | FR. Pas de formulaire dédié, juste un contact générique `/contact`. À tenter seulement si `1jour1jeu.com` ne suffit pas. |
+| 1 Jour, 1 Jeu (`1jour1jeu.com`) | ✅ Soumis le 2026-09-30 | FR. Via `/proposer` (compte gratuit requis). Site peu actif : blog SEO d'avril à juillet 2026 puis plus rien, forum désert. Soumission gardée pour le backlink, ne plus y investir de temps. |
+| Jeux-du-Jour.fr | ✅ Soumis le 2026-09-30 | FR, vraie plateforme FR de référence (160+ jeux, actif). Formulaire `/contact/` semblait planter, donc aussi envoyé par mail à contact@jeux-du-jour.fr (doublon possible signalé dans le mail). |
+
+## Suivi des communautés (groupes, forums, réseaux)
+
+| Communauté | Statut | Détail |
+|---|---|---|
+| Groupe Facebook « Professeur d'Histoire-Géographie » | ⏳ Demande d'adhésion envoyée le 2026-09-30 | Cible profs HG : présenter Laurus comme ressource pour la classe (rituel de début de cours), pas comme une pub. Lire les règles du groupe avant de poster. |
+| Groupe Facebook « Passionné par l'histoire et la mythologie grecque ! » (public, 6,7 K membres) | ⏳ Post en attente de modération (2026-09-30) | Niche Grèce antique. Post = devinette tirée de l'indice « temple de Zeus à Olympie » + présentation courte de Laurus + lien. Une fois publié : laisser deviner en commentaire, puis répondre avec l'anecdote. |
+| Groupe Facebook « La culture générale » (public, 869 K membres) | ⏭️ Rejoint le 2026-09-30, écarté | Tous les posts viennent de l'admin (laculturegenerale.com) : groupe vitrine pour son site, les membres ne font que commenter. Pas de promo possible, ne pas poster de lien en commentaire (risque de ban). |
+| Groupe Facebook « Casse-tête, énigmes et paradoxes » (public, 212,5 K membres) | ✅ Rejoint le 2026-09-30 | Membres qui postent eux-mêmes leurs énigmes. Post = indice Byblos en énigme, lien en premier commentaire. |
 
 ## Décisions ouvertes
 

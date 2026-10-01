@@ -36,23 +36,9 @@ function shuffle(arr, rng) {
   return a;
 }
 
-// data/event-subtopics.json is an audit artifact (id -> subcategory),
-// recovered by joining poc-events.ts back to data/candidates-*.json via
-// wikipediaTitle — see scripts note in that file. A handful of ids (drafted
-// before the field existed, or through another path) have no subcategory;
-// those just never trigger the same-subtopic constraint below.
-function loadSubtopics() {
-  try {
-    const parsed = JSON.parse(readFileSync("data/event-subtopics.json", "utf8"));
-    return parsed.subtopics ?? {};
-  } catch {
-    return {};
-  }
-}
-
 // Extract structured fields per entry via regex, without parsing the TS AST
 // or touching clue/name/explanation text.
-function loadClues(subtopics) {
+function loadClues() {
   const src = readFileSync("src/lib/poc-events.ts", "utf8");
   const idRe = /id:\s*"([^"]+)"/g;
   const anchors = [];
@@ -70,7 +56,11 @@ function loadClues(subtopics) {
     const lat = Number(block.match(/lat:\s*(-?[\d.]+)/)?.[1]);
     const lng = Number(block.match(/lng:\s*(-?[\d.]+)/)?.[1]);
     if (!difficulty || !category) continue; // skip legacy/incomplete entries
-    const subcategory = subtopics[anchors[i].id];
+    const subcategory = block.match(/subcategory:\s*"(\w+)"/)?.[1];
+    // Hard fail rather than skip: an untagged event can never collide, so it
+    // would silently bypass the one-per-subcategory rule (how three scientists
+    // landed in the 2026-10-01 pack). lint:events catches this first.
+    if (!subcategory) throw new Error(`${anchors[i].id} has no subcategory in poc-events.ts`);
     clues.push({ id: anchors[i].id, difficulty, category, subcategory, year, lat, lng });
   }
   return clues;
@@ -80,16 +70,9 @@ const CATS = ["conflict_politics_society", "arts_culture", "science_infrastructu
 
 // Group by category, seeded-shuffle within each category, then round-robin
 // interleave across categories. Slicing this queue sequentially gives each
-// pack a naturally varied category mix without per-pack optimization.
-//
-// KNOWN GAP: the 3 CATS are broad (e.g. science_infrastructure covers both
-// natural disasters and unrelated science/infra events), and easy/medium/hard
-// are interleaved into separate queues sliced independently per pack — so a
-// pack can still land 2-3 same-subtopic events (e.g. two earthquakes + a
-// volcanic eruption, all tagged science_infrastructure) even though category
-// spread looks fine. Observed in production packs, not yet fixed. Would need
-// a finer subtopic tag (or a same-pack similarity check) at pack-build time,
-// on top of the pool-level diversity rules in event-writing-guide-v2.md.
+// pack a naturally varied category mix without per-pack optimization. The 3
+// CATS are broad, so same-subcategory repeats inside a pack are prevented
+// separately by takeAvoidingSubcategory and packCost below.
 function categoryInterleaved(items, rng) {
   const byCategory = {};
   for (const cat of CATS) byCategory[cat] = [];
@@ -143,7 +126,7 @@ function closePairs(items) {
 // improve dates without ever breaking (or worsening) a hard rule.
 function packCost(items) {
   const missingCats = CATS.length - new Set(items.map((it) => it.category)).size;
-  const subs = items.filter((it) => it.subcategory).map((it) => it.subcategory);
+  const subs = items.map((it) => it.subcategory);
   const subCollisions = subs.length - new Set(subs).size;
   return (missingCats + subCollisions) * 1000 + closePairs(items);
 }
@@ -234,8 +217,7 @@ function buildPacks(clues, rng) {
   // Scans `queue` for `count` items whose subcategory isn't already in
   // `usedSubcats` for this pack, removing matches in place (so a skipped
   // item just waits for a later pack, nothing is lost — the queues still
-  // partition the pool exactly once each). Items with no known subcategory
-  // never collide. Falls back to force-taking from the front if the queue
+  // partition the pool exactly once each). Falls back to force-taking from the front if the queue
   // runs out of non-colliding options, so every pack still gets exactly
   // `count` items — collisionStats tracks how often that happened.
   function takeAvoidingSubcategory(queue, count, usedSubcats, collisionStats) {
@@ -243,18 +225,18 @@ function buildPacks(clues, rng) {
     let i = 0;
     while (picked.length < count && i < queue.length) {
       const item = queue[i];
-      if (item.subcategory && usedSubcats.has(item.subcategory)) {
+      if (usedSubcats.has(item.subcategory)) {
         i++;
         continue;
       }
       picked.push(item);
       queue.splice(i, 1);
-      if (item.subcategory) usedSubcats.add(item.subcategory);
+      usedSubcats.add(item.subcategory);
     }
     while (picked.length < count && queue.length > 0) {
       const item = queue.shift();
       picked.push(item);
-      if (item.subcategory) usedSubcats.add(item.subcategory);
+      usedSubcats.add(item.subcategory);
       collisionStats.forced++;
     }
     return picked;
@@ -281,7 +263,7 @@ function buildPacks(clues, rng) {
     const categoryCounts = {};
     for (const it of items) categoryCounts[it.category] = (categoryCounts[it.category] || 0) + 1;
     const subcategoryCounts = {};
-    for (const it of items) if (it.subcategory) subcategoryCounts[it.subcategory] = (subcategoryCounts[it.subcategory] || 0) + 1;
+    for (const it of items) subcategoryCounts[it.subcategory] = (subcategoryCounts[it.subcategory] || 0) + 1;
     packs.push({
       packIndex: i,
       type: types[i],
@@ -294,6 +276,13 @@ function buildPacks(clues, rng) {
     });
   }
 
+  // api/session serves the first fresh pack in plan order, so clean packs
+  // (no subcategory repeat) go first: collision packs only get served once
+  // the clean ones run out, leaving time to rebalance the pool and rebuild.
+  const hasCollision = (p) => Object.values(p.subcategoryCounts).some((n) => n > 1);
+  packs.sort((a, b) => hasCollision(a) - hasCollision(b));
+  packs.forEach((p, i) => (p.packIndex = i));
+
   const leftover = {
     easy: easyQ.length,
     medium: mediumQ.length,
@@ -305,7 +294,6 @@ function buildPacks(clues, rng) {
 
 const args = parseArgs(process.argv.slice(2));
 const rng = mulberry32(args.seed);
-const subtopics = loadSubtopics();
 // Packs already served are pinned in Supabase under their date (archive and
 // today replay from there, never from this plan), so their clues must be left
 // out: api/session skips any pack containing a served id, which would waste
@@ -323,7 +311,7 @@ async function loadServedIds() {
 }
 
 const servedIds = await loadServedIds();
-const clues = loadClues(subtopics).filter((c) => !servedIds.has(c.id));
+const clues = loadClues().filter((c) => !servedIds.has(c.id));
 const { packs, leftover, collisionStats } = buildPacks(clues, rng);
 
 const packsWithSubcategoryCollision = packs.filter((p) =>
@@ -357,7 +345,6 @@ console.log(`Leftover unused: ${JSON.stringify(leftover)}`);
 console.log(`Served clues excluded: ${servedIds.size}`);
 console.log(`Packs with close dates: ${summary.packsWithCloseDates}/${packs.length}`);
 console.log(`Packs with all 3 categories: ${summary.packsWithAllThreeCategories}/${packs.length}`);
-console.log(`Subtopics loaded for: ${Object.keys(subtopics).length} ids`);
 console.log(`Packs with a same-subcategory collision: ${packsWithSubcategoryCollision}/${packs.length}`);
 console.log(`Forced collisions (no non-colliding option left): ${collisionStats.forced}`);
 console.log(`Written to ${args.out}`);

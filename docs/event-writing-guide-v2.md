@@ -72,7 +72,7 @@ Generic geography words used in isolation ("a mountain," "a peninsula")
 don't discriminate either — the world has too many of both. Directness of
 phrasing is not a difficulty knob anywhere; it's a fixed requirement.
 
-**Easy (the majority target, ~50% of the pool)**
+**Easy (the majority target, ~60% of the pool)**
 - Sourcing ingredient: prefer candidates that are already broadly
   recognizable (high sitelinks/pageviews in `data/candidates-*.json`) —
   popularity is a genuine asset here, not just a floor.
@@ -128,15 +128,13 @@ phrasing is not a difficulty knob anywhere; it's a fixed requirement.
   anyway" — every rule below still applies (except the geographic
   proper-noun ban lift, which is easy-only).
 
-**Pool-wide ratio target: 50% easy / 30% medium / 20% hard**, not an even
-three-way split — testing showed the pool ran too hard overall. `npm run
-stats:pool` (writes `docs/pool-stats.md`) tracks the gap to target and
-tells you which tier to write next. This feeds directly into how daily
-5-card packs get assembled: **2-3 easy / 1-2 medium / max 1 hard per
-pack** (soft targets, not a rigid quota — see
-`scripts/build-daily-packs.mjs`'s existing soft-constraint approach for the
-candidate-pool equivalent). These targets are a starting point, not fixed —
-adjust both together if playtesting says otherwise.
+**Pool-wide ratio target: 60% easy / 20% medium / 20% hard**, not an even
+three-way split — testing showed the pool ran too hard overall. It mirrors
+the daily pack composition exactly: **3 easy / 1 medium / 1 hard per pack**
+(a hard rule in `scripts/build-final-daily-packs.mjs`), so writing at
+this ratio means no tier piles up unused or runs out first. `npm run
+stats:pool` (writes `docs/pool-stats.md`) tracks the gap to target. If
+the pack mix ever changes, change this ratio with it.
 
 Recipe changes get validated with a blind-guess test before being adopted —
 see `docs/difficulty-calibration-protocol.md` for that process.
@@ -150,7 +148,7 @@ of how small its actual job is.
 0. Pick (or, once it exists, pull from the Wikidata candidate pool) a batch
    of topics, checking spread/repetition against the **new pool only** (see
    Diversity rules below) — not against the legacy corpus. **Each batch
-   mirrors the 50/30/20 ratio internally** (e.g. 5 easy / 3 medium / 2 hard
+   mirrors the 60/20/20 ratio internally** (e.g. 6 easy / 2 medium / 2 hard
    for a 10-entry batch), rather than one tier per batch — this way every
    tier has enough entries to test/play with after just one batch, instead
    of medium/hard staying at zero until their turn comes up. Check
@@ -348,7 +346,8 @@ Judgment calls, checked by eye against `src/lib/poc-events.ts` — not against
   `data/candidates-*.json` carries a `subcategory` (`natural_hazard`, `war`,
   `pioneer`, `major_artist`, `archaeological_site`, ...), which is what
   `build-final-daily-packs.mjs` uses to keep two same-subcategory events out
-  of the same daily pack (see `data/event-subtopics.json`). That guard only
+  of the same daily pack. Copy it onto the drafted entry's `subcategory`
+  field in `poc-events.ts` (lint fails without it). That guard only
   works if the pool itself has enough spread — if a batch draws heavily from
   one subcategory (e.g. several `natural_hazard` entries: two eruptions and
   an earthquake, all technically different "categories" but the same kind of

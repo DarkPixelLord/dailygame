@@ -1,15 +1,15 @@
 # Pool stats
 
-Generated 2026-09-28 from `src/lib/poc-events.ts` (450 entries). Regenerate with `npm run stats:pool` after any writing batch.
+Generated 2026-10-01 from `src/lib/poc-events.ts` (635 entries). Regenerate with `npm run stats:pool` after any writing batch.
 
-**450 clues total** — 270 easy / 91 medium / 89 hard.
+**635 clues total** — 376 easy / 132 medium / 127 hard.
 
 | Difficulty | Count | Share | Target | Gap |
 | --- | --- | --- | --- | --- |
-| easy | 270 | 60% | 50% | at/above target |
-| medium | 91 | 20% | 30% | need ~44 more |
-| hard | 89 | 20% | 20% | need ~1 more |
+| easy | 376 | 59% | 60% | need ~5 more |
+| medium | 132 | 21% | 20% | at/above target |
+| hard | 127 | 20% | 20% | at/above target |
 
-⚠️ **medium** is furthest below its target — next batch should run the medium recipe (see "Writing to a target difficulty" in docs/event-writing-guide-v2.md).
+Mix is within target range (60% easy / 20% medium / 20% hard).
 
-Pack composition target (5 cards): 2-3 easy / 1-2 medium / max 1 hard — see docs/difficulty-calibration-protocol.md.
+Pack composition (5 cards): 3 easy / 1 medium / 1 hard — enforced by scripts/build-final-daily-packs.mjs.

@@ -24,7 +24,11 @@ const FULL_CREDIT_RADIUS_KM = 30;
 // steeper decay beyond it (a wrong-region guess craters fast).
 const NEAR_DECAY_KM = 1800;
 const NEAR_MISS_KM = 1000;
-const FAR_DECAY_KM = 400;
+// Was 400 until 2026-10-01: a human anchor test showed right-region,
+// wrong-country guesses (1,500-2,000 km) scoring almost nothing, which made
+// the game feel too hard. 1200 keeps sub-1,000 km scores unchanged and
+// wrong-continent guesses near zero.
+const FAR_DECAY_KM = 1200;
 
 export function locationPoints(distance: number): number {
   const beyondTolerance = Math.max(0, distance - FULL_CREDIT_RADIUS_KM);

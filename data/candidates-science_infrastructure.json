@@ -9360,6 +9360,22 @@
     "needsReview": null
   },
   {
+    "wikidataId": "Q38982786",
+    "label": "2017 Oaxaca and Chiapas Earthquake",
+    "description": "8.2 earthquake with epicenter in Chiapas",
+    "summary": "The 2017 Chiapas earthquake struck at 23:49 CDT on 7 September in the Gulf of Tehuantepec off the southern coast of Mexico near the state of Chiapas, approximately 87 kilometres (54 mi) southwest of Pijijiapan, with a Mercalli intensity of IX (Violent). The moment magnitude was estimated to be Mw 8.2.",
+    "subcategory": "natural_hazard",
+    "category": "Sciences, Inventions & Infrastructures",
+    "wikipediaTitle": "2017_Chiapas_earthquake",
+    "lat": 14.899,
+    "lng": -94.027,
+    "year": 2017,
+    "sitelinks": 35,
+    "avgMonthlyPageviews": 1016,
+    "difficulty": "hard",
+    "needsReview": null
+  },
+  {
     "wikidataId": "Q610371",
     "label": "Augusta Raurica",
     "description": "archaeological site and former Roman colony town on the southern bank of the Rhine near Augst in the canton of Basel-Land, Switzerland",

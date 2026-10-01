@@ -4174,5 +4174,53 @@
     "avgMonthlyPageviews": 1077,
     "difficulty": "hard",
     "needsReview": null
+  },
+  {
+    "wikidataId": "Q394387",
+    "label": "Treaty of Paris",
+    "description": "1259 treaty",
+    "summary": "\nThe Treaty of Paris, also known as the Treaty of Abbeville, was signed on December 4, 1259, by King Louis IX of France and King Henry III of England. It marked a turning point in European politics, leading to new political dynamics, cultural exchanges, and social changes.",
+    "subcategory": "treaty",
+    "category": "Conflits, Politiques & Sociétés",
+    "wikipediaTitle": "Treaty_of_Paris_(1259)",
+    "lat": 48.856667,
+    "lng": 2.352222,
+    "year": 1259,
+    "sitelinks": 27,
+    "avgMonthlyPageviews": 1017,
+    "difficulty": "hard",
+    "needsReview": "coordinate resolved from the event's location (P276), not a coordinate on the event itself — usually correct but worth a quick sanity check before drafting"
+  },
+  {
+    "wikidataId": "Q386038",
+    "label": "Treaty of Hadiach",
+    "description": "1658 treaty between Poland–Lithuania and Cossacks",
+    "summary": "The Treaty of Hadiach was a treaty signed on 16 September 1658 in Hadiach, Cossack Hetmanate between representatives of the Polish–Lithuanian Commonwealth and Ukrainian Cossacks.",
+    "subcategory": "treaty",
+    "category": "Conflits, Politiques & Sociétés",
+    "wikipediaTitle": "Treaty_of_Hadiach",
+    "lat": 50.37,
+    "lng": 34,
+    "year": 1658,
+    "sitelinks": 26,
+    "avgMonthlyPageviews": 1008,
+    "difficulty": "hard",
+    "needsReview": null
+  },
+  {
+    "wikidataId": "Q385961",
+    "label": "African Charter on Human and Peoples' Rights",
+    "description": "international human rights instrument",
+    "summary": "The African Charter on Human and Peoples' Rights is an international human rights instrument that is intended to promote and protect human rights and basic freedoms in the African continent.",
+    "subcategory": "treaty",
+    "category": "Conflits, Politiques & Sociétés",
+    "wikipediaTitle": "African_Charter_on_Human_and_Peoples'_Rights",
+    "lat": -1.286389,
+    "lng": 36.817222,
+    "year": 1981,
+    "sitelinks": 31,
+    "avgMonthlyPageviews": 1004,
+    "difficulty": "hard",
+    "needsReview": "coordinate resolved from the event's location (P276), not a coordinate on the event itself — usually correct but worth a quick sanity check before drafting"
   }
 ]
