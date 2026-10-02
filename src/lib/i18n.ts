@@ -26,6 +26,9 @@ export type UiStrings = {
   oldestLabel: string;
   submitOrder: string;
   inTheRightSpot: string;
+  inTheRightSpotPlural: string;
+  oneSpotOff: string;
+  misplaced: string;
   finalScore: string;
   continue: string;
   home: string;
@@ -89,7 +92,10 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     mostRecentLabel: "Most recent",
     oldestLabel: "Oldest",
     submitOrder: "Submit order",
-    inTheRightSpot: "in the right spot",
+    inTheRightSpot: "right",
+    inTheRightSpotPlural: "right",
+    oneSpotOff: "close",
+    misplaced: "wrong",
     finalScore: "Final score",
     continue: "Continue",
     home: "Home",
@@ -151,7 +157,10 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     mostRecentLabel: "Plus récent",
     oldestLabel: "Plus ancien",
     submitOrder: "Valider l'ordre",
-    inTheRightSpot: "bien placés",
+    inTheRightSpot: "juste",
+    inTheRightSpotPlural: "justes",
+    oneSpotOff: "presque",
+    misplaced: "faux",
     finalScore: "Score final",
     continue: "Continuer",
     home: "Accueil",

@@ -5,10 +5,9 @@ import { AnimatePresence, motion, Reorder } from "framer-motion";
 import type { OrderableEvent } from "@/lib/game-types";
 import { useLanguage } from "./LanguageProvider";
 import { PRIMARY_BUTTON } from "@/lib/theme";
+import { MAX_ORDER_POINTS, orderOffsets, orderPoints } from "@/lib/scoring";
 import type { Lang } from "@/lib/i18n";
 
-// Kept in sync with MAX_ORDER_POINTS in HistoryGuessPoc.tsx.
-const POINTS_PER_CORRECT_SLOT = 300;
 const REVEAL_DELAY_MS = 600;
 // A short beat on the last revealed color before the list glues itself
 // together and slides up — otherwise the final score panel below appears
@@ -60,10 +59,14 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
   const [collapsed, setCollapsed] = useState(false);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const completedRef = useRef(false);
+  const listRef = useRef<HTMLOListElement>(null);
 
-  const correctOrder = [...events].sort((a, b) => a.year - b.year);
-  const correctPositions = order.map((ev, i) => ev.year === correctOrder[i].year);
-  const score = correctPositions.filter(Boolean).length * POINTS_PER_CORRECT_SLOT;
+  const years = order.map((ev) => ev.year);
+  const offsets = orderOffsets(years);
+  const exactCount = offsets.filter((o) => o === 0).length;
+  const offByOneCount = offsets.filter((o) => Math.abs(o) === 1).length;
+  const misplacedCount = offsets.length - exactCount - offByOneCount;
+  const score = orderPoints(years);
   const fullyRevealed = revealedCount >= order.length;
 
   function moveTo(from: number, to: number) {
@@ -181,8 +184,10 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
         {/* Only the cards scroll, so the oldest/most recent labels stay on
             screen on short phones; before that, cards shrink from h-16 down
             to min-h-12 to fit. -ml-2/pl-2 gives the timeline room left
-            of the cards without being clipped by overflow-x-hidden. */}
-        <div className="-ml-2 flex min-h-0 flex-col overflow-y-auto overflow-x-hidden pl-2">
+            of the cards without being clipped by overflow-x-hidden. The
+            scrollbar itself is hidden (wheel/touch scrolling still works):
+            on desktop it flashed while the cards collapse after submit. */}
+        <div className="-ml-2 flex min-h-0 flex-col overflow-y-auto overflow-x-hidden pl-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <motion.div layout transition={{ duration: COLLAPSE_DURATION_MS / 1000 }} className="flex min-h-0 w-full gap-1.5">
             <AnimatePresence>
               {!collapsed && (
@@ -209,6 +214,7 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
             </AnimatePresence>
 
             <Reorder.Group
+              ref={listRef}
               as="ol"
               axis="y"
               values={order}
@@ -219,6 +225,8 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
             >
               {order.map((ev, i) => {
                 const revealed = submitted && i < revealedCount;
+                const offset = offsets[i];
+                const tone = offset === 0 ? "exact" : Math.abs(offset) === 1 ? "near" : "far";
                 return (
                   <Reorder.Item
                     key={ev.id}
@@ -226,12 +234,19 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
                     as="li"
                     layout
                     dragListener={!submitted}
+                    // Keeps a dragged card inside the list: dragged past the
+                    // last card, it grew the scroll area and popped a
+                    // scrollbar on desktop.
+                    dragConstraints={listRef}
+                    dragElastic={0.1}
                     whileDrag={{ scale: 1.05, zIndex: 1, boxShadow: "0 12px 24px rgba(0,0,0,0.5)" }}
                     className={`flex h-16 min-h-12 items-center gap-2 rounded-md border-2 px-2 py-2 shadow-lg shadow-black/30 transition-colors duration-500 ${
                       revealed
-                        ? correctPositions[i]
-                          ? "border-emerald-500/30 bg-emerald-950/80"
-                          : "border-rose-600/30 bg-rose-950/80"
+                        ? tone === "exact"
+                          ? "border-emerald-400/60 bg-emerald-700/70"
+                          : tone === "near"
+                            ? "border-orange-400/50 bg-orange-800/70"
+                            : "border-rose-600/30 bg-rose-950/80"
                         : submitted
                           ? "border-white/25 bg-slate-900/80"
                           : "cursor-grab border-white/25 bg-slate-900/80 active:cursor-grabbing"
@@ -249,10 +264,21 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
                       ?
                     </button>
                     {revealed ? (
+                      // The arrow sits under the year rather than beside it so
+                      // the event name keeps its width: it shows where the card
+                      // belonged, which is what explains the amber/red color.
                       <span
-                        className={`font-mono text-xs font-bold sm:text-sm ${correctPositions[i] ? "text-emerald-400" : "text-rose-400"}`}
+                        className={`flex flex-col items-end whitespace-nowrap font-mono text-xs font-bold leading-tight sm:text-sm ${
+                          tone === "exact" ? "text-emerald-300" : tone === "near" ? "text-orange-300" : "text-rose-400"
+                        }`}
                       >
                         <YearLabel year={ev.year} lang={lang} />
+                        {offset !== 0 && (
+                          <span className="text-[10px]">
+                            {offset > 0 ? "▼" : "▲"}
+                            {Math.abs(offset)}
+                          </span>
+                        )}
                       </span>
                     ) : submitted ? (
                       <div className="flex gap-1 px-1.5">
@@ -315,8 +341,12 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
           transition={{ duration: RECAP_FADE_MS / 1000, delay: COLLAPSE_DURATION_MS / 1000 }}
           className="shrink-0 text-center font-bold"
         >
-          {correctPositions.filter(Boolean).length}/{events.length} {t.inTheRightSpot} ·{" "}
-          <span className="text-amber-400">{score}</span> / {events.length * POINTS_PER_CORRECT_SLOT} {t.pts}
+          <span className="block text-xs">
+            <span className="text-emerald-300">●</span> {exactCount} {exactCount >= 2 ? t.inTheRightSpotPlural : t.inTheRightSpot} ·{" "}
+            <span className="text-orange-300">●</span> {offByOneCount} {t.oneSpotOff} ·{" "}
+            <span className="text-rose-400">●</span> {misplacedCount} {t.misplaced}
+          </span>
+          <span className="text-amber-400">{score}</span> / {MAX_ORDER_POINTS} {t.pts}
         </motion.p>
       ) : (
         <div className="flex shrink-0 items-center justify-center gap-1.5 py-2">

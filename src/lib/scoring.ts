@@ -9,10 +9,38 @@ export const MAX_LOCATION_POINTS = 700;
 // clue stats: the player was in the wrong region entirely, which is what an
 // ambiguous clue produces (same cut as the "Oops" round feedback).
 export const MISS_RATIO = 0.1;
-// Kept in sync with POINTS_PER_CORRECT_SLOT in ChronologicalOrder.tsx.
 // 3500 (map) + 1500 (final round) = a clean 5,000-point total, with the
 // final round at 30% of it.
 export const MAX_ORDER_POINTS = ROUNDS_PER_GAME * 300;
+
+// Final-round placement of each card, from the years in the player's
+// order (oldest first expected): how many slots it sits from where it
+// belongs. Positive = it belongs further down, negative = further up.
+// Events sharing a year can take any of their tied slots.
+export function orderOffsets(years: number[]): number[] {
+  return years.map((year, i) => {
+    const first = years.filter((y) => y < year).length;
+    const last = first + years.filter((y) => y === year).length - 1;
+    if (i < first) return first - i;
+    if (i > last) return last - i;
+    return 0;
+  });
+}
+
+// Full points for a card in its exact slot, half for one slot off, none
+// beyond. Exact slots alone used to be scored, and one event dragged from
+// last to first shifted every other card and scored 0 (Reddit feedback,
+// 2026-10-02); counting only cards in relative order then felt too generous
+// for an event moved two slots.
+export function orderPoints(years: number[]): number {
+  if (years.length === 0) return MAX_ORDER_POINTS;
+  const perCard = MAX_ORDER_POINTS / years.length;
+  const earned = orderOffsets(years).reduce(
+    (sum, offset) => sum + (offset === 0 ? perCard : Math.abs(offset) === 1 ? perCard / 2 : 0),
+    0,
+  );
+  return Math.round(earned);
+}
 
 // The event's own lat/lng is itself only accurate to city/landmark scale
 // (e.g. a capital used as a stand-in, or a canal/palace that's several km
