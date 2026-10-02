@@ -25,7 +25,9 @@ function niceTicks(max: number, targetCount = 4): number[] {
   const normalized = roughStep / magnitude;
   const step = (normalized >= 5 ? 5 : normalized >= 2 ? 2 : 1) * magnitude;
   const ticks: number[] = [];
-  for (let v = 0; v <= max + step * 0.001; v += step) ticks.push(Math.round(v));
+  // Keep going until a tick reaches max: stopping at the last step <= max
+  // (e.g. 18 for max 19) put the top point above the axis and clipped its label.
+  for (let v = 0; ticks.length === 0 || ticks[ticks.length - 1] < max; v += step) ticks.push(Math.round(v));
   // A step under 1 (small max, e.g. a handful of plays) rounds several ticks
   // to the same integer — collapse those before they become duplicate keys.
   return [...new Set(ticks)];

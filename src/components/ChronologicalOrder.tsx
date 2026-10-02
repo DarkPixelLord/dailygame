@@ -61,7 +61,7 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const completedRef = useRef(false);
 
-  const correctOrder = [...events].sort((a, b) => b.year - a.year);
+  const correctOrder = [...events].sort((a, b) => a.year - b.year);
   const correctPositions = order.map((ev, i) => ev.year === correctOrder[i].year);
   const score = correctPositions.filter(Boolean).length * POINTS_PER_CORRECT_SLOT;
   const fullyRevealed = revealedCount >= order.length;
@@ -82,7 +82,7 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
     onSubmit?.();
   }
 
-  // Reveal correct/incorrect one slot at a time, top (most recent) first,
+  // Reveal correct/incorrect one slot at a time, top (oldest) first,
   // for suspense — instead of colorizing every card the instant you submit.
   useEffect(() => {
     if (!submitted) return;
@@ -167,13 +167,13 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
         <AnimatePresence>
           {!collapsed && (
             <motion.span
-              key="most-recent-label"
+              key="oldest-label"
               initial={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
               className="block shrink-0 overflow-hidden text-left text-[10px] font-black uppercase tracking-wide text-blue-400"
             >
-              {t.mostRecentLabel}
+              {t.oldestLabel}
             </motion.span>
           )}
         </AnimatePresence>
@@ -279,13 +279,13 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
         <AnimatePresence>
           {!collapsed && (
             <motion.span
-              key="oldest-label"
+              key="most-recent-label"
               initial={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
               className="block shrink-0 overflow-hidden text-left text-[10px] font-black uppercase tracking-wide text-blue-400"
             >
-              {t.oldestLabel}
+              {t.mostRecentLabel}
             </motion.span>
           )}
         </AnimatePresence>
