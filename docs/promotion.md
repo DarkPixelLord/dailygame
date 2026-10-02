@@ -110,6 +110,15 @@ réels. Migration facile plus tard (redirection 301, peu de liens à ce stade).
 - [ ] Enregistrer et monter le GIF/vidéo gameplay.
 - [x] Lister Laurus sur AlternativeTo (soumis le 2026-10-02, en review).
 - [ ] Vérifier que la fiche AlternativeTo est publiée et que les alternatives sont liées.
+- [ ] Reddit anglophone : r/playmygame vers le 2026-10-04 (angle « aidez-moi à
+      doser la difficulté »), puis r/WebGames la semaine du 2026-10-09 (attendre
+      que le post GeoWrecked du 2026-10-01 soit oublié). Espacer, texte propre
+      à chaque sub, participer entre deux posts.
+- [ ] Noter le post Facebook du groupe HG (publié le 2026-10-02, sans image,
+      lien dans le texte) et vérifier que le lien en double est corrigé.
+- [ ] Décider d'ajouter au guide d'écriture la règle « l'année est celle de ce
+      que l'indice raconte » (cas Mesa Verde : indice = construction, année =
+      création du parc).
 - [ ] Vérifier le statut de la soumission Dailydle autour du 2026-10-24.
 - [ ] Décider du moment pour acheter un nom de domaine (déclencheur : trafic
       réel, pas une date).
