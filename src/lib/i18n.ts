@@ -7,6 +7,8 @@ export type UiStrings = {
   dailyChallenge: string;
   archiveMode: string;
   archivePickDate: string;
+  archivePlayedLive: string;
+  archiveReplayed: string;
   round: string;
   pts: string;
   clickMapToPlaceYourPin: string;
@@ -74,6 +76,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     dailyChallenge: "Daily challenge",
     archiveMode: "Archive",
     archivePickDate: "Pick a past challenge",
+    archivePlayedLive: "Played on the day",
+    archiveReplayed: "Best archive score",
     round: "Round",
     pts: "pts",
     clickMapToPlaceYourPin: "Click the map to locate this event",
@@ -139,6 +143,8 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     dailyChallenge: "Défi du jour",
     archiveMode: "Archive",
     archivePickDate: "Choisir un défi passé",
+    archivePlayedLive: "Joué le jour même",
+    archiveReplayed: "Meilleur score en archive",
     round: "Manche",
     pts: "pts",
     clickMapToPlaceYourPin: "Clique sur la carte pour localiser cet événement",

@@ -33,3 +33,39 @@ export function saveTodaysDailyResult(score: number): void {
     // not a security boundary, so silently skip it rather than blocking play.
   }
 }
+
+// Best score from replaying a past day's pack in archive mode, kept apart
+// from the daily key so a replay never looks like the live play.
+const ARCHIVE_PREFIX = "dailygame:archive-result:";
+
+function readScore(key: string): number | null {
+  try {
+    const raw = window.localStorage.getItem(key);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<StoredDailyResult>;
+    return typeof parsed.score === "number" ? parsed.score : null;
+  } catch {
+    return null;
+  }
+}
+
+export function saveArchiveResult(date: string, score: number): void {
+  if (typeof window === "undefined") return;
+  const best = readScore(ARCHIVE_PREFIX + date);
+  if (best !== null && best >= score) return;
+  try {
+    window.localStorage.setItem(ARCHIVE_PREFIX + date, JSON.stringify({ score } satisfies StoredDailyResult));
+  } catch {
+    // localStorage unavailable — the archive "played" marker is cosmetic.
+  }
+}
+
+// What the archive list shows next to a past day: the score from playing it
+// live that day, or else the best archive replay.
+export function getPastResult(date: string): { score: number; live: boolean } | null {
+  if (typeof window === "undefined") return null;
+  const live = readScore(STORAGE_PREFIX + date);
+  if (live !== null) return { score: live, live: true };
+  const archive = readScore(ARCHIVE_PREFIX + date);
+  return archive !== null ? { score: archive, live: false } : null;
+}

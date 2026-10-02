@@ -12,7 +12,7 @@ import { RANK_ICON_COMPONENTS, RANK_LABEL_KEYS } from "@/lib/rank-icons";
 import type { OrderableEvent } from "@/lib/game-types";
 import { PRIMARY_BUTTON, PANEL, GAME_TITLE } from "@/lib/theme";
 import { getDeviceId } from "@/lib/device-id";
-import { saveTodaysDailyResult } from "@/lib/daily-result";
+import { saveTodaysDailyResult, saveArchiveResult } from "@/lib/daily-result";
 import { clearTodaysProgress } from "@/lib/daily-progress";
 import { recordTodaysDailyPlayed, getCurrentStreak } from "@/lib/daily-streak";
 import type { DailyLeaderboard } from "@/lib/daily-leaderboard";
@@ -43,6 +43,8 @@ const TEXT_REVEAL_DELAY = BADGE_POP_DELAY + 0.3;
 
 type Props = {
   mode: GameMode;
+  // Which past day's pack this archive run replayed, to mark it as played.
+  archiveDate?: string;
   // Score accumulated from the 5 map rounds, before the ordering round adds
   // its own points.
   initialScore: number;
@@ -62,6 +64,7 @@ type Props = {
 
 export default function FinalRoundScreen({
   mode,
+  archiveDate,
   initialScore,
   events,
   onPlayAgain,
@@ -147,6 +150,7 @@ export default function FinalRoundScreen({
           // the breakdown rather than blocking or erroring the final screen.
         });
     } else if (!previewOnly) {
+      if (archiveDate) saveArchiveResult(archiveDate, totalScore);
       fetch("/api/track-play", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

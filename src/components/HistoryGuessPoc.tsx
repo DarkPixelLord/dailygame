@@ -200,6 +200,7 @@ export default function HistoryGuessPoc({
     return (
       <FinalRoundScreen
         mode={mode}
+        archiveDate={archiveDate}
         initialScore={totalScore}
         events={revealedEvents}
         onPlayAgain={playAgain}

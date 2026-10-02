@@ -76,3 +76,15 @@ indiquant où la carte devait aller (`orderOffsets`/`orderPoints` dans
 **Axe :** noter l'ordre relatif plutôt que la position absolue, par exemple
 la part de paires bien ordonnées (10 paires pour 5 événements) ou la plus
 longue sous-suite déjà dans l'ordre.
+
+## 6. Suivre ses parties en archive
+
+**Statut : fait** (2026-10-02).
+
+- Des joueurs enchaînent toutes les archives d'un coup et ne savent plus
+  lesquelles ils ont déjà faites (comme sur Pédantix/Sémantix).
+
+**Fait :** dans la liste des archives, chaque jour joué affiche ✓ et le score :
+le score du jour même s'il a été joué en direct, sinon le meilleur score en
+archive (`getPastResult` dans `src/lib/daily-result.ts`, stockage local
+seulement, donc par navigateur).

@@ -10,6 +10,7 @@ import { PRIMARY_BUTTON, SECONDARY_BUTTON, SHARE_BUTTON, GAME_TITLE } from "@/li
 import { UI_STRINGS, type Lang } from "@/lib/i18n";
 import type { GameMode } from "@/lib/poc-events";
 import { getCurrentStreak } from "@/lib/daily-streak";
+import { getPastResult } from "@/lib/daily-result";
 
 const LANGS: Lang[] = ["en", "fr"];
 const LANG_FLAGS: Record<Lang, typeof FlagGB> = { en: FlagGB, fr: FlagFR };
@@ -61,6 +62,7 @@ export default function LandingClient({ onStart }: Props) {
   const [archiveOpen, setArchiveOpen] = useState(false);
   const [archiveDates] = useState(pastDates);
   const [archiveDate, setArchiveDate] = useState(archiveDates[0]);
+  const [pastResults] = useState(() => new Map(archiveDates.map((iso) => [iso, getPastResult(iso)])));
 
   async function share() {
     const url = window.location.origin;
@@ -178,19 +180,29 @@ export default function LandingClient({ onStart }: Props) {
               <div className="themed-scroll mt-3 flex max-h-56 flex-col gap-1.5 overflow-y-auto pr-1">
                 {archiveDates.map((iso) => {
                   const selected = iso === archiveDate;
+                  const result = pastResults.get(iso);
                   return (
                     <button
                       key={iso}
                       type="button"
                       onClick={() => setArchiveDate(iso)}
                       className={
-                        "shrink-0 rounded-md border-2 px-3 py-2 text-left text-sm font-bold capitalize transition " +
+                        "flex shrink-0 items-center justify-between gap-3 rounded-md border-2 px-3 py-2 text-left text-sm font-bold capitalize transition " +
                         (selected
                           ? "border-amber-400 bg-amber-400/15 text-amber-300"
                           : "border-white/10 text-white/60 hover:border-amber-400/40 hover:text-white")
                       }
                     >
-                      {formatArchiveDate(iso, lang)}
+                      <span>{formatArchiveDate(iso, lang)}</span>
+                      {result && (
+                        <span
+                          title={result.live ? t.archivePlayedLive : t.archiveReplayed}
+                          className="flex items-center gap-1.5 tabular-nums text-emerald-400"
+                        >
+                          <span aria-hidden>✓</span>
+                          {result.score.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")}
+                        </span>
+                      )}
                     </button>
                   );
                 })}
