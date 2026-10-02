@@ -897,7 +897,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   odeon_of_herodes_atticus: {
     name: "Odéon d'Hérode Atticus",
-    clue: "Sur le versant d'une célèbre citadelle antique, un riche mécène bâtit un théâtre de pierre à la mémoire de son épouse, toujours utilisé pour des spectacles.",
+    clue: "Au pied d'une citadelle couronnée d'un temple de marbre dédié à la déesse protectrice de la cité, un riche mécène bâtit un théâtre en mémoire de son épouse.",
     explanation: "L'Odéon d'Hérode Atticus se dresse au pied de l'Acropole d'Athènes. Il fut bâti par le riche sénateur romain Hérode Atticus à la mémoire de son épouse, et accueille encore aujourd'hui concerts et spectacles après restauration.",
   },
   vitus_bering: {
