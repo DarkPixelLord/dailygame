@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<title>Laurus journey card</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Geist:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; overflow: hidden; }
+  body {
+    font-family: "Geist", sans-serif; color: #e2e8f0; position: relative;
+    background:
+      radial-gradient(ellipse at 72% 45%, rgba(59,130,246,.20) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 40%, #18213f 0%, #0d1328 55%, #070b18 100%);
+  }
+  .frame { position: absolute; inset: 28px; border: 1.5px solid rgba(251,191,36,.25); border-radius: 6px; }
+  .frame::after { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(251,191,36,.10); border-radius: 3px; }
+
+  /* ---- background timeline ---- */
+  .tl { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+  .tl .track { position: absolute; top: 718px; left: 60px; right: 60px; height: 4px; background: rgba(100,116,139,.35); border-radius: 2px; }
+  .tl .fill  { position: absolute; top: 718px; left: 60px; height: 4px; background: #c8962a; border-radius: 2px; }
+  .node { position: absolute; top: 688px; width: 64px; height: 64px; margin-left: -32px; border-radius: 50%;
+    background: #0d1328; border: 3px solid rgba(200,150,42,.75); display: grid; place-items: center; }
+  .node svg { width: 34px; height: 34px; fill: #fcd34d; }
+  .node.future { border-color: rgba(100,116,139,.45); }
+  .node.future svg { fill: rgba(148,163,184,.30); }
+  .node.current { border-color: #fbbf24; box-shadow: 0 0 0 6px rgba(251,191,36,.15), 0 0 30px rgba(251,191,36,.35); }
+  .node .yr { position: absolute; top: 74px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 15px; font-weight: 700; color: #64748b; }
+  .node.past .yr, .node.current .yr { color: #94a3b8; }
+  .era { position: absolute; top: 650px; font-size: 13px; font-weight: 900; letter-spacing: 3px; color: rgba(200,150,42,.8); text-transform: uppercase; white-space: nowrap; }
+  .pawn { position: absolute; top: 604px; width: 50px; height: 50px; margin-left: -25px; fill: #fbbf24; filter: drop-shadow(0 0 10px rgba(251,191,36,.45)); }
+  .pawn-dots { position: absolute; top: 656px; height: 30px; margin-left: -1px; border-left: 3px dotted #fbbf24; }
+
+  /* ---- text ---- */
+  .left { position: absolute; left: 96px; top: 76px; width: 720px; }
+  .brand { display: flex; align-items: center; gap: 20px; }
+  .brand svg { width: 84px; height: 84px; fill: #fbbf24; }
+  .brand span { font-family: "Cinzel", serif; font-weight: 900; font-size: 76px; color: #fbbf24; letter-spacing: 8px; }
+  .clue { margin-top: 40px; font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 500; font-size: 42px; line-height: 1.22; color: #f8fafc; }
+  .clue::before { content: "\201C"; font-family: "Cinzel", serif; font-style: normal; color: #fbbf24; margin-right: 8px; }
+  .clue::after  { content: "\201D"; font-family: "Cinzel", serif; font-style: normal; color: #fbbf24; margin-left: 4px; }
+  .ask { margin-top: 34px; font-family: "Cinzel", serif; font-weight: 900; font-size: 40px; line-height: 1.2; color: #fbbf24; letter-spacing: 1px; white-space: nowrap; }
+  .foot { position: absolute; left: 96px; bottom: 62px; font-size: 22px; font-weight: 700; color: #fbbf24; letter-spacing: .5px; }
+
+  /* ---- map backdrop: the reveal (guess pin + line to the right answer), faded in ---- */
+  .mapbg { position: absolute; left: 840px; top: -150px; width: 820px;
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.04) 10%, rgba(0,0,0,.14) 20%, rgba(0,0,0,.32) 30%, rgba(0,0,0,.55) 40%, rgba(0,0,0,.78) 50%, rgba(0,0,0,.93) 60%, #000 70%);
+            mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.04) 10%, rgba(0,0,0,.14) 20%, rgba(0,0,0,.32) 30%, rgba(0,0,0,.55) 40%, rgba(0,0,0,.78) 50%, rgba(0,0,0,.93) 60%, #000 70%); }
+  /* dark band behind the timeline so it stays readable over the map */
+  .band { position: absolute; left: 0; right: 0; top: 590px; bottom: 0;
+    background: linear-gradient(to bottom, rgba(8,12,26,0) 0px, rgba(8,12,26,.85) 70px, rgba(8,12,26,.94) 100%); }
+  .tl { z-index: 2; }
+</style>
+</head>
+<body>
+  <img class="mapbg" src="ui-map.png" alt="">
+  <div class="band"></div>
+
+  <div class="tl">
+    <div class="track"></div>
+    <div class="fill" style="width: 640px"></div>
+    <!-- NODES -->
+  </div>
+
+  <div class="left">
+    <div class="brand"><svg viewBox="0 0 512 512"><path d="LAUREL"/></svg><span>LAURUS</span></div>
+    <div class="clue">{{CLUE}}</div>
+    <div class="ask">{{TAGLINE}}</div>
+  </div>
+
+
+  <div class="foot">laurus.vercel.app</div>
+</body>
+</html>

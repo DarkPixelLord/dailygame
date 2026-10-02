@@ -85,7 +85,7 @@ réels. Migration facile plus tard (redirection 301, peu de liens à ce stade).
 |---|---|---|
 | Dailydle (`.org`, pas `.com`) | ✅ Soumis le 2026-09-24 | Queue éditoriale, traitement estimé ~2026-10-24 (~30 jours). Attention : `dailydle.com` est un tout autre site (jeux perso d'un autre dev), pas un annuaire — ne pas y soumettre. |
 | Puzzle Index | ⏭️ Écarté pour l'instant | Aucun formulaire/contact/email trouvé sur le site ni sa page Privacy. Probablement du contenu programmatique, pas d'annuaire à soumission ouverte. À reconsidérer seulement si on retrouve un contact valide. |
-| AlternativeTo | ☐ À faire | Auto-listing, pas de review — lister Laurus comme alternative à Wordle/Worldle/Globle. |
+| AlternativeTo | ⏳ Soumis le 2026-10-02, en attente de review | Fiche Laurus créée (Online, Free, EN/FR, 5 screenshots avec légendes, icône `promo/avatar_laurus.jpg`). Alternatives suggérées via « Suggest existing application » : Worldle et TimeGuessr uniquement. Une fois validée : vérifier que les liens d'alternatives sont bien acceptés. |
 | Listdle | ✅ Soumis le 2026-09-24 | Via le formulaire `/submit` ("Suggest a Game"). |
 | LikeWordle | ⚠️ Incertain | Le formulaire `/submit-app` est mort, redirige vers un réseau séparé `dle.games` ("For Creators"). Pas encore confirmé si ce dernier fonctionne réellement — à creuser plus tard, pas prioritaire. |
 | Dle Hunt (`dlehunt.com`) | ✅ Soumis le 2026-09-24 | Via `/submit`. Review humaine annoncée, pas de délai précis donné (contrairement à Dailydle). |
@@ -103,11 +103,13 @@ réels. Migration facile plus tard (redirection 301, peu de liens à ce stade).
 | Groupe Facebook « Passionné par l'histoire et la mythologie grecque ! » (public, 6,7 K membres) | ⏳ Post en attente de modération (2026-09-30) | Niche Grèce antique. Post = devinette tirée de l'indice « temple de Zeus à Olympie » + présentation courte de Laurus + lien. Une fois publié : laisser deviner en commentaire, puis répondre avec l'anecdote. |
 | Groupe Facebook « La culture générale » (public, 869 K membres) | ⏭️ Rejoint le 2026-09-30, écarté | Tous les posts viennent de l'admin (laculturegenerale.com) : groupe vitrine pour son site, les membres ne font que commenter. Pas de promo possible, ne pas poster de lien en commentaire (risque de ban). |
 | Groupe Facebook « Casse-tête, énigmes et paradoxes » (public, 212,5 K membres) | ✅ Rejoint le 2026-09-30 | Membres qui postent eux-mêmes leurs énigmes. Post = indice Byblos en énigme, lien en premier commentaire. |
+| Reddit r/Histoire (FR) | ✅ Posté le 2026-10-02 | Post texte + image paysage FR (`promo/laurus-journey-fr.png`). Angle « besoin d'avis pour doser la difficulté des énigmes », lien `laurus.vercel.app` dans le texte. Premier retour : enregistrer les résultats pour faire des stats + question de niveau en histoire avant de jouer (on n'enregistre aujourd'hui que le score total, pas le détail par énigme). Ne pas crossposter ; attendre 1-2 jours avant le sub suivant (r/playmygame). |
 
 ## Décisions ouvertes
 
 - [ ] Enregistrer et monter le GIF/vidéo gameplay.
-- [ ] Lister Laurus sur AlternativeTo (prochaine étape).
+- [x] Lister Laurus sur AlternativeTo (soumis le 2026-10-02, en review).
+- [ ] Vérifier que la fiche AlternativeTo est publiée et que les alternatives sont liées.
 - [ ] Vérifier le statut de la soumission Dailydle autour du 2026-10-24.
 - [ ] Décider du moment pour acheter un nom de domaine (déclencheur : trafic
       réel, pas une date).
