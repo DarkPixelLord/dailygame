@@ -5,6 +5,10 @@
 // drifting out of sync.
 export const ROUNDS_PER_GAME = 5;
 export const MAX_LOCATION_POINTS = 700;
+// Below this share of MAX_LOCATION_POINTS a guess counts as a "miss" in the
+// clue stats: the player was in the wrong region entirely, which is what an
+// ambiguous clue produces (same cut as the "Oops" round feedback).
+export const MISS_RATIO = 0.1;
 // Kept in sync with POINTS_PER_CORRECT_SLOT in ChronologicalOrder.tsx.
 // 3500 (map) + 1500 (final round) = a clean 5,000-point total, with the
 // final round at 30% of it.

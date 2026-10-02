@@ -10,8 +10,8 @@ import { useLanguage } from "./LanguageProvider";
 import type { UiStrings } from "@/lib/i18n";
 import type { GameMode } from "@/lib/poc-events";
 import { saveTodaysProgress } from "@/lib/daily-progress";
-import { getDeviceId } from "@/lib/device-id";
-import { MAX_LOCATION_POINTS, ROUNDS_PER_GAME } from "@/lib/scoring";
+import { isGuessCounted, markGuessCounted } from "@/lib/counted-guesses";
+import { MAX_LOCATION_POINTS, MISS_RATIO, ROUNDS_PER_GAME } from "@/lib/scoring";
 import type { EventPrompt, GuessResult, OrderableEvent } from "@/lib/game-types";
 import { PRIMARY_BUTTON, FINAL_ROUND_BUTTON, PANEL, PIN_GUESS_COLOR, PIN_ANSWER_COLOR, GAME_TITLE } from "@/lib/theme";
 
@@ -28,7 +28,7 @@ export function scoreFeedback(points: number, t: UiStrings): { emoji: string; la
   if (ratio >= 0.8) return { emoji: "⚡", label: t.scoreExcellent };
   if (ratio >= 0.6) return { emoji: "💪", label: t.scoreGreat };
   if (ratio >= 0.35) return { emoji: "👍", label: t.scoreGood };
-  if (ratio >= 0.1) return { emoji: "😅", label: t.scoreMeh };
+  if (ratio >= MISS_RATIO) return { emoji: "😅", label: t.scoreMeh };
   return { emoji: "🤢", label: t.scoreOops };
 }
 
@@ -128,21 +128,17 @@ export default function HistoryGuessPoc({
     if (!guess || !prompt || submitting) return;
     setSubmitting(true);
     setSubmitError(false);
+    // Feeds the per-clue stats only on this device's first attempt at the
+    // clue, and never from dev previews.
+    const record = !previewOnly && !isGuessCounted(prompt.id);
     try {
       const res = await fetch("/api/guess", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          eventId: prompt.id,
-          lat: guess.lat,
-          lng: guess.lng,
-          lang,
-          deviceId: getDeviceId(),
-          mode,
-          record: !previewOnly,
-        }),
+        body: JSON.stringify({ eventId: prompt.id, lat: guess.lat, lng: guess.lng, lang, record }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (record) markGuessCounted(prompt.id);
       const data = (await res.json()) as GuessResult;
       setResult(data);
       setTotalScore((s) => s + data.points);

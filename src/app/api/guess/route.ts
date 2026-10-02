@@ -3,7 +3,7 @@ import { ACTIVE_EVENTS as POC_EVENTS } from "@/lib/event-pool";
 import { supabase } from "@/lib/supabase";
 import { localizeEvent } from "@/lib/localize";
 import { distanceKm } from "@/lib/geo";
-import { locationPoints } from "@/lib/scoring";
+import { MAX_LOCATION_POINTS, MISS_RATIO, locationPoints } from "@/lib/scoring";
 import type { Lang } from "@/lib/i18n";
 import type { GuessResult } from "@/lib/game-types";
 
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const { eventId, lat, lng, lang, deviceId, mode, record } = (body ?? {}) as Record<string, unknown>;
+  const { eventId, lat, lng, lang, record } = (body ?? {}) as Record<string, unknown>;
 
   if (
     typeof eventId !== "string" ||
@@ -58,25 +58,18 @@ export async function POST(request: Request) {
     },
   };
 
-  // Per-clue difficulty data: one row per device per event, keeping only the
-  // first attempt (a replay already knows the answer, so it says nothing
-  // about how hard the clue is). Written after the response so it never
-  // slows the reveal, and a failed write never fails the guess. Dev previews
-  // send record: false.
-  if (record === true && typeof deviceId === "string" && deviceId && (mode === "daily" || mode === "archive")) {
+  // Per-clue difficulty counters (one row per clue and language, so storage
+  // stays flat however many people play). The client only sends record:
+  // true on its first attempt at a clue and never from dev previews. Written
+  // after the response so it never slows the reveal or fails the guess.
+  if (record === true) {
     after(async () => {
-      const { error } = await supabase.from("guesses").upsert(
-        {
-          played_at: new Date().toISOString().slice(0, 10),
-          device_id: deviceId,
-          event_id: event.id,
-          mode,
-          lang: resolvedLang,
-          distance_km: distance,
-          points,
-        },
-        { onConflict: "device_id,event_id", ignoreDuplicates: true },
-      );
+      const { error } = await supabase.rpc("record_clue_guess", {
+        p_event_id: event.id,
+        p_lang: resolvedLang,
+        p_points: points,
+        p_miss: points < MAX_LOCATION_POINTS * MISS_RATIO,
+      });
       if (error) console.error("Failed to record guess:", error.message);
     });
   }
