@@ -162,7 +162,7 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
       <motion.div
         layout
         transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
-        className={`flex min-h-0 flex-col gap-2 overflow-y-auto overflow-x-hidden ${collapsed ? "flex-none justify-start" : "flex-1 justify-center"}`}
+        className={`flex min-h-0 flex-col gap-2 ${collapsed ? "flex-none justify-start" : "flex-1 justify-center"}`}
       >
         <AnimatePresence>
           {!collapsed && (
@@ -171,110 +171,123 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
               initial={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
-              className="block shrink-0 overflow-hidden text-left text-[10px] font-black uppercase tracking-wide text-blue-400"
+              className="block shrink-0 overflow-hidden text-left text-xs font-black uppercase tracking-wide text-blue-400"
             >
               {t.oldestLabel}
             </motion.span>
           )}
         </AnimatePresence>
 
-        <motion.div layout transition={{ duration: COLLAPSE_DURATION_MS / 1000 }} className="flex w-full gap-3">
-          <AnimatePresence>
-            {!collapsed && (
-              <motion.div
-                key="timeline"
-                initial={{ opacity: 1, width: 4 }}
-                exit={{ opacity: 0, width: 0 }}
-                transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
-                className="flex-shrink-0 self-stretch"
-                style={{
-                  backgroundImage: "radial-gradient(circle 2px at 2px 2px, #60a5fa 2px, transparent 2px)",
-                  backgroundSize: "4px 10px",
-                  backgroundRepeat: "repeat-y",
-                }}
-              />
-            )}
-          </AnimatePresence>
+        {/* Only the cards scroll, so the oldest/most recent labels stay on
+            screen on short phones; before that, cards shrink from h-16 down
+            to min-h-12 to fit. -ml-2/pl-2 gives the timeline room left
+            of the cards without being clipped by overflow-x-hidden. */}
+        <div className="-ml-2 flex min-h-0 flex-col overflow-y-auto overflow-x-hidden pl-2">
+          <motion.div layout transition={{ duration: COLLAPSE_DURATION_MS / 1000 }} className="flex min-h-0 w-full gap-1.5">
+            <AnimatePresence>
+              {!collapsed && (
+                // Fine dotted line fading from the "oldest" label's blue to the
+                // "most recent" label's orange: the direction has to read at a
+                // glance, players split on which order is "obvious".
+                <motion.div
+                  key="timeline"
+                  initial={{ opacity: 1, width: 3 }}
+                  exit={{ opacity: 0, width: 0 }}
+                  transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
+                  className="-ml-2 flex-shrink-0 self-stretch"
+                  style={{
+                    backgroundImage: "linear-gradient(to bottom, #60a5fa 0%, #60a5fa 30%, #e2e8f0 50%, #fb923c 70%, #fb923c 100%)",
+                    maskImage: "radial-gradient(circle 1.5px at 1.5px 1.5px, #000 1.5px, transparent 1.5px)",
+                    maskSize: "3px 7px",
+                    maskRepeat: "repeat-y",
+                    WebkitMaskImage: "radial-gradient(circle 1.5px at 1.5px 1.5px, #000 1.5px, transparent 1.5px)",
+                    WebkitMaskSize: "3px 7px",
+                    WebkitMaskRepeat: "repeat-y",
+                  }}
+                />
+              )}
+            </AnimatePresence>
 
-          <Reorder.Group
-            as="ol"
-            axis="y"
-            values={order}
-            onReorder={setOrder}
-            layout
-            transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
-            className={`flex flex-1 flex-col transition-[gap] duration-300 ${collapsed ? "gap-0" : "gap-3"}`}
-          >
-            {order.map((ev, i) => {
-              const revealed = submitted && i < revealedCount;
-              return (
-                <Reorder.Item
-                  key={ev.id}
-                  value={ev}
-                  as="li"
-                  layout
-                  dragListener={!submitted}
-                  whileDrag={{ scale: 1.05, zIndex: 1, boxShadow: "0 12px 24px rgba(0,0,0,0.5)" }}
-                  className={`flex h-16 items-center gap-2 rounded-md border-2 px-2 py-2 shadow-lg shadow-black/30 transition-colors duration-500 ${
-                    revealed
-                      ? correctPositions[i]
-                        ? "border-emerald-500/30 bg-emerald-950/80"
-                        : "border-rose-600/30 bg-rose-950/80"
-                      : submitted
-                        ? "border-white/25 bg-slate-900/80"
-                        : "cursor-grab border-white/25 bg-slate-900/80 active:cursor-grabbing"
-                  }`}
-                >
-                  {!submitted && <span className="select-none px-1 text-amber-400/60">⠿</span>}
-                  <p className="line-clamp-2 flex-1 text-xs font-bold leading-snug sm:text-sm">{ev.name}</p>
-                  <button
-                    type="button"
-                    onClick={() => setExpandedId((cur) => (cur === ev.id ? null : ev.id))}
-                    aria-label={t.learnMore}
-                    title={t.learnMore}
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-amber-400/40 text-[10px] font-black leading-none text-amber-300 transition hover:bg-amber-400/10"
+            <Reorder.Group
+              as="ol"
+              axis="y"
+              values={order}
+              onReorder={setOrder}
+              layout
+              transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
+              className={`flex flex-1 flex-col transition-[gap] duration-300 ${collapsed ? "gap-0" : "gap-[min(0.75rem,1.2dvh)]"}`}
+            >
+              {order.map((ev, i) => {
+                const revealed = submitted && i < revealedCount;
+                return (
+                  <Reorder.Item
+                    key={ev.id}
+                    value={ev}
+                    as="li"
+                    layout
+                    dragListener={!submitted}
+                    whileDrag={{ scale: 1.05, zIndex: 1, boxShadow: "0 12px 24px rgba(0,0,0,0.5)" }}
+                    className={`flex h-16 min-h-12 items-center gap-2 rounded-md border-2 px-2 py-2 shadow-lg shadow-black/30 transition-colors duration-500 ${
+                      revealed
+                        ? correctPositions[i]
+                          ? "border-emerald-500/30 bg-emerald-950/80"
+                          : "border-rose-600/30 bg-rose-950/80"
+                        : submitted
+                          ? "border-white/25 bg-slate-900/80"
+                          : "cursor-grab border-white/25 bg-slate-900/80 active:cursor-grabbing"
+                    }`}
                   >
-                    ?
-                  </button>
-                  {revealed ? (
-                    <span
-                      className={`font-mono text-xs font-bold sm:text-sm ${correctPositions[i] ? "text-emerald-400" : "text-rose-400"}`}
+                    {!submitted && <span className="-ml-1 select-none text-slate-400/70">⠿</span>}
+                    <p className="line-clamp-2 flex-1 text-xs font-bold leading-snug sm:text-sm">{ev.name}</p>
+                    <button
+                      type="button"
+                      onClick={() => setExpandedId((cur) => (cur === ev.id ? null : ev.id))}
+                      aria-label={t.learnMore}
+                      title={t.learnMore}
+                      className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-amber-400/40 text-[10px] font-black leading-none text-amber-300 transition hover:bg-amber-400/10"
                     >
-                      <YearLabel year={ev.year} lang={lang} />
-                    </span>
-                  ) : submitted ? (
-                    <div className="flex gap-1 px-1.5">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/30" />
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/30 [animation-delay:200ms]" />
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/30 [animation-delay:400ms]" />
-                    </div>
-                  ) : (
-                    <div className="flex shrink-0 flex-col gap-0.5">
-                      <button
-                        type="button"
-                        disabled={i === 0}
-                        onClick={() => moveTo(i, i - 1)}
-                        className="flex h-5 w-6 items-center justify-center rounded-md border-2 border-amber-400/40 text-[10px] font-bold leading-none text-amber-300 transition hover:bg-amber-400/10 disabled:opacity-30"
-                        aria-label="Move up"
+                      ?
+                    </button>
+                    {revealed ? (
+                      <span
+                        className={`font-mono text-xs font-bold sm:text-sm ${correctPositions[i] ? "text-emerald-400" : "text-rose-400"}`}
                       >
-                        ▲
-                      </button>
-                      <button
-                        type="button"
-                        disabled={i === order.length - 1}
-                        onClick={() => moveTo(i, i + 1)}
-                        className="flex h-5 w-6 items-center justify-center rounded-md border-2 border-amber-400/40 text-[10px] font-bold leading-none text-amber-300 transition hover:bg-amber-400/10 disabled:opacity-30"
-                        aria-label="Move down"
-                      >
-                        ▼
-                      </button>
-                    </div>
-                  )}
-                </Reorder.Item>
-              );
-            })}
-          </Reorder.Group>
-        </motion.div>
+                        <YearLabel year={ev.year} lang={lang} />
+                      </span>
+                    ) : submitted ? (
+                      <div className="flex gap-1 px-1.5">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/30" />
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/30 [animation-delay:200ms]" />
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/30 [animation-delay:400ms]" />
+                      </div>
+                    ) : (
+                      <div className="flex shrink-0 flex-col gap-0.5">
+                        <button
+                          type="button"
+                          disabled={i === 0}
+                          onClick={() => moveTo(i, i - 1)}
+                          className="flex h-5 w-6 items-center justify-center rounded-md border-2 border-slate-400/40 text-[10px] font-bold leading-none text-slate-300 transition hover:bg-slate-400/10 disabled:opacity-30"
+                          aria-label="Move up"
+                        >
+                          ▲
+                        </button>
+                        <button
+                          type="button"
+                          disabled={i === order.length - 1}
+                          onClick={() => moveTo(i, i + 1)}
+                          className="flex h-5 w-6 items-center justify-center rounded-md border-2 border-slate-400/40 text-[10px] font-bold leading-none text-slate-300 transition hover:bg-slate-400/10 disabled:opacity-30"
+                          aria-label="Move down"
+                        >
+                          ▼
+                        </button>
+                      </div>
+                    )}
+                  </Reorder.Item>
+                );
+              })}
+            </Reorder.Group>
+          </motion.div>
+        </div>
 
         <AnimatePresence>
           {!collapsed && (
@@ -283,7 +296,7 @@ export default function ChronologicalOrder({ events, onComplete, onSubmit }: Pro
               initial={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: COLLAPSE_DURATION_MS / 1000 }}
-              className="block shrink-0 overflow-hidden text-left text-[10px] font-black uppercase tracking-wide text-blue-400"
+              className="block shrink-0 overflow-hidden text-left text-xs font-black uppercase tracking-wide text-orange-400"
             >
               {t.mostRecentLabel}
             </motion.span>
