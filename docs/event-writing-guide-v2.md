@@ -275,59 +275,99 @@ to the treaty's negotiating city.
 
 ## Person entries: decide the pin before you write toward it
 
-Don't default a person entry to the birthplace out of habit. First ask: does
-their signature achievement have its own precise, nameable, single location —
-one a player could actually point at — that's more notable or more legible
-than where they were born? If yes, pin there instead (`pinIsBirthplace:
-false`) and write the clue around that fact. If no — the achievement is a
-body of work, a theory, a journey with no single point, or its location is
-effectively the same city as the birthplace anyway — birthplace is still the
-right default, and that's true for most person entries.
+Player feedback at launch (`docs/player-feedback.md` §1) settled this: a
+birthplace pin disappoints whenever the player knows the person. Spielberg
+players pinned Hollywood and got Cincinnati: "true, but not interesting".
+Players also read person clues as "who is this?", so they don't realise
+they're looking for a place, and in the final ordering round they can't
+tell which date a person stands for. The rules below fix the place, the
+date and the wording together. Decisions for the existing pool are tracked
+in `data/person-pin-audit.json`.
 
-Real failure case: `edmund_hillary_birth`'s clue used to open "Born between
-two harbours..." (Auckland) but the rest of the clue described reaching the
-summit of Everest — the vivid, memorable image in the text was Everest, not
-the obscure birth description, so players guessed Everest and were marked
-wrong. The fix wasn't a better birth clue, it was moving the pin to Everest.
-A full audit of the existing pool (`docs/audit-birth-vs-fact.md`) found this
-same mismatch in 22 of 70 person entries — roughly a third — split across two
-recognizable shapes: explorers/inventors/scientists ("pioneer" subcategory)
-convert far more often than artists/writers/composers ("major_artist"),
-because a pioneer's fame is usually tied to a place (a summit, an island, a
-lab) while an artist's is usually tied to a work or a style.
+### 1. Pick the pin
 
-**Quick test**: if you can name a real, specific, checkable place tied to the
-achievement (a building, a summit, an island, a lab, a chapel — not "the
-ocean" or "a journey through three countries"), and it beats the birth
-description you'd otherwise write, use it. Don't force it — a tonally heavy
-pin (an author's imprisonment, a weapons-development site) needs a
-deliberate judgment call, not a reflex; when in doubt, default back to
-birthplace and flag it for a second opinion instead of deciding alone.
+**Known person** (a general player would recognise them from the clue's
+facts): pin the place of their **iconic moment**, the moment that made them
+famous, not a biographical place. Work, residence and death places
+(Wikidata P937/P551/P20) were checked and are almost never better than the
+birthplace; don't source from them.
 
-Once you've decided the pin **is** the birthplace, the clue must signal that.
-`lat`/`lng`/`year` then point at where and when the person was *born* — not
-where they worked, made their famous discovery, died, or any other place
-tied to them. The game shows only the clue text; there's no separate "guess
-the birthplace" instruction anywhere in the UI. So if the clue doesn't say
-so, the player has no way to know the pin isn't, say, where the person did
-the thing the clue just described. A clue that's all career facts ("this
-artist turned soup cans into fine art...") lets a player correctly identify
-the person and still guess the wrong point on the map.
+- Magellan: the strait, 1520. Not his residence, not Mactan.
+- Tarantino: Cannes, Palme d'Or, 1994. Kurosawa: Venice, Golden Lion, 1951.
+- Tom Cruise: the Burj Khalifa climb, Dubai, 2011.
 
-**Fix: open with an explicit birth verb** ("Born in ...", "Né(e) dans...",
-"naît"/"naquit" à la rigueur), paired with a vague, non-eliminating
-physical-geography or generic-setting descriptor (a small village, a river
-town, a coastal city, a noble family) — never a proper noun or the words
-banned above. The rest of the clue is free to carry whatever distinctive
-fact identifies the person; the birth clause's only job is telling the
-player *what they're being asked to point at*, not helping them find it.
+**An obscure place is fine if the clue can describe it.** The test isn't
+"would the player already know this place", it's "can the clue lead there
+through its own geography or a famous scene". Orwell writing *1984* on Jura
+works ("a wild Hebridean island at the end of its only road"); a naval air
+station known only to film buffs doesn't. If the first iconic place fails,
+look for another moment before giving up (Tom Cruise: Miramar fails, the
+Burj Khalifa works).
+
+**A place from a famous work counts.** A real place a well-known writer or
+painter made famous becomes the pin: Hemingway's Havana (*The Old Man and
+the Sea*), Dumas's Château d'If (*Monte Cristo*), Cervantes's La Mancha
+windmills, Hokusai's Kanagawa coast. The year is the publication or
+painting year.
+
+**Unknown person** (the player won't recognise them anyway), or no moment
+with a describable place: keep the **birthplace**. The player finds the
+pin through the clue's geography alone, so nothing is lost. Also keep it
+when the birthplace *is* the iconic place (Andersen's Odense, Grieg's
+Bergen) or is itself the surprising fact (Pissarro born on St Thomas).
+
+**Iconic moment in the birth town** (Newton's apple at Woolsthorpe, Kafka's
+Prague, Malala's Swat valley): keep the pin, but `year` becomes the
+moment's year (Newton: 1666), and the clue tells the moment, not the birth.
+
+**Tiebreaks:** prefer a non-European place when two options are equally
+good (Hemingway: Havana over Pamplona). Tonally heavy moments (a burning at
+the stake, a death, a Gulag camp) are allowed when they *are* the defining
+moment (Giordano Bruno, Steve Irwin, Solzhenitsyn).
+
+### 2. One winner per place
+
+Iconic places cluster: London, Paris, Rome, Oxford, Prague, Hollywood,
+Cape Canaveral. Once the picks are made, check every new pin against the
+whole pool (and the other picks) for anything within ~50 km. Only one entry
+keeps a given place. An existing non-person event keeps its spot (Korolev
+already holds Baikonur); the person falls back to another moment, or to the
+birthplace.
+
+### 3. Write the place as the subject
+
+The place is the grammatical subject of the clue, not the person, and the
+clue says what happened there. That makes both the target place and the
+dated moment explicit, which is what players were missing. Sketch for
+Orwell:
+
+> On this wild Hebridean island, at the end of its only road, a writer ill
+> with tuberculosis withdrew to write the novel where Big Brother watches
+> everyone.
+
+The exact wording is still open and gets refined during the rewrite; the
+principle is what's fixed. Don't name the person, and don't name a work
+whose title gives the year away (*1984* is 1948 reversed).
+
+**The `name` says which moment, too.** It's what the final-round cards
+show, so a bare "Rosalind Franklin" leaves the player guessing which date
+they're ordering. Keep it short (median name is ~17 chars, lint max 46):
+"Andersen's birth" / "Naissance d'Andersen" for birthplace pins, moment then
+person for iconic ones: "Rosalind Franklin's Photo 51" / "Cliché 51 de
+Rosalind Franklin". No work title that encodes a year.
+
+**Birthplace pins** follow the same principle: the place is the subject and
+the clue says it's a birthplace ("birthplace of a ...", "lieu de naissance
+d'un ..."), with a vague physical-geography descriptor, never a proper noun
+or the words banned above.
 
 This is mechanically enforced: every entry in `poc-events.ts` sets
 `pinIsBirthplace: true | false`, and whenever it's `true`,
 `scripts/lint-events.mjs` requires the clue (in **both** `poc-events.ts` and
-`poc-events-fr.ts`) to contain a birth-signal word ("born" / "né"/"née"/
-"naît"/"naquit"). Set this field for every new person entry — the lint fails
-loudly if you forget it or forget the birth-signal word in either language.
+`poc-events-fr.ts`) to contain a birth-signal word. Iconic-moment entries,
+including same-town ones like Newton, set it to `false`. The signal list
+currently only accepts "born" / "né" / "naît" / "naquit": extend it to
+"birthplace" / "naissance" before the rewrite.
 
 ## Diversity rules (apply across the new pool only)
 

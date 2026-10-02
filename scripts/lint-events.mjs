@@ -89,15 +89,17 @@ const EM_DASH_RE = /—/;
 
 // Person entries pin the map answer at the subject's birthplace (see
 // pinIsBirthplace in poc-events.ts). The clue must make that legible via an
-// explicit birth verb, not just imply it through career facts — see "Person
-// entries" in docs/event-writing-guide-v2.md.
-const BIRTH_SIGNAL_EN_RE = /\bborn\b/i;
+// explicit birth word, not just imply it through career facts — see "Person
+// entries" in docs/event-writing-guide-v2.md. Place-as-subject clues ("this
+// town saw the birth of...") need the noun forms too.
+const BIRTH_SIGNAL_EN_RE = /\b(born|birth|birthplace)\b/i;
 // French: only the accented "né/née/nés/nées" (never bare "ne", the
-// negation) or "naît"/"naquit", and only as a whole word (not inside
-// "connaît", "renaît", etc.) — \b doesn't work reliably around accented
-// letters in JS regex, so boundaries are checked manually via lookaround.
+// negation), "naît"/"naquit"/"naître"/"naissance", and only as a whole word
+// (not inside "connaît", "renaît", etc.) — \b doesn't work reliably around
+// accented letters in JS regex, so boundaries are checked manually via
+// lookaround.
 const BIRTH_SIGNAL_FR_RE =
-  /(^|[^a-zà-öø-ÿ])née?s?(?![a-zà-öø-ÿ])|(^|[^a-zà-öø-ÿ])na[iî]t(?![a-zà-öø-ÿ])|(^|[^a-zà-öø-ÿ])naquit(?![a-zà-öø-ÿ])/i;
+  /(^|[^a-zà-öø-ÿ])(née?s?|na[iî]t|naquit|na[iî]tre|naissance)(?![a-zà-öø-ÿ])/i;
 
 // A hardcoded banned-word list can never enumerate every city, river,
 // mountain range, sea, or desert on Earth that could serve as the easy-tier

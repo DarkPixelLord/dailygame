@@ -441,8 +441,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Oscar Wilde est né à Dublin. Célèbre pour son esprit acéré et ses pièces de théâtre, il fut plus tard condamné et emprisonné pour ses relations avec des hommes, à une époque où celles-ci étaient criminalisées, une expérience sur laquelle il écrivit après sa libération.",
   },
   andersen_birth: {
-    name: "Hans Christian Andersen",
-    clue: "Né pauvre sur une île entre la mer du Nord et la Baltique, cet écrivain fit des contes de sirènes, de vilains petits canards et d'empereurs nus.",
+    name: "Naissance d'Andersen",
+    clue: "Sur une île entre la mer du Nord et la Baltique, cette ville vit naître un fils de cordonnier qui écrivit des contes de sirènes et de vilains petits canards.",
     explanation: "Hans Christian Andersen est né à Odense, dans une famille pauvre. Ses contes de fées, dont beaucoup adaptés d'anciens récits populaires, ont été traduits dans plus de langues que presque toute autre œuvre littéraire.",
   },
   stonehenge: {
@@ -956,8 +956,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Le Templo Mayor fut le temple principal de Tenochtitlan, capitale aztèque, dédié aux dieux Huitzilopochtli et Tlaloc. Les conquistadors espagnols le détruisirent et bâtirent une cathédrale sur ses ruines.",
   },
   hedy_lamarr: {
-    name: "Hedy Lamarr",
-    clue: "Née dans une grande capitale ancienne, une vedette de cinéma coinvente en secret un système radio qui fonde la technologie sans fil actuelle.",
+    name: "Naissance de Hedy Lamarr",
+    clue: "Cette grande capitale ancienne vit naître une vedette de cinéma qui coinventa en secret un système radio à l'origine de la technologie sans fil actuelle.",
     explanation: "Hedy Lamarr est née à Vienne. Parallèlement à sa carrière hollywoodienne, elle coinventa pendant la Seconde Guerre mondiale un système radio à sauts de fréquence, une idée à l'origine du Wi-Fi et du Bluetooth.",
   },
   marco_polo: {
@@ -1551,8 +1551,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "George Orwell, né Eric Arthur Blair, écrivit des romans satiriques et dystopiques mettant en garde contre le contrôle totalitaire et la propagande. Les termes qu'il inventa pour désigner la surveillance et le langage manipulé sont entrés dans l'usage courant de nombreuses langues.",
   },
   goethe_birth: {
-    name: "Johann Wolfgang von Goethe",
-    clue: "Né dans une famille aisée au bord du Main, cet écrivain doit son œuvre la plus célèbre à un érudit qui passe un pacte avec le diable pour un savoir sans limite.",
+    name: "Naissance de Goethe",
+    clue: "Au bord du Main, cette ville vit naître un écrivain : son héros le plus célèbre, un savant, vend son âme au diable pour tout connaître.",
     explanation: "Le drame en deux parties de Johann Wolfgang von Goethe suit un érudit qui conclut un pacte avec le diable dans sa quête effrénée de savoir et d'expérience. L'histoire est devenue une expression courante pour désigner le fait de vendre son âme contre le pouvoir ou la réussite.",
   },
   arthur_conan_doyle_birth: {
@@ -1571,8 +1571,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "H. G. Wells a écrit certains des premiers récits de science-fiction les plus influents, imaginant une invasion extraterrestre dans La Guerre des mondes et un engin capable de voyager dans le temps dans La Machine à explorer le temps. Son œuvre a contribué à fonder le genre et a été adaptée d'innombrables fois au cinéma, à la radio et dans les livres.",
   },
   rosalind_franklin_birth: {
-    name: "Rosalind Franklin",
-    clue: "Née dans une grande capitale sur la Tamise, cette scientifique révéla par un cliché aux rayons X la double hélice d'une molécule transmise par chaque cellule.",
+    name: "Cliché 51 de Rosalind Franklin",
+    clue: "Dans ce laboratoire universitaire prestigieux, le cliché aux rayons X d'une chimiste révéla la double hélice, le plan transmis par chaque cellule.",
     explanation: "Rosalind Franklin était une chimiste dont les images de diffraction aux rayons X de fibres d'ADN, en particulier l'une d'elles connue comme le cliché 51, ont fourni des preuves essentielles pour établir la structure en double hélice de la molécule. Elle est morte avant que l'importance de sa découverte soit pleinement reconnue, et n'a reçu une reconnaissance plus large que plus tard.",
   },
   edmond_halley_birth: {
@@ -1931,8 +1931,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Julian Assange a fondé WikiLeaks, qui a publié des rapports militaires américains classifiés et des câbles diplomatiques transmis par une analyste du renseignement militaire, provoquant des réactions furieuses de gouvernements du monde entier.",
   },
   maryam_mirzakhani_birth: {
-    name: "Maryam Mirzakhani",
-    clue: "Née dans une capitale au pied des monts Alborz, une mathématicienne devient la première femme à remporter la plus prestigieuse récompense de sa discipline.",
+    name: "Naissance de Maryam Mirzakhani",
+    clue: "Au pied des monts Alborz, cette capitale vit naître la première femme à remporter la plus prestigieuse récompense des mathématiques.",
     explanation: "Maryam Mirzakhani a reçu la médaille Fields pour ses travaux sur la géométrie des surfaces courbes, devenant à la fois la première femme et la première Iranienne à la recevoir. Elle est morte d'un cancer à 40 ans, et sa victoire reste un moment marquant pour les femmes en mathématiques.",
   },
   selma_lagerlof_birth: {
@@ -1986,8 +1986,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Kurt Vonnegut était prisonnier de guerre à Dresde, en Allemagne, lors du bombardement allié qui a détruit la ville. Il en a tiré Abattoir 5, un roman antiguerre teinté de science-fiction dont le narrateur répète 'c'est la vie' après chaque mort.",
   },
   sienkiewicz_birth: {
-    name: "Henryk Sienkiewicz",
-    clue: "Né dans un manoir des plaines à l'est de la Vistule, ce romancier écrivit sur des fidèles persécutés d'une foi nouvelle dans un empire antique.",
+    name: "Naissance de Sienkiewicz",
+    clue: "Dans les plaines à l'est de la Vistule, ce manoir vit naître un romancier qui raconta les fidèles persécutés d'une foi nouvelle dans un empire antique.",
     explanation: "Henryk Sienkiewicz a reçu le prix Nobel de littérature pour ses romans historiques. Son livre le plus connu, Quo Vadis, suit des chrétiens persécutés dans la Rome antique sous l'empereur Néron, et a été adapté en une somptueuse superproduction hollywoodienne.",
   },
   mussorgsky_birth: {
