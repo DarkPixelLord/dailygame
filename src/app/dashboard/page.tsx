@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { isDashboardAuthed } from "@/lib/dashboard-auth";
 import { supabase } from "@/lib/supabase";
-import type { RankTier } from "@/lib/scoring";
+import { MAX_LOCATION_POINTS, type RankTier } from "@/lib/scoring";
 import { POC_EVENTS } from "@/lib/poc-events";
+import { ACTIVE_EVENTS } from "@/lib/event-pool";
+import { localizeEvent } from "@/lib/localize";
 import DAILY_PACKS_PLAN from "../../../data/daily-packs-plan.json";
 import LoginForm from "./LoginForm";
 import LineChart from "./LineChart";
@@ -12,7 +14,7 @@ import { PANEL, GHOST_BUTTON, PRIMARY_BUTTON, GAME_TITLE } from "@/lib/theme";
 
 export const dynamic = "force-dynamic";
 
-type Tab = "daily" | "streak" | "archive" | "content";
+type Tab = "daily" | "streak" | "archive" | "content" | "clues";
 type TierRange = "today" | "60d";
 
 const HISTORY_DAYS = 60;
@@ -233,6 +235,9 @@ function Tabs({ active }: { active: Tab }) {
       <Link href="/dashboard?tab=content" className={active === "content" ? PRIMARY_BUTTON : GHOST_BUTTON}>
         Contenu
       </Link>
+      <Link href="/dashboard?tab=clues" className={active === "clues" ? PRIMARY_BUTTON : GHOST_BUTTON}>
+        Énigmes
+      </Link>
     </div>
   );
 }
@@ -266,7 +271,15 @@ export default async function DashboardPage({
 
   const { tab, range } = await searchParams;
   const activeTab: Tab =
-    tab === "streak" ? "streak" : tab === "archive" ? "archive" : tab === "content" ? "content" : "daily";
+    tab === "streak"
+      ? "streak"
+      : tab === "archive"
+        ? "archive"
+        : tab === "content"
+          ? "content"
+          : tab === "clues"
+            ? "clues"
+            : "daily";
   const activeRange: TierRange = range === "60d" ? "60d" : "today";
 
   return (
@@ -289,6 +302,8 @@ export default async function DashboardPage({
           <StreakTab />
         ) : activeTab === "archive" ? (
           <ArchiveTab range={activeRange} />
+        ) : activeTab === "clues" ? (
+          <CluesTab />
         ) : (
           <ContentTab />
         )}
@@ -525,6 +540,139 @@ async function ArchiveTab({ range }: { range: TierRange }) {
         ) : (
           <TierBreakdown tierCounts={tiers.tierCounts} total={tiers.total} />
         )}
+      </section>
+    </>
+  );
+}
+
+// Below this many first attempts, a clue's numbers are shown dimmed: a couple
+// of lucky or lost players swing the average too much to act on.
+const MIN_RELIABLE_GUESSES = 10;
+const DIFFICULTY_LABEL: Record<string, string> = { easy: "Facile", medium: "Moyen", hard: "Difficile" };
+
+function median(values: number[]): number {
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+}
+
+// Per-clue difficulty from real players: api/guess logs each device's first
+// attempt at an event (daily and archive alike), so every row is someone
+// seeing the clue fresh. Paged because Supabase caps a select at 1000 rows.
+async function loadClueStats() {
+  const rows: { event_id: string; points: number; distance_km: number }[] = [];
+  const PAGE = 1000;
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await supabase
+      .from("guesses")
+      .select("event_id, points, distance_km")
+      .range(from, from + PAGE - 1);
+    if (error) return null;
+    rows.push(...data);
+    if (data.length < PAGE) break;
+  }
+
+  const byEvent = new Map<string, { points: number[]; km: number[] }>();
+  for (const r of rows) {
+    const entry = byEvent.get(r.event_id) ?? { points: [], km: [] };
+    entry.points.push(r.points);
+    entry.km.push(r.distance_km);
+    byEvent.set(r.event_id, entry);
+  }
+
+  const clues = [...byEvent].map(([id, { points, km }]) => {
+    const event = ACTIVE_EVENTS.find((e) => e.id === id);
+    const fr = event ? localizeEvent(event, "fr") : null;
+    return {
+      id,
+      name: fr?.name ?? id,
+      clue: fr?.clue ?? null,
+      difficulty: event?.difficulty ?? null,
+      count: points.length,
+      avgPoints: Math.round(points.reduce((s, p) => s + p, 0) / points.length),
+      medianKm: Math.round(median(km)),
+    };
+  });
+  clues.sort((a, b) => a.avgPoints - b.avgPoints);
+
+  const tiers = (["easy", "medium", "hard"] as const).map((difficulty) => {
+    const inTier = clues.filter((c) => c.difficulty === difficulty);
+    const count = inTier.reduce((s, c) => s + c.count, 0);
+    const total = inTier.reduce((s, c) => s + c.avgPoints * c.count, 0);
+    return { difficulty, clueCount: inTier.length, count, avgPoints: count ? Math.round(total / count) : null };
+  });
+
+  return { clues, tiers, totalGuesses: rows.length };
+}
+
+function PointsBar({ points }: { points: number }) {
+  const pct = Math.round((points / MAX_LOCATION_POINTS) * 100);
+  return (
+    <div className="h-2 w-full overflow-hidden rounded-sm bg-white/5">
+      <div className="h-full bg-amber-400/70" style={{ width: `${pct}%` }} />
+    </div>
+  );
+}
+
+async function CluesTab() {
+  const stats = await loadClueStats();
+
+  if (!stats) return <p className="text-white/50">Impossible de charger la table guesses.</p>;
+  if (stats.totalGuesses === 0) return <p className="text-sm text-white/40">Aucune réponse enregistrée pour l&rsquo;instant.</p>;
+
+  return (
+    <>
+      <section className={PANEL + " flex flex-col gap-3 px-4 py-4"}>
+        <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">Points moyens par niveau</h2>
+        {stats.tiers.map((t) => (
+          <div key={t.difficulty} className="flex flex-col gap-1">
+            <div className="flex items-baseline justify-between gap-2">
+              <span className="text-sm text-white/70">
+                {DIFFICULTY_LABEL[t.difficulty]}{" "}
+                <span className="text-xs text-white/40">
+                  ({t.clueCount} énigmes, {t.count} réponses)
+                </span>
+              </span>
+              <span className="text-sm font-semibold text-white">
+                {t.avgPoints === null ? "—" : `${t.avgPoints} / ${MAX_LOCATION_POINTS}`}
+              </span>
+            </div>
+            {t.avgPoints !== null && <PointsBar points={t.avgPoints} />}
+          </div>
+        ))}
+        <p className="text-xs text-white/40">
+          Première tentative de chaque appareil uniquement (une partie rejouée connaît déjà la réponse).
+        </p>
+      </section>
+
+      <section className={PANEL + " flex flex-col gap-3 px-4 py-4"}>
+        <h2 className="text-xs font-bold uppercase tracking-wide text-white/50">
+          Énigmes, des plus ratées aux mieux trouvées ({stats.clues.length})
+        </h2>
+        {stats.clues.map((c) => (
+          <details
+            key={c.id}
+            className={"flex flex-col gap-1 " + (c.count < MIN_RELIABLE_GUESSES ? "opacity-50" : "")}
+          >
+            <summary className="flex cursor-pointer list-none flex-col gap-1">
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="text-sm font-semibold text-white">
+                  {c.name}{" "}
+                  <span className="text-xs font-normal text-white/40">
+                    {c.difficulty ? DIFFICULTY_LABEL[c.difficulty] : "?"} · {c.count} rép. · méd. {c.medianKm} km
+                  </span>
+                </span>
+                <span className="shrink-0 text-sm text-amber-300">{c.avgPoints}</span>
+              </div>
+              <PointsBar points={c.avgPoints} />
+            </summary>
+            {c.clue && <p className="mt-1 text-xs italic text-white/60">{c.clue}</p>}
+            <p className="text-[10px] text-white/30">{c.id}</p>
+          </details>
+        ))}
+        <p className="text-xs text-white/40">
+          Grisé : moins de {MIN_RELIABLE_GUESSES} réponses, pas encore fiable. Cliquer une ligne affiche l&rsquo;indice.
+        </p>
       </section>
     </>
   );

@@ -1,4 +1,6 @@
+import { after } from "next/server";
 import { ACTIVE_EVENTS as POC_EVENTS } from "@/lib/event-pool";
+import { supabase } from "@/lib/supabase";
 import { localizeEvent } from "@/lib/localize";
 import { distanceKm } from "@/lib/geo";
 import { locationPoints } from "@/lib/scoring";
@@ -20,7 +22,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const { eventId, lat, lng, lang } = (body ?? {}) as Record<string, unknown>;
+  const { eventId, lat, lng, lang, deviceId, mode, record } = (body ?? {}) as Record<string, unknown>;
 
   if (
     typeof eventId !== "string" ||
@@ -55,6 +57,29 @@ export async function POST(request: Request) {
       lng: event.lng,
     },
   };
+
+  // Per-clue difficulty data: one row per device per event, keeping only the
+  // first attempt (a replay already knows the answer, so it says nothing
+  // about how hard the clue is). Written after the response so it never
+  // slows the reveal, and a failed write never fails the guess. Dev previews
+  // send record: false.
+  if (record === true && typeof deviceId === "string" && deviceId && (mode === "daily" || mode === "archive")) {
+    after(async () => {
+      const { error } = await supabase.from("guesses").upsert(
+        {
+          played_at: new Date().toISOString().slice(0, 10),
+          device_id: deviceId,
+          event_id: event.id,
+          mode,
+          lang: resolvedLang,
+          distance_km: distance,
+          points,
+        },
+        { onConflict: "device_id,event_id", ignoreDuplicates: true },
+      );
+      if (error) console.error("Failed to record guess:", error.message);
+    });
+  }
 
   return Response.json(result);
 }

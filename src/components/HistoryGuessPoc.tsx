@@ -10,6 +10,7 @@ import { useLanguage } from "./LanguageProvider";
 import type { UiStrings } from "@/lib/i18n";
 import type { GameMode } from "@/lib/poc-events";
 import { saveTodaysProgress } from "@/lib/daily-progress";
+import { getDeviceId } from "@/lib/device-id";
 import { MAX_LOCATION_POINTS, ROUNDS_PER_GAME } from "@/lib/scoring";
 import type { EventPrompt, GuessResult, OrderableEvent } from "@/lib/game-types";
 import { PRIMARY_BUTTON, FINAL_ROUND_BUTTON, PANEL, PIN_GUESS_COLOR, PIN_ANSWER_COLOR, GAME_TITLE } from "@/lib/theme";
@@ -131,7 +132,15 @@ export default function HistoryGuessPoc({
       const res = await fetch("/api/guess", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ eventId: prompt.id, lat: guess.lat, lng: guess.lng, lang }),
+        body: JSON.stringify({
+          eventId: prompt.id,
+          lat: guess.lat,
+          lng: guess.lng,
+          lang,
+          deviceId: getDeviceId(),
+          mode,
+          record: !previewOnly,
+        }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = (await res.json()) as GuessResult;
