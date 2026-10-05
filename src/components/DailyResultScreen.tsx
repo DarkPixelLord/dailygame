@@ -12,6 +12,7 @@ import { getDeviceId } from "@/lib/device-id";
 import type { DailyLeaderboard } from "@/lib/daily-leaderboard";
 import TodaysStatsPanel from "./TodaysStatsPanel";
 import ScoreGauge from "./ScoreGauge";
+import ReminderPrompt from "./ReminderPrompt";
 
 const MAX_TOTAL_SCORE = ROUNDS_PER_GAME * MAX_LOCATION_POINTS + MAX_ORDER_POINTS;
 
@@ -107,6 +108,8 @@ export default function DailyResultScreen({ score, onBack }: Props) {
               {linkCopied ? t.linkCopied : t.share}
             </button>
           </div>
+
+          <ReminderPrompt />
 
           <TodaysStatsPanel
             tierPercentages={tierPercentages}

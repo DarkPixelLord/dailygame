@@ -7,6 +7,9 @@ import { getTodaysDailyResult } from "@/lib/daily-result";
 import { getTodaysProgress, type StoredDailyProgress } from "@/lib/daily-progress";
 import { ROUNDS_PER_GAME } from "@/lib/scoring";
 import { useReloadOnNewVersion } from "@/lib/use-reload-on-new-version";
+// Side-effect import: starts listening for the install prompt at page load,
+// before the landing header that uses it has rendered.
+import "@/lib/pwa";
 
 // Both read localStorage (language, and inside the game, MapLibre touches
 // `window`), so neither can be server-rendered.

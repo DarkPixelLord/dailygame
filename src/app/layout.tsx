@@ -48,6 +48,11 @@ export const metadata: Metadata = {
     title: "Laurus",
     description: DESCRIPTION,
   },
+  // Name under the iOS home-screen icon (manifest.ts covers Android).
+  appleWebApp: {
+    capable: true,
+    title: "Laurus",
+  },
   // Domain-ownership proof for the Alldle directory listing (docs/promotion.md).
   // "google": "notranslate" tells Chrome/Google Translate not to offer
   // translation for this page at all — the game already has its own EN/FR

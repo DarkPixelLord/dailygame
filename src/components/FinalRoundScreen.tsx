@@ -19,6 +19,7 @@ import type { DailyLeaderboard } from "@/lib/daily-leaderboard";
 import TodaysStatsPanel from "./TodaysStatsPanel";
 import ScoreGauge from "./ScoreGauge";
 import StreakBadge from "./StreakBadge";
+import ReminderPrompt from "./ReminderPrompt";
 import BadgeBurst from "./BadgeBurst";
 import JourneyTimeline from "./journey/JourneyTimeline";
 import { computeXpGain, type XpGain } from "@/lib/journey";
@@ -341,6 +342,7 @@ export default function FinalRoundScreen({
                 </button>
               )}
             </div>
+            {mode === "daily" && <ReminderPrompt />}
           </motion.div>
         )}
       </div>

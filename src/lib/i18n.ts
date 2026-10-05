@@ -66,6 +66,19 @@ export type UiStrings = {
   journeyMax: string;
   journeyNewMilestone: string;
   journeyXpToGo: string;
+  reminderOffer: string;
+  reminderOn: string;
+  reminderTurnOff: string;
+  reminderIosInstall: string;
+  reminderFailed: string;
+  reminderBlocked: string;
+  reminderBrave: string;
+  installTitle: string;
+  installIosHint: string;
+  installSamsungHint: string;
+  openInChrome: string;
+  headerReminder: string;
+  headerApp: string;
 };
 
 export const UI_STRINGS: Record<Lang, UiStrings> = {
@@ -135,6 +148,19 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     journeyMax: "max",
     journeyNewMilestone: "New milestone reached",
     journeyXpToGo: "{xp} XP to go",
+    reminderOffer: "Remind me of the daily challenge",
+    reminderOn: "Daily reminder on",
+    reminderTurnOff: "Turn off",
+    reminderIosInstall: "Get a daily reminder: tap Share, then 'Add to Home Screen'.",
+    reminderFailed: "Couldn't turn on reminders in this browser",
+    reminderBlocked: "Notifications are blocked for this site: open the site settings (icon left of the address), allow Notifications, then try again.",
+    reminderBrave: "Brave blocks notifications by default: in Brave's privacy settings, turn on 'Use Google services for push messaging', then try again.",
+    installTitle: "Add to home screen",
+    installIosHint: "Tap Share, then 'Add to Home Screen': Laurus opens full screen from its own icon.",
+    installSamsungHint: "Android blocks installing Laurus from Samsung Internet. Open the game in Chrome to install it. Note: your current streak stays in Samsung Internet.",
+    openInChrome: "Open in Chrome",
+    headerReminder: "Reminder",
+    headerApp: "App",
   },
   fr: {
     gameTitle: "Laurus",
@@ -202,5 +228,18 @@ export const UI_STRINGS: Record<Lang, UiStrings> = {
     journeyMax: "max",
     journeyNewMilestone: "Nouveau palier atteint",
     journeyXpToGo: "Encore {xp} XP",
+    reminderOffer: "Me prévenir du défi chaque jour",
+    reminderOn: "Rappel quotidien activé",
+    reminderTurnOff: "Désactiver",
+    reminderIosInstall: "Rappel quotidien : touche Partager puis « Sur l'écran d'accueil ».",
+    reminderFailed: "Impossible d'activer le rappel sur ce navigateur",
+    reminderBlocked: "Notifications bloquées pour ce site : ouvre les réglages du site (icône à gauche de l'adresse), autorise les Notifications, puis réessaie.",
+    reminderBrave: "Brave bloque les notifications par défaut : dans les paramètres de confidentialité de Brave, active « Utiliser les services de Google de messagerie push », puis réessaie.",
+    installTitle: "Ajouter à l'écran d'accueil",
+    installIosHint: "Touche Partager puis « Sur l'écran d'accueil » : Laurus s'ouvrira en plein écran depuis son icône.",
+    installSamsungHint: "Android bloque l'installation de Laurus depuis Samsung Internet. Ouvre le jeu dans Chrome pour l'installer. Attention : ta série actuelle reste dans Samsung Internet.",
+    openInChrome: "Ouvrir dans Chrome",
+    headerReminder: "Rappel",
+    headerApp: "Appli",
   },
 };

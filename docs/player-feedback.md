@@ -21,7 +21,11 @@ naissance.
 
 ## 2. Revenir chaque jour sans friction
 
-**Statut : à traiter.**
+**Statut : fait** (2026-10-05) : site installable + rappel quotidien par
+notification push, barre « Rappel / Appli » en haut de la landing (voir
+`docs/push-reminders.md`). Limites : installation bloquée sur Samsung
+Internet (Play Protect, on renvoie vers Chrome), push désactivé par défaut
+dans Brave.
 
 - Des joueurs demandent une appli et un rappel quotidien.
 - Choix retenu : rester un simple lien, sans store ni compte.
@@ -59,7 +63,9 @@ ni apple-icon.
 - Ajouter un ombrage de relief (hillshade) et une couverture du sol plus
   marquée, sans réintroduire de noms qui donnent la réponse.
 - Sur grand écran, mise en page en deux colonnes (indice à gauche, carte sur le
-  reste de la largeur et toute la hauteur).
+  reste de la largeur et toute la hauteur). **Version simple faite**
+  (2026-10-05) : manches élargies à ~1 150 px sur PC, boutons gardés étroits ;
+  les deux colonnes restent une option.
 
 ## 5. Barème du classement final
 
