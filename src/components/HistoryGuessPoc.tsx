@@ -211,7 +211,7 @@ export default function HistoryGuessPoc({
 
   return (
     <div className="final-spotlight flex h-dvh w-full flex-col items-center">
-      <div className="flex h-dvh w-full max-w-2xl flex-col gap-2 overflow-hidden px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
+      <div className="flex h-dvh w-full max-w-2xl flex-col gap-2 overflow-hidden lg:max-w-6xl px-3 py-2 sm:gap-4 sm:px-4 sm:py-6">
         <header className="flex w-full shrink-0 items-center justify-between gap-2">
           <div className="flex flex-col">
             <button
@@ -284,8 +284,8 @@ export default function HistoryGuessPoc({
                   className="absolute -top-2 inset-x-0 z-20 overflow-hidden sm:-top-4"
                 >
                   <div className="relative max-h-[50vh] overflow-y-auto rounded-b-md border-2 border-t-0 border-emerald-400/50 bg-slate-900 px-4 py-4 shadow-lg shadow-black/40">
-                    <p className="mb-2 text-sm italic text-white/60">&ldquo;{prompt?.clue}&rdquo;</p>
-                    <p className="text-sm leading-relaxed text-white/80">{result.reveal.explanation}</p>
+                    <p className="mb-2 text-sm italic text-white/60 lg:mx-auto lg:max-w-3xl">&ldquo;{prompt?.clue}&rdquo;</p>
+                    <p className="text-sm leading-relaxed text-white/80 lg:mx-auto lg:max-w-3xl">{result.reveal.explanation}</p>
                   </div>
                 </motion.div>
               )}
@@ -294,14 +294,14 @@ export default function HistoryGuessPoc({
         </div>
 
         {!result ? (
-          <div className="flex shrink-0 flex-col gap-1.5">
+          <div className="flex w-full shrink-0 flex-col gap-1.5 lg:mx-auto lg:max-w-md">
             {submitError && <p className="text-center text-xs font-bold text-rose-400">{t.couldntSubmitGuess}</p>}
             <button type="button" onClick={submit} disabled={!guess || submitting} className={PRIMARY_BUTTON + " w-full"}>
               {guess ? t.submitGuess : t.clickMapToPlaceYourPin}
             </button>
           </div>
         ) : (
-          <div className={PANEL + " flex w-full shrink-0 flex-col gap-2 px-4 py-3"}>
+          <div className={PANEL + " flex w-full shrink-0 flex-col gap-2 px-4 py-3 lg:mx-auto lg:max-w-md"}>
             <p className="flex items-center justify-between gap-1.5 text-[11px] font-bold text-white/70 sm:text-sm">
               <span className="whitespace-nowrap">
                 {t.distance}: {result.distance.toLocaleString()} km ·{" "}
