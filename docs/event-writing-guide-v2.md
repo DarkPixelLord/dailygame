@@ -284,6 +284,30 @@ tell which date a person stands for. The rules below fix the place, the
 date and the wording together. Decisions for the existing pool are tracked
 in `data/person-pin-audit.json`.
 
+### 0. Does the person belong in the game?
+
+Two questions, kept apart: is the **person** historical, and **where** to
+pin them. An anecdote is a fine pin (Franklin's Photo 51, Poe's Baltimore
+tavern) once the person is in; the anecdote doesn't have to be a historical
+event itself.
+
+No external ranking draws the line we want: Wikipedia's Vital Articles put
+Tarantino at the same level as Dalton and Franklin, and the year articles'
+Births sections list everyone. So the scope is an editorial choice, held by
+two checkable rules (user decision, 2026-10-05):
+
+- **50 years of hindsight.** The work or moment that defines the person is
+  at least 50 years old. Chaplin, Kurosawa, Fellini, *Jaws* pass; Tarantino
+  (*Pulp Fiction*, 1994), Oprah, Tom Cruise don't. Tarantino was removed on
+  that basis.
+- **Film and entertainment quota: at most 1 person in 10.** Cinema has a
+  place, a bounded one; the danger is sliding into film-buff trivia.
+
+The pin itself must stay history, not trivia: no filming locations, stunts
+or sets as the iconic moment (Tarantino's diner, Cruise's Burj Khalifa
+climb). For a filmmaker who passes both rules, prefer a milestone the
+medium's history records, or the birthplace.
+
 ### 1. Pick the pin
 
 **Known person** (a general player would recognise them from the clue's

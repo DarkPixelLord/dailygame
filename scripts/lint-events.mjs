@@ -154,6 +154,9 @@ const CAPITALIZED_WORD_EXCEPTIONS = new Set([
   "god", "dieu",
 ]);
 const EASY_PROPER_NOUN_EXCEPTIONS = new Set([
+  // Added for the 2026-10-05 person rewrites (iconic places): mountain range,
+  // Rome's nickname, and Tierra del Fuego, none of them a country name.
+  "pennines", "eternal", "city", "ville", "quaker", "land", "fire", "terre", "feu",
   // Added for the 2026-09-28 easy-clue disambiguation pass:
   "bach", "grimm", "brothers",
   "neva", "brussels", "bruxelles", "channel", "manche", "vienna", "vienne", "texas", "andes", "aztecs", "aztèques", "sea", "azov", "queen", "victoria", "carthage", "blitz", "island", "south", "sud", "silk", "road", "tang", "yellow", "river", "jaune", "rome", "naples", "adriatic", "adriatique", "midwest", "hanover", "hanovre", "wild", "west", "far", "elvis", "constantinople", "nobel", "prizes", "confucius", "way", "voie", "nile", "nil", "état", "shoguns", "pacific", "pacifique",

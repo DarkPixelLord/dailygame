@@ -88,3 +88,19 @@ longue sous-suite déjà dans l'ordre.
 le score du jour même s'il a été joué en direct, sinon le meilleur score en
 archive (`getPastResult` dans `src/lib/daily-result.ts`, stockage local
 seulement, donc par navigateur).
+
+## 7. Clarté des indices et exactitude des faits
+
+**Statut : en cours.**
+
+- Une tournure trop recherchée ou bancale fait buter le joueur sur le sens de
+  la phrase plutôt que sur l'énigme, et donne une impression d'injustice.
+  Mieux vaut une formulation simple et standardisée qu'une phrase détournée.
+- Les joueurs passionnés relèvent les erreurs historiques (attribution d'une
+  découverte, rôle d'une personne) : une erreur factuelle coûte en crédibilité.
+
+**Axes :**
+- Piste à étudier : un format plus régulier, par exemple une suite de
+  définitions courtes façon mots fléchés, ou tout à la première personne.
+- Vérifier les attributions dans les explications (qui a fait quoi, où), pas
+  seulement le lieu et la date.

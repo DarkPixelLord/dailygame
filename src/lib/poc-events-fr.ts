@@ -497,7 +497,7 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   columbus_birth: {
     name: "Christophe Colomb",
-    clue: "Sur une petite île d'un archipel turquoise, le voyage vers l'ouest d'un marin touche terre sur un territoire qu'aucune carte ne montrait encore.",
+    clue: "Sur une petite île d'un archipel turquoise, un marin parti vers l'ouest touche terre sur un territoire qu'aucune carte ne montrait encore.",
     explanation: "Christophe Colomb toucha terre sur une île des Bahamas après avoir navigué vers l'ouest depuis l'Espagne, persuadé d'avoir atteint les abords de l'Asie. Il effectua trois autres voyages à travers l'Atlantique mais n'admit jamais avoir découvert un continent inconnu des Européens, affirmant jusqu'à sa mort avoir atteint les confins des Indes.",
   },
   chaplin_birth: {
@@ -971,9 +971,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "John von Neumann est né à Budapest. Son architecture définissant l'organisation de la mémoire et du processeur d'un ordinateur est devenue le modèle suivi par la quasi-totalité des ordinateurs modernes.",
   },
   edgar_allan_poe: {
-    name: "Edgar Allan Poe",
-    clue: "Né de comédiens itinérants dans une ville portuaire, un écrivain de contes macabres meurt mystérieusement, retrouvé délirant dans des habits d'emprunt.",
-    explanation: "Edgar Allan Poe est né à Boston, de parents comédiens. Des décennies plus tard, il fut retrouvé délirant dans la rue, vêtu d'habits qui n'étaient pas les siens, et mourut peu après ; la cause n'a jamais été établie avec certitude.",
+    name: "Mort d'Edgar Allan Poe",
+    clue: "Dans cette ville portuaire sur une grande baie, le poète du corbeau qui répète « jamais plus » est retrouvé délirant dans une taverne, en habits d'emprunt.",
+    explanation: "Edgar Allan Poe fut retrouvé incohérent dans une taverne de Baltimore qui servait de bureau de vote un jour d'élection, et mourut à l'hôpital quatre jours plus tard sans avoir expliqué ce qui lui était arrivé. Les hypothèses vont de l'alcool à la rage, en passant par des électeurs forcés de voter plusieurs fois.",
   },
   martin_luther: {
     name: "Martin Luther",
@@ -1336,9 +1336,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Après trois années de combats, des commandants militaires signèrent un armistice qui arrêta les combats le long d'une ligne fortifiée à peu près là où le conflit avait commencé. Aucun traité de paix ne suivit jamais, si bien que les deux camps restent techniquement encore en guerre aujourd'hui.",
   },
   magellan_birth: {
-    name: "Ferdinand Magellan",
-    clue: "Né dans les collines verdoyantes au nord du Douro, ce navigateur organisa la première flotte à faire le tour du monde, mort avant d'achever lui-même le voyage.",
-    explanation: "Ferdinand Magellan mena une flotte de cinq navires vers l'ouest à travers un océan à la recherche d'une nouvelle route vers de précieuses îles à épices. Il fut tué lors d'une bataille en cours de route, mais l'un de ses navires et une petite partie de l'équipage achevèrent le tour complet du globe, prouvant enfin que la Terre pouvait être contournée par la mer.",
+    name: "Passage du détroit par Magellan",
+    clue: "Par ce chenal étroit et battu par les tempêtes, au bout d'un continent, la flotte d'un navigateur passe de l'Atlantique au Pacifique.",
+    explanation: "Ferdinand Magellan, navigateur portugais au service de l'Espagne, mit plus d'un mois à franchir le détroit qui porte aujourd'hui son nom, avant d'atteindre l'océan qu'il appela pacifique. Il fut tué plus loin dans le voyage, mais l'un de ses navires accomplit le premier tour du monde.",
   },
   leif_erikson_birth: {
     name: "Leif Erikson",
@@ -1516,9 +1516,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Antoine Lavoisier identifia le rôle de l'oxygène dans la combustion et la rouille, réfutant la théorie du phlogistique et contribuant à établir la loi de conservation de la masse, des idées fondatrices de la chimie moderne.",
   },
   giordano_bruno_birth: {
-    name: "Giordano Bruno",
-    clue: "Né près du volcan qui ensevelit jadis une célèbre ville antique, ce moine disait le soleil une étoile parmi d'autres, ce qui lui valut un procès.",
-    explanation: "Giordano Bruno proposa que l'univers était infini et peuplé d'innombrables étoiles semblables au soleil, chacune potentiellement entourée de planètes. Son refus de renier ces idées, entre autres, mena à son exécution.",
+    name: "Exécution de Giordano Bruno",
+    clue: "Sur cette place de marché où se dresse aujourd'hui sa statue encapuchonnée, un moine qui voyait dans les étoiles d'autres soleils fut brûlé vif.",
+    explanation: "Giordano Bruno fut brûlé vif sur le Campo de' Fiori, à Rome, après un procès de l'Inquisition qui dura des années. Il affirmait que l'univers était infini, peuplé d'innombrables soleils et mondes, mais les accusations portées contre lui étaient surtout théologiques. Une statue encapuchonnée de lui fait face au lieu du bûcher.",
   },
   fibonacci_birth: {
     name: "Fibonacci",
@@ -1572,8 +1572,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
   },
   rosalind_franklin_birth: {
     name: "Cliché 51 de Rosalind Franklin",
-    clue: "Dans ce laboratoire universitaire prestigieux, le cliché aux rayons X d'une chimiste révéla la double hélice, le plan transmis par chaque cellule.",
-    explanation: "Rosalind Franklin était une chimiste dont les images de diffraction aux rayons X de fibres d'ADN, en particulier l'une d'elles connue comme le cliché 51, ont fourni des preuves essentielles pour établir la structure en double hélice de la molécule. Elle est morte avant que l'importance de sa découverte soit pleinement reconnue, et n'a reçu une reconnaissance plus large que plus tard.",
+    clue: "Dans un laboratoire universitaire d'une capitale, le cliché aux rayons X de l'équipe d'une chimiste montre que la molécule de l'hérédité est une double hélice.",
+    explanation: "Le cliché 51 a été pris par le doctorant Raymond Gosling sous la direction de Rosalind Franklin. Montré à James Watson à l'insu de celle-ci, il l'aida à bâtir avec Francis Crick leur modèle en double hélice à Cambridge. Les données de Franklin parurent à côté de leur article, mais son rôle fut longtemps minimisé, et elle mourut quatre ans avant le prix Nobel remis à Watson, Crick et Wilkins.",
   },
   edmond_halley_birth: {
     name: "Edmond Halley",
@@ -1681,9 +1681,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Georg Friedrich Haendel est né à Halle, une ville enrichie par le commerce du sel. Son oratorio Le Messie comprend le chœur du Hallelujah, un morceau si saisissant que le public se lève traditionnellement pour l'écouter, surtout lors des concerts d'hiver.",
   },
   verdi_birth: {
-    name: "Giuseppe Verdi",
-    clue: "Né dans un village agricole de la plaine du Pô, ce compositeur écrivit un air d'opéra sur une femme inconstante devenu l'un des airs les plus sifflés au monde.",
-    explanation: "Giuseppe Verdi est né près de Busseto, un petit village agricole. Son opéra Rigoletto comprend l'air La donna è mobile, sur une femme inconstante, devenu l'un des airs les plus reconnus et sifflés de tout l'opéra.",
+    name: "Création de Nabucco de Verdi",
+    clue: "Dans ce théâtre lyrique mythique, un jeune compositeur, futur auteur d'un air très sifflé sur une femme volage, triomphe avec un opéra biblique.",
+    explanation: "Nabucco, troisième opéra de Giuseppe Verdi, fut créé à la Scala de Milan et le rendit célèbre. Son chœur Va, pensiero, chanté par les Hébreux exilés, reste l'un des chœurs les plus connus de l'opéra.",
   },
   bergman_birth: {
     name: "Ingmar Bergman",
@@ -1786,9 +1786,9 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Les expériences de Robert Boyle avec des pompes à air ont établi la relation entre la pression et le volume d'un gaz, et son insistance sur l'expérience rigoureuse a contribué à fonder la chimie moderne.",
   },
   dalton_birth: {
-    name: "John Dalton",
-    clue: "Né chez des tisserands près du mur d'Hadrien, ce savant qui voyait mal les couleurs étudia ce trouble et pensa la matière faite d'atomes de poids fixe.",
-    explanation: "Le daltonisme de John Dalton l'a conduit à publier la première étude scientifique de cette particularité visuelle, encore appelée ainsi dans plusieurs langues, et sa théorie atomique est devenue un fondement de la chimie moderne.",
+    name: "Théorie atomique de Dalton",
+    clue: "Dans cette ville du coton entre les Pennines et la mer, un professeur quaker daltonien affirme que chaque élément est fait d'atomes d'un poids propre.",
+    explanation: "John Dalton enseignait à Manchester, où il présenta une première table des poids atomiques relatifs à la Société littéraire et philosophique de la ville. Son propre daltonisme l'avait conduit à publier l'une des premières études scientifiques de ce trouble, qui porte encore son nom.",
   },
   diego_rivera_birth: {
     name: "Diego Rivera",
@@ -1861,8 +1861,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Le Greco s'est formé comme peintre d'icônes avant de s'installer d'abord en Italie puis en Espagne, où il produisit les figures dramatiques et allongées pour lesquelles on le connaît. Longtemps jugée excentrique, son œuvre fut redécouverte des générations plus tard et exerça une influence majeure sur l'art moderne.",
   },
   grieg_birth: {
-    name: "Edvard Grieg",
-    clue: "Né dans une ville côtière entourée de fjords, il écrivit une musique de trolls dansant dans une salle de montagne, culte dans les dessins animés.",
+    name: "Naissance de Grieg",
+    clue: "Cette ville portuaire pluvieuse entourée de fjords vit naître un compositeur dont la musique de trolls au galop, écrite pour une pièce, reste célèbre.",
     explanation: "Edvard Grieg était un compositeur norvégien dont la musique de scène pour une pièce de théâtre comprend ce morceau galopant et de plus en plus rapide connu sous le nom du Hall du roi de la montagne. Il puisait largement dans les mélodies populaires norvégiennes, donnant à la musique de son pays une identité reconnue dans le monde entier.",
   },
   hillenburg_birth: {
@@ -1891,8 +1891,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Alexeï Leonov était un cosmonaute russe qui sortit de sa capsule, relié par un câble, pendant une douzaine de minutes, devenant le premier homme à marcher dans l'espace. Sa combinaison gonfla tellement dans le vide qu'il eut du mal à rentrer par le sas, un détail dangereux resté longtemps discret. L'exploit survint en pleine rivalité spatiale entre deux grandes puissances mondiales.",
   },
   tu_youyou_birth: {
-    name: "Tu Youyou",
-    clue: "Née dans un port près de l'embouchure du Yangzi, cette chimiste chercha dans de vieux textes un remède au paludisme et isola un composé qui sauva des millions.",
+    name: "Naissance de Tu Youyou",
+    clue: "Ce port sur une baie au sud du delta du Yangzi vit naître une chimiste qui trouva dans un vieux traité de plantes la clé d'un remède au paludisme.",
     explanation: "Tu Youyou est une chimiste pharmaceutique chinoise qui a dirigé un programme de recherche chargé de trouver de nouveaux traitements contre le paludisme. En relisant un texte séculaire sur les remèdes à base de plantes, elle a identifié un composé de l'armoise annuelle, aujourd'hui à la base du traitement antipaludique le plus efficace au monde.",
   },
   ronald_ross_birth: {
@@ -1961,19 +1961,14 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Emanuel Lasker a détenu le titre de champion du monde d'échecs pendant 27 ans, le règne le plus long de tout champion officiellement reconnu, tout en travaillant aussi comme mathématicien et philosophe en parallèle de sa carrière aux échecs.",
   },
   chandrasekhar_birth: {
-    name: "Subrahmanyan Chandrasekhar",
-    clue: "Né dans une grande ville du Pendjab, un astrophysicien calcule la masse limite au-delà de laquelle une étoile mourante s'effondre en objet plus dense.",
+    name: "Naissance de Chandrasekhar",
+    clue: "Cette grande ville du Pendjab vit naître un astrophysicien qui calcula la masse au-delà de laquelle le cœur d'une étoile mourante s'effondre encore.",
     explanation: "Subrahmanyan Chandrasekhar a effectué ce calcul alors qu'il était jeune, durant une longue traversée en bateau, montrant que toute étoile mourante plus lourde que cette limite doit s'effondrer davantage, en une étoile à neutrons ou un trou noir. La découverte a d'abord été rejetée par un astronome plus âgé, mais elle est aujourd'hui considérée comme fondamentale pour l'étude de la mort des étoiles.",
   },
   john_wayne_birth: {
     name: "John Wayne",
     clue: "Né dans une étendue de prairie balayée par le vent, cet acteur est devenu le visage du cow-boy robuste dans des dizaines de films western sur cinq décennies.",
     explanation: "John Wayne, né Marion Morrison, a joué dans des dizaines de films western et de guerre pendant l'âge d'or de Hollywood, devenant un symbole durable de la frontière américaine. Il a reçu à titre posthume la plus haute distinction civile du pays.",
-  },
-  quentin_tarantino_birth: {
-    name: "Quentin Tarantino",
-    clue: "Né dans l'État de la musique country et d'Elvis, ce réalisateur signe des polars ultraviolents racontés dans le désordre, primés au plus grand festival.",
-    explanation: "Le film qui a lancé la carrière de Quentin Tarantino, un récit de gangsters raconté à travers des chapitres non chronologiques entrelacés, a remporté la Palme d'or au Festival de Cannes. Ses films sont connus pour leur violence stylisée, leurs dialogues truffés de références à la culture populaire et leurs hommages au cinéma.",
   },
   fitzgerald_birth: {
     name: "F. Scott Fitzgerald",
@@ -1991,8 +1986,8 @@ export const POC_EVENTS_FR: Record<string, EventTranslation> = {
     explanation: "Henryk Sienkiewicz a reçu le prix Nobel de littérature pour ses romans historiques. Son livre le plus connu, Quo Vadis, suit des chrétiens persécutés dans la Rome antique sous l'empereur Néron, et a été adapté en une somptueuse superproduction hollywoodienne.",
   },
   mussorgsky_birth: {
-    name: "Modeste Moussorgski",
-    clue: "Né dans un domaine rural près des sources de la Volga, ce compositeur dépeignit un sabbat de sorcières sur une montagne, animé plus tard avec un démon cornu.",
+    name: "Naissance de Moussorgski",
+    clue: "Ce domaine rural près des sources de la Volga vit naître un compositeur dont le sabbat de sorcières sur une montagne fut animé plus tard avec un démon cornu.",
     explanation: "Le poème symphonique de Modeste Moussorgski, Une nuit sur le mont Chauve, dépeint un sabbat démoniaque et a ensuite été réorchestré pour la séquence du démon 'Tchernobog' dans le film d'animation Fantasia de Walt Disney, l'une des apparitions les plus célèbres de la musique classique à l'écran.",
   },
   rimsky_korsakov_birth: {

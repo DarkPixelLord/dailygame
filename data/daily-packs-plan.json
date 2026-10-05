@@ -142,7 +142,7 @@
       "type": "A",
       "ids": [
         "assassination_shinzo_abe",
-        "quentin_tarantino_birth",
+        "first_council_of_nicaea",
         "dalton_birth",
         "first_winter_olympics",
         "cahokia"
@@ -154,13 +154,13 @@
       },
       "categoriesCovered": 3,
       "categoryCounts": {
-        "conflict_politics_society": 1,
-        "arts_culture": 2,
-        "science_infrastructure": 2
+        "conflict_politics_society": 2,
+        "science_infrastructure": 2,
+        "arts_culture": 1
       },
       "subcategoryCounts": {
         "rupture": 1,
-        "major_artist": 1,
+        "beliefs": 1,
         "pioneer": 1,
         "world_gathering": 1,
         "archaeological_site": 1
@@ -683,7 +683,7 @@
       "ids": [
         "independence_hall",
         "selma_lagerlof_birth",
-        "first_council_of_nicaea",
+        "great_siege_of_malta",
         "john_nash",
         "sulawesi_earthquake_tsunami_2018"
       ],
@@ -701,7 +701,7 @@
       "subcategoryCounts": {
         "archaeological_site": 1,
         "major_artist": 1,
-        "beliefs": 1,
+        "war": 1,
         "pioneer": 1,
         "natural_hazard": 1
       },

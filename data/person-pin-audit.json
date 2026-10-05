@@ -3,7 +3,6 @@
   "iconic": {
     "magellan_birth": "Strait of Magellan, 1520",
     "giordano_bruno_birth": "Campo de' Fiori, Rome, 1600",
-    "quentin_tarantino_birth": "Cannes, Palme d'Or Pulp Fiction, 1994",
     "verdi_birth": "La Scala, Milan, Nabucco, 1842",
     "beethoven_birth": "Vienna, Ninth Symphony premiere, 1824",
     "rosalind_franklin_birth": "King's College London, Photo 51, 1952",
@@ -213,5 +212,8 @@
   "_sameCity": "Same big city allowed for several entries if spaced weeks apart in packs (to add to build-final-daily-packs, then rebuild once after the rewrite).",
   "remove": [
     "hillenburg_birth (SpongeBob does not belong in the game)"
-  ]
+  ],
+  "_removed": {
+    "quentin_tarantino_birth": "Removed 2026-10-05: defining work (Pulp Fiction, 1994) under the 50-year rule"
+  }
 }

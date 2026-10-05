@@ -1,6 +1,6 @@
 # Pool stats
 
-Generated 2026-10-01 from `src/lib/poc-events.ts` (635 entries). Regenerate with `npm run stats:pool` after any writing batch.
+Generated 2026-10-05 from `src/lib/poc-events.ts` (635 entries). Regenerate with `npm run stats:pool` after any writing batch.
 
 **635 clues total** — 376 easy / 132 medium / 127 hard.
 
